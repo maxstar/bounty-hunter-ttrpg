@@ -1,0 +1,31 @@
+{
+    "name": "bounty-hunter-ttrpg",
+    "title": "Bounty Hunter",
+    "description": "Rumor is you want in on the Bounty Hunting business and why not? You and your little ragtag band are already turning a few heads in this sector with your… novel way of delivering wanted folk. But space is a vast, not to mention, dangerously err, dangerous, and if you want to rise like cream, you’ve a lot to learn (unless you’re thinking of how Glururk cream rises, I’d avoid that entirely if I were you). My advice? Keep it closer and safer than your RAN rifle and never be afraid to refer to it, even during sticky situations.",
+    "version": "0.1",
+    "minimumCoreVersion": "0.7.9",
+    "compatibleCoreVersion": "0.7.9",
+    "author": "Maxter",
+    "scripts": [],
+    "esmodules": ["script/init.js"],
+    "styles": [
+        "style/common.css",
+        "style/character.css"
+    ],
+    "packs": [],
+    "languages": [
+        {
+            "lang": "en",
+            "name": "English",
+            "path": "lang/en.json"
+        }
+    ],
+    "gridDistance": 1,
+    "gridUnits": "m",
+    "primaryTokenAttribute": null,
+    "secondaryTokenAttribute": null,
+    "url": "https://github.com/maxstar/bounty-hunter-ttrpg",
+    "socket": true,
+    "manifest": "https://github.com/maxstar/bounty-hunter-ttrpg/releases/latest/download/system.json",
+    "download": "https://github.com/maxstar/bounty-hunter-ttrpg/releases/download/0.1.0/0.1.0.zip?raw=true"
+}

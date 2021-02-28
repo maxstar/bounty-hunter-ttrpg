@@ -1,0 +1,145 @@
+{
+  "Actor": {
+    "types": ["character", "starship"],
+    "character": {
+      "bio": {
+        "race": {
+          "label": "BIO.RACE",
+          "value": ""
+        },
+        "age": {
+          "label": "BIO.AGE",
+          "value": 0
+        },
+        "birthright": {
+          "label": "BIO.BIRTHRIGHT",
+          "value": ""
+        },
+        "education": {
+          "label": "BIO.EDUCATION",
+          "value": ""
+        },
+        "career": {
+          "label": "BIO.CAREER",
+          "value": ""
+        },
+        "reason": {
+          "label": "BIO.REASON",
+          "value": ""
+        },
+        "reputation": {
+          "label": "BIO.REPUTATION",
+          "value": 1
+        },
+        "note": {
+          "label": "BIO.NOTE",
+          "value": ""
+        },
+        "ap": {
+          "label": "BIO.AP",
+          "value": 20,
+          "min": 0,
+          "max": 20
+        }
+      },
+      "condition": {
+        "starvation": {
+          "label": "CONDITION.STARVATION",
+          "value": 0
+        },
+        "dehydration": {
+          "label": "CONDITION.DEHYDRATION",
+          "value": 0
+        }
+      },
+      "currency": {
+        "dc": {
+          "label": "CURRENCY.DC",
+          "value": 10
+        },
+        "marks": {
+          "label": "CURRENCY.MARKS",
+          "value": 0
+        }
+      }
+    },
+    "starship": {
+      "type": {
+        "label": "STARSHIP.TYPE",
+        "value": ""
+      },
+      "hull": {
+        "label": "STARSHIP.HULL",
+        "value": 0
+      },
+      "size": {
+        "label": "STARSHIP.SIZE",
+        "value": ""
+      },
+      "cost": {
+        "label": "STARSHIP.COST",
+        "value": 0
+      },
+      "upkeep": {
+        "label": "STARSHIP.UPKEEP",
+        "value": 0
+      },
+      "cargo-capacity": {
+        "label": "STARSHIP.CARGO_CAPACITY",
+        "value": 0
+      },
+      "passenger-capacity": {
+        "label": "STARSHIP.PASSENGER_CAPACITY",
+        "value": 0
+      }
+    }
+  },
+  "Item": {
+    "types": [
+      "weapon",
+      "armor",
+      "gear",
+      "skill",
+      "ability",
+      "component",
+      "cargo"
+    ],
+    "templates": {
+      "item": {
+        "cost": {"value": 2, "currency": "dc"},
+        "description": ""
+      },
+      "modifiers": {}
+    },
+    "weapon": {
+      "templates": ["item", "modifiers"],
+      "type": "melee",
+      "damage": 3
+    },
+    "armor": {
+      "templates": ["item", "modifiers"],
+      "protection": 1
+    },
+    "gear": {
+      "templates": ["item", "modifiers"]
+    },
+    "cargo": {
+      "weight": 0
+    },
+    "skill": {
+      "description": ""
+    },
+    "ability": {
+      "templates": ["modifiers"],
+      "description": ""
+    },
+    "component": {
+      "description": "",
+      "penalty": "",
+      "pp": {
+        "value": 6,
+        "max": 6
+      }
+    }
+  }
+}

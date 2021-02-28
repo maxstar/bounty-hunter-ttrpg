@@ -1,0 +1,52 @@
+{
+    "1": {
+        "skill": 9,
+        "ability": 2,
+        "ap": 20
+    },
+    "2": {
+        "skill": 1,
+        "ability": 0,
+        "ap": 5
+    },
+    "4": {
+        "skill": 0,
+        "ability": 0,
+        "ap": 5
+    },
+    "6": {
+        "skill": 1,
+        "ability": 0,
+        "ap": 5
+    },
+    "8": {
+        "skill": 1,
+        "ability": 1,
+        "ap": 5
+    },
+    "10": {
+        "skill": 1,
+        "ability": 0,
+        "ap": 5
+    },
+    "14": {
+        "skill": 0,
+        "ability": 0,
+        "ap": 5
+    },
+    "18": {
+        "skill": 1,
+        "ability": 0,
+        "ap": 5
+    },
+    "22": {
+        "skill": 0,
+        "ability": 1,
+        "ap": 5
+    },
+    "25": {
+        "skill": 1,
+        "ability": 1,
+        "ap": 5
+    }
+}

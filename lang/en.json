@@ -1,0 +1,12 @@
+{
+  "BIO.NAME": "Name",
+  "BIO.RACE": "Race",
+  "BIO.AGE": "Age",
+  "BIO.BIRTHRIGHT": "Birthright",
+  "BIO.EDUCATION": "Education",
+  "BIO.CAREER": "Career",
+  "BIO.REASON": "Reaon to become a Bounty Hunter",
+  "BIO.REPUTATION": "Reputation",
+  "BIO.NOTE": "Notes",
+  "BIO.AP": "Action Points"
+}
