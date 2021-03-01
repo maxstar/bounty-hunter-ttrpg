@@ -10,6 +10,8 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/ability.html",
     "systems/bounty-hunter-ttrpg/template/component.html",
     "systems/bounty-hunter-ttrpg/template/cargo.html",
+    "systems/bounty-hunter-ttrpg/template/tab/main.html",
+    "systems/bounty-hunter-ttrpg/template/tab/bio.html",
   ];
   return loadTemplates(templatePaths);
 }

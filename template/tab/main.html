@@ -1,0 +1,12 @@
+<div class="main-tab">
+    <div class="skills border">
+        <h1>{{localize "HEADER.SKILLS"}}</h1>
+        <ul>
+        {{#each data.itemsByCategory.skill as |skill key|}}
+        <li>
+            <button type="button" class="skill" data-attribute="{{key}}">{{localize skill.name}}</button>
+        </li>
+        {{/each}}
+        </ul>
+    </div>
+</div>

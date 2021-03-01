@@ -8,5 +8,16 @@
   "BIO.REASON": "Reaon to become a Bounty Hunter",
   "BIO.REPUTATION": "Reputation",
   "BIO.NOTE": "Notes",
-  "BIO.AP": "Action Points"
+  "BIO.AP": "Action Points",
+
+  "TAB.MAIN": "MAIN",
+  "TAB.BIO": "BIO",
+  "TAB.NOTE": "NOTE",
+
+  "HEADER.SKILLS": "Skills",
+  "SHEET.HEADER.POST_ITEM": "Post",
+  "SKILL.NAME": "Skill Name",
+  "SKILL.DESCRIPTION": "Skill Description",
+
+  "":""
 }

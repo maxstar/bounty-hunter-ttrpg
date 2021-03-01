@@ -31,6 +31,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   getData() {
     const data = super.getData();
     this.computeItems(data);
+    this.categorizeItems(data);
     this.computeEncumbrance(data);
     return data;
   }
@@ -110,17 +111,17 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     return this.itemCache["skill"][skillName] !== undefined;
   }
 
-  buildItemCache() {
-    let cache = {};
+  categorizeItems(data) {
+    let itemsByCategory = {};
 
     this.actor.items.forEach((item) => {
-      if (!cache[item.data.type] === undefined) {
-        cache[item.data.type] = {};
+      if (itemsByCategory[item.data.type] === undefined) {
+        itemsByCategory[item.data.type] = {};
       }
-      cache[item.data.type][item.data.name] = item;
+      itemsByCategory[item.data.type][item.data.name] = item;
     });
 
-    this.itemCache = cache;
+    data.data.itemsByCategory = itemsByCategory;
   }
 
   onItemCreate(event) {

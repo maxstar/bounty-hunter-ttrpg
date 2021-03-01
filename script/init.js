@@ -26,6 +26,14 @@ Hooks.once("init", () => {
     default: 12,
     type: Number,
   });
+  game.settings.register("bounty-hunter-ttrpg", "bonusSkills", {
+    name: "Additional Skills",
+    hint: "How many additional skills a character can have depending on your party size. Players/Skills: 1/8, 2/6, 3/5, 4/3, 5/2, 6+/1.",
+    scope: "world",
+    config: true,
+    default: 3,
+    type: Number,
+  });
 });
 
 Hooks.once("ready", () => {

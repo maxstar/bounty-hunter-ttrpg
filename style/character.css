@@ -2,3 +2,17 @@
     width: 100px;
     min-width: 100px;
 }
+
+.skills {
+    width: 150px;
+}
+
+button.skill {
+    border: 0px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 12px;
+    height: 18px;
+    vertical-align: middle;
+    line-height: 18px;
+}

@@ -23,7 +23,6 @@ export class BountyHunterItemSheet extends ItemSheet {
 
   getData() {
     const data = super.getData();
-    this._computeQuality(data);
     return data;
   }
 
