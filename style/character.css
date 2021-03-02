@@ -4,15 +4,49 @@
 }
 
 .skills {
-    width: 150px;
+    width: 140px;
+    margin-top: 4px;
 }
 
-button.skill {
-    border: 0px;
+button.use-skill {
     padding: 0px;
     margin: 0px;
     font-size: 12px;
     height: 18px;
     vertical-align: middle;
     line-height: 18px;
+}
+
+button.add-skill {
+    width: fit-content;
+    margin: 0px;
+    font-size: 12px;
+    height: 18px;
+    vertical-align: middle;
+    line-height: 18px;
+    border: 0px;
+}
+
+.grid-container {
+    display: grid;
+}
+
+.skill-picker-dialog .grid-container {
+    grid-template-columns: auto auto;
+    overflow-y: scroll;
+    height: 500px;
+    margin-bottom: 10px;
+}
+
+input.skill-picker-checkbox {
+    width: auto;
+    height: auto;
+}
+
+.grid-item {
+    padding: 0px;
+    margin-top: auto;
+    font-size: 12px;
+    line-height: 12px;
+    border-bottom: 1px solid gray;
 }

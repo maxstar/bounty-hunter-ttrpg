@@ -1,0 +1,7 @@
+<div class="grid-item skill-picker-item">
+    <input type="checkbox" id="{{skill._id}}" class="skill-picker-checkbox"/>
+    <label for="{{skill._id}}"> {{localize skill.name}}</label>
+</div>
+<div class="grid-item skill-picker-item-description">
+    <label for="{{skill._id}}">{{bh_localize_skill_descr skill.data.localizedDescr skill.data.data.description}}</label>
+</div>

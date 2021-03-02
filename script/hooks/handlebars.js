@@ -12,6 +12,7 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/cargo.html",
     "systems/bounty-hunter-ttrpg/template/tab/main.html",
     "systems/bounty-hunter-ttrpg/template/tab/bio.html",
+    "systems/bounty-hunter-ttrpg/template/partial/skill-picker.html",
   ];
   return loadTemplates(templatePaths);
 }
@@ -23,6 +24,13 @@ function registerHandlebarsHelpers() {
   });
   Handlebars.registerHelper("toUpperCase", function (str) {
     return str.toUpperCase();
+  });
+  Handlebars.registerHelper("hasLocalization", function (str) {
+    return game.i18n.has(str);
+  });
+  Handlebars.registerHelper("bh_localize_skill_descr", function (str, defaultStr) {
+    //{{#if (hasLocalization skill.data.localizedDescr)}}{{localize skill.data.localizedDescr}}{{else}}{{skill.data.data.description}}{{/if}}
+    return game.i18n.has(str) ? game.i18n.localize(str) : defaultStr;
   });
   Handlebars.registerHelper("eq", function () {
     const args = Array.prototype.slice.call(arguments, 0, -1);

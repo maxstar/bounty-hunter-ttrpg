@@ -1,0 +1,28 @@
+{
+  "BIO.NAME": "Имя",
+  "BIO.RACE": "Раса",
+  "BIO.AGE": "Возраст",
+  "BIO.BIRTHRIGHT": "Birthright",
+  "BIO.EDUCATION": "Образование",
+  "BIO.CAREER": "Карьера",
+  "BIO.REASON": "Причина стать охотником за головами",
+  "BIO.REPUTATION": "Репутация",
+  "BIO.NOTE": "Заметки",
+  "BIO.AP": "Очки Действий",
+
+  "TAB.MAIN": "ГЛАВНАЯ",
+  "TAB.BIO": "БИО",
+  "TAB.NOTE": "ЗАМЕТКИ",
+
+  "HEADER.SKILLS": "Навыки",
+  "SHEET.HEADER.POST_ITEM": "В Чат",
+  "SKILL.NAME": "Название Навыка",
+  "SKILL.DESCRIPTION": "Описание Навыка",
+
+
+  "Acrobatics": "Акробатика",
+  "SKILL.DESCR.Acrobatics": "Способность прыгать, кувыркаться, быть гибким и держать равновесие.",
+  
+
+  "":""
+}

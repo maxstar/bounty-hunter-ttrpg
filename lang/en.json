@@ -1,11 +1,21 @@
 {
+  "BH.SETTINGS.WORLD_VERSION": "World Version",
+  "BH.SETTINGS.WORLD_VERSION_HINT": "Used to automatically upgrade worlds data when the system is upgraded.",
+  "BH.SETTINGS.DATASET_DIR": "Dataset Directory",
+  "BH.SETTINGS.DATASET_DIR_HINT": "Path to a directory that contains system data.",
+  "BH.SETTINGS.CARRYING_CAPACITY": "Carrying Capacity",
+  "BH.SETTINGS.CARRYING_CAPACITY_HINT": "How many items a character can carry.",
+  "BH.SETTINGS.BONUS_SKILLS": "Additional Skills",
+  "BH.SETTINGS.BONUS_SKILLS_HINT": "How many additional skills a character can have depending on your party size. Players/Skills: 1/8, 2/6, 3/5, 4/3, 5/2, 6+/1.",
+
+
   "BIO.NAME": "Name",
   "BIO.RACE": "Race",
   "BIO.AGE": "Age",
   "BIO.BIRTHRIGHT": "Birthright",
   "BIO.EDUCATION": "Education",
   "BIO.CAREER": "Career",
-  "BIO.REASON": "Reaon to become a Bounty Hunter",
+  "BIO.REASON": "Reason to become a Bounty Hunter",
   "BIO.REPUTATION": "Reputation",
   "BIO.NOTE": "Notes",
   "BIO.AP": "Action Points",
@@ -18,6 +28,9 @@
   "SHEET.HEADER.POST_ITEM": "Post",
   "SKILL.NAME": "Skill Name",
   "SKILL.DESCRIPTION": "Skill Description",
+  
+  "BH.ADD_SKILL": "Add",
+  "BH.REMOVE_SKILL": "Remove",
 
   "":""
 }

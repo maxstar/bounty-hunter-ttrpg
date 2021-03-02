@@ -1,12 +1,16 @@
 <div class="main-tab">
+    <div class="heading">
+        <span>{{localize "HEADER.SKILLS"}} ({{data.skillCount}}/{{data.allowedSkillCount}})</span>
+        <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>
+    </div>
     <div class="skills border">
-        <h1>{{localize "HEADER.SKILLS"}}</h1>
-        <ul>
         {{#each data.itemsByCategory.skill as |skill key|}}
-        <li>
-            <button type="button" class="skill" data-attribute="{{key}}">{{localize skill.name}}</button>
-        </li>
+        <div class="flex skill" data-entity-id="{{skill._id}}">
+            <button type="button" class="use-skill" data-attribute="{{key}}" title="{{bh_localize_skill_descr skill.data.localizedDescr skill.data.data.description}}">{{localize skill.name}}</button>
+            <div class="button">
+                <a class="item-control skill-delete" title="{{localize BH.REMOVE_SKILL}}"><i class="fas fa-trash"></i></a>
+            </div>
+        </div>
         {{/each}}
-        </ul>
     </div>
 </div>
