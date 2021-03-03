@@ -10,14 +10,14 @@ import { BountyHunterCargoSheet } from "../sheet/cargo.js";
 
 export function registerSheets() {
   Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("bounty-hunter-ttrpg", BountyHunterCharacterSheet, { types: ["character"], makeDefault: true });
-  Actors.registerSheet("bounty-hunter-ttrpg", BountyHunterStarshipSheet, { types: ["starship"], makeDefault: true });
+  Actors.registerSheet("bounty-hunters-ttrpg", BountyHunterCharacterSheet, { types: ["character"], makeDefault: true });
+  Actors.registerSheet("bounty-hunters-ttrpg", BountyHunterStarshipSheet, { types: ["starship"], makeDefault: true });
   Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterWeaponSheet, { types: ["weapon"], makeDefault: true });
-  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterArmorSheet, { types: ["armor"], makeDefault: true });
-  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterGearSheet, { types: ["gear"], makeDefault: true });
-  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterSkillSheet, { types: ["skill"], makeDefault: true });
-  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterAbilitySheet, { types: ["ability"], makeDefault: true });
-  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterComponentSheet, { types: ["component"], makeDefault: true });
-  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterCargoSheet, { types: ["cargo"], makeDefault: true });
+  Items.registerSheet("bounty-hunters-ttrpg", BountyHunterWeaponSheet, { types: ["weapon"], makeDefault: true });
+  Items.registerSheet("bounty-hunters-ttrpg", BountyHunterArmorSheet, { types: ["armor"], makeDefault: true });
+  Items.registerSheet("bounty-hunters-ttrpg", BountyHunterGearSheet, { types: ["gear"], makeDefault: true });
+  Items.registerSheet("bounty-hunters-ttrpg", BountyHunterSkillSheet, { types: ["skill"], makeDefault: true });
+  Items.registerSheet("bounty-hunters-ttrpg", BountyHunterAbilitySheet, { types: ["ability"], makeDefault: true });
+  Items.registerSheet("bounty-hunters-ttrpg", BountyHunterComponentSheet, { types: ["component"], makeDefault: true });
+  Items.registerSheet("bounty-hunters-ttrpg", BountyHunterCargoSheet, { types: ["cargo"], makeDefault: true });
 }

@@ -1,18 +1,18 @@
 function preloadHandlebarsTemplates() {
   const templatePaths = [
-    "systems/bounty-hunter-ttrpg/template/chat/item.html",
-    "systems/bounty-hunter-ttrpg/template/character.html",
-    "systems/bounty-hunter-ttrpg/template/starship.html",
-    "systems/bounty-hunter-ttrpg/template/weapon.html",
-    "systems/bounty-hunter-ttrpg/template/armor.html",
-    "systems/bounty-hunter-ttrpg/template/gear.html",
-    "systems/bounty-hunter-ttrpg/template/skill.html",
-    "systems/bounty-hunter-ttrpg/template/ability.html",
-    "systems/bounty-hunter-ttrpg/template/component.html",
-    "systems/bounty-hunter-ttrpg/template/cargo.html",
-    "systems/bounty-hunter-ttrpg/template/tab/main.html",
-    "systems/bounty-hunter-ttrpg/template/tab/bio.html",
-    "systems/bounty-hunter-ttrpg/template/partial/skill-picker.html",
+    "systems/bounty-hunters-ttrpg/template/chat/item.html",
+    "systems/bounty-hunters-ttrpg/template/character.html",
+    "systems/bounty-hunters-ttrpg/template/starship.html",
+    "systems/bounty-hunters-ttrpg/template/weapon.html",
+    "systems/bounty-hunters-ttrpg/template/armor.html",
+    "systems/bounty-hunters-ttrpg/template/gear.html",
+    "systems/bounty-hunters-ttrpg/template/skill.html",
+    "systems/bounty-hunters-ttrpg/template/ability.html",
+    "systems/bounty-hunters-ttrpg/template/component.html",
+    "systems/bounty-hunters-ttrpg/template/cargo.html",
+    "systems/bounty-hunters-ttrpg/template/tab/main.html",
+    "systems/bounty-hunters-ttrpg/template/tab/bio.html",
+    "systems/bounty-hunters-ttrpg/template/partial/skill-picker.html",
   ];
   return loadTemplates(templatePaths);
 }

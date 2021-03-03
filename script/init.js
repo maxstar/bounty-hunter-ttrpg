@@ -11,7 +11,7 @@ Hooks.once("init", () => {
   CONFIG.Item.entityClass = BountyHunterItem;
   registerSheets();
   initializeHandlebars();
-  game.settings.register("bounty-hunter-ttrpg", "worldSchemaVersion", {
+  game.settings.register("bounty-hunters-ttrpg", "worldSchemaVersion", {
     name: game.i18n.localize("BH.SETTINGS.WORLD_VERSION"),
     hint: game.i18n.localize("BH.SETTINGS.WORLD_VERSION_HINT"),
     scope: "world",
@@ -19,7 +19,7 @@ Hooks.once("init", () => {
     default: 0,
     type: Number,
   });
-  game.settings.register("bounty-hunter-ttrpg", "baseCarryingCapacity", {
+  game.settings.register("bounty-hunters-ttrpg", "baseCarryingCapacity", {
     name: game.i18n.localize("BH.SETTINGS.CARRYING_CAPACITY"),
     hint: game.i18n.localize("BH.SETTINGS.CARRYING_CAPACITY_HINT"),
     scope: "world",
@@ -27,7 +27,7 @@ Hooks.once("init", () => {
     default: 12,
     type: Number,
   });
-  game.settings.register("bounty-hunter-ttrpg", "bonusSkills", {
+  game.settings.register("bounty-hunters-ttrpg", "bonusSkills", {
     name: game.i18n.localize("BH.SETTINGS.BONUS_SKILLS"),
     hint: game.i18n.localize("BH.SETTINGS.BONUS_SKILLS_HINT"),
     scope: "world",
@@ -35,12 +35,12 @@ Hooks.once("init", () => {
     default: 3,
     type: Number,
   });
-  game.settings.register("bounty-hunter-ttrpg", "datasetDir", {
+  game.settings.register("bounty-hunters-ttrpg", "datasetDir", {
     name: game.i18n.localize("BH.SETTINGS.DATASET_DIR"),
     hint: game.i18n.localize("BH.SETTINGS.DATASET_DIR_HINT"),
     scope: "world",
     config: true,
-    default: "systems/bounty-hunter-ttrpg/asset/dataset",
+    default: "systems/bounty-hunters-ttrpg/asset/dataset",
     type: window.Azzu.SettingsTypes.DirectoryPicker
   });
 });

@@ -6,7 +6,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["bounty-hunter", "sheet", "actor"],
-      template: "systems/bounty-hunter-ttrpg/template/character.html",
+      template: "systems/bounty-hunters-ttrpg/template/character.html",
       width: 620,
       height: 740,
       resizable: false,
@@ -97,7 +97,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     for (let item of Object.values(data.items)) {
       itemsCarried += this._computerItemEncumbrance(item);
     }
-    const carryingCapacity = game.settings.get("bounty-hunter-ttrpg", "baseCarryingCapacity") + this.getModifier("CARRYING_CAPACITY");
+    const carryingCapacity = game.settings.get("bounty-hunters-ttrpg", "baseCarryingCapacity") + this.getModifier("CARRYING_CAPACITY");
     data.data.encumbrance = {
       value: itemsCarried,
       max: carryingCapacity,
@@ -135,7 +135,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   computeSkillData(data) {
     data.data.skillCount = Object.keys(data.data.itemsByCategory.skill).length;
-    data.data.allowedSkillCount = this.getBaseSkillCount(data.data.bio.reputation.value) + game.settings.get("bounty-hunter-ttrpg", "bonusSkills");
+    data.data.allowedSkillCount = this.getBaseSkillCount(data.data.bio.reputation.value) + game.settings.get("bounty-hunters-ttrpg", "bonusSkills");
   }
 
   getBaseSkillCount(reputation) {
