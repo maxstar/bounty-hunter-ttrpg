@@ -27,6 +27,10 @@ button.add-skill {
     border: 0px;
 }
 
+input.short-num {
+    width: 30px;
+}
+
 .grid-container {
     display: grid;
 }

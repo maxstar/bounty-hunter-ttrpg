@@ -18,7 +18,7 @@
   "BIO.REASON": "Reason to become a Bounty Hunter",
   "BIO.REPUTATION": "Reputation",
   "BIO.NOTE": "Notes",
-  "BIO.AP": "Action Points",
+  "BIO.AP": "AP",
 
   "TAB.MAIN": "MAIN",
   "TAB.BIO": "BIO",

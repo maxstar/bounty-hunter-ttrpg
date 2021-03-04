@@ -14,25 +14,25 @@
                             <input name="name" type="text" value="{{actor.name}}" />
                         </td>
                         <td>
-                            <label>{{localize data.bio.race.label}}:</label>
+                            <label>{{localize data.bio.age.label}}:</label>
                         </td>
                         <td>
-                            <input name="data.bio.race.value" type="text" value="{{data.bio.race.value}}" />
+                            <input class="short-num" name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
+                                data-dtype="Number" />
                         </td>
                     </tr>
                     <tr>
                         <td>
-                            <label>{{localize data.bio.age.label}}:</label>
+                            <label>{{localize data.bio.race.label}}:</label>
                         </td>
-                        <td>
-                            <input name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
-                                data-dtype="Number" />
+                        <td colspan="3">
+                            <input name="data.bio.race.value" type="text" value="{{data.bio.race.value}}" />
                         </td>
                         <td>
                             <label>{{localize data.bio.reputation.label}}:</label>
                         </td>
                         <td>
-                            <input name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
+                            <input class="short-num" name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
                                 data-dtype="Number" />
                         </td>
                     </tr>
@@ -41,10 +41,11 @@
                             <label>{{localize data.bio.ap.label}}:</label>
                         </td>
                         <td>
-                            <input name="data.bio.ap.value" type="number" value="{{data.bio.ap.value}}"
-                                min="{{data.bio.ap.min}}" max="{{data.bio.ap.max}}" data-dtype="Number" />
+                            <input class="short-num" name="data.bio.ap.value" type="number" value="{{data.bio.ap.value}}"
+                                min="{{data.bio.ap.min}}" max="{{data.bio.ap.max}}" data-dtype="Number" /> / <span class="max-ap">{{data.maxAP}}</span>
                         </td>
                         <td colspan="2">
+
                         </td>
                     </tr>
                 </table>
