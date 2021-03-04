@@ -30,9 +30,11 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   getData() {
     const data = super.getData();
     this.computeItems(data);
+    data.data.reputationStats = this.computeReputationStats(data.data.bio.reputation.value)
     data.data.itemsByCategory = this.categorizeItems();
     this.computeEncumbrance(data);
     this.computeSkillData(data);
+    data.data.maxAP = data.data.reputationStats.ap
     return data;
   }
 
@@ -47,8 +49,28 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     });
   }
 
-  handleUseSkill() {
+  handleUseSkill(e) {
+    const div = $(e.currentTarget).parents(".skill");
+    const entityId = div.data("entity-id");
+    let skill = this.actor.items.get(entityId);
+    
+    this.reduceAP(1);
 
+    let chatData = {
+      speaker: {actor: this.actor._id},
+      // @todo localize
+      content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(skill.name)}</b>!</span> <i style="font-size:10px">(1 AP spent)<i>`
+    };
+    ChatMessage.create(chatData, {});
+  }
+
+  reduceAP(amount) {
+    const current = this.actor.data.data.bio.ap.value;
+    const min = current > 0 ? 0 : -1;
+    let updateData = {
+      'data.bio.ap.value': Math.max(min, current - amount),
+    };
+    this.actor.update(updateData);
   }
 
   handleAddSkill() {
@@ -135,16 +157,22 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   computeSkillData(data) {
     data.data.skillCount = Object.keys(data.data.itemsByCategory.skill).length;
-    data.data.allowedSkillCount = this.getBaseSkillCount(data.data.bio.reputation.value) + game.settings.get("bounty-hunters-ttrpg", "bonusSkills");
+    data.data.allowedSkillCount = data.data.reputationStats.skill + game.settings.get("bounty-hunters-ttrpg", "bonusSkills");
   }
 
-  getBaseSkillCount(reputation) {
-    let result = 0;
+  computeReputationStats(reputation) {
+    let result = {
+      skill: 0,
+      ability: 0,
+      ap: 0
+    };
     for (const [repLevel, data] of Object.entries(CONFIG.BountyHunter.reputation)) {
       if (repLevel > reputation) {
         break;
       }
-      result += data.skill;
+      result.skill += data.skill;
+      result.ability += data.ability;
+      result.ap += data.ap;
     }
     return result;
   }
