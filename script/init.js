@@ -3,6 +3,7 @@ import { initializeHandlebars } from "./hooks/handlebars.js";
 import { migrateWorld } from "./hooks/migration.js";
 import { registerSheets } from "./hooks/sheets.js";
 import { loadSystemSettings } from "./hooks/system-settings.js";
+import { ReputationStats } from './component/reputation-stats.js';
 
 // CONFIG.debug.hooks = true;
 
@@ -48,4 +49,18 @@ Hooks.once("init", () => {
 Hooks.once("ready", async () => {
   migrateWorld();
   loadSystemSettings();
+});
+
+Hooks.on('preUpdateActor', async (entity, updateData, options, userId) => {
+  if (!(entity instanceof BountyHunterActor)) return true;
+  
+  if ( updateData.data?.bio?.reputation?.value ) {
+    let stats = ReputationStats.getForReputation(updateData.data.bio.reputation.value);
+    if (stats !== false && entity.data.data.bio.ap.max !== stats.ap) {
+      if (updateData.data.bio.ap === undefined) updateData.data.bio.ap = {max: stats.ap};
+      else updateData.data.bio.ap.max = stats.ap;
+    }
+  }
+
+  return true;
 });

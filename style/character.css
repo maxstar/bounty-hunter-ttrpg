@@ -30,6 +30,9 @@ button.add-skill {
 input.short-num {
     width: 30px;
 }
+input:read-only {
+    border: 0 solid;
+}
 
 .grid-container {
     display: grid;

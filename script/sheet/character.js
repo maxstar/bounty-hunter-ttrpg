@@ -1,5 +1,6 @@
 import { BountyHunterActorSheet } from "./actor.js";
 import { AddSkillDialog } from "../dialog/add-skill-dialog.js";
+import { ReputationStats } from '../component/reputation-stats.js';
 
 export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
@@ -30,11 +31,9 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   getData() {
     const data = super.getData();
     this.computeItems(data);
-    data.data.reputationStats = this.computeReputationStats(data.data.bio.reputation.value)
     data.data.itemsByCategory = this.categorizeItems();
     this.computeEncumbrance(data);
     this.computeSkillData(data);
-    data.data.maxAP = data.data.reputationStats.ap
     return data;
   }
 
@@ -157,24 +156,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   computeSkillData(data) {
     data.data.skillCount = Object.keys(data.data.itemsByCategory.skill).length;
-    data.data.allowedSkillCount = data.data.reputationStats.skill + game.settings.get("bounty-hunters-ttrpg", "bonusSkills");
-  }
-
-  computeReputationStats(reputation) {
-    let result = {
-      skill: 0,
-      ability: 0,
-      ap: 0
-    };
-    for (const [repLevel, data] of Object.entries(CONFIG.BountyHunter.reputation)) {
-      if (repLevel > reputation) {
-        break;
-      }
-      result.skill += data.skill;
-      result.ability += data.ability;
-      result.ap += data.ap;
-    }
-    return result;
+    data.data.allowedSkillCount = ReputationStats.getForReputation(data.data.bio.reputation.value).skill + game.settings.get("bounty-hunters-ttrpg", "bonusSkills");
   }
 
   getModifier(modifierName) {
