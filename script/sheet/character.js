@@ -1,6 +1,7 @@
 import { BountyHunterActorSheet } from "./actor.js";
 import { AddSkillDialog } from "../dialog/add-skill-dialog.js";
 import { ReputationStats } from '../component/reputation-stats.js';
+import { ApPerSkillDialog } from "../dialog/ap-per-skill-dialog.js";
 
 export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
@@ -43,9 +44,26 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     html.find('.skill-delete').click(this.handleRemoveSkill.bind(this));
     html.find('.add-skill').click(this.handleAddSkill.bind(this));
     html.find('.use-skill').click(this.handleUseSkill.bind(this));
+    html.find('.use-skill-hard').click(this.handleUseSkillHard.bind(this));
     html.find(".item-create").click((ev) => {
       this.onItemCreate(ev);
     });
+  }
+
+  handleUseSkillHard(e) {
+    const div = $(e.currentTarget).parents(".skill");
+    const entityId = div.data("entity-id");
+    let skill = this.actor.items.get(entityId);
+    let that = this;
+
+    ApPerSkillDialog.show(
+      game.i18n.localize('BH.HOW_MANY'),
+      Math.min(game.settings.get("bounty-hunters-ttrpg", "maxApPerSkill"), this.actor.data.data.bio.ap.value),
+      function (ap) {
+        that.reduceAP(ap);
+        that.postSkillUse(skill.name, ap);
+      }
+    );
   }
 
   handleUseSkill(e) {
@@ -54,11 +72,14 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     let skill = this.actor.items.get(entityId);
     
     this.reduceAP(1);
+    this.postSkillUse(skill.name, 1);
+  }
 
+  postSkillUse(skillName, apSpent) {
     let chatData = {
       speaker: {actor: this.actor._id},
       // @todo localize
-      content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(skill.name)}</b>!</span> <i style="font-size:10px">(1 AP spent)<i>`
+      content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(skillName)}</b>!</span> <i style="font-size:10px">(${apSpent} AP spent)<i>`
     };
     ChatMessage.create(chatData, {});
   }

@@ -1,5 +1,5 @@
-* [    ] skills
-    * [    ] spend more AP on a skill
+* [done] skills
+    * [done] spend more AP on a skill
     * [done] max AP per skill setting
 * [    ] AP UI
     * [    ] "health bar" in the char sheet

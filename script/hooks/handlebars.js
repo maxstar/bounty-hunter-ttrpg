@@ -13,6 +13,7 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunters-ttrpg/template/tab/main.html",
     "systems/bounty-hunters-ttrpg/template/tab/bio.html",
     "systems/bounty-hunters-ttrpg/template/partial/skill-picker.html",
+    "systems/bounty-hunters-ttrpg/template/dialog/ap-per-skill.html",
   ];
   return loadTemplates(templatePaths);
 }

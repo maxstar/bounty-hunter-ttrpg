@@ -32,6 +32,9 @@
   
   "BH.ADD_SKILL": "Add",
   "BH.REMOVE_SKILL": "Remove",
+  "BH.HARD_CHECK": "Spend multiple AP at once",
+  "BH.HOW_MANY": "How many?",
+  "BH.AP_PER_SKILL_HINT": "Use mouse wheel to change the value",
 
   "":""
 }
