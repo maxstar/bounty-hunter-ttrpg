@@ -7,7 +7,8 @@
   "BH.SETTINGS.CARRYING_CAPACITY_HINT": "How many items a character can carry.",
   "BH.SETTINGS.BONUS_SKILLS": "Additional Skills",
   "BH.SETTINGS.BONUS_SKILLS_HINT": "How many additional skills a character can have depending on your party size. Players/Skills: 1/8, 2/6, 3/5, 4/3, 5/2, 6+/1.",
-
+  "BH.SETTINGS.MAX_AP_PER_SKILL": "Maximum AP per Skill",
+  "BH.SETTINGS.MAX_AP_PER_SKILL_HINT": "The maximum amount of Action Points a character can spend to succeed in a single skill attempt. See \"SKILL USE AT HIGHER REPUTATION LEVELS\" optional rule in the rulebook.",
 
   "BIO.NAME": "Name",
   "BIO.RACE": "Race",

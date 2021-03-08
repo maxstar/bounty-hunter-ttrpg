@@ -1,0 +1,24 @@
+* [    ] skills
+    * [    ] spend more AP on a skill
+    * [done] max AP per skill setting
+* [    ] AP UI
+    * [    ] "health bar" in the char sheet
+    * [    ] spend/recover AP
+    * [    ] recover all/recover half
+* [    ] skill check request
+    * [    ] basic
+        * [    ] chat message with list of PCs who can succeed
+        * [    ] a button to succeed
+    * all types of checks
+        * [    ] hard
+        * [    ] unknown
+        * [    ] chain
+* [    ] abilities
+    * [    ] add/remove
+    * [    ] compendium
+    * [    ] automatic effects
+* [    ] character generator
+* [    ] items
+* [    ] starship functions for character
+
+* [    ] starships

@@ -20,6 +20,14 @@ Hooks.once("init", () => {
     default: 0,
     type: Number,
   });
+  game.settings.register("bounty-hunters-ttrpg", "maxApPerSkill", {
+    name: game.i18n.localize("BH.SETTINGS.MAX_AP_PER_SKILL"),
+    hint: game.i18n.localize("BH.SETTINGS.MAX_AP_PER_SKILL_HINT"),
+    scope: "world",
+    config: true,
+    default: 5,
+    type: Number,
+  });
   game.settings.register("bounty-hunters-ttrpg", "baseCarryingCapacity", {
     name: game.i18n.localize("BH.SETTINGS.CARRYING_CAPACITY"),
     hint: game.i18n.localize("BH.SETTINGS.CARRYING_CAPACITY_HINT"),
