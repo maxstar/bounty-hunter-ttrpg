@@ -1,10 +1,10 @@
 * [done] skills
     * [done] spend more AP on a skill
     * [done] max AP per skill setting
-* [    ] AP UI
-    * [    ] "health bar" in the char sheet
-    * [    ] spend/recover AP
-    * [    ] recover all/recover half
+* [do--] AP UI
+    * [----] "health bar" in the char sheet
+    * [----] spend/recover AP
+    * [done] recover all/recover half
 * [    ] skill check request
     * [    ] basic
         * [    ] chat message with list of PCs who can succeed

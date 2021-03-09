@@ -45,9 +45,21 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     html.find('.add-skill').click(this.handleAddSkill.bind(this));
     html.find('.use-skill').click(this.handleUseSkill.bind(this));
     html.find('.use-skill-hard').click(this.handleUseSkillHard.bind(this));
+    html.find('.recover-ap-half').click(this.handleRecoverApHalf.bind(this));
+    html.find('.recover-ap-all').click(this.handleRecoverApAll.bind(this));
     html.find(".item-create").click((ev) => {
       this.onItemCreate(ev);
     });
+  }
+
+  handleRecoverApHalf(e) {
+    const half = Math.ceil(this.actor.data.data.bio.ap.max / 2);
+    this.restoreAP(half);
+  }
+
+  handleRecoverApAll(e) {
+    const max = this.actor.data.data.bio.ap.max;
+    this.restoreAP(max);
   }
 
   handleUseSkillHard(e) {
@@ -89,6 +101,15 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const min = current > 0 ? 0 : -1;
     let updateData = {
       'data.bio.ap.value': Math.max(min, current - amount),
+    };
+    this.actor.update(updateData);
+  }
+
+  restoreAP(amount) {
+    const current = this.actor.data.data.bio.ap.value;
+    const max = this.actor.data.data.bio.ap.max;
+    let updateData = {
+      'data.bio.ap.value': Math.min(max, current + amount),
     };
     this.actor.update(updateData);
   }

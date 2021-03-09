@@ -44,8 +44,9 @@
                             <input class="short-num" name="data.bio.ap.value" type="number" value="{{data.bio.ap.value}}"
                                 min="{{data.bio.ap.min}}" max="{{data.bio.ap.max}}" data-dtype="Number" /> / <input type="number" readonly="readonly" class="short-num" name="data.bio.ap.max" value="{{data.bio.ap.max}}"/>
                         </td>
-                        <td colspan="2">
-
+                        <td colspan="4" class="flex">
+                            <button class="recover-ap recover-ap-half" title="{{localize 'BH.RECOVER_HALF_HINT'}}">{{localize 'BH.RECOVER_HALF'}}</button>
+                            <button class="recover-ap recover-ap-all" title="{{localize 'BH.RECOVER_ALL_HINT'}}">{{localize 'BH.RECOVER_ALL'}}</button>
                         </td>
                     </tr>
                 </table>

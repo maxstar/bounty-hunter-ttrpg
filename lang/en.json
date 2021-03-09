@@ -35,6 +35,10 @@
   "BH.HARD_CHECK": "Spend multiple AP at once",
   "BH.HOW_MANY": "How many?",
   "BH.AP_PER_SKILL_HINT": "Use mouse wheel to change the value",
+  "BH.RECOVER_HALF": "Recover Half",
+  "BH.RECOVER_HALF_HINT": "You recover half of your AP when you wake up from unconsciousness.",
+  "BH.RECOVER_ALL": "Recover All",
+  "BH.RECOVER_ALL_HINT": "You recover all of your AP when you finish uninterrupted 8 hour sleep in a non-hostile environment.",
 
   "":""
 }
