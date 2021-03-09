@@ -83,7 +83,7 @@ export class AddSkillDialog extends Dialog {
         let html = '';
         for (let skillName in skills) {
             if (learnedSkills[skillName] !== undefined) continue;
-            html += await renderTemplate('systems/bounty-hunters-ttrpg/template/partial/skill-picker.html', {skill: skills[skillName]});
+            html += await renderTemplate('systems/bounty-hunter-ttrpg/template/partial/skill-picker.html', {skill: skills[skillName]});
         }
         return `<div class="grid-container">${html}</div>`;
     }

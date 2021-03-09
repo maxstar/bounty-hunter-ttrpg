@@ -7,7 +7,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["bounty-hunter", "sheet", "actor"],
-      template: "systems/bounty-hunters-ttrpg/template/starship.html",
+      template: "systems/bounty-hunter-ttrpg/template/starship.html",
       width: 620,
       height: 740,
       resizable: false,

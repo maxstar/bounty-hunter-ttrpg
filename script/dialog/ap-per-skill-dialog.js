@@ -19,7 +19,7 @@ export class ApPerSkillDialog extends Dialog {
         onAdd = onAdd || function () {};
         onCancel = onCancel || function () {};
 
-        const html = await renderTemplate('systems/bounty-hunters-ttrpg/template/dialog/ap-per-skill.html', {maxAp: maxAp});
+        const html = await renderTemplate('systems/bounty-hunter-ttrpg/template/dialog/ap-per-skill.html', {maxAp: maxAp});
 
         let d = new ApPerSkillDialog({
             title: title,

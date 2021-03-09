@@ -1,5 +1,5 @@
 {
-    "name": "bounty-hunters-ttrpg",
+    "name": "bounty-hunter-ttrpg",
     "title": "Bounty Hunter",
     "description": "Rumor is you want in on the Bounty Hunting business and why not? You and your little ragtag band are already turning a few heads in this sector with your… novel way of delivering wanted folk. But space is a vast, not to mention, dangerously err, dangerous, and if you want to rise like cream, you’ve a lot to learn (unless you’re thinking of how Glururk cream rises, I’d avoid that entirely if I were you). My advice? Keep it closer and safer than your RAN rifle and never be afraid to refer to it, even during sticky situations.",
     "version": "0.1",
@@ -18,7 +18,7 @@
         {
           "name": "skills",
           "label": "Skills",
-          "system": "bounty-hunters-ttrpg",
+          "system": "bounty-hunter-ttrpg",
           "path": "./packs/skills.db",
           "entity": "Item"
         }
@@ -39,8 +39,8 @@
     "gridUnits": "m",
     "primaryTokenAttribute": null,
     "secondaryTokenAttribute": null,
-    "url": "https://github.com/maxstar/bounty-hunters-ttrpg",
+    "url": "https://github.com/maxstar/bounty-hunter-ttrpg",
     "socket": true,
-    "manifest": "https://github.com/maxstar/bounty-hunters-ttrpg/releases/latest/download/system.json",
-    "download": "https://github.com/maxstar/bounty-hunters-ttrpg/releases/download/0.1.0/0.1.0.zip?raw=true"
+    "manifest": "https://github.com/maxstar/bounty-hunter-ttrpg/releases/latest/download/system.json",
+    "download": "https://github.com/maxstar/bounty-hunter-ttrpg/releases/download/0.1.0/0.1.0.zip?raw=true"
 }

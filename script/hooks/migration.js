@@ -1,6 +1,6 @@
 export const migrateWorld = async () => {
     const schemaVersion = 0.1;
-    const worldSchemaVersion = Number(game.settings.get("bounty-hunters-ttrpg", "worldSchemaVersion"));
+    const worldSchemaVersion = Number(game.settings.get("bounty-hunter-ttrpg", "worldSchemaVersion"));
     if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
         ui.notifications.info("Upgrading the world, please wait...");
         for (let actor of game.actors.entities) {
@@ -37,7 +37,7 @@ export const migrateWorld = async () => {
           await migrateCompendium(pack, worldSchemaVersion);
         }
         migrateSettings(worldSchemaVersion);
-        game.settings.set("bounty-hunters-ttrpg", "worldSchemaVersion", schemaVersion);
+        game.settings.set("bounty-hunter-ttrpg", "worldSchemaVersion", schemaVersion);
         ui.notifications.info("Upgrade complete!");
     }
 };
@@ -123,6 +123,6 @@ export const migrateCompendium = async function (pack, worldSchemaVersion) {
 
 const migrateSettings = async function (worldSchemaVersion) {
     // if (worldSchemaVersion <= 0) {
-    //     game.settings.set("bounty-hunters-ttrpg", "some_setting", true);
+    //     game.settings.set("bounty-hunter-ttrpg", "some_setting", true);
     // }
 };

@@ -19,7 +19,7 @@ export class BountyHunterItem extends Item {
         itemData.isTalent = itemData.type === "talent";
         itemData.isWeapon = itemData.type === "weapon";
         itemData.hasRollModifiers = itemData.data.rollModifiers && Object.values(itemData.data.rollModifiers).length > 0;
-        const html = await renderTemplate("systems/bounty-hunters-ttrpg/template/chat/item.html", itemData);
+        const html = await renderTemplate("systems/bounty-hunter-ttrpg/template/chat/item.html", itemData);
         const chatData = {
         user: game.user._id,
         rollMode: game.settings.get("core", "rollMode"),
