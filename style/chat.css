@@ -1,0 +1,29 @@
+.skill-challenge {
+    border: 1px solid;
+    padding: 4px 6px 6px 6px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.skill-challenge-title {
+    border-bottom: 1px solid;
+    font-weight: bold;
+}
+
+.skill-challenge-info {
+    margin-top: 6px;
+    font-size: 18px;
+}
+
+.skill-challenge-ap-cost {
+    margin-top: 2px;
+    color: gray;
+    font-style: italic;
+}
+
+.skill-challenge-user-info {
+}
+
+.skill-challenge-succeed {
+    margin-top: 10px;
+}

@@ -12,7 +12,8 @@
     "esmodules": ["script/init.js"],
     "styles": [
         "style/common.css",
-        "style/character.css"
+        "style/character.css",
+        "style/chat.css"
     ],
     "packs": [
         {

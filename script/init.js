@@ -57,6 +57,7 @@ Hooks.once("init", () => {
 Hooks.once("ready", async () => {
   migrateWorld();
   loadSystemSettings();
+  window.TextEditor.activateListeners();
 });
 
 Hooks.on('preUpdateActor', async (entity, updateData, options, userId) => {

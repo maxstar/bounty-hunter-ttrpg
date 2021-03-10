@@ -1,0 +1,15 @@
+<div class="skill-challenge">
+    <div class="skill-challenge-title">
+        {{localize 'BH.CHALLENGE'}}
+    </div>
+    <div class="skill-challenge-info">
+        {{challenge.description}}
+    </div>
+    <div class="skill-challenge-ap-cost"><strong>{{localize challenge.skillName}}</strong>: {{challenge.apCost}} {{localize 'BIO.AP'}}</div>
+
+    <div class="skill-challenge-user-info">
+        {{challenge.userInfo}}
+    </div>
+
+    <button class="skill-challenge-succeed" data-challenge-id="{{challenge.challengeId}}" data-ap="{{challenge.ap}}">{{localize 'BH.SUCCEED'}}</button>
+</div>

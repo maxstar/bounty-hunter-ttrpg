@@ -39,6 +39,8 @@
   "BH.RECOVER_HALF_HINT": "You recover half of your AP when you wake up from unconsciousness.",
   "BH.RECOVER_ALL": "Recover All",
   "BH.RECOVER_ALL_HINT": "You recover all of your AP when you finish uninterrupted 8 hour sleep in a non-hostile environment.",
+  "BH.CHALLENGE": "CHALLENGE",
+  "BH.SUCCEED": "Succeed",
 
   "":""
 }

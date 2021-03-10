@@ -6,10 +6,12 @@
     * [----] spend/recover AP
     * [done] recover all/recover half
 * [    ] skill check request
+    * [done] prepare challenges in journal, and post with a click
     * [    ] basic
-        * [    ] chat message with list of PCs who can succeed
+        * [done] chat message 
+        * [    ] with list of PCs who can succeed
         * [    ] a button to succeed
-    * all types of checks
+    * [    ] all types of checks
         * [    ] hard
         * [    ] unknown
         * [    ] chain
@@ -20,5 +22,7 @@
 * [    ] character generator
 * [    ] items
 * [    ] starship functions for character
+
+* [    ] Encounter initiative
 
 * [    ] starships
