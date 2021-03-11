@@ -75,6 +75,13 @@ input.skill-picker-checkbox {
     font-size: 12px;
     line-height: 12px;
     border-bottom: 1px solid gray;
+    height: 30px;
+}
+
+.skill-picker-item-description label {
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .ap-per-skill {

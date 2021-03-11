@@ -169,7 +169,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   }
 
   categorizeItems() {
-    let itemsByCategory = {};
+    let itemsByCategory = {skill: {}};
 
     this.actor.items.forEach((item) => {
       if (itemsByCategory[item.data.type] === undefined) {

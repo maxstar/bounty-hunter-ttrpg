@@ -90,14 +90,14 @@ export class AddSkillDialog extends Dialog {
 
     static async collectAllSkills() {
         let skills = {};
-        for (let pack of game.packs.filter((p) => p.metadata.entity === "Item")) {
-            const content = await pack.getContent();
-            for (let ent of content) {
-                if (ent.type !== 'skill') continue;
+        // for (let pack of game.packs.filter((p) => p.metadata.entity === "Item")) {
+        //     const content = await pack.getContent();
+        //     for (let ent of content) {
+        //         if (ent.type !== 'skill') continue;
 
-                skills[ent.name] = ent;
-            }
-        }
+        //         skills[ent.name] = ent;
+        //     }
+        // }
         for (let item of game.items) {
             if (item.type !== 'skill') continue;
 
