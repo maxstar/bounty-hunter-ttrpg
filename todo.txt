@@ -23,6 +23,8 @@
 * [    ] items
 * [    ] starship functions for character
 
-* [    ] Encounter initiative
+* [    ] Encounter initiative and management
 
 * [    ] starships
+
+* [    ] localization

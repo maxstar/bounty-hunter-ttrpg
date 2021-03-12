@@ -73,3 +73,24 @@ Hooks.on('preUpdateActor', async (entity, updateData, options, userId) => {
 
   return true;
 });
+
+Hooks.on( "renderChatLog", async function (cLog) {
+  const cLogHtml = document.getElementById("chat-log");
+
+  cLogHtml.addEventListener("click", chatChallenge.bind(this));
+
+  function chatChallenge(event) {
+    const origin = event.target;
+    if (!origin.classList.contains("skill-challenge-succeed")) return;
+
+    const msgId = $(origin).closest('.chat-message.message').data('message-id');
+    let msg = game.messages.get(msgId);
+
+    succeedChallenge(origin, msg);
+  }
+});
+
+async function succeedChallenge(button, msg) {
+  // msg.update(chatData);
+  ui.chat.updateMessage(msg, true);
+}

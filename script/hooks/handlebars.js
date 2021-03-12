@@ -46,6 +46,9 @@ function registerHandlebarsHelpers() {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.reduce((x, y) => x || y);
   });
+  Handlebars.registerHelper("not", function (boolValue) {
+    return !boolValue;
+  });
   Handlebars.registerHelper("editor", function(options) {
     const target = options.hash['target'];
     if ( !target ) throw new Error("You must define the name of a target field.");
