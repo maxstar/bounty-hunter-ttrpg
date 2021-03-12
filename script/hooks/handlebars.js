@@ -14,7 +14,7 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/cargo.html",
     "systems/bounty-hunter-ttrpg/template/tab/main.html",
     "systems/bounty-hunter-ttrpg/template/tab/bio.html",
-    "systems/bounty-hunter-ttrpg/template/partial/skill-picker.html",
+    "systems/bounty-hunter-ttrpg/template/partial/item-picker.html",
     "systems/bounty-hunter-ttrpg/template/dialog/ap-per-skill.html",
     "systems/bounty-hunter-ttrpg/template/chat/skill-challenge.html",
   ];

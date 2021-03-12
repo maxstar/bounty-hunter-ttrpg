@@ -26,12 +26,17 @@
   "TAB.NOTE": "NOTE",
 
   "HEADER.SKILLS": "Skills",
+  "HEADER.ABILITIES": "Abilities",
   "SHEET.HEADER.POST_ITEM": "Post",
   "SKILL.NAME": "Skill Name",
   "SKILL.DESCRIPTION": "Skill Description",
+  "ABILITY.NAME": "Ability Name",
+  "ABILITY.DESCRIPTION": "Ability Description",
   
   "BH.ADD_SKILL": "Add",
+  "BH.ADD_ABILITY": "Add",
   "BH.REMOVE_SKILL": "Remove",
+  "BH.REMOVE_ABILITY": "Remove",
   "BH.HARD_CHECK": "Spend multiple AP at once",
   "BH.HOW_MANY": "How many?",
   "BH.AP_PER_SKILL_HINT": "Use mouse wheel to change the value",

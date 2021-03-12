@@ -5,6 +5,22 @@
     * [----] "health bar" in the char sheet
     * [----] spend/recover AP
     * [done] recover all/recover half
+* [    ] abilities
+    * [done] add/remove
+    * [    ] active effects
+    * [    ] one-use effects, restore uses
+    * [    ] compendium
+* [    ] items
+* [    ] starship functions for character
+
+* [    ] Encounter initiative and management
+
+* [    ] starships
+
+* [    ] localization
+
+* [    ] character generator
+
 * [    ] skill check request
     * [done] prepare challenges in journal, and post with a click
     * [    ] basic
@@ -15,16 +31,3 @@
         * [    ] hard
         * [    ] unknown
         * [    ] chain
-* [    ] abilities
-    * [    ] add/remove
-    * [    ] compendium
-    * [    ] automatic effects
-* [    ] character generator
-* [    ] items
-* [    ] starship functions for character
-
-* [    ] Encounter initiative and management
-
-* [    ] starships
-
-* [    ] localization

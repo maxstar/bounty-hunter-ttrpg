@@ -1,5 +1,5 @@
 import { BountyHunterActorSheet } from "./actor.js";
-import { AddSkillDialog } from "../dialog/add-skill-dialog.js";
+import { AddItemDialog } from "../dialog/add-item-dialog.js";
 import { ReputationStats } from '../component/reputation-stats.js';
 import { ApPerSkillDialog } from "../dialog/ap-per-skill-dialog.js";
 
@@ -35,21 +35,27 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     data.data.itemsByCategory = this.categorizeItems();
     this.computeEncumbrance(data);
     this.computeSkillData(data);
+    this.computeAbilityData(data);
     return data;
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
+    html.find('.ability-delete').click(this.handleRemoveAbility.bind(this));
+    html.find('.add-ability').click(this.handleAddAbility.bind(this));
+
     html.find('.skill-delete').click(this.handleRemoveSkill.bind(this));
     html.find('.add-skill').click(this.handleAddSkill.bind(this));
     html.find('.use-skill').click(this.handleUseSkill.bind(this));
     html.find('.use-skill-hard').click(this.handleUseSkillHard.bind(this));
+
     html.find('.recover-ap-half').click(this.handleRecoverApHalf.bind(this));
     html.find('.recover-ap-all').click(this.handleRecoverApAll.bind(this));
-    html.find(".item-create").click((ev) => {
-      this.onItemCreate(ev);
-    });
+
+    // html.find(".item-create").click((ev) => {
+    //   this.onItemCreate(ev);
+    // });
   }
 
   handleRecoverApHalf(e) {
@@ -116,9 +122,10 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   handleAddSkill() {
     let that = this;
-    let d = AddSkillDialog.show(
+    let d = AddItemDialog.show(
       "Skill Picker",
       this.categorizeItems().skill,
+      'skill',
       function (skills) {
         that.actor.createEmbeddedEntity("OwnedItem", skills);
       }
@@ -127,6 +134,25 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   handleRemoveSkill(e) {
     const div = $(e.currentTarget).parents(".skill");
+    const entityId = div.data("entity-id");
+
+    this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
+  }
+
+  handleAddAbility() {
+    let that = this;
+    let d = AddItemDialog.show(
+      "Ability Picker",
+      this.categorizeItems().ability,
+      'ability',
+      function (abilities) {
+        that.actor.createEmbeddedEntity("OwnedItem", abilities);
+      }
+    );
+  }
+
+  handleRemoveAbility(e) {
+    const div = $(e.currentTarget).parents(".ability");
     const entityId = div.data("entity-id");
 
     this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
@@ -169,7 +195,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   }
 
   categorizeItems() {
-    let itemsByCategory = {skill: {}};
+    let itemsByCategory = {skill: {}, ability: {}};
 
     this.actor.items.forEach((item) => {
       if (itemsByCategory[item.data.type] === undefined) {
@@ -199,6 +225,11 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   computeSkillData(data) {
     data.data.skillCount = Object.keys(data.data.itemsByCategory.skill).length;
     data.data.allowedSkillCount = ReputationStats.getForReputation(data.data.bio.reputation.value).skill + game.settings.get("bounty-hunter-ttrpg", "bonusSkills");
+  }
+
+  computeAbilityData(data) {
+    data.data.abilityCount = Object.keys(data.data.itemsByCategory.ability).length;
+    data.data.allowedAbilityCount = ReputationStats.getForReputation(data.data.bio.reputation.value).ability;
   }
 
   getModifier(modifierName) {
@@ -233,13 +264,13 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     return this.itemCache["skill"][skillName] !== undefined;
   }
 
-  onItemCreate(event) {
-    event.preventDefault();
-    let header = event.currentTarget;
-    let data = duplicate(header.dataset);
-    data["name"] = `New ${data.type.capitalize()}`;
-    this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
-  }
+  // onItemCreate(event) {
+  //   event.preventDefault();
+  //   let header = event.currentTarget;
+  //   let data = duplicate(header.dataset);
+  //   data["name"] = `New ${data.type.capitalize()}`;
+  //   this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
+  // }
 
   /**
    * Handle the final creation of dropped Item data on the Actor.

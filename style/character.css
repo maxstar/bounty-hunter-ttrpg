@@ -3,9 +3,19 @@
     min-width: 100px;
 }
 
-.skills {
+.skills, .abilities {
     width: 150px;
     margin-top: 4px;
+}
+
+.section-skills, .section-abilities {
+    margin-top: 16px;
+}
+
+.abilities .ability {
+    font-size: 14px;
+    margin-left: 4px;
+    font-weight: bold;
 }
 
 button.recover-ap {
@@ -35,7 +45,7 @@ button.use-skill-hard {
     width: 30%;
 }
 
-button.add-skill {
+button.add-skill, button.add-ability {
     width: fit-content;
     margin: 0px;
     font-size: 12px;
@@ -57,14 +67,14 @@ input:read-only {
     display: grid;
 }
 
-.skill-picker-dialog .grid-container {
+.item-picker-dialog .grid-container {
     grid-template-columns: auto auto;
     overflow-y: scroll;
     height: 500px;
     margin-bottom: 10px;
 }
 
-input.skill-picker-checkbox {
+input.item-picker-checkbox {
     width: auto;
     height: auto;
 }
@@ -78,7 +88,7 @@ input.skill-picker-checkbox {
     height: 30px;
 }
 
-.skill-picker-item-description label {
+.item-picker-item-description label {
     height: 100%;
     display: flex;
     align-items: center;

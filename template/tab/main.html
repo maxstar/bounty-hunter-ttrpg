@@ -1,4 +1,21 @@
-<div class="main-tab">
+<div class="section-abilities">
+    <div class="heading">
+        <span>{{localize "HEADER.ABILITIES"}} ({{data.abilityCount}}/{{data.allowedAbilityCount}})</span>
+        <span><button class="add-ability">{{localize "BH.ADD_ABILITY"}}</button></span>
+    </div>
+    <div class="abilities border">
+        {{#each data.itemsByCategory.ability as |ability key|}}
+        <div class="flex ability" data-entity-id="{{ability._id}}">
+            <div class="button">
+                <a class="item-control ability-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+            </div>
+            <div class="ability" data-attribute="{{key}}" title="{{ability.data.data.description}}">{{localize ability.name}}</div>
+        </div>
+        {{/each}}
+    </div>
+</div>
+
+<div class="section-skills">
     <div class="heading">
         <span>{{localize "HEADER.SKILLS"}} ({{data.skillCount}}/{{data.allowedSkillCount}})</span>
         <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>
@@ -7,9 +24,9 @@
         {{#each data.itemsByCategory.skill as |skill key|}}
         <div class="flex skill" data-entity-id="{{skill._id}}">
             <div class="button">
-                <a class="item-control skill-delete" title="{{localize BH.REMOVE_SKILL}}"><i class="fas fa-trash"></i></a>
+                <a class="item-control skill-delete" title="{{localize 'BH.REMOVE_SKILL'}}"><i class="fas fa-trash"></i></a>
             </div>
-            <button type="button" class="use-skill" data-attribute="{{key}}" title="{{bh_localize_skill_descr skill.data.localizedDescr skill.data.data.description}}">{{localize skill.name}}</button>
+            <button type="button" class="use-skill" data-attribute="{{key}}" title="{{skill.data.data.description}}">{{localize skill.name}}</button>
             <button type="button" class="use-skill-hard fas fa-angle-double-up" data-attribute="{{key}}" title="{{localize 'BH.HARD_CHECK'}}"></button>
         </div>
         {{/each}}

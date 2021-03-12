@@ -1,1 +1,7 @@
-ability
+<form class="{{cssClass}}" autocomplete="off">
+    <label>{{localize "ABILITY.NAME"}}</label>
+    <input name="name" type="text" value="{{item.name}}" />
+
+    <label>{{localize "ABILITY.DESCRIPTION"}}</label>
+    <textarea class="ability-description" name="data.description">{{item.data.description}}</textarea>
+</form>
