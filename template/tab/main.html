@@ -22,6 +22,10 @@
                 <button type="button" class="use-ability" data-attribute="{{key}}" title="{{ability.data.data.description}}" {{#if (eq ability.data.data.uses.value 0)}}disabled="disabled"{{/if}}>{{localize ability.name}}</button>
                 <span class="ability-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize ability.data.data.refresh}})">{{ability.data.data.uses.value}}</span>
             {{/if}}
+            
+            <div class="button faded">
+                <a class="item-control ability-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+            </div>
         </div>
         {{/each}}
     </div>

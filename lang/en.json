@@ -37,6 +37,7 @@
   "ABILITY.PASSIVE": "Passive",
   "ABILITY.REFRESH": "Refresh uses",
   
+  "BH.ADD": "Add",
   "BH.ADD_SKILL": "Add",
   "BH.ADD_ABILITY": "Add",
   "BH.REMOVE_SKILL": "Remove",
@@ -59,6 +60,7 @@
   "BH.RECOVER_SCENE_HINT": "Recover uses for all abilities that are limited by Scene.",
   "BH.RECOVER_DAY": "Day",
   "BH.RECOVER_DAY_HINT": "Recover uses for all abilities that are limited by Day.",
+  "BH.ACTIVE_EFFECTS": "Active Effects",
 
   "":""
 }

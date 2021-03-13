@@ -8,9 +8,9 @@
 * [    ] abilities
     * [done] add/remove
     * [done] one-use effects, restore uses
-    * [    ] active effects
+    * [ ?  ] active effects
     * [    ] compendium
-    * [    ] edit abilities from char sheet
+    * [done] edit abilities from char sheet
     * [    ] post item to chat
 * [    ] items
 * [    ] starship functions for character

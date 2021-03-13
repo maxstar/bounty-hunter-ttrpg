@@ -1,5 +1,5 @@
 textarea.ability-description, textarea.skill-description {
-    height: 90px;
+    height: 60px;
 }
 
 .ability .section {
@@ -12,4 +12,57 @@ textarea.ability-description, textarea.skill-description {
 
 .select-uses {
     margin-right: 20px;
+}
+
+button.add-active-effect {
+    width: fit-content;
+    margin: 0px;
+    font-size: 12px;
+    height: 18px;
+    vertical-align: middle;
+    line-height: 18px;
+    border: 0px;
+}
+
+.effects-list {
+    max-height: 150px;
+    overflow-y: scroll;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 4px;
+}
+
+.effects-list li {
+    border-bottom: 1px solid;
+    padding-bottom: 4px;
+    margin-bottom: 4px;
+}
+.effect-icon {
+  flex: 0 0 24px;
+  height: 24px;
+  margin-right: 4px;
+  border: none;
+}
+.effect-label {
+  flex: 1;
+  line-height: 24px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.effect-controls {
+  line-height: 24px;
+  flex: 0 0 60px;
+  text-align: center;
+}
+.effect-controls a button {
+    cursor: pointer;
+}
+.fa-power-off {
+  color: black;
+}
+
+.disabled-effect .effect-label {
+    text-decoration: line-through;
+    text-decoration-thickness: 2px;
 }

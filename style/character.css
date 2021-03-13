@@ -8,7 +8,7 @@
     margin-top: 4px;
 }
 
-.section {
+.actor .section {
     margin-top: 8px;
     border: 4px groove;
     padding: 6px;
@@ -23,6 +23,7 @@
     font-size: 14px;
     margin-left: 4px;
     font-weight: bold;
+    width: 100%;
 }
 
 .heading {
@@ -73,6 +74,7 @@ button.add-skill, button.add-ability {
 
 .ability-uses {
     margin-left: 4px;
+    margin-right: 4px;
 }
 
 input.short-num {

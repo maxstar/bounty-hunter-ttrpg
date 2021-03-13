@@ -1,0 +1,27 @@
+<ul class="effects-list">
+    {{#each entity.effects}}
+    <li
+        class="flexrow{{#if disabled}} disabled-effect{{/if}}"
+        data-effect-id="{{_id}}"
+    >
+        <img src="{{icon}}" alt="{{label}}" class="effect-icon" />
+        <span class="effect-label">{{label}}</span>
+        {{#unless ../data.isOwned}}
+            <span class="effect-controls">
+            <a class="effect-action" data-action="toggle">
+                <i class="fas fa-power-off"></i>
+            </a>
+            <a class="effect-action" data-action="edit">
+                <i class="fas fa-edit"></i>
+            </a>
+            {{#unless origin}}
+                <a class="effect-action" data-action="delete">
+                    <i class="fas fa-trash"></i>
+                </a>
+            {{/unless}}
+            </span>
+        {{/unless}}
+    </li>
+    {{/each}}
+</ul>
+  

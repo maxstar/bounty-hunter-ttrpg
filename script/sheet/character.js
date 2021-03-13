@@ -43,6 +43,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     super.activateListeners(html);
 
     html.find('.ability-delete').click(this.handleRemoveAbility.bind(this));
+    html.find('.ability-edit').click(this.handleEditAbility.bind(this));
     html.find('.add-ability').click(this.handleAddAbility.bind(this));
     html.find('.use-ability').click(this.handleUseAbility.bind(this));
 
@@ -207,6 +208,14 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const entityId = div.data("entity-id");
 
     this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
+  }
+
+  handleEditAbility(e) {
+    const div = $(e.currentTarget).parents(".ability");
+    const entityId = div.data("entity-id");
+    const ability = this.actor.items.get(entityId);
+
+    return ability.sheet.render(true);
   }
 
   computeItems(data) {

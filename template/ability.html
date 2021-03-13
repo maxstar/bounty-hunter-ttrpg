@@ -40,4 +40,9 @@
         <label class="form-ability-label">{{localize "ABILITY.USE_DESCRIPTION"}}</label>
         <textarea class="ability-description" name="data.use-description">{{item.data.use-description}}</textarea>
     </div>
+
+    <div class="section active-effects">
+        <div class="active-effects-header flex">{{localize 'BH.ACTIVE_EFFECTS'}} <button class="add-active-effect">{{localize "BH.ADD"}}</button></div>
+        {{> "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html"}}
+    </div>
 </form>
