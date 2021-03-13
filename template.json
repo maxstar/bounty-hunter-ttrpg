@@ -131,7 +131,13 @@
     },
     "ability": {
       "templates": ["modifiers"],
-      "description": ""
+      "description": "",
+      "use-description": "",
+      "uses": {
+        "value": 0,
+        "max": 0
+      },
+      "refresh": "scene"
     },
     "component": {
       "description": "",

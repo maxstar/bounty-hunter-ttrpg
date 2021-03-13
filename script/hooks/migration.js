@@ -1,5 +1,5 @@
 export const migrateWorld = async () => {
-    const schemaVersion = 0.1;
+    const schemaVersion = 0.3;
     const worldSchemaVersion = Number(game.settings.get("bounty-hunter-ttrpg", "worldSchemaVersion"));
     if (worldSchemaVersion !== schemaVersion && game.user.isGM) {
         ui.notifications.info("Upgrading the world, please wait...");
@@ -68,7 +68,21 @@ const migrateActorData = (actor, worldSchemaVersion) => {
 
 const migrateItemData = (item, worldSchemaVersion) => {
     const update = {};
-    if (worldSchemaVersion <= 0) {
+    if (worldSchemaVersion <= 0.2 && item.type === 'ability') {
+        if (!item.data.uses) {
+            update["data.uses"] = 0;
+        }
+        if (!item.data.refresh) {
+            update["data.refresh"] = 'never';
+        }
+    }
+    if (worldSchemaVersion <= 0.3 && item.type === 'ability') {
+        if (!item.data.uses.value) {
+            update["data.uses"] = {value: item.data.uses, max: item.data.uses};
+        }
+        if (!item.data['use-description']) {
+            update["data.use-description"] = '';
+        }
     }
     if (!isObjectEmpty(update)) {
         update._id = item._id;

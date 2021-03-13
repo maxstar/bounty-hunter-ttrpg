@@ -44,6 +44,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
     html.find('.ability-delete').click(this.handleRemoveAbility.bind(this));
     html.find('.add-ability').click(this.handleAddAbility.bind(this));
+    html.find('.use-ability').click(this.handleUseAbility.bind(this));
 
     html.find('.skill-delete').click(this.handleRemoveSkill.bind(this));
     html.find('.add-skill').click(this.handleAddSkill.bind(this));
@@ -52,6 +53,9 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
     html.find('.recover-ap-half').click(this.handleRecoverApHalf.bind(this));
     html.find('.recover-ap-all').click(this.handleRecoverApAll.bind(this));
+
+    html.find('.recover-uses-scene').click(this.handleRecoverUsesScene.bind(this));
+    html.find('.recover-uses-day').click(this.handleRecoverUsesDay.bind(this));
 
     // html.find(".item-create").click((ev) => {
     //   this.onItemCreate(ev);
@@ -66,6 +70,26 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   handleRecoverApAll(e) {
     const max = this.actor.data.data.bio.ap.max;
     this.restoreAP(max);
+  }
+
+  handleRecoverUsesScene(e) {
+    this.handleRecoverUses('scene');
+  }
+
+  handleRecoverUsesDay(e) {
+    this.handleRecoverUses('day');
+  }
+
+  handleRecoverUses(refresh) {
+    let updateData;
+    this.actor.items.forEach(function(item) {
+      if (item.data.data.refresh === refresh && item.data.data.uses !== undefined) {
+        updateData = {
+          'data.uses.value': item.data.data.uses.max,
+        };
+        item.update(updateData);
+      }
+    });
   }
 
   handleUseSkillHard(e) {
@@ -93,11 +117,30 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     this.postSkillUse(skill.name, 1);
   }
 
+  handleUseAbility(e) {
+    const div = $(e.currentTarget).parents(".ability");
+    const entityId = div.data("entity-id");
+    let ability = this.actor.items.get(entityId);
+    if (parseInt(ability.data.data.uses.value) === 0) return;
+    
+    this.reduceAbilityUses(ability);
+    this.postAbilityUse(ability.name, ability.data.data['use-description']);
+  }
+
   postSkillUse(skillName, apSpent) {
     let chatData = {
       speaker: {actor: this.actor._id},
       // @todo localize
       content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(skillName)}</b>!</span> <i style="font-size:10px">(${apSpent} AP spent)<i>`
+    };
+    ChatMessage.create(chatData, {});
+  }
+
+  postAbilityUse(abilityName, useDescription) {
+    let chatData = {
+      speaker: {actor: this.actor._id},
+      // @todo localize
+      content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(abilityName)}</b> to ${useDescription}</span>`
     };
     ChatMessage.create(chatData, {});
   }
@@ -109,6 +152,14 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       'data.bio.ap.value': Math.max(min, current - amount),
     };
     this.actor.update(updateData);
+  }
+
+  reduceAbilityUses(ability) {
+    const current = ability.data.data.uses.value;
+    let updateData = {
+      'data.uses.value': Math.max(0, current - 1),
+    };
+    ability.update(updateData);
   }
 
   restoreAP(amount) {

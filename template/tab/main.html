@@ -1,4 +1,10 @@
-<div class="section-abilities">
+<div class="section section-recover flex">
+    <span class="recover-text">{{localize 'BH.RECOVER_USES'}}</span>
+    <button type="button" class="recover-uses recover-uses-scene" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_SCENE_HINT'}}">{{localize 'BH.RECOVER_SCENE'}}</button>
+    <button type="button" class="recover-uses recover-uses-day" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_DAY_HINT'}}">{{localize 'BH.RECOVER_DAY'}}</button>
+</div>
+
+<div class="section section-abilities">
     <div class="heading">
         <span>{{localize "HEADER.ABILITIES"}} ({{data.abilityCount}}/{{data.allowedAbilityCount}})</span>
         <span><button class="add-ability">{{localize "BH.ADD_ABILITY"}}</button></span>
@@ -9,13 +15,19 @@
             <div class="button">
                 <a class="item-control ability-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
             </div>
-            <div class="ability" data-attribute="{{key}}" title="{{ability.data.data.description}}">{{localize ability.name}}</div>
+
+            {{#if (eq ability.data.data.uses.max '0')}}
+                <div class="ability" data-attribute="{{key}}" title="{{ability.data.data.description}}">{{localize ability.name}}</div>
+            {{else}}
+                <button type="button" class="use-ability" data-attribute="{{key}}" title="{{ability.data.data.description}}" {{#if (eq ability.data.data.uses.value 0)}}disabled="disabled"{{/if}}>{{localize ability.name}}</button>
+                <span class="ability-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize ability.data.data.refresh}})">{{ability.data.data.uses.value}}</span>
+            {{/if}}
         </div>
         {{/each}}
     </div>
 </div>
 
-<div class="section-skills">
+<div class="section section-skills">
     <div class="heading">
         <span>{{localize "HEADER.SKILLS"}} ({{data.skillCount}}/{{data.allowedSkillCount}})</span>
         <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>

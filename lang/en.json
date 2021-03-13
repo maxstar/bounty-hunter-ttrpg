@@ -32,6 +32,10 @@
   "SKILL.DESCRIPTION": "Skill Description",
   "ABILITY.NAME": "Ability Name",
   "ABILITY.DESCRIPTION": "Ability Description",
+  "ABILITY.USE_DESCRIPTION": "On usage display: \"Used <ability> to ...\"",
+  "ABILITY.USES": "# of uses",
+  "ABILITY.PASSIVE": "Passive",
+  "ABILITY.REFRESH": "Refresh uses",
   
   "BH.ADD_SKILL": "Add",
   "BH.ADD_ABILITY": "Add",
@@ -46,6 +50,15 @@
   "BH.RECOVER_ALL_HINT": "You recover all of your AP when you finish uninterrupted 8 hour sleep in a non-hostile environment.",
   "BH.CHALLENGE": "CHALLENGE",
   "BH.SUCCEED": "Succeed",
+  "BH.NEVER": "Never",
+  "BH.SCENE": "Every Scene",
+  "BH.DAY": "Every Day",
+  "BH.USES_REMAINING": "Remaining uses",
+  "BH.RECOVER_USES": "Recover ability and item uses: ",
+  "BH.RECOVER_SCENE": "Scene",
+  "BH.RECOVER_SCENE_HINT": "Recover uses for all abilities that are limited by Scene.",
+  "BH.RECOVER_DAY": "Day",
+  "BH.RECOVER_DAY_HINT": "Recover uses for all abilities that are limited by Day.",
 
   "":""
 }

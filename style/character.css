@@ -8,8 +8,15 @@
     margin-top: 4px;
 }
 
-.section-skills, .section-abilities {
-    margin-top: 16px;
+.section {
+    margin-top: 8px;
+    border: 4px groove;
+    padding: 6px;
+    width: fit-content;
+}
+
+.section.section-recover {
+
 }
 
 .abilities .ability {
@@ -18,15 +25,24 @@
     font-weight: bold;
 }
 
-button.recover-ap {
+.heading {
+    border-bottom: 1px solid;
+}
+
+button.recover-ap, button.recover-uses {
     font-size: 14px;
     height: 26px;
     vertical-align: middle;
     line-height: 21px;
     width: fit-content;
+    margin: 0 4px 0 4px;
 }
 
-button.use-skill {
+.recover-text {
+    line-height: 25px;
+}
+
+button.use-skill, button.use-ability {
     padding: 0px;
     margin: 0px;
     font-size: 12px;
@@ -53,6 +69,10 @@ button.add-skill, button.add-ability {
     vertical-align: middle;
     line-height: 18px;
     border: 0px;
+}
+
+.ability-uses {
+    margin-left: 4px;
 }
 
 input.short-num {

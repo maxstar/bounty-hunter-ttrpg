@@ -1,7 +1,43 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <label>{{localize "ABILITY.NAME"}}</label>
-    <input name="name" type="text" value="{{item.name}}" />
+    <div class="flex section">
+        <label class="form-ability-label">{{localize "ABILITY.NAME"}}</label>
+        <input name="name" type="text" value="{{item.name}}" />
+    </div>
 
-    <label>{{localize "ABILITY.DESCRIPTION"}}</label>
-    <textarea class="ability-description" name="data.description">{{item.data.description}}</textarea>
+    <div class="flex section">
+        <div>
+            <label class="form-ability-label">{{localize "ABILITY.USES"}}</label>
+            <select class="select-uses" name="data.uses.max">
+                {{#select data.uses.max}}
+                    <option value="0">{{localize "ABILITY.PASSIVE"}}</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                {{/select}}
+            </select>
+        </div>
+
+        <div>
+            <label class="form-ability-label">{{localize "ABILITY.REFRESH"}}</label>
+            <select name="data.refresh">
+                {{#select data.refresh}}
+                    <option value="never">{{localize "BH.NEVER"}}</option>
+                    <option value="scene">{{localize "BH.SCENE"}}</option>
+                    <option value="day">{{localize "BH.DAY"}}</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+
+    <div class="section">
+        <label class="form-ability-label">{{localize "ABILITY.DESCRIPTION"}}</label>
+        <textarea class="ability-description" name="data.description">{{item.data.description}}</textarea>
+    </div>
+
+    <div class="section">
+        <label class="form-ability-label">{{localize "ABILITY.USE_DESCRIPTION"}}</label>
+        <textarea class="ability-description" name="data.use-description">{{item.data.use-description}}</textarea>
+    </div>
 </form>

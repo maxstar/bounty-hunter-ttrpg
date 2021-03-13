@@ -1,3 +1,15 @@
 textarea.ability-description, textarea.skill-description {
     height: 90px;
 }
+
+.ability .section {
+    margin-top: 10px;
+}
+
+.ability .section label {
+    margin-right: 4px;
+}
+
+.select-uses {
+    margin-right: 20px;
+}
