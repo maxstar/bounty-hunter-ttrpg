@@ -79,7 +79,7 @@ export class AddItemDialog extends Dialog {
      * @param  {Array} existingItems Array with items that character already has
      */
     static async buildItemList(existingItems, type) {
-        let items = await this.collectAllItems(type);
+        let items = this.collectAllItems(type);
         let html = '';
         for (let itemName in items) {
             if (existingItems[itemName] !== undefined) continue;
@@ -88,7 +88,7 @@ export class AddItemDialog extends Dialog {
         return `<div class="grid-container">${html}</div>`;
     }
 
-    static async collectAllItems(type) {
+    static collectAllItems(type) {
         let items = {};
         for (let item of game.items) {
             if (item.type !== type) continue;

@@ -70,8 +70,14 @@
   "BH.GEAR.CATEGORY": "Category",
   "BH.GEAR.DESCRIPTION": "Item Description",
   "BH.GEAR.USE_DESCRIPTION": "On usage display: \"Used <item> to ...\"",
+  "BH.WEAPON.TITLE": "Weapon",
+  "BH.WEAPON.SKILL": "Skill",
+  "BH.WEAPON.DAMAGE": "Damage",
+  "BH.WEAPON.RANGE": "Range",
+  "BH.WEAPON.AMMO": "Ammo Type",
   "BH.USES": "# of uses",
   "BH.REFRESH": "Refresh uses",
+  "BH.METERS_SHORT": "m",
 
   "":""
 }

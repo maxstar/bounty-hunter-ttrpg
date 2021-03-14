@@ -122,8 +122,9 @@
     },
     "weapon": {
       "templates": ["item", "modifiers", "usable"],
-      "type": "melee",
-      "damage": 5,
+      "skill": "Ranged Attack",
+      "damage": 7,
+      "range": 0,
       "ammo": ""
     },
     "armor": {

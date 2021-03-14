@@ -28,6 +28,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       ],
     });
   }
+  
+  // ********** OVERRIDES *************
 
   getData() {
     const data = super.getData();
@@ -36,6 +38,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     this.computeEncumbrance(data);
     this.computeSkillData(data);
     this.computeAbilityData(data);
+    data.data.ammoCounts = this.getAmmoCounts(data);
+    this.computeWeaponData(data);
     return data;
   }
 
@@ -45,6 +49,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     html.find('.ability-delete').click(this.handleRemoveItem.bind(this));
     html.find('.add-ability').click(this.handleAddAbility.bind(this));
     html.find('.use-item').click(this.handleUseItem.bind(this));
+    html.find('.use-weapon').click(this.handleUseWeapon.bind(this));
 
     html.find('.skill-delete').click(this.handleRemoveItem.bind(this));
     html.find('.add-skill').click(this.handleAddSkill.bind(this));
@@ -60,14 +65,37 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     html.find(".item-create").click(this.handleItemCreate.bind(this));
   }
 
+  /**
+   * Handle the final creation of dropped Item data on the Actor.
+   * This method is factored out to allow downstream classes the opportunity to override item creation behavior.
+   * @param {object} itemData     The item data requested for creation
+   * @return {Promise<Actor>}
+   * @private
+   */
+  async _onDropItemCreate(itemData) {
+    if (itemData.type === 'skill') {
+      let item;
+      for (let id in this.actor.data.items) {
+        item = this.actor.data.items[id];
+        if (item.name === itemData.name && item.type === 'skill') {
+          console.log("Actor already has skill " + item.name);
+          return null;
+        }
+      }
+    }
+    return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+  }
+  
+  // ********** HANDLERS *************
+
   handleRecoverApHalf(e) {
     const half = Math.ceil(this.actor.data.data.bio.ap.max / 2);
-    this.restoreAP(half);
+    this._restoreAP(half);
   }
 
   handleRecoverApAll(e) {
     const max = this.actor.data.data.bio.ap.max;
-    this.restoreAP(max);
+    this._restoreAP(max);
   }
 
   handleRecoverUsesScene(e) {
@@ -100,8 +128,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       game.i18n.localize('BH.HOW_MANY'),
       Math.min(game.settings.get("bounty-hunter-ttrpg", "maxApPerSkill"), this.actor.data.data.bio.ap.value),
       function (ap) {
-        that.reduceAP(ap);
-        that.postSkillUse(skill.name, ap);
+        that._reduceAP(ap);
+        that._postSkillUse(skill.name, ap);
       }
     );
   }
@@ -111,8 +139,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const entityId = div.data("entity-id");
     let skill = this.actor.items.get(entityId);
     
-    this.reduceAP(1);
-    this.postSkillUse(skill.name, 1);
+    this._reduceAP(1);
+    this._postSkillUse(skill.name, 1);
   }
 
   async handleUseItem(e) {
@@ -121,58 +149,21 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     let item = this.actor.items.get(entityId);
     if (parseInt(item.data.data.uses.value) === 0) return;
     
-    let promise = this.reduceItemUses(item);
-    this.postItemUse(item.name, item.data.data['use-description']);
+    this._reduceItemUses(item);
+    this._postItemUse(item.name, item.data.data['use-description']);
+  }
 
-    await promise;
-    item = this.actor.items.get(entityId);
-    if (parseInt(item.data.data.uses.value) === 0 && item.data.data.refresh === 'never') {
-      this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
+  async handleUseWeapon(e) {
+    const div = $(e.currentTarget).parents(".item");
+    const entityId = div.data("entity-id");
+    let item = this.actor.items.get(entityId);
+    
+    const success = await this._spendAmmo(item);
+    if (success) {
+      this._reduceAP(1);
     }
-  }
-
-  postSkillUse(skillName, apSpent) {
-    let chatData = {
-      speaker: {actor: this.actor._id},
-      // @todo localize
-      content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(skillName)}</b>!</span> <i style="font-size:10px">(${apSpent} AP spent)<i>`
-    };
-    ChatMessage.create(chatData, {});
-  }
-
-  postItemUse(abilityName, useDescription) {
-    let chatData = {
-      speaker: {actor: this.actor._id},
-      // @todo localize
-      content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(abilityName)}</b> to ${useDescription}</span>`
-    };
-    ChatMessage.create(chatData, {});
-  }
-
-  reduceAP(amount) {
-    const current = this.actor.data.data.bio.ap.value;
-    const min = current > 0 ? 0 : -1;
-    let updateData = {
-      'data.bio.ap.value': Math.max(min, current - amount),
-    };
-    this.actor.update(updateData);
-  }
-
-  reduceItemUses(item) {
-    const current = item.data.data.uses.value;
-    let updateData = {
-      'data.uses.value': Math.max(0, current - 1),
-    };
-    return item.update(updateData);
-  }
-
-  restoreAP(amount) {
-    const current = this.actor.data.data.bio.ap.value;
-    const max = this.actor.data.data.bio.ap.max;
-    let updateData = {
-      'data.bio.ap.value': Math.min(max, current + amount),
-    };
-    this.actor.update(updateData);
+    
+    this._postWeaponUse(item, success);
   }
 
   handleAddSkill() {
@@ -205,6 +196,16 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       }
     );
   }
+
+  handleItemCreate(event) {
+    event.preventDefault();
+    let header = event.currentTarget;
+    let data = duplicate(header.dataset);
+    data["name"] = `New ${data.type.capitalize()}`;
+    this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
+  }
+  
+  // ********** PREPARE DATA *************
 
   computeItems(data) {
     for (let item of Object.values(data.items)) {
@@ -244,33 +245,43 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   categorizeItems() {
     let itemsByCategory = {skill: {}, ability: {}, gear: {}, weapon: {}};
+    let category;
 
     this.actor.items.forEach((item) => {
       if (itemsByCategory[item.data.type] === undefined) {
         itemsByCategory[item.data.type] = {};
       }
-      if (item.type === 'skill') {
-        item.data.localizedDescr = "SKILL.DESCR." + item.name;
+
+      if (item.data.type === 'gear') {
+        category = item.data.data.category === '' ? game.i18n.localize('Other') : item.data.data.category;
+          
+        if (itemsByCategory.gear[category] === undefined) {
+          itemsByCategory.gear[category] = {};
+        }
+        itemsByCategory.gear[category][item.id] = item;
+      } else {
+        itemsByCategory[item.data.type][item.data.name] = item;
       }
-      itemsByCategory[item.data.type][item.data.name] = item;
     });
 
-    itemsByCategory.skill = this.sortItems(itemsByCategory.skill);
-    itemsByCategory.ability = this.sortItems(itemsByCategory.ability);
-    itemsByCategory.gear = this.sortItems(itemsByCategory.gear);
-    itemsByCategory.weapon = this.sortItems(itemsByCategory.weapon);
-
-    return itemsByCategory;
-  }
-
-  sortItems(items) {
-    return Object.keys(items).sort().reduce(
-      (obj, key) => { 
-        obj[key] = items[key]; 
-        return obj;
-      }, 
+    itemsByCategory.skill = this._sortItems(itemsByCategory.skill);
+    itemsByCategory.ability = this._sortItems(itemsByCategory.ability);
+    itemsByCategory.weapon = this._sortItems(
+      itemsByCategory.weapon, 
+      (itemId1, itemId2) => itemsByCategory.weapon[itemId1].name.localeCompare(itemsByCategory.weapon[itemId2].name)
+    );
+    Object.keys(itemsByCategory.gear).reduce(
+      (retVal, key) => {
+        retVal[key] = this._sortItems(
+          itemsByCategory.gear[key], 
+          (itemId1, itemId2) => itemsByCategory.gear[key][itemId1].name.localeCompare(itemsByCategory.gear[key][itemId2].name)
+        );
+        return retVal;
+      },
       {}
     );
+
+    return itemsByCategory;
   }
 
   computeSkillData(data) {
@@ -283,64 +294,124 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     data.data.allowedAbilityCount = ReputationStats.getForReputation(data.data.bio.reputation.value).ability;
   }
 
-  getModifier(modifierName) {
-    let modifier = 0;
+  getAmmoCounts(data) {
+    if (data.data.itemsByCategory.gear.Ammo === undefined) return {};
 
-    this.actor.items.forEach((item) => {
-      if (item.data.data.modifiers === undefined) {
-        return;
-      }
-      if (item.data.data.modifiers[modifierName] === undefined) {
-        return;
-      }
-      modifier += item.data.data.modifiers[modifierName];
-    });
-
-    return modifier;
-  }
-
-  hasAbility(abilityName) {
-    if (this.itemCache === {}) {
-      this.buildItemCache();
+    let ammoCounts = {};
+    for (const [key, ammo] of Object.entries(data.data.itemsByCategory.gear.Ammo)) {
+      ammoCounts[ammo.name] = ammo.data.data.uses.value;
     }
-
-    return this.itemCache["ability"][abilityName] !== undefined;
+    return ammoCounts;
   }
 
-  hasSkill(skillName) {
-    if (this.itemCache === {}) {
-      this.buildItemCache();
-    }
-
-    return this.itemCache["skill"][skillName] !== undefined;
-  }
-
-  handleItemCreate(event) {
-    event.preventDefault();
-    let header = event.currentTarget;
-    let data = duplicate(header.dataset);
-    data["name"] = `New ${data.type.capitalize()}`;
-    this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
-  }
-
-  /**
-   * Handle the final creation of dropped Item data on the Actor.
-   * This method is factored out to allow downstream classes the opportunity to override item creation behavior.
-   * @param {object} itemData     The item data requested for creation
-   * @return {Promise<Actor>}
-   * @private
-   */
-  async _onDropItemCreate(itemData) {
-    if (itemData.type === 'skill') {
-      let item;
-      for (let id in this.actor.data.items) {
-        item = this.actor.data.items[id];
-        if (item.name === itemData.name && item.type === 'skill') {
-          console.log("Actor already has skill " + item.name);
-          return null;
+  computeWeaponData(data) {
+    let newData;
+    const weapons = Object.keys(data.data.itemsByCategory.weapon).reduce(
+      (retVal, id) => {
+        newData = data.data.itemsByCategory.weapon[id];
+        newData.data.data.ammoCount = newData.data.data.ammo === '' ? false : (data.data.ammoCounts[newData.data.data.ammo] ?? 0);
+        // special case for grenades - they use themselves as ammo
+        if (newData.data.data.ammo === newData.name) {
+          newData.data.data.ammoCount = newData.data.data.uses.value;
         }
+        retVal[id] = newData;
+        return retVal;
+      },
+      {}
+    );
+
+    data.data.itemsByCategory.weapon = weapons;
+  }
+  
+  // ********** HELPERS *************
+
+  _postSkillUse(skillName, apSpent) {
+    let chatData = {
+      speaker: {actor: this.actor._id},
+      // @todo localize
+      content: `<span style="font-size: 16px;">Uses <b>${game.i18n.localize(skillName)}</b>!</span> <i style="font-size:10px">(${apSpent} AP spent)<i>`
+    };
+    ChatMessage.create(chatData, {});
+  }
+
+  _postItemUse(itemName, useDescription) {
+    let chatData = {
+      speaker: {actor: this.actor._id},
+      // @todo localize
+      content: `<span style="font-size: 16px;">Uses <b>${itemName}</b> to ${useDescription}</span>`
+    };
+    ChatMessage.create(chatData, {});
+  }
+
+  _postWeaponUse(weapon, success) {
+    let chatData = {
+      speaker: {actor: this.actor._id},
+    };
+    if (success) {
+      let ammoSpentString = '';
+      if (weapon.data.data.ammo !== '') {
+        ammoSpentString = `-1 ${weapon.data.data.ammo}`;
       }
+      chatData.content = `<div style="font-size: 16px;">Uses <b>${weapon.name}</b> to deal ${weapon.data.data.damage} damage!</div><i style="font-size:10px">(-1 AP; ${ammoSpentString})<i>`;
+    } else {
+      chatData.content = `<div style="font-size: 16px;">*CLICK* <i>No ammo for <b>${weapon.name}</b>!</i></div>`;
     }
-    return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+    ChatMessage.create(chatData, {});
+  }
+
+  _reduceAP(amount) {
+    const current = this.actor.data.data.bio.ap.value;
+    const min = current > 0 ? 0 : -1;
+    let updateData = {
+      'data.bio.ap.value': Math.max(min, current - amount),
+    };
+    this.actor.update(updateData);
+  }
+
+  _restoreAP(amount) {
+    const current = this.actor.data.data.bio.ap.value;
+    const max = this.actor.data.data.bio.ap.max;
+    let updateData = {
+      'data.bio.ap.value': Math.min(max, current + amount),
+    };
+    this.actor.update(updateData);
+  }
+
+  async _reduceItemUses(item) {
+    let success = true;
+    const current = item.data.data.uses.value;
+    if (current === 0) success = false;
+    else {
+      let updateData = {
+        'data.uses.value': Math.max(0, current - 1),
+      };
+      await item.update(updateData);
+    } 
+
+    item = this.actor.items.get(item.id);
+    if (parseInt(item.data.data.uses.value) === 0 && item.data.data.refresh === 'never') {
+      this.actor.deleteEmbeddedEntity("OwnedItem", item.id);
+    }
+
+    return success;
+  }
+
+  async _spendAmmo(weapon) {
+    if (weapon.data.data.ammo === '') return true;
+
+    let ammo = this.actor.items.getName(weapon.data.data.ammo);
+    if (!ammo) return false;
+
+    return this._reduceItemUses(ammo);
+  }
+
+  _sortItems(items, comparator) {
+    return Object.keys(items).sort(comparator).reduce(
+      (obj, key) => { 
+        obj[key] = items[key]; 
+        return obj;
+      }, 
+      {}
+    );
   }
 }

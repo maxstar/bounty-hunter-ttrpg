@@ -23,6 +23,20 @@
           "system": "bounty-hunter-ttrpg",
           "path": "./packs/skills.db",
           "entity": "Item"
+        },
+        {
+          "name": "abilities",
+          "label": "Abilities",
+          "system": "bounty-hunter-ttrpg",
+          "path": "./packs/abilities.db",
+          "entity": "Item"
+        },
+        {
+          "name": "equipment",
+          "label": "Equipment",
+          "system": "bounty-hunter-ttrpg",
+          "path": "./packs/equipment.db",
+          "entity": "Item"
         }
     ],
     "languages": [

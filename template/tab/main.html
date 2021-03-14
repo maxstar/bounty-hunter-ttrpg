@@ -58,22 +58,64 @@
                 <span>{{localize "HEADER.ITEMS"}} ({{data.encumbrance.value}}/{{data.encumbrance.max}})</span>
                 <span><button class="item-create" data-type="gear">+</button></span>
             </div>
-            <div class="items border">
-                {{#each data.itemsByCategory.gear as |item key|}}
-                <div class="flex item" data-entity-id="{{item._id}}">
-                    <div class="button">
-                        <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
-                    </div>
+            <div class="item-categories">
+                <div class="item-category border">
+                    <div class="item-category-header">{{localize "BH.WEAPON.TITLE"}}</div>
+                    <div class="items">
+                        {{#each data.itemsByCategory.weapon as |item id|}}
+                        <div class="flex item" data-entity-id="{{item._id}}">
+                            <div class="button">
+                                <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+                            </div>
 
-                    {{#if (or (eq item.data.data.uses.max '0') (eq item.data.data.uses.max 0))}}
-                        <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">{{localize item.name}}</div>
-                    {{else}}
-                        <button type="button" class="use-item" data-attribute="{{key}}" title="{{item.data.data.description}}" {{#if (eq item.data.data.uses.value 0)}}disabled="disabled"{{/if}}>{{localize item.name}}</button>
-                        <span class="item-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize item.data.data.refresh}})">{{item.data.data.uses.value}}</span>
-                    {{/if}}
-                    
-                    <div class="button faded">
-                        <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                            <a class="use-weapon full-width">
+                                <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">
+                                    <span>{{localize item.name}}</span>
+                                    <span class="weapon-damage item-stat" title="{{localize 'BH.WEAPON.DAMAGE'}}">
+                                        <i class="fas fa-sun"></i>
+                                        {{item.data.data.damage}}
+                                    </span>
+                                    <span class="weapon-range item-stat" title="{{localize 'BH.WEAPON.RANGE'}}">
+                                        {{item.data.data.range}}{{localize 'BH.METERS_SHORT'}}
+                                    </span>
+                                    {{#unless (eq item.data.data.ammoCount false)}}
+                                    <span class="weapon-ammo item-stat" title="{{item.data.data.ammo}}">
+                                        <i class="fas fa-grip-vertical"></i>
+                                        {{item.data.data.ammoCount}}
+                                    </span>
+                                    {{/unless}}
+                                </div>
+                            </a>
+
+                            <div class="button faded">
+                                <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                            </div>
+                        </div>
+                        {{/each}}
+                    </div>
+                </div>
+                {{#each data.itemsByCategory.gear as |items categoryName|}}
+                <div class="item-category border">
+                    <div class="item-category-header">{{categoryName}}</div>
+                    <div class="items">
+                        {{#each items as |item id|}}
+                        <div class="flex item" data-entity-id="{{item._id}}">
+                            <div class="button">
+                                <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+                            </div>
+
+                            {{#if (or (eq item.data.data.uses.max '0') (eq item.data.data.uses.max 0))}}
+                                <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">{{localize item.name}}</div>
+                            {{else}}
+                                <button type="button" class="use-item" data-attribute="{{key}}" title="{{item.data.data.description}}" {{#if (eq item.data.data.uses.value 0)}}disabled="disabled"{{/if}}>{{localize item.name}}</button>
+                                <span class="item-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize item.data.data.refresh}})">{{item.data.data.uses.value}}</span>
+                            {{/if}}
+                            
+                            <div class="button faded">
+                                <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                            </div>
+                        </div>
+                        {{/each}}
                     </div>
                 </div>
                 {{/each}}

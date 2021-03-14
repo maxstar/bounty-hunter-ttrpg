@@ -141,3 +141,21 @@ input.item-picker-checkbox {
     font-style: italic;
     margin-left: 6px;
 }
+
+.item-categories {
+    height: 450px;
+    overflow-y: scroll;
+    padding-right: 6px;
+}
+
+.item-category {
+    margin-top: 6px;
+}
+
+.item-category-header {
+    border-bottom: 1px dotted;
+}
+
+.item .item-stat {
+    padding-left: 10px;
+}
