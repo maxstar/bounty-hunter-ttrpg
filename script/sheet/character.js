@@ -42,12 +42,11 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    html.find('.ability-delete').click(this.handleRemoveAbility.bind(this));
-    html.find('.ability-edit').click(this.handleEditAbility.bind(this));
+    html.find('.ability-delete').click(this.handleRemoveItem.bind(this));
     html.find('.add-ability').click(this.handleAddAbility.bind(this));
-    html.find('.use-ability').click(this.handleUseAbility.bind(this));
+    html.find('.use-item').click(this.handleUseItem.bind(this));
 
-    html.find('.skill-delete').click(this.handleRemoveSkill.bind(this));
+    html.find('.skill-delete').click(this.handleRemoveItem.bind(this));
     html.find('.add-skill').click(this.handleAddSkill.bind(this));
     html.find('.use-skill').click(this.handleUseSkill.bind(this));
     html.find('.use-skill-hard').click(this.handleUseSkillHard.bind(this));
@@ -58,9 +57,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     html.find('.recover-uses-scene').click(this.handleRecoverUsesScene.bind(this));
     html.find('.recover-uses-day').click(this.handleRecoverUsesDay.bind(this));
 
-    // html.find(".item-create").click((ev) => {
-    //   this.onItemCreate(ev);
-    // });
+    html.find(".item-create").click(this.handleItemCreate.bind(this));
   }
 
   handleRecoverApHalf(e) {
@@ -118,14 +115,20 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     this.postSkillUse(skill.name, 1);
   }
 
-  handleUseAbility(e) {
-    const div = $(e.currentTarget).parents(".ability");
+  async handleUseItem(e) {
+    const div = $(e.currentTarget).parents(".item");
     const entityId = div.data("entity-id");
-    let ability = this.actor.items.get(entityId);
-    if (parseInt(ability.data.data.uses.value) === 0) return;
+    let item = this.actor.items.get(entityId);
+    if (parseInt(item.data.data.uses.value) === 0) return;
     
-    this.reduceAbilityUses(ability);
-    this.postAbilityUse(ability.name, ability.data.data['use-description']);
+    let promise = this.reduceItemUses(item);
+    this.postItemUse(item.name, item.data.data['use-description']);
+
+    await promise;
+    item = this.actor.items.get(entityId);
+    if (parseInt(item.data.data.uses.value) === 0 && item.data.data.refresh === 'never') {
+      this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
+    }
   }
 
   postSkillUse(skillName, apSpent) {
@@ -137,7 +140,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     ChatMessage.create(chatData, {});
   }
 
-  postAbilityUse(abilityName, useDescription) {
+  postItemUse(abilityName, useDescription) {
     let chatData = {
       speaker: {actor: this.actor._id},
       // @todo localize
@@ -155,12 +158,12 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     this.actor.update(updateData);
   }
 
-  reduceAbilityUses(ability) {
-    const current = ability.data.data.uses.value;
+  reduceItemUses(item) {
+    const current = item.data.data.uses.value;
     let updateData = {
       'data.uses.value': Math.max(0, current - 1),
     };
-    ability.update(updateData);
+    return item.update(updateData);
   }
 
   restoreAP(amount) {
@@ -184,8 +187,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     );
   }
 
-  handleRemoveSkill(e) {
-    const div = $(e.currentTarget).parents(".skill");
+  handleRemoveItem(e) {
+    const div = $(e.currentTarget).parents(".item");
     const entityId = div.data("entity-id");
 
     this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
@@ -201,21 +204,6 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
         that.actor.createEmbeddedEntity("OwnedItem", abilities);
       }
     );
-  }
-
-  handleRemoveAbility(e) {
-    const div = $(e.currentTarget).parents(".ability");
-    const entityId = div.data("entity-id");
-
-    this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
-  }
-
-  handleEditAbility(e) {
-    const div = $(e.currentTarget).parents(".ability");
-    const entityId = div.data("entity-id");
-    const ability = this.actor.items.get(entityId);
-
-    return ability.sheet.render(true);
   }
 
   computeItems(data) {
@@ -246,7 +234,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     for (let item of Object.values(data.items)) {
       itemsCarried += this._computerItemEncumbrance(item);
     }
-    const carryingCapacity = game.settings.get("bounty-hunter-ttrpg", "baseCarryingCapacity") + this.getModifier("CARRYING_CAPACITY");
+    const carryingCapacity = game.settings.get("bounty-hunter-ttrpg", "baseCarryingCapacity") + (this.actor.overrides["CARRYING_CAPACITY"] ?? 0);
     data.data.encumbrance = {
       value: itemsCarried,
       max: carryingCapacity,
@@ -255,7 +243,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   }
 
   categorizeItems() {
-    let itemsByCategory = {skill: {}, ability: {}};
+    let itemsByCategory = {skill: {}, ability: {}, gear: {}, weapon: {}};
 
     this.actor.items.forEach((item) => {
       if (itemsByCategory[item.data.type] === undefined) {
@@ -267,15 +255,18 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       itemsByCategory[item.data.type][item.data.name] = item;
     });
 
-    itemsByCategory.skill = this.sortSkills(itemsByCategory.skill);
+    itemsByCategory.skill = this.sortItems(itemsByCategory.skill);
+    itemsByCategory.ability = this.sortItems(itemsByCategory.ability);
+    itemsByCategory.gear = this.sortItems(itemsByCategory.gear);
+    itemsByCategory.weapon = this.sortItems(itemsByCategory.weapon);
 
     return itemsByCategory;
   }
 
-  sortSkills(skills) {
-    return Object.keys(skills).sort().reduce(
+  sortItems(items) {
+    return Object.keys(items).sort().reduce(
       (obj, key) => { 
-        obj[key] = skills[key]; 
+        obj[key] = items[key]; 
         return obj;
       }, 
       {}
@@ -324,13 +315,13 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     return this.itemCache["skill"][skillName] !== undefined;
   }
 
-  // onItemCreate(event) {
-  //   event.preventDefault();
-  //   let header = event.currentTarget;
-  //   let data = duplicate(header.dataset);
-  //   data["name"] = `New ${data.type.capitalize()}`;
-  //   this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
-  // }
+  handleItemCreate(event) {
+    event.preventDefault();
+    let header = event.currentTarget;
+    let data = duplicate(header.dataset);
+    data["name"] = `New ${data.type.capitalize()}`;
+    this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
+  }
 
   /**
    * Handle the final creation of dropped Item data on the Actor.

@@ -66,3 +66,14 @@ button.add-active-effect {
     text-decoration: line-through;
     text-decoration-thickness: 2px;
 }
+
+.bounty-hunter.item .profile-img {
+    min-width: 60px;
+    max-width: 60px;
+    margin-right: 10px;
+}
+
+.form-gear-label {
+    white-space: nowrap;
+    line-height: 25px;
+}

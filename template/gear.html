@@ -1,61 +1,84 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="header border">
+
+    <div class="flex section">
         <div class="avatar">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="header-stats">
-            <label>{{localize "GEAR.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
-            <label>{{localize "GEAR.BONUS"}}</label>
-            <div class="bonus">
-                <div class="skulls {{#unless data.bonus.value }}broken{{/unless}}">
-                    <a class="change-bonus" data-attribute="{{data.bonus}}">
-                        {{#skulls data.bonus.value data.bonus.max}}
-                            <i class="skull far {{#if @damaged}}fa-times-circle{{else}}fa-circle{{/if}}"></i>
-                        {{/skulls}}
-                    </a>
-                </div>
-                <div class="multivalue">
-                    <input name="data.bonus.value" type="number" value="{{data.bonus.value}}" data-dtype="Number" />
-                    &nbsp;/&nbsp;
-                    <input name="data.bonus.max" type="number" value="{{data.bonus.max}}" data-dtype="Number" />
+        <div class="full-width">
+            <div>
+                <div class="flex">
+                    <label class="form-gear-label">{{localize "BH.GEAR_NAME"}}</label>
+                    <input name="name" type="text" value="{{item.name}}" />
                 </div>
             </div>
-            <label>{{localize "ARTIFACT.ARTIFACT_BONUS"}}</label>
-            <div class="artifactBonus">
-                <select name="data.artifactBonus">
-                    {{#select data.artifactBonus}}
-                        <option value="">{{localize "ARTIFACT.REGULAR"}}</option>
-                        <option value="d8">{{localize "ARTIFACT.MIGHTY"}} (d8)</option>
-                        <option value="d10">{{localize "ARTIFACT.EPIC"}} (d10)</option>
-                        <option value="d12">{{localize "ARTIFACT.LEGENDARY"}} (d12)</option>
-                    {{/select}}
-                </select>
+            <div class="flex">
+                <div>
+                    <label class="form-gear-label">{{localize "BH.COST"}}</label>
+                    <input class="short-num" name="data.cost.value" type="number" value="{{data.cost.value}}" 
+                        min="0" data-dtype="Number" />
+                    <select name="data.cost.currency">
+                        {{#select data.cost.currency}}
+                            <option value="dc">{{localize "BH.DECA_CREDITS"}}</option>
+                            <option value="m">{{localize "BH.MARKS"}}</option>
+                        {{/select}}
+                    </select>
+                </div>
+                <div>
+                    <label class="form-gear-label">{{localize "BH.GEAR.ENCUMBRANCE"}}</label>
+                    <select name="data.encumbrance">
+                        {{#select data.encumbrance}}
+                            <option value="0">0</option>
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        {{/select}}
+                    </select>
+                </div>
             </div>
         </div>
     </div>
-    <div class="sheet-tabs tabs flex row" data-group="primary">
-        <b class="tab-item" data-tab="main">{{localize "TAB.MAIN"}}</b>
-        {{#if artifact}}
-            {{#if (or showDescriptionField showDrawbackField showAppearanceField showEffectField)}}
-                <b class="tab-item" data-tab="artifact">{{localize "TAB.ARTIFACT"}}</b>
-            {{/if}}
-        {{else}}
-            {{#if (or showCostField showSupplyField showCraftingFields)}}
-                <b class="tab-item" data-tab="supply">{{localize "TAB.CRAFT_SUPPLY"}}</b>
-            {{/if}}
-        {{/if}}
+
+    <div class="section flex">
+        <label class="form-gear-label">{{localize "BH.GEAR.CATEGORY"}}</label>
+        <input name="data.category" type="text" value="{{data.category}}" />
     </div>
-    <div class="sheet-body">
-        <div class="tab" data-group="primary" data-tab="main">
-{{> systems/bounty-hunter-ttrpg/model/tab/gear/gear-main.html}}
+
+    <div class="section">
+        <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
+        <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>
+    </div>
+
+    <div class="flex section">
+        <div>
+            <label class="form-gear-label">{{localize "BH.USES"}}</label>
+            <input class="short-num" name="data.uses.value" type="number" value="{{data.uses.value}}" 
+                min="0" data-dtype="Number" /> /
+            <input class="short-num" name="data.uses.max" type="number" value="{{data.uses.max}}" 
+                min="0" data-dtype="Number" />
         </div>
 
-        <div class="tab" data-group="primary" data-tab="artifact">
-{{> systems/bounty-hunter-ttrpg/model/tab/gear/gear-artifact.html}}
+        <div>
+            <label class="form-gear-label">{{localize "BH.REFRESH"}}</label>
+            <select name="data.refresh">
+                {{#select data.refresh}}
+                    <option value="never">{{localize "BH.NEVER"}}</option>
+                    <option value="scene">{{localize "BH.SCENE"}}</option>
+                    <option value="day">{{localize "BH.DAY"}}</option>
+                    <option value="manual">{{localize "BH.MANUAL"}}</option>
+                {{/select}}
+            </select>
         </div>
+    </div>
 
-        <div class="tab" data-group="primary" data-tab="supply">
-{{> systems/bounty-hunter-ttrpg/model/tab/gear/gear-supply.html}}
-        </div>
+    <div class="section">
+        <label class="form-gear-label">{{localize "BH.GEAR.USE_DESCRIPTION"}}</label>
+        <textarea class="gear-description" name="data.use-description">{{item.data.use-description}}</textarea>
+    </div>
+
+    <div class="section active-effects">
+        <div class="active-effects-header flex">{{localize 'BH.ACTIVE_EFFECTS'}} {{#unless item.data.isOwned}}<button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>{{/unless}}</div>
+        {{> "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html"}}
+    </div>
 </form>

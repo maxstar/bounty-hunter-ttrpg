@@ -8,12 +8,23 @@
 * [    ] abilities
     * [done] add/remove
     * [done] one-use effects, restore uses
-    * [ ?  ] active effects
+    * [done] active effects
     * [    ] compendium
     * [done] edit abilities from char sheet
     * [    ] post item to chat
 * [    ] items
-* [    ] starship functions for character
+    * [    ] forms
+        * [    ] weapon
+        * [do  ] gear
+    * [    ] list
+        * [done] add
+        * [done] edit
+        * [done] remove
+        * [done] use
+        * [    ] fix multiple instances of one item
+        * [    ] display by category
+    * [do  ] content
+* [    ] starship function qualifications for character
 * [    ] Encounter initiative and management
 * [    ] starships
 * [    ] thirst/hunger

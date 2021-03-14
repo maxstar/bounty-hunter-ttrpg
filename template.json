@@ -107,21 +107,32 @@
     "templates": {
       "item": {
         "cost": {"value": 2, "currency": "dc"},
-        "description": ""
+        "description": "",
+        "encumbrance": 1
       },
-      "modifiers": {}
+      "modifiers": {},
+      "usable": {
+        "use-description": "",
+        "uses": {
+          "value": 0,
+          "max": 0
+        },
+        "refresh": "scene"
+      }
     },
     "weapon": {
-      "templates": ["item", "modifiers"],
+      "templates": ["item", "modifiers", "usable"],
       "type": "melee",
-      "damage": 3
+      "damage": 5,
+      "ammo": ""
     },
     "armor": {
       "templates": ["item", "modifiers"],
       "protection": 1
     },
     "gear": {
-      "templates": ["item", "modifiers"]
+      "templates": ["item", "modifiers", "usable"],
+      "category": ""
     },
     "cargo": {
       "weight": 0
@@ -130,14 +141,8 @@
       "description": ""
     },
     "ability": {
-      "templates": ["modifiers"],
-      "description": "",
-      "use-description": "",
-      "uses": {
-        "value": 0,
-        "max": 0
-      },
-      "refresh": "scene"
+      "templates": ["modifiers", "usable"],
+      "description": ""
     },
     "component": {
       "description": "",

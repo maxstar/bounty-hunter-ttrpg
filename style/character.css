@@ -8,6 +8,11 @@
     margin-top: 4px;
 }
 
+.character .section .items {
+    width: 250px;
+    margin-top: 4px;
+}
+
 .actor .section {
     margin-top: 8px;
     border: 4px groove;
@@ -15,11 +20,15 @@
     width: fit-content;
 }
 
+.actor .column {
+    margin-right: 8px;
+}
+
 .section.section-recover {
 
 }
 
-.abilities .ability {
+.abilities .ability, .items .item {
     font-size: 14px;
     margin-left: 4px;
     font-weight: bold;
@@ -43,7 +52,7 @@ button.recover-ap, button.recover-uses {
     line-height: 25px;
 }
 
-button.use-skill, button.use-ability {
+button.use-skill, button.use-ability, button.use-item {
     padding: 0px;
     margin: 0px;
     font-size: 12px;
@@ -62,7 +71,7 @@ button.use-skill-hard {
     width: 30%;
 }
 
-button.add-skill, button.add-ability {
+button.add-skill, button.add-ability, button.item-create {
     width: fit-content;
     margin: 0px;
     font-size: 12px;
@@ -72,9 +81,11 @@ button.add-skill, button.add-ability {
     border: 0px;
 }
 
-.ability-uses {
+.ability-uses, .item-uses {
     margin-left: 4px;
     margin-right: 4px;
+    min-width: 15px;
+    text-align: center;
 }
 
 input.short-num {

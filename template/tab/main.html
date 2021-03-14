@@ -4,47 +4,80 @@
     <button type="button" class="recover-uses recover-uses-day" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_DAY_HINT'}}">{{localize 'BH.RECOVER_DAY'}}</button>
 </div>
 
-<div class="section section-abilities">
-    <div class="heading">
-        <span>{{localize "HEADER.ABILITIES"}} ({{data.abilityCount}}/{{data.allowedAbilityCount}})</span>
-        <span><button class="add-ability">{{localize "BH.ADD_ABILITY"}}</button></span>
-    </div>
-    <div class="abilities border">
-        {{#each data.itemsByCategory.ability as |ability key|}}
-        <div class="flex ability" data-entity-id="{{ability._id}}">
-            <div class="button">
-                <a class="item-control ability-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+<div class="flex">
+    <div class="column">
+        <div class="section section-abilities">
+            <div class="heading">
+                <span>{{localize "HEADER.ABILITIES"}} ({{data.abilityCount}}/{{data.allowedAbilityCount}})</span>
+                <span><button class="add-ability">{{localize "BH.ADD_ABILITY"}}</button></span>
             </div>
+            <div class="abilities border">
+                {{#each data.itemsByCategory.ability as |ability key|}}
+                <div class="flex ability item" data-entity-id="{{ability._id}}">
+                    <div class="button">
+                        <a class="item-control ability-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+                    </div>
 
-            {{#if (eq ability.data.data.uses.max '0')}}
-                <div class="ability" data-attribute="{{key}}" title="{{ability.data.data.description}}">{{localize ability.name}}</div>
-            {{else}}
-                <button type="button" class="use-ability" data-attribute="{{key}}" title="{{ability.data.data.description}}" {{#if (eq ability.data.data.uses.value 0)}}disabled="disabled"{{/if}}>{{localize ability.name}}</button>
-                <span class="ability-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize ability.data.data.refresh}})">{{ability.data.data.uses.value}}</span>
-            {{/if}}
-            
-            <div class="button faded">
-                <a class="item-control ability-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                    {{#if (eq ability.data.data.uses.max '0')}}
+                        <div class="ability" data-attribute="{{key}}" title="{{ability.data.data.description}}">{{localize ability.name}}</div>
+                    {{else}}
+                        <button type="button" class="use-item" data-attribute="{{key}}" title="{{ability.data.data.description}}" {{#if (eq ability.data.data.uses.value 0)}}disabled="disabled"{{/if}}>{{localize ability.name}}</button>
+                        <span class="ability-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize ability.data.data.refresh}})">{{ability.data.data.uses.value}}</span>
+                    {{/if}}
+                    
+                    <div class="button faded">
+                        <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                    </div>
+                </div>
+                {{/each}}
             </div>
         </div>
-        {{/each}}
-    </div>
-</div>
 
-<div class="section section-skills">
-    <div class="heading">
-        <span>{{localize "HEADER.SKILLS"}} ({{data.skillCount}}/{{data.allowedSkillCount}})</span>
-        <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>
-    </div>
-    <div class="skills border">
-        {{#each data.itemsByCategory.skill as |skill key|}}
-        <div class="flex skill" data-entity-id="{{skill._id}}">
-            <div class="button">
-                <a class="item-control skill-delete" title="{{localize 'BH.REMOVE_SKILL'}}"><i class="fas fa-trash"></i></a>
+        <div class="section section-skills">
+            <div class="heading">
+                <span>{{localize "HEADER.SKILLS"}} ({{data.skillCount}}/{{data.allowedSkillCount}})</span>
+                <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>
             </div>
-            <button type="button" class="use-skill" data-attribute="{{key}}" title="{{skill.data.data.description}}">{{localize skill.name}}</button>
-            <button type="button" class="use-skill-hard fas fa-angle-double-up" data-attribute="{{key}}" title="{{localize 'BH.HARD_CHECK'}}"></button>
+            <div class="skills border">
+                {{#each data.itemsByCategory.skill as |skill key|}}
+                <div class="flex skill item" data-entity-id="{{skill._id}}">
+                    <div class="button">
+                        <a class="item-control skill-delete" title="{{localize 'BH.REMOVE_SKILL'}}"><i class="fas fa-trash"></i></a>
+                    </div>
+                    <button type="button" class="use-skill" data-attribute="{{key}}" title="{{skill.data.data.description}}">{{localize skill.name}}</button>
+                    <button type="button" class="use-skill-hard fas fa-angle-double-up" data-attribute="{{key}}" title="{{localize 'BH.HARD_CHECK'}}"></button>
+                </div>
+                {{/each}}
+            </div>
         </div>
-        {{/each}}
+    </div>
+
+    <div class="column">
+        <div class="section section-items">
+            <div class="heading">
+                <span>{{localize "HEADER.ITEMS"}} ({{data.encumbrance.value}}/{{data.encumbrance.max}})</span>
+                <span><button class="item-create" data-type="gear">+</button></span>
+            </div>
+            <div class="items border">
+                {{#each data.itemsByCategory.gear as |item key|}}
+                <div class="flex item" data-entity-id="{{item._id}}">
+                    <div class="button">
+                        <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+                    </div>
+
+                    {{#if (or (eq item.data.data.uses.max '0') (eq item.data.data.uses.max 0))}}
+                        <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">{{localize item.name}}</div>
+                    {{else}}
+                        <button type="button" class="use-item" data-attribute="{{key}}" title="{{item.data.data.description}}" {{#if (eq item.data.data.uses.value 0)}}disabled="disabled"{{/if}}>{{localize item.name}}</button>
+                        <span class="item-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize item.data.data.refresh}})">{{item.data.data.uses.value}}</span>
+                    {{/if}}
+                    
+                    <div class="button faded">
+                        <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                    </div>
+                </div>
+                {{/each}}
+            </div>
+        </div>
     </div>
 </div>
