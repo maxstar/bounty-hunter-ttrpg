@@ -28,10 +28,9 @@
     * [done] consume ammo
     * [done] use appropriate skill
 * [done] bio
-* [    ] starship function qualifications for character
+* [done] starship function qualifications for character
 * [    ] Encounter initiative and management
 * [    ] starships
-* [    ] thirst/hunger
 * [    ] localization
 * [    ] character generator
 * [    ] skill check request

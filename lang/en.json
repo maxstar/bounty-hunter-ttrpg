@@ -29,6 +29,7 @@
   "HEADER.SKILLS": "Skills",
   "HEADER.ABILITIES": "Abilities",
   "HEADER.ITEMS": "Items",
+  "HEADER.QUALIFICATIONS": "Qualifications",
   "SHEET.HEADER.POST_ITEM": "Post",
   "SKILL.NAME": "Skill Name",
   "SKILL.DESCRIPTION": "Skill Description",
@@ -37,6 +38,13 @@
   "ABILITY.USE_DESCRIPTION": "On usage display: \"Used <ability> to ...\"",
   "ABILITY.PASSIVE": "Passive",
   "ABILITY.REFRESH": "Refresh uses",
+
+  "BH.ROLE.HELMSMAN": "Helmsman",
+  "BH.ROLE.TACTICAL": "Tactical",
+  "BH.ROLE.ENGINEER": "Engineer",
+  "BH.ROLE.GUNNER": "Gunner",
+  "BH.ROLE.COMMS": "Comms",
+  "BH.ROLE.CAPTAIN": "Captain",
   
   "BH.ADD": "Add",
   "BH.ADD_SKILL": "Add",

@@ -40,6 +40,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     this.computeAbilityData(data);
     data.data.ammoCounts = this.getAmmoCounts(data);
     this.computeWeaponData(data);
+    this.computeStarshipQualifications(data);
     return data;
   }
 
@@ -329,6 +330,42 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     );
 
     data.data.itemsByCategory.weapon = weapons;
+  }
+
+  computeStarshipQualifications(data) {
+    let qualifications = JSON.parse(JSON.stringify(CONFIG.BountyHunter['starship-roles'])); // deep clone
+    let canDoCount, canDo, missingSkills;
+    for (let [keyRole, role] of Object.entries(qualifications)) {
+      canDoCount = 0;
+      missingSkills = [];
+      for (const [keyFunc, func] of Object.entries(role.functions)) {
+        for(const skills of func.skill) {
+          if (Array.isArray(skills)) { // skill chain
+            canDo = true;
+            for(const skill of skills) {
+              if (data.data.itemsByCategory.skill[skill] === undefined) {
+                canDo = false;
+                missingSkills.push(skill);
+              }
+            }
+            if (canDo) canDoCount++;
+          } else { // single skill
+            if (data.data.itemsByCategory.skill[skills] !== undefined) {
+              canDoCount++;
+              break;
+            } else {
+              missingSkills.push(skills);
+            }
+          }
+        }
+      }
+
+      role.canDoFunctions = canDoCount;
+      role.totalFunctions = Object.keys(role.functions).length;
+      role.missingSkills = missingSkills;
+    }
+
+    data.data.qualifications = qualifications;
   }
   
   // ********** HELPERS *************

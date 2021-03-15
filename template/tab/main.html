@@ -126,5 +126,23 @@
             <button type="button" class="recover-uses recover-uses-scene" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_SCENE_HINT'}}">{{localize 'BH.RECOVER_SCENE'}}</button>
             <button type="button" class="recover-uses recover-uses-day" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_DAY_HINT'}}">{{localize 'BH.RECOVER_DAY'}}</button>
         </div>
+        <div class="section section-qualifications">
+            <div class="heading">
+                <span>{{localize "HEADER.QUALIFICATIONS"}}</span>
+            </div>
+            {{#each data.qualifications as |role key|}}
+            <div class="qualification-role">
+                <div><b>{{localize role.name}}:</b> {{role.canDoFunctions}}/{{role.totalFunctions}}</div>
+                <!-- <div>
+                    Missing: 
+                    <i>
+                        {{#each role.missingSkills as |skill|}}
+                        {{skill}}; 
+                        {{/each}}
+                    </i>
+                </div> -->
+            </div>
+            {{/each}}
+        </div>
     </div>
 </div>

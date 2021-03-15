@@ -1,0 +1,132 @@
+{
+    "helmsman": {
+        "name": "BH.ROLE.HELMSMAN",
+        "functions": {
+            "steer": {
+                "name": "BH.FUNCTION.STEER",
+                "description": "BH.FUNCTION.STEER_DESCRIPTION",
+                "skill": ["Vehicle Operations"]
+            },
+            "plot": {
+                "name": "BH.FUNCTION.PLOT",
+                "description": "BH.FUNCTION.PLOT_DESCRIPTION",
+                "skill": ["Navigation"]
+            },
+            "avoid": {
+                "name": "BH.FUNCTION.AVOID",
+                "description": "BH.FUNCTION.AVOID_DESCRIPTION",
+                "skill": ["Logic"]
+            }
+        }
+    },
+    "tactical": {
+        "name": "BH.ROLE.TACTICAL",
+        "functions": {
+            "scan": {
+                "name": "BH.FUNCTION.SCAN",
+                "description": "BH.FUNCTION.SCAN_DESCRIPTION",
+                "skill": ["Science"]
+            },
+            "fire": {
+                "name": "BH.FUNCTION.FIRE",
+                "description": "BH.FUNCTION.FIRE_DESCRIPTION",
+                "skill": ["Mounted Weapons"]
+            },
+            "target": {
+                "name": "BH.FUNCTION.TARGET",
+                "description": "BH.FUNCTION.TARGET_DESCRIPTION",
+                "skill": [["Engineering", "Logic"]]
+            }
+        }
+    },
+    "engineer": {
+        "name": "BH.ROLE.ENGINEER",
+        "functions": {
+            "repair": {
+                "name": "BH.FUNCTION.REPAIR",
+                "description": "BH.FUNCTION.REPAIR_DESCRIPTION",
+                "skill": ["Repair"]
+            },
+            "increase-power": {
+                "name": "BH.FUNCTION.INCREASE_POWER",
+                "description": "BH.FUNCTION.INCREASE_POWER_DESCRIPTION",
+                "skill": ["Engineering"]
+            },
+            "transfer-power": {
+                "name": "BH.FUNCTION.TRANSFER_POWER",
+                "description": "BH.FUNCTION.TRANSFER_POWER_DESCRIPTION",
+                "skill": [["Computer Acumen", "Engineering", "Vehicle Operations"]]
+            },
+            "mask": {
+                "name": "BH.FUNCTION.MASK",
+                "description": "BH.FUNCTION.MASK_DESCRIPTION",
+                "skill": [["Science", "Logic", "Stealth"]]
+            },
+            "transponder": {
+                "name": "BH.FUNCTION.TRANSPONDER",
+                "description": "BH.FUNCTION.TRANSPONDER_DESCRIPTION",
+                "skill": [["Computer Acumen", "Engineering", "Repair"]]
+            }
+        }
+    },
+    "gunner": {
+        "name": "BH.ROLE.GUNNER",
+        "functions": {
+            "fire": {
+                "name": "BH.FUNCTION.FIRE",
+                "description": "BH.FUNCTION.FIRE_DESCRIPTION",
+                "skill": ["Mounted Weapons"]
+            },
+            "target": {
+                "name": "BH.FUNCTION.TARGET",
+                "description": "BH.FUNCTION.TARGET_DESCRIPTION",
+                "skill": [["Engineering", "Logic"]]
+            }
+        }
+    },
+    "comms": {
+        "name": "BH.ROLE.COMMS",
+        "functions": {
+            "connect": {
+                "name": "BH.FUNCTION.CONNECT",
+                "description": "BH.FUNCTION.CONNECT_DESCRIPTION",
+                "skill": ["Computer Acumen"]
+            },
+            "jam": {
+                "name": "BH.FUNCTION.JAM",
+                "description": "BH.FUNCTION.JAM_DESCRIPTION",
+                "skill": [["Computer Acumen", "Logic", "Hacking"]]
+            },
+            "false-readings": {
+                "name": "BH.FUNCTION.FALSE_READINGS",
+                "description": "BH.FUNCTION.FALSE_READINGS_DESCRIPTION",
+                "skill": [["Computer Acumen", "Engineering", "Hacking"]]
+            }
+        }
+    },
+    "captain": {
+        "name": "BH.ROLE.CAPTAIN",
+        "functions": {
+            "coordinate": {
+                "name": "BH.FUNCTION.COORDINATE",
+                "description": "BH.FUNCTION.COORDINATE_DESCRIPTION",
+                "skill": ["Psychology"]
+            },
+            "inspire": {
+                "name": "BH.FUNCTION.INSPIRE",
+                "description": "BH.FUNCTION.INSPIRE_DESCRIPTION",
+                "skill": ["Charm", "Intimidation"]
+            },
+            "transfer-power": {
+                "name": "BH.FUNCTION.TRANSFER_POWER",
+                "description": "BH.FUNCTION.TRANSFER_POWER_DESCRIPTION",
+                "skill": [["Computer Acumen", "Engineering", "Vehicle Operations"]]
+            },
+            "countermeasures": {
+                "name": "BH.FUNCTION.COUNTERMEASURES",
+                "description": "BH.FUNCTION.COUNTERMEASURES_DESCRIPTION",
+                "skill": ["Logic"]
+            }
+        }
+    }
+}
