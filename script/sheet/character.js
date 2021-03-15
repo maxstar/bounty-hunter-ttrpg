@@ -309,11 +309,19 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const weapons = Object.keys(data.data.itemsByCategory.weapon).reduce(
       (retVal, id) => {
         newData = data.data.itemsByCategory.weapon[id];
-        newData.data.data.ammoCount = newData.data.data.ammo === '' ? false : (data.data.ammoCounts[newData.data.data.ammo] ?? 0);
+        newData.data.data.ammoCount = newData.data.data.ammo === '' 
+          ? false 
+          : (data.data.ammoCounts[newData.data.data.ammo] ?? 0);
         // special case for grenades - they use themselves as ammo
         if (newData.data.data.ammo === newData.name) {
           newData.data.data.ammoCount = newData.data.data.uses.value;
         }
+
+        // check that actor has the necessary skill to use the weapon
+        newData.data.data.canUse = newData.data.data.skill === '' 
+          ? true 
+          : (data.data.itemsByCategory.skill[newData.data.data.skill] !== undefined);
+
         retVal[id] = newData;
         return retVal;
       },
@@ -350,9 +358,9 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     if (success) {
       let ammoSpentString = '';
       if (weapon.data.data.ammo !== '') {
-        ammoSpentString = `-1 ${weapon.data.data.ammo}`;
+        ammoSpentString = `; -1 ${weapon.data.data.ammo}`;
       }
-      chatData.content = `<div style="font-size: 16px;">Uses <b>${weapon.name}</b> to deal ${weapon.data.data.damage} damage!</div><i style="font-size:10px">(-1 AP; ${ammoSpentString})<i>`;
+      chatData.content = `<div style="font-size: 16px;">Uses <b>${weapon.name}</b> to deal ${weapon.data.data.damage} damage!</div><i style="font-size:10px">(${weapon.data.data.skill}; -1 AP${ammoSpentString})<i>`;
     } else {
       chatData.content = `<div style="font-size: 16px;">*CLICK* <i>No ammo for <b>${weapon.name}</b>!</i></div>`;
     }

@@ -26,6 +26,7 @@
     * [done] content, compendium
     * [done] use weapons
     * [done] consume ammo
+    * [done] use appropriate skill
 * [    ] starship function qualifications for character
 * [    ] Encounter initiative and management
 * [    ] starships

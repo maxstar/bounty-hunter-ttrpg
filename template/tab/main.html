@@ -68,8 +68,10 @@
                                 <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
                             </div>
 
+                            {{#if item.data.data.canUse}}
                             <a class="use-weapon full-width">
-                                <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">
+                            {{/if}}
+                                <div class="item{{#unless item.data.data.canUse}} faded{{/unless}}" data-attribute="{{key}}" title="{{#if item.data.data.canUse}}{{item.data.data.description}}{{else}}{{localize 'BH.WEAPON.LACK_SKILL'}}{{/if}}">
                                     <span>{{localize item.name}}</span>
                                     <span class="weapon-damage item-stat" title="{{localize 'BH.WEAPON.DAMAGE'}}">
                                         <i class="fas fa-sun"></i>
@@ -85,7 +87,9 @@
                                     </span>
                                     {{/unless}}
                                 </div>
+                            {{#if item.data.data.canUse}}
                             </a>
+                            {{/if}}
 
                             <div class="button faded">
                                 <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>

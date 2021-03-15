@@ -75,6 +75,7 @@
   "BH.WEAPON.DAMAGE": "Damage",
   "BH.WEAPON.RANGE": "Range",
   "BH.WEAPON.AMMO": "Ammo Type",
+  "BH.WEAPON.LACK_SKILL": "You lack the skill to use this weapon!",
   "BH.USES": "# of uses",
   "BH.REFRESH": "Refresh uses",
   "BH.METERS_SHORT": "m",

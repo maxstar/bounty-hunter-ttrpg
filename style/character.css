@@ -9,7 +9,7 @@
 }
 
 .character .section .items {
-    width: 250px;
+    width: 220px;
     margin-top: 4px;
 }
 
@@ -18,6 +18,10 @@
     border: 4px groove;
     padding: 6px;
     width: fit-content;
+}
+
+.actor .section.section-items {
+    width: 250px;
 }
 
 .actor .column {
