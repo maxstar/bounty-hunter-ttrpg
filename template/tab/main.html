@@ -1,9 +1,3 @@
-<div class="section section-recover flex">
-    <span class="recover-text">{{localize 'BH.RECOVER_USES'}}</span>
-    <button type="button" class="recover-uses recover-uses-scene" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_SCENE_HINT'}}">{{localize 'BH.RECOVER_SCENE'}}</button>
-    <button type="button" class="recover-uses recover-uses-day" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_DAY_HINT'}}">{{localize 'BH.RECOVER_DAY'}}</button>
-</div>
-
 <div class="flex">
     <div class="column">
         <div class="section section-abilities">
@@ -124,6 +118,13 @@
                 </div>
                 {{/each}}
             </div>
+        </div>
+    </div>
+    <div class="column">
+        <div class="section section-recover">
+            <div class="recover-text">{{localize 'BH.RECOVER_USES'}}</div>
+            <button type="button" class="recover-uses recover-uses-scene" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_SCENE_HINT'}}">{{localize 'BH.RECOVER_SCENE'}}</button>
+            <button type="button" class="recover-uses recover-uses-day" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_DAY_HINT'}}">{{localize 'BH.RECOVER_DAY'}}</button>
         </div>
     </div>
 </div>

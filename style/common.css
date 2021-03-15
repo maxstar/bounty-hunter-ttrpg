@@ -30,3 +30,14 @@ table {
 .full-width {
     width: 100%;
 }
+
+.sheet-tabs.tabs {
+    border: 1px solid;
+    padding: 6px;
+    background-color: gray;
+}
+
+.tabs .item.active {
+    text-shadow:none;
+    background-color: lightgray;
+}

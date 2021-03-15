@@ -1,6 +1,45 @@
+.bounty-hunter .character {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.bounty-hunter .sheet-body {
+  overflow: hidden;
+  flex-grow: 1;
+}
+
+.bounty-hunter .tab {
+    height: 100%;
+    width: 100%;
+}
+
+.bounty-hunter .editor,
+.bounty-hunter .editor-content {
+  height: 100%;
+  padding: 5px;
+  width: 100%;
+}
+  
 .bounty-hunter .character .profile-img {
     width: 100px;
     min-width: 100px;
+}
+
+.actor .bio-tab .section {
+    width: 100%;
+}
+
+.bounty-hunter h1 {
+  border: 0 none;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: initial;
+  margin: 0;
+  padding: 4px 4px;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .skills, .abilities {

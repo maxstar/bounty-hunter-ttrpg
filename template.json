@@ -31,6 +31,10 @@
           "label": "BIO.REPUTATION",
           "value": 1
         },
+        "other": {
+          "label": "BIO.OTHER",
+          "value": ""
+        },
         "note": {
           "label": "BIO.NOTE",
           "value": ""
