@@ -6,7 +6,6 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/character.html",
     "systems/bounty-hunter-ttrpg/template/starship.html",
     "systems/bounty-hunter-ttrpg/template/weapon.html",
-    "systems/bounty-hunter-ttrpg/template/armor.html",
     "systems/bounty-hunter-ttrpg/template/gear.html",
     "systems/bounty-hunter-ttrpg/template/skill.html",
     "systems/bounty-hunter-ttrpg/template/ability.html",
@@ -18,6 +17,7 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html",
     "systems/bounty-hunter-ttrpg/template/dialog/ap-per-skill.html",
     "systems/bounty-hunter-ttrpg/template/chat/skill-challenge.html",
+    "systems/bounty-hunter-ttrpg/template/component/bh-combat-tracker.html",
   ];
   return loadTemplates(templatePaths);
 }

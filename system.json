@@ -53,7 +53,7 @@
     ],
     "gridDistance": 1,
     "gridUnits": "m",
-    "primaryTokenAttribute": null,
+    "primaryTokenAttribute": "bio.ap",
     "secondaryTokenAttribute": null,
     "url": "https://github.com/maxstar/bounty-hunter-ttrpg",
     "socket": true,

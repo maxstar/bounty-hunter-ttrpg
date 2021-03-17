@@ -202,3 +202,9 @@ input.item-picker-checkbox {
 .item .item-stat {
     padding-left: 10px;
 }
+
+.actor .sheet-tabs.tabs {
+    border: 1px solid;
+    padding: 6px;
+    background-color: gray;
+}

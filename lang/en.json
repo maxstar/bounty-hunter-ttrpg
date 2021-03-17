@@ -89,5 +89,10 @@
   "BH.REFRESH": "Refresh uses",
   "BH.METERS_SHORT": "m",
 
+  "BH.PHASE.NAME": "Phase",
+  "BH.PHASE.FIRST": "First",
+  "BH.PHASE.LAST": "Last",
+  
+
   "":""
 }
