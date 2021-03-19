@@ -33,6 +33,14 @@
         * [done] split by phases
         * [done] buttons to change phases for a combatant
 * [    ] starships
+    * [    ] component form
+    * [    ] content: basic components
+    * [    ] starship sheet
+        * [    ] add characters
+        * [    ] component display
+        * [    ] station (role) display
+        * [    ] character assignment to stations
+        * [    ] function buttons
 * [    ] localization
 * [    ] character generator
 

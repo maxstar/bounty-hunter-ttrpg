@@ -23,11 +23,11 @@ export class BhCombatTracker extends CombatTracker {
       {active: 2 === (combat.phase ?? 0), combatants: []},
     ];
     for ( let [i, combatant] of data.turns.entries() ) {
-      phases[combatant.initiative].combatants.push(combatant);
+      phases[combatant.initiative ?? 2].combatants.push(combatant);
     }
 
     data.phases = phases;
-    data.displayPhaseControl = phases[0].active;
+    data.displayPhaseControl = combat.stated && phases[0].active;
 
     return data;
   }

@@ -92,7 +92,7 @@
   "BH.PHASE.NAME": "Phase",
   "BH.PHASE.FIRST": "First Phase",
   "BH.PHASE.LAST": "Last Phase",
-  "BH.PHASE.DECLARE": "Declare Phase",
+  "BH.PHASE.DECLARE": "Phase Declaration",
 
   "COMBAT.PhasePrev": "Previous Phase",
   "COMBAT.PhaseNext": "Next Phase",
