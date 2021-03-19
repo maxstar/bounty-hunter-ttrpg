@@ -96,6 +96,8 @@
 
   "COMBAT.PhasePrev": "Previous Phase",
   "COMBAT.PhaseNext": "Next Phase",
+  "COMBAT.GO_FIRST_PHASE": "Go in the First Phase (-1 AP)",
+  "COMBAT.GO_LAST_PAHSE": "Go in the Last Phase (Refund 1 AP)",
   
 
   "":""

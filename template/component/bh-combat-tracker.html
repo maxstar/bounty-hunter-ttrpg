@@ -86,10 +86,14 @@
                 <span class="resource">{{this.resource}}</span>
             </div>
             {{/if}}
-
-            <!-- <div class="token-initiative">
-                <span class="initiative">{{#if (eq this.initiative 2)}}{{localize 'BH.PHASE.FIRST'}}{{else}}{{localize 'BH.PHASE.LAST'}}{{/if}}</span>
-            </div> -->
+            
+            {{#if ../../displayPhaseControl}}
+                {{#if (eq phaseNum 1)}}
+                <a class="phase-control go-last" title="{{localize 'COMBAT.GO_LAST_PAHSE'}}" data-control="goLastPhase"><i class="fas fa-level-down-alt"></i></a>
+                {{else if (eq phaseNum 2)}}
+                <a class="phase-control go-first" title="{{localize 'COMBAT.GO_FIRST_PHASE'}}" data-control="goFirstPhase"><i class="fas fa-level-up-alt"></i></a>
+                {{/if}}
+            {{/if}}
         </li>
         {{/each}}
     </div>

@@ -3,6 +3,13 @@ export class BhCombatTracker extends CombatTracker {
     return "systems/bounty-hunter-ttrpg/template/component/bh-combat-tracker.html";
   }
 
+  /** @override */
+	activateListeners(html) {
+	  super.activateListeners(html);
+
+    html.find('.phase-control').click(ev => this._onPhaseControl(ev));
+  }
+
   async getData(options) {
     let data = await super.getData(options);
 
@@ -10,49 +17,50 @@ export class BhCombatTracker extends CombatTracker {
     const hasCombat = combat !== null;
     if ( !hasCombat ) return data;
 
-    const phases = [];
-    for ( let [p, phase] of combat.phases.entries() ) {
-      const newPhase = {active: p === (combat.phase ?? 0), combatants: []};
-      for ( let [i, combatant] of phase.entries() ) {
-        if ( !combatant.visible ) continue;
-  
-        // Thumbnail image for video tokens
-        if ( VideoHelper.hasVideoExtension(combatant.img) ) {
-          if ( combatant.thumb ) combatant.img = combatant.thumb;
-          else combatant.img = combatant.thumb = await game.video.createThumbnail(combatant.img, {width: 100, height: 100});
-        }
-  
-        // Copy the turn data
-        const c = duplicate(combatant);
-        if ( Number.isFinite(c.initiative) && !Number.isInteger(c.initiative) ) hasDecimals = true;
-  
-        // Token status effect icons
-        c.effects = new Set(c.token?.effects || []);
-        if ( c.token?.overlayEffect ) c.effects.add(c.token.overlayEffect);
-        if ( combatant.actor ) combatant.actor.temporaryEffects.forEach(e => {
-          if ( e.getFlag("core", "statusId") === CONFIG.Combat.defeatedStatusId ) c.defeated = true;
-          else if ( e.data.icon ) c.effects.add(e.data.icon);
-        });
-  
-        // Track resources
-        if ( c.permission < ENTITY_PERMISSIONS.OBSERVER ) c.resource = null;
-  
-        // Rendering states
-        c.active = c.initiative === combat.phase;
-        c.css = [
-          c.active ? "active" : "",
-          c.hidden ? "hidden" : "",
-          c.defeated ? "defeated" : ""
-        ].join(" ").trim();
-        c.hasResource = c.resource !== null;
-
-        newPhase.combatants.push(c);
-      }
-      phases.push(newPhase);
+    const phases = [
+      {active: 0 === (combat.phase ?? 0), combatants: []},
+      {active: 1 === (combat.phase ?? 0), combatants: []},
+      {active: 2 === (combat.phase ?? 0), combatants: []},
+    ];
+    for ( let [i, combatant] of data.turns.entries() ) {
+      phases[combatant.initiative].combatants.push(combatant);
     }
 
     data.phases = phases;
+    data.displayPhaseControl = phases[0].active;
 
     return data;
+  }
+
+
+  /**
+   * Handle a phase control buttons
+   * @private
+   * @param {Event} event   The originating mousedown event
+   */
+  async _onPhaseControl(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const btn = event.currentTarget;
+    const li = btn.closest(".combatant");
+    const c = this.combat.getCombatant(li.dataset.combatantId);
+
+    // Switch control action
+    switch (btn.dataset.control) {
+
+      case "goFirstPhase":
+        await this.combat.updateCombatant({_id: c._id, initiative: 1});
+        await c.actor.reduceAP(1);
+        break;
+
+      // Toggle combatant defeated flag
+      case "goLastPhase":
+        await this.combat.updateCombatant({_id: c._id, initiative: 2});
+        await c.actor.restoreAP(1);
+        break;
+    }
+
+    // Render tracker updates
+    this.render();
   }
 }

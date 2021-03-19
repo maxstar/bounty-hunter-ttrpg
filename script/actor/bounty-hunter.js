@@ -1,4 +1,23 @@
-export class BountyHunterActor extends Actor {}
+export class BountyHunterActor extends Actor {
+
+  reduceAP(amount) {
+    const current = this.data.data.bio.ap.value;
+    const min = current > 0 ? 0 : -1;
+    let updateData = {
+      'data.bio.ap.value': Math.max(min, current - amount),
+    };
+    this.update(updateData);
+  }
+
+  restoreAP(amount) {
+    const current = this.data.data.bio.ap.value;
+    const max = this.data.data.bio.ap.max;
+    let updateData = {
+      'data.bio.ap.value': Math.min(max, current + amount),
+    };
+    this.update(updateData);
+  }
+}
   
 export class BountyHunterItem extends Item {
     async sendToChat() {

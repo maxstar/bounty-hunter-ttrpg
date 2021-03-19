@@ -12,3 +12,9 @@
 .phase-title {
   text-align: center;
 }
+
+.phase-control {
+  max-width: 48px;
+  text-align: center;
+  color: white;
+}

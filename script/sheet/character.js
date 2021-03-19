@@ -91,12 +91,12 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   handleRecoverApHalf(e) {
     const half = Math.ceil(this.actor.data.data.bio.ap.max / 2);
-    this._restoreAP(half);
+    this.actor.restoreAP(half);
   }
 
   handleRecoverApAll(e) {
     const max = this.actor.data.data.bio.ap.max;
-    this._restoreAP(max);
+    this.actor.restoreAP(max);
   }
 
   handleRecoverUsesScene(e) {
@@ -129,7 +129,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       game.i18n.localize('BH.HOW_MANY'),
       Math.min(game.settings.get("bounty-hunter-ttrpg", "maxApPerSkill"), this.actor.data.data.bio.ap.value),
       function (ap) {
-        that._reduceAP(ap);
+        that.actor.reduceAP(ap);
         that._postSkillUse(skill.name, ap);
       }
     );
@@ -140,7 +140,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const entityId = div.data("entity-id");
     let skill = this.actor.items.get(entityId);
     
-    this._reduceAP(1);
+    this.actor.reduceAP(1);
     this._postSkillUse(skill.name, 1);
   }
 
@@ -161,7 +161,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     
     const success = await this._spendAmmo(item);
     if (success) {
-      this._reduceAP(1);
+      this.actor.reduceAP(1);
     }
     
     this._postWeaponUse(item, success);
@@ -402,24 +402,6 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       chatData.content = `<div style="font-size: 16px;">*CLICK* <i>No ammo for <b>${weapon.name}</b>!</i></div>`;
     }
     ChatMessage.create(chatData, {});
-  }
-
-  _reduceAP(amount) {
-    const current = this.actor.data.data.bio.ap.value;
-    const min = current > 0 ? 0 : -1;
-    let updateData = {
-      'data.bio.ap.value': Math.max(min, current - amount),
-    };
-    this.actor.update(updateData);
-  }
-
-  _restoreAP(amount) {
-    const current = this.actor.data.data.bio.ap.value;
-    const max = this.actor.data.data.bio.ap.max;
-    let updateData = {
-      'data.bio.ap.value': Math.min(max, current + amount),
-    };
-    this.actor.update(updateData);
   }
 
   async _reduceItemUses(item) {

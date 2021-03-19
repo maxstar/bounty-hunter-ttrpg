@@ -28,10 +28,10 @@
     * [    ] tech items recharging
 * [done] bio
 * [done] starship function qualifications for character
-* [    ] Encounter initiative and management
-    * [    ] Combat Tracker UI
-        * [    ] split by phases
-        * [    ] button to act in phase 1
+* [done] Encounter initiative and management
+    * [done] Combat Tracker UI
+        * [done] split by phases
+        * [done] buttons to change phases for a combatant
 * [    ] starships
 * [    ] localization
 * [    ] character generator
