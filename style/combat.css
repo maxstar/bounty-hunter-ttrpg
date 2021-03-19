@@ -1,0 +1,14 @@
+.combat-phase {
+  min-height: 50px;
+  border: 2px dotted gray;
+  color: gray;
+}
+
+.combat-phase.active {
+  border: 2px solid white;
+  color: white;
+}
+
+.phase-title {
+  text-align: center;
+}

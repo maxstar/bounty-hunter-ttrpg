@@ -90,8 +90,12 @@
   "BH.METERS_SHORT": "m",
 
   "BH.PHASE.NAME": "Phase",
-  "BH.PHASE.FIRST": "First",
-  "BH.PHASE.LAST": "Last",
+  "BH.PHASE.FIRST": "First Phase",
+  "BH.PHASE.LAST": "Last Phase",
+  "BH.PHASE.DECLARE": "Declare Phase",
+
+  "COMBAT.PhasePrev": "Previous Phase",
+  "COMBAT.PhaseNext": "Next Phase",
   
 
   "":""

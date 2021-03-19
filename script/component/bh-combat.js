@@ -1,4 +1,36 @@
 export class BhCombat extends Combat {
+  constructor(...args) {
+    super(...args);
+
+    /**
+     * Track the sorted turn order of this combat encounter
+     * @type {Array}
+     */
+    this.phases = this.phases || [];
+  }
+
+  /**
+   * The numeric turn of the combat round in the Combat encounter
+   * @type {number}
+   */
+  get phase() {
+    return Math.max(this.data.flags.phase, 0);
+  }
+  
+  /**
+  * Prepare Embedded Entities which exist within the parent Combat.
+  * For example, in the case of an Actor, this method is responsible for preparing the Owned Items the Actor contains.
+  */
+ prepareEmbeddedEntities() {
+   super.prepareEmbeddedEntities();
+
+   this.phases = this.setupPhases();
+ }
+
+ setupPhases() {
+   this.data.flags.phase = this.data.flags.phase ?? 0;
+   return this.phases = [[], [], this.turns];
+ }
 
   /**
    * Prepare turn data for one specific combatant.
@@ -34,7 +66,7 @@ export class BhCombat extends Combat {
       const c = this.getCombatant(id);
       if ( !c || !c.owner ) return results;
 
-      updates.push({_id: id, initiative: 1});
+      updates.push({_id: id, initiative: 2});
 
       // Return the Roll and the chat data
       return results;
@@ -59,15 +91,86 @@ export class BhCombat extends Combat {
    */
   async startCombat() {
     this.rollInitiative(this.turns.map(t => t._id));
-    return super.startCombat();
+    return await this.update({round: 1, turn: 0, 'flags.phase': 0});
   }
   
   /**
    * Advance the combat to the next turn
    * @return {Promise<Combat>}
    */
-   async nextTurn() {
+   async nextRound() {
     this.rollInitiative(this.turns.map(t => t._id));
-    return super.nextTurn();
+    let turn = 0;
+    if ( this.settings.skipDefeated ) {
+      turn = this.turns.findIndex(t => {
+        return !(t.defeated ||
+        t.actor?.effects.find(e => e.getFlag("core", "statusId") === CONFIG.Combat.defeatedStatusId ));
+      });
+      if (turn === -1) {
+        ui.notifications.warn(game.i18n.localize("COMBAT.NoneRemaining"));
+        turn = 0;
+      }
+    }
+    let advanceTime = Math.max(this.turns.length - this.data.turn, 1) * CONFIG.time.turnTime;
+    advanceTime += CONFIG.time.roundTime;
+    return this.update({round: this.round+1, turn: turn, 'flags.phase': 0}, {advanceTime});
+   }
+
+   /**
+    * Rewind the combat to the previous round
+    * @return {Promise<Combat>}
+    */
+   async previousRound() {
+     let phase = ( this.round === 0 ) ? 0 : 2;
+     const round = Math.max(this.round - 1, 0);
+     let advanceTime = -1 * this.data.flags.phase * CONFIG.time.turnTime;
+     if ( round > 0 ) advanceTime -= CONFIG.time.roundTime;
+     return this.update({round, 'flags.phase': phase}, {advanceTime});
+   }
+
+   /**
+    * Advance the combat to the next phase
+    * 
+    * Phases:
+    *   0 - declaration
+    *   1 - First Phase
+    *   2 - Last Phase
+    * 
+    * @return {Promise<Combat>}
+    */
+   async nextPhase() {
+     let phase = this.phase ?? 0;
+ 
+     // Determine the next phase number
+     let next = phase + 1;
+ 
+     // Maybe advance to the next round
+     let round = this.round;
+     if ( (this.round === 0) || (next === null) || (next >= 3) ) {
+       return this.nextRound();
+     }
+ 
+     // Update the encounter
+     const advanceTime = CONFIG.time.turnTime;
+     this.update({round: round, 'flags.phase': next}, {advanceTime});
+   }
+
+   /**
+    * Rewind the combat to the previous phase
+    * @return {Promise<Combat>}
+    */
+   async previousPhase() {
+     if ( this.phase === 0 && this.round === 0 ) return Promise.resolve();
+     else if ( this.phase === 0 ) return this.previousRound();
+     const advanceTime = -1 * CONFIG.time.turnTime;
+     return this.update({'flags.phase': this.phase - 1}, {advanceTime});
+ 
+   }
+
+   /** @override */
+   _onModifyEmbeddedEntity(...args) {
+     this.setupTurns();
+     this.setupPhases();
+     if ( this === this.collection.viewed ) this.collection.render();
    }
 }

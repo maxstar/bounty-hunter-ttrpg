@@ -14,7 +14,8 @@
         "style/common.css",
         "style/character.css",
         "style/item.css",
-        "style/chat.css"
+        "style/chat.css",
+        "style/combat.css"
     ],
     "packs": [
         {
