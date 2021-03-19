@@ -106,6 +106,7 @@
       "skill",
       "ability",
       "component",
+      "weapon-component",
       "cargo"
     ],
     "templates": {
@@ -151,10 +152,23 @@
     },
     "component": {
       "description": "",
-      "penalty": "",
+      "power-effect": "",
       "pp": {
-        "value": 6,
-        "max": 6
+        "value": 10,
+        "max": 10
+      }
+    },
+    "weapon-component": {
+      "description": "",
+      "power-effect": "",
+      "pp": {
+        "value": 10,
+        "max": 10
+      },
+      "damage": 4,
+      "range": {
+        "min": "close",
+        "max": "close"
       }
     }
   }

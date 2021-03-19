@@ -27,7 +27,7 @@ export class BhCombatTracker extends CombatTracker {
     }
 
     data.phases = phases;
-    data.displayPhaseControl = combat.stated && phases[0].active;
+    data.displayPhaseControl = combat.started && phases[0].active;
 
     return data;
   }

@@ -10,6 +10,7 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/skill.html",
     "systems/bounty-hunter-ttrpg/template/ability.html",
     "systems/bounty-hunter-ttrpg/template/component.html",
+    "systems/bounty-hunter-ttrpg/template/weapon-component.html",
     "systems/bounty-hunter-ttrpg/template/cargo.html",
     "systems/bounty-hunter-ttrpg/template/tab/main.html",
     "systems/bounty-hunter-ttrpg/template/tab/bio.html",

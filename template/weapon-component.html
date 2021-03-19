@@ -23,6 +23,28 @@
     </div>
 
     <div class="section">
+        <label class="form-component-label">{{localize "BH.COMPONENT.DAMAGE"}}</label>
+        <input class="short-num" name="data.damage" type="number" value="{{data.damage}}" min="0" data-dtype="Number" />
+        <label class="form-component-label">{{localize "BH.COMPONENT.RANGE"}}</label>
+        <select name="data.range.min">
+            {{#select data.range.min}}
+                <option value="-">{{localize "BH.RANGE.NONE"}}</option>
+                <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
+                <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
+                <option value="long">{{localize "BH.RANGE.LONG"}}</option>
+            {{/select}}
+        </select> - 
+        <select name="data.range.max">
+            {{#select data.range.max}}
+                <option value="-">{{localize "BH.RANGE.NONE"}}</option>
+                <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
+                <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
+                <option value="long">{{localize "BH.RANGE.LONG"}}</option>
+            {{/select}}
+        </select>
+    </div>
+
+    <div class="section">
         <label class="form-component-label">{{localize "BH.COMPONENT.DESCRIPTION"}}</label>
         <textarea class="component-description" name="data.description">{{item.data.description}}</textarea>
     </div>

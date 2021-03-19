@@ -5,6 +5,7 @@ import { BountyHunterGearSheet } from "../sheet/gear.js";
 import { BountyHunterSkillSheet } from "../sheet/skill.js";
 import { BountyHunterAbilitySheet } from "../sheet/ability.js";
 import { BountyHunterComponentSheet } from "../sheet/component.js";
+import { BountyHunterWeaponComponentSheet } from "../sheet/weapon-component.js";
 import { BountyHunterCargoSheet } from "../sheet/cargo.js";
 
 export function registerSheets() {
@@ -17,5 +18,6 @@ export function registerSheets() {
   Items.registerSheet("bounty-hunter-ttrpg", BountyHunterSkillSheet, { types: ["skill"], makeDefault: true });
   Items.registerSheet("bounty-hunter-ttrpg", BountyHunterAbilitySheet, { types: ["ability"], makeDefault: true });
   Items.registerSheet("bounty-hunter-ttrpg", BountyHunterComponentSheet, { types: ["component"], makeDefault: true });
+  Items.registerSheet("bounty-hunter-ttrpg", BountyHunterWeaponComponentSheet, { types: ["weapon-component"], makeDefault: true });
   Items.registerSheet("bounty-hunter-ttrpg", BountyHunterCargoSheet, { types: ["cargo"], makeDefault: true });
 }

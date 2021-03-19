@@ -25,6 +25,7 @@
     * [done] use weapons
     * [done] consume ammo
     * [done] use appropriate skill
+    * [    ] item durability (PP)
     * [    ] tech items recharging
 * [done] bio
 * [done] starship function qualifications for character
@@ -33,8 +34,9 @@
         * [done] split by phases
         * [done] buttons to change phases for a combatant
 * [    ] starships
-    * [    ] component form
-    * [    ] content: basic components
+    * [done] component form
+    * [done] weapon array form
+    * [done] content: basic components
     * [    ] starship sheet
         * [    ] add characters
         * [    ] component display

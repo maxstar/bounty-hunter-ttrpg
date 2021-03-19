@@ -36,6 +36,11 @@
                 "name": "BH.FUNCTION.TARGET",
                 "description": "BH.FUNCTION.TARGET_DESCRIPTION",
                 "skill": [["Engineering", "Logic"]]
+            },
+            "countermeasures": {
+                "name": "BH.FUNCTION.COUNTERMEASURES",
+                "description": "BH.FUNCTION.COUNTERMEASURES_DESCRIPTION",
+                "skill": ["Logic"]
             }
         }
     },
