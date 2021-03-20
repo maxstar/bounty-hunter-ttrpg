@@ -17,6 +17,10 @@ export class BountyHunterActor extends Actor {
     };
     this.update(updateData);
   }
+
+  hasSkill(skillName) {
+    return this.items.filter(i => i.name === skillName && i.type === 'skill').length > 0;
+  }
 }
   
 export class BountyHunterItem extends Item {

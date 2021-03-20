@@ -74,27 +74,35 @@
       },
       "hull": {
         "label": "STARSHIP.HULL",
-        "value": 0
+        "value": 20,
+        "max": 20
       },
       "size": {
         "label": "STARSHIP.SIZE",
-        "value": ""
+        "length": 14,
+        "width": 12,
+        "depth": 4
       },
       "cost": {
         "label": "STARSHIP.COST",
-        "value": 0
+        "value": 1500, 
+        "currency": "dc"
       },
       "upkeep": {
         "label": "STARSHIP.UPKEEP",
-        "value": 0
+        "value": 18, 
+        "currency": "dc"
+      },
+      "crew": {
+        "min": 1
       },
       "cargo-capacity": {
         "label": "STARSHIP.CARGO_CAPACITY",
-        "value": 0
+        "value": 150
       },
-      "passenger-capacity": {
-        "label": "STARSHIP.PASSENGER_CAPACITY",
-        "value": 0
+      "note": {
+        "label": "STARSHIP.NOTE",
+        "value": ""
       }
     }
   },

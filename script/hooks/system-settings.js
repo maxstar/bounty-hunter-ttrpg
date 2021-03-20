@@ -1,8 +1,10 @@
+import { StarshipHandler } from "../component/starship-handler.js";
 
 export async function loadSystemSettings() {
   CONFIG.BountyHunter = {
     reputation: await loadReputation(),
     'starship-roles': await loadStarshipRoles(),
+    starshipHandlerClass: StarshipHandler,
   };
 }
 

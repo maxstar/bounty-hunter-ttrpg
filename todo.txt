@@ -36,6 +36,7 @@
 * [    ] starships
     * [done] component form
     * [done] weapon array form
+    * [    ] component active effects that override starship function data
     * [done] content: basic components
     * [    ] starship sheet
         * [    ] add characters

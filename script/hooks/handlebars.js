@@ -14,8 +14,11 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/cargo.html",
     "systems/bounty-hunter-ttrpg/template/tab/main.html",
     "systems/bounty-hunter-ttrpg/template/tab/bio.html",
+    "systems/bounty-hunter-ttrpg/template/tab/starship-main.html",
+    "systems/bounty-hunter-ttrpg/template/tab/starship-control.html",
     "systems/bounty-hunter-ttrpg/template/partial/item-picker.html",
     "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html",
+    "systems/bounty-hunter-ttrpg/template/partial/crew-member.html",
     "systems/bounty-hunter-ttrpg/template/dialog/ap-per-skill.html",
     "systems/bounty-hunter-ttrpg/template/chat/skill-challenge.html",
     "systems/bounty-hunter-ttrpg/template/component/bh-combat-tracker.html",
@@ -67,6 +70,17 @@ function registerHandlebarsHelpers() {
     const editable = Boolean(options.hash['editable']);
     if ( button && editable ) editor.append($('<a class="editor-edit"><i class="fas fa-edit"></i></a>'));
     return new Handlebars.SafeString(editor[0].outerHTML);
+  });
+  Handlebars.registerHelper('bh_strconcat', function () {
+      const args = Array.prototype.slice.call(arguments);
+      args.pop(); // remove unrelated data
+      return args.join("");
+  });
+
+  Handlebars.registerHelper('bh_enrich', function (content) {
+      // Enrich the content
+      content = TextEditor.enrichHTML(content, { entities: true });
+      return new Handlebars.SafeString(content);
   });
 }
 

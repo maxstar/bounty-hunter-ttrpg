@@ -1,1 +1,21 @@
-starship
+<form class="{{cssClass}}" autocomplete="off">
+    <div class="party flex column">
+        <div class="sheet-tabs tabs flex row border" data-group="primary">
+            <b class="item" data-tab="main">{{localize "BH.TAB.MAIN"}}</b>
+            <b class="item" data-tab="control">{{localize "BH.TAB.CONTROL"}}</b>
+            <b class="item" data-tab="note">{{localize "BH.NOTE"}}</b>
+        </div>
+
+        <div class="sheet-body flex row">
+            <div class="tab" data-group="primary" data-tab="main">
+                {{> systems/bounty-hunter-ttrpg/template/tab/starship-main.html}}
+            </div>
+            <div class="tab" data-group="primary" data-tab="control">
+                {{> systems/bounty-hunter-ttrpg/template/tab/starship-control.html}}
+            </div>
+            <div class="tab note" data-group="primary" data-tab="note">
+                {{editor content=data.note.value target="data.note.value" button=true owner=owner editable=editable}}
+            </div>
+        </div>
+    </div>
+</form>
