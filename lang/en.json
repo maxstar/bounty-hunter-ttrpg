@@ -26,6 +26,10 @@
   "TAB.BIO": "BIO",
   "TAB.NOTE": "NOTE",
 
+  "BH.TAB.MAIN": "MAIN",
+  "BH.TAB.CONTROL": "STARSHIP CONTROL",
+  "BH.NOTE": "NOTE",
+
   "HEADER.SKILLS": "Skills",
   "HEADER.ABILITIES": "Abilities",
   "HEADER.ITEMS": "Items",
@@ -98,6 +102,7 @@
   "BH.RANGE.CLOSE": "Close",
   "BH.RANGE.MEDIUM": "Medium",
   "BH.RANGE.LONG": "Long",
+  "BH.REMOVE_CREW": "Remove from crew",
 
   "BH.PHASE.NAME": "Phase",
   "BH.PHASE.FIRST": "First Phase",
@@ -108,6 +113,12 @@
   "COMBAT.PhaseNext": "Next Phase",
   "COMBAT.GO_FIRST_PHASE": "Go in the First Phase (-1 AP)",
   "COMBAT.GO_LAST_PAHSE": "Go in the Last Phase (Refund 1 AP)",
+
+  "BH.STARSHIP.NAME": "Starship Name",
+  "BH.STARSHIP.CREW.HEADING": "Crew Members",
+  "BH.STARSHIP.CREW.HINT_ADD": "Drag & drop characters here to add them to the crew.",
+  "BH.STARSHIP.CREW.HINT_ASSIGN": "Drag & drop characters to assign them to the desired roles.",
+  "BH.STARSHIP.CARGO.HEADING": "Cargo Hold",
   
 
   "":""

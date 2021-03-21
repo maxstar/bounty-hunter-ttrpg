@@ -6,6 +6,7 @@ import { loadSystemSettings, registerSettings } from "./hooks/system-settings.js
 import { ReputationStats } from './component/reputation-stats.js';
 import { BhCombat } from './component/bh-combat.js';
 import { BhCombatTracker } from './component/bh-combat-tracker.js';
+import { BountyHunterStarshipSheet } from './sheet/starship.js';
 
 // CONFIG.debug.hooks = true;
 
@@ -39,6 +40,28 @@ Hooks.on('preUpdateActor', async (entity, updateData, options, userId) => {
   }
 
   return true;
+});
+
+/**
+ * Initialize internal actor data
+ */
+Hooks.on("renderActorSheet", async (app, html, data) => {
+  if (!(app instanceof BountyHunterStarshipSheet)) return; // not our thing
+
+  let actor = game.actors.get(data.entity._id);
+  if (actor.data.flags.crewMembers !== undefined) return; // everything is already initialized
+
+  console.log("Bounty Hunter TTRPG: initializing starship sheet");
+  let initialData = {
+    "flags.crewMembers": [],
+  };
+
+  for (let key in CONFIG.BountyHunter['starship-roles']) {
+    if (key === 'gunner') continue; // this will be handled by special logic for manning weapons
+    initialData[`flags.starship.${key}`] = [];
+  }
+  initialData['flags.starship.other'] = [];
+  await actor.update(initialData);
 });
 
 Hooks.on( "renderChatLog", async function (cLog) {

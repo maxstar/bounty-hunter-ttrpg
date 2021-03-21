@@ -3,8 +3,8 @@
         <div class="avatar">
             <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" height="100" width="100"/>
         </div>
-        <div class="flex row margin align-end space-around grow">
-            <div class="flex column">
+        <div class="starship-info">
+            <div class="starship-info-section">
                 <div class="name">
                     <b>{{localize "BH.STARSHIP.NAME"}}</b>
                     <input name="name" type="text" value="{{actor.name}}"/>
@@ -12,15 +12,83 @@
             </div>
         </div>
     </div>
-    <div class="crew-member-list border">
-        <h1>{{localize "BH.STARSHIP.CREW" }}</h1>
-        <div class="tab-hint">{{localize "BH.CREW.HINT_ADD"}}</div>
-        <div>
-            <ol>
-            {{#each crewMembers as |crewMember|}}
-                {{> systems/bounty-hunter-ttrpg/template/partial/crew-member.html crewMember=crewMember deleteButton=true}}
-            {{/each}}
-        </ol>
+    <div class="flex row">
+        <div class="crew-member-list border">
+            <h1>{{localize "BH.STARSHIP.CREW.HEADING" }}</h1>
+            <div class="section">
+                <div class="item-categories">
+                    <div class="tab-hint">{{localize "BH.STARSHIP.CREW.HINT_ADD"}}</div>
+                    <ol>
+                    {{#each crewMembers as |crewMember|}}
+                        {{> systems/bounty-hunter-ttrpg/template/partial/crew-member.html crewMember=crewMember deleteButton=true}}
+                    {{/each}}
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="cargo-hold border column">
+            <h1>{{localize "BH.STARSHIP.CARGO.HEADING" }}</h1>
+            <div class="section section-items">
+                <div class="item-categories">
+                    {{#if data.itemsByCategory.weapon}}
+                    <div class="item-category border">
+                        <div class="item-category-header">{{localize "BH.WEAPON.TITLE"}}</div>
+                        <div class="items">
+                            {{#each data.itemsByCategory.weapon as |item id|}}
+                            <div class="flex item" data-entity-id="{{item._id}}">
+                                <div class="button">
+                                    <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+                                </div>
+                                <div class="item{{#unless item.data.data.canUse}} faded{{/unless}}" data-attribute="{{key}}" title="{{#if item.data.data.canUse}}{{item.data.data.description}}{{else}}{{localize 'BH.WEAPON.LACK_SKILL'}}{{/if}}">
+                                    <span>{{localize item.name}}</span>
+                                    <span class="weapon-damage item-stat" title="{{localize 'BH.WEAPON.DAMAGE'}}">
+                                        <i class="fas fa-sun"></i>
+                                        {{item.data.data.damage}}
+                                    </span>
+                                    <span class="weapon-range item-stat" title="{{localize 'BH.WEAPON.RANGE'}}">
+                                        {{item.data.data.range}}{{localize 'BH.METERS_SHORT'}}
+                                    </span>
+                                    {{#unless (eq item.data.data.ammoCount false)}}
+                                    <span class="weapon-ammo item-stat" title="{{item.data.data.ammo}}">
+                                        <i class="fas fa-grip-vertical"></i>
+                                        {{item.data.data.ammoCount}}
+                                    </span>
+                                    {{/unless}}
+                                </div>
+
+                                {{#if ../user.isGM}}
+                                <div class="button faded">
+                                    <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                                </div>
+                                {{/if}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}
+                    {{#each data.itemsByCategory.gear as |items categoryName|}}
+                    <div class="item-category border">
+                        <div class="item-category-header">{{categoryName}}</div>
+                        <div class="items">
+                            {{#each items as |item id|}}
+                            <div class="flex item" data-entity-id="{{item._id}}">
+                                <div class="button">
+                                    <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+                                </div>
+                                <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">{{localize item.name}}</div>
+                                
+                                {{#if ../user.isGM}}
+                                <div class="button faded">
+                                    <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                                </div>
+                                {{/if}}
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+            </div>
         </div>
     </div>
 </div>

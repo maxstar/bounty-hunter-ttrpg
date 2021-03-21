@@ -1,0 +1,138 @@
+.bounty-hunter .starship {
+  height: 100%;
+  width: 100%;
+}
+
+.starship .tab-hint {
+  font-style: italic;
+  text-align: center;
+}
+
+.bounty-hunter .starship .starship-info{
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-around;
+}
+
+.bounty-hunter .starship .starship-info .starship-info-section{
+  display: flex;
+  margin: auto;
+}
+
+.crew-member:hover {
+  background-color: lightgray;
+}
+
+.crew-member .crew-member-avatar {
+  flex: 0 0 48px;
+  width: 48px;
+  height: 48px;
+  border: 0px;
+  cursor: pointer;
+}
+
+.crew-member .crew-member-name {
+  line-height: 48px;
+}
+
+.crew-member .button {
+  flex: 0 0 24px;
+  width: 24px;
+  height: 48px;
+  line-height: 48px;
+}
+
+.crew-member .entity-link {
+  margin-right: 4px;
+  line-height: 44px;
+
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+
+  border: 0px;
+  background-color: inherit;
+}
+
+.crew-member .plain-name {
+  margin-right: 4px;
+  margin-right: 4px;
+  line-height: 44px;
+
+  white-space: nowrap;
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+
+  border: 0px;
+  background-color: inherit;
+}
+
+.crew-member-list {
+  height: 100%;
+  margin: auto;
+}
+
+table.starship-roles {
+  border: 0px solid;
+  border-spacing: 6px;
+  border-collapse: separate;
+  background: rgb(255, 255, 255);
+  margin-top: 0px;
+}
+
+table.starship-roles td{
+  vertical-align: top;
+  height: 1px;
+}
+
+.starship-role {
+  min-width: 196px;
+  min-height: 90px;
+  height: 100%;
+  margin-bottom: 10px;
+
+  flex-grow: 1;
+}
+
+.starship-role ol {
+  padding-left: 4px;
+}
+
+.starship-role .starship-role-header {
+  text-align: center;
+  font-weight: bold;
+  max-height: 20px;
+  border-bottom: 1px solid;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.starship-role-header .entity-link {
+  background-color: white;
+  border: 0px solid;
+}
+
+.starship-role .starship-role-help {
+  border: 1px solid;
+  border-radius: 6px;
+  background-color: cadetblue;
+  display: flex;
+  width: 20px;
+  margin-left: 4px;
+  justify-content: center;
+}
+.starship-role .starship-role-help:hover {
+  background-color: cyan;
+}
+
+.starship-role button.travel-roll {
+  font-size: 12px;
+  display: block;
+  width: 99%;
+
+  border-bottom: 1px gray dashed;
+}

@@ -15,7 +15,7 @@ export class BountyHunterStarshipSheet extends ActorSheet {
     let dragDrop = [...super.defaultOptions.dragDrop];
     dragDrop.push({ dragSelector: '.crew-member', dropSelector: '.crew-member-list' });
     return mergeObject(super.defaultOptions, {
-      classes: ["bounty-hunter", "sheet", "actor", 'starship'],
+      classes: ["bounty-hunter", "sheet", "actor"],
       template: "systems/bounty-hunter-ttrpg/template/starship.html",
       width: 700,
       height: 840,
@@ -28,6 +28,7 @@ export class BountyHunterStarshipSheet extends ActorSheet {
   getData() {
     const data = super.getData();
 
+    data.user = game.user;
     data.crewMembers = {};
     data.starship = {};
     data.starshipRoles = CONFIG.BountyHunter['starship-roles'];

@@ -1,7 +1,7 @@
 <li class="crew-member flexrow" data-entity-id="{{crewMember._id}}" draggable="true">
     {{#if deleteButton }}
         <div class="button">
-            <a class="item-control item-delete" title="Remove from party"><i class="fas fa-trash"></i></a>
+            <a class="item-control item-delete" title="{{localize 'BH.REMOVE_CREW'}}"><i class="fas fa-trash"></i></a>
         </div>
     {{/if}}
     <img class="crew-member-avatar" title="{{crewMember.name}}" src="{{crewMember.img}}">

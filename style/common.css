@@ -1,5 +1,13 @@
-.flex {
+.bounty-hunter .flex {
     display: flex;
+}
+
+.bounty-hunter .row {
+  flex-direction: row;
+}
+
+.bounty-hunter .column {
+  flex-direction: column;
 }
 
 table {

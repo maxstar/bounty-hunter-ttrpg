@@ -39,11 +39,16 @@
     * [    ] component active effects that override starship function data
     * [done] content: basic components
     * [    ] starship sheet
-        * [    ] add characters
-        * [    ] component display
-        * [    ] station (role) display
-        * [    ] character assignment to stations
-        * [    ] function buttons
+        * [    ] main tab
+            * [    ] ship stats
+            * [done] add characters
+            * [    ] cargo hold
+            * [    ] move items between starship and character
+        * [    ] control tab
+            * [    ] component display
+            * [    ] station (role) display
+            * [    ] character assignment to stations
+            * [    ] function buttons
 * [    ] localization
 * [    ] character generator
 
