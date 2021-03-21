@@ -131,14 +131,6 @@ button.add-skill, button.add-ability, button.item-create {
     text-align: center;
 }
 
-input.short-num {
-    width: 30px;
-    text-align: center;
-}
-input:read-only {
-    border: 0 solid;
-}
-
 .grid-container {
     display: grid;
 }

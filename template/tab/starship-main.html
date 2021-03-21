@@ -9,6 +9,41 @@
                     <b>{{localize "BH.STARSHIP.NAME"}}</b>
                     <input name="name" type="text" value="{{actor.name}}"/>
                 </div>
+                <div>
+                    <b>{{localize data.type.label}}</b>
+                    <input name="data.type.value" type="text" value="{{data.type.value}}"/>
+                </div>
+            </div>
+            <div class="starship-info-section">
+                <div>
+                    <b>{{localize data.hull.label}}</b>
+                    <input class="short-num" name="data.hull.value" type="number" value="{{data.hull.value}}" min="0" max="{{data.hull.max}}" data-dtype="Number" /> / 
+                    <input class="short-num" name="data.hull.max" type="number" value="{{data.hull.max}}" min="0" data-dtype="Number" />
+                </div>
+                <div>
+                    <b>{{localize data.size.label}} ({{localize 'BH.METERS_SHORT'}})</b>
+                    <input class="short-num" name="data.size.length" type="number" value="{{data.size.length}}" min="0" data-dtype="Number" /> x 
+                    <input class="short-num" name="data.size.width" type="number" value="{{data.size.width}}" min="0" data-dtype="Number" /> x
+                    <input class="short-num" name="data.size.depth" type="number" value="{{data.size.depth}}" min="0" data-dtype="Number" />
+                </div>
+                <div>
+                    <b>{{localize data.cost.label}}</b>
+                    <input class="medium-num" name="data.cost.value" type="number" value="{{data.cost.value}}" min="0" data-dtype="Number" />
+                </div>
+                <div>
+                    <b>{{localize data.upkeep.label}}</b>
+                    <input class="short-num" name="data.upkeep.value" type="number" value="{{data.upkeep.value}}" min="0" data-dtype="Number" />
+                </div>
+            </div>
+            <div class="starship-info-section">
+                <div>
+                    <b>{{localize data.crew.label}}</b>
+                    <input class="short-num" name="data.crew.min" type="number" value="{{data.crew.min}}" min="0" data-dtype="Number" />
+                </div>
+                <div>
+                    <b>{{localize data.cargo-capacity.label}}</b>
+                    <input class="short-num" name="data.cargo-capacity.value" type="number" value="{{data.cargo-capacity.value}}" min="0" data-dtype="Number" />
+                </div>
             </div>
         </div>
     </div>

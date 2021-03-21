@@ -94,6 +94,7 @@
         "currency": "dc"
       },
       "crew": {
+        "label": "STARSHIP.CREW",
         "min": 1
       },
       "cargo-capacity": {

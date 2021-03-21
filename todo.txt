@@ -40,7 +40,7 @@
     * [done] content: basic components
     * [    ] starship sheet
         * [    ] main tab
-            * [    ] ship stats
+            * [do  ] ship stats
             * [done] add characters
             * [    ] cargo hold
             * [    ] move items between starship and character

@@ -43,6 +43,14 @@
   "ABILITY.PASSIVE": "Passive",
   "ABILITY.REFRESH": "Refresh uses",
 
+  "STARSHIP.TYPE": "Type",
+  "STARSHIP.HULL": "Hull (PP)",
+  "STARSHIP.SIZE": "Size",
+  "STARSHIP.COST": "Cost",
+  "STARSHIP.UPKEEP": "Upkeep",
+  "STARSHIP.CREW": "Minimum Crew",
+  "STARSHIP.CARGO_CAPACITY": "Cargo Capacity",
+
   "BH.ROLE.HELMSMAN": "Helmsman",
   "BH.ROLE.TACTICAL": "Tactical",
   "BH.ROLE.ENGINEER": "Engineer",

@@ -11,14 +11,12 @@
 .bounty-hunter .starship .starship-info{
   display: flex;
   flex-grow: 1;
-  flex-direction: row;
-  align-items: flex-end;
-  justify-content: space-around;
+  flex-direction: column;
 }
 
 .bounty-hunter .starship .starship-info .starship-info-section{
   display: flex;
-  margin: auto;
+  margin-top: 4px;
 }
 
 .crew-member:hover {

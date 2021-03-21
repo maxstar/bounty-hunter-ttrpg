@@ -43,3 +43,15 @@ table {
     text-shadow:none;
     background-color: lightgray;
 }
+
+input.short-num {
+    width: 30px;
+    text-align: center;
+}
+input.medium-num {
+    width: 60px;
+    text-align: center;
+}
+input:read-only {
+    border: 0 solid;
+}
