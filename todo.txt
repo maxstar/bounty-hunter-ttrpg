@@ -42,7 +42,9 @@
         * [    ] main tab
             * [done] ship stats
             * [done] add characters
+            * [    ] cargo form
             * [    ] cargo hold
+            * [    ] cargo capacity calculation
             * [    ] move items between starship and character
         * [    ] control tab
             * [    ] component display

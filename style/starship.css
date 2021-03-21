@@ -18,6 +18,7 @@
 .starship .avatar {
   min-width: 100px;
   height: 100px;
+  margin-right: 6px;
 }
 
 .bounty-hunter .starship .starship-info{

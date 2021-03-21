@@ -33,7 +33,6 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   getData() {
     const data = super.getData();
-    this.computeItems(data);
     data.data.itemsByCategory = this.categorizeItems();
     this.computeEncumbrance(data);
     this.computeSkillData(data);
@@ -208,18 +207,6 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   
   // ********** PREPARE DATA *************
 
-  computeItems(data) {
-    for (let item of Object.values(data.items)) {
-      item.isWeapon = item.type === "weapon";
-      item.isArmor = item.type === "armor";
-      item.isGear = item.type === "gear";
-      item.isSkill = item.type === "skill";
-      item.isAbility = item.type === "ability";
-      item.isComponent = item.type === "component";
-      item.isCargo = item.type === "cargo";
-    }
-  }
-
   _computerItemEncumbrance(data) {
     switch (data.type) {
       case "armor":
@@ -242,47 +229,6 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       max: carryingCapacity,
       over: itemsCarried > carryingCapacity,
     };
-  }
-
-  categorizeItems() {
-    let itemsByCategory = {skill: {}, ability: {}, gear: {}, weapon: {}};
-    let category;
-
-    this.actor.items.forEach((item) => {
-      if (itemsByCategory[item.data.type] === undefined) {
-        itemsByCategory[item.data.type] = {};
-      }
-
-      if (item.data.type === 'gear') {
-        category = item.data.data.category === '' ? game.i18n.localize('Other') : item.data.data.category;
-          
-        if (itemsByCategory.gear[category] === undefined) {
-          itemsByCategory.gear[category] = {};
-        }
-        itemsByCategory.gear[category][item.id] = item;
-      } else {
-        itemsByCategory[item.data.type][item.data.name] = item;
-      }
-    });
-
-    itemsByCategory.skill = this._sortItems(itemsByCategory.skill);
-    itemsByCategory.ability = this._sortItems(itemsByCategory.ability);
-    itemsByCategory.weapon = this._sortItems(
-      itemsByCategory.weapon, 
-      (itemId1, itemId2) => itemsByCategory.weapon[itemId1].name.localeCompare(itemsByCategory.weapon[itemId2].name)
-    );
-    Object.keys(itemsByCategory.gear).reduce(
-      (retVal, key) => {
-        retVal[key] = this._sortItems(
-          itemsByCategory.gear[key], 
-          (itemId1, itemId2) => itemsByCategory.gear[key][itemId1].name.localeCompare(itemsByCategory.gear[key][itemId2].name)
-        );
-        return retVal;
-      },
-      {}
-    );
-
-    return itemsByCategory;
   }
 
   computeSkillData(data) {
@@ -430,15 +376,5 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     if (!ammo) return false;
 
     return this._reduceItemUses(ammo);
-  }
-
-  _sortItems(items, comparator) {
-    return Object.keys(items).sort(comparator).reduce(
-      (obj, key) => { 
-        obj[key] = items[key]; 
-        return obj;
-      }, 
-      {}
-    );
   }
 }

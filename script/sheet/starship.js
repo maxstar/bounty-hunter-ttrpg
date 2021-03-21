@@ -1,6 +1,7 @@
 import { StarshipHandler } from "../component/starship-handler.js";
+import { BountyHunterActorSheet } from "./actor.js";
 
-export class BountyHunterStarshipSheet extends ActorSheet {
+export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   constructor(...args) {
     super(...args);
 
