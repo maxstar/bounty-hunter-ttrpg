@@ -8,16 +8,68 @@
   text-align: center;
 }
 
-.bounty-hunter .starship .starship-info{
-  display: flex;
-  flex-grow: 1;
-  flex-direction: column;
+/* ************* STARSHIP INFO ******************* */
+
+.starship .header-block {
+  width: 100%;
+  margin-top: 6px;
 }
 
-.bounty-hunter .starship .starship-info .starship-info-section{
+.starship .avatar {
+  min-width: 100px;
+  height: 100px;
+}
+
+.bounty-hunter .starship .starship-info{
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr [col-start]);
+  grid-template-rows: repeat(3, 26px);;
+  column-gap: 4px;
+  row-gap: 4px;
+}
+
+
+/* .bounty-hunter .starship .starship-info .starship-info-section{
   display: flex;
   margin-top: 4px;
+} */
+.starship-info-item {
+  display: flex;
+  line-height: 25px;
 }
+.starship-info-item span {
+  white-space: nowrap;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.starship-info-name {
+  grid-column: span 6;
+}
+.starship-info-type {
+  grid-column: span 4;
+}
+.starship-info-hull {
+  grid-column: span 3;
+}
+.starship-info-size {
+  grid-column: span 3;
+}
+.starship-info-cost {
+  grid-column: span 2;
+}
+.starship-info-upkeep {
+  grid-column: span 2;
+}
+.starship-info-crew {
+  grid-column: span 3;
+}
+.starship-info-cargo-capacity {
+  grid-column: span 3;
+}
+
+/* ************* CREW MEMBERS ******************* */
 
 .crew-member:hover {
   background-color: lightgray;
