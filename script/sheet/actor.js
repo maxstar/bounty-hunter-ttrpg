@@ -20,6 +20,8 @@ export class BountyHunterActorSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(div.data("entity-id"));
       item.sendToChat();
     });
+    html.find(".item-create").click(this.handleItemCreate.bind(this));
+    html.find(".item-transfer").click(this.handleItemTransfer.bind(this));
   }
 
   getData() {
@@ -67,6 +69,26 @@ export class BountyHunterActorSheet extends ActorSheet {
     );
 
     return itemsByCategory;
+  }
+
+  handleItemCreate(event) {
+    event.preventDefault();
+    let header = event.currentTarget;
+    let data = duplicate(header.dataset);
+    data["name"] = `New ${data.type.capitalize()}`;
+    this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
+  }
+
+  handleItemTransfer(event) {
+    event.preventDefault();
+    let header = event.currentTarget;
+    const div = $(event.currentTarget).parents(".item");
+    const item = this.actor.getOwnedItem(div.data("entity-id"));
+    const container = game.actors.get(header.dataset.containerId);
+
+    if (item === null || container === null) return;
+    
+    console.log(`Transfering ${item.name} to ${container.name}`);
   }
 
   _sortItems(items, comparator) {

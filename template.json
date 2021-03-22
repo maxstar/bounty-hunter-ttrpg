@@ -72,6 +72,10 @@
         "label": "STARSHIP.TYPE",
         "value": ""
       },
+      "captain": {
+        "label": "STARSHIP.CAPTAIN",
+        "value": ""
+      },
       "hull": {
         "label": "STARSHIP.HULL",
         "value": 20,
@@ -94,8 +98,10 @@
         "currency": "dc"
       },
       "crew": {
-        "label": "STARSHIP.CREW",
-        "min": 1
+        "min-label": "STARSHIP.MIN_CREW",
+        "min": 1,
+        "additional-label": "STARSHIP.ADDITIONAL_CREW",
+        "additional": 0
       },
       "cargo-capacity": {
         "label": "STARSHIP.CARGO_CAPACITY",

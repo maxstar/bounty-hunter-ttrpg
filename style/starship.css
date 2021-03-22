@@ -63,7 +63,10 @@
 .starship-info-upkeep {
   grid-column: span 2;
 }
-.starship-info-crew {
+.starship-info-min-crew {
+  grid-column: span 3;
+}
+.starship-info-additional-crew {
   grid-column: span 3;
 }
 .starship-info-cargo-capacity {
@@ -124,6 +127,19 @@
   height: 100%;
   margin: auto;
 }
+
+/* ************* CARGO HOLD ******************* */
+
+.cargo-header {
+  display: flex;
+  justify-content: center;
+}
+.cargo-header span {
+  line-height: 25px;
+  font-style: italic;
+}
+
+/* ************* STARSHIP ROLES ******************* */
 
 table.starship-roles {
   border: 0px solid;

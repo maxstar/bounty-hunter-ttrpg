@@ -48,7 +48,8 @@
   "STARSHIP.SIZE": "Size",
   "STARSHIP.COST": "Cost",
   "STARSHIP.UPKEEP": "Upkeep",
-  "STARSHIP.CREW": "Minimum Crew",
+  "STARSHIP.MIN_CREW": "Minimum Crew",
+  "STARSHIP.ADDITIONAL_CREW": "Additional Crew",
   "STARSHIP.CARGO_CAPACITY": "Cargo Capacity",
 
   "BH.ROLE.HELMSMAN": "Helmsman",
@@ -63,6 +64,7 @@
   "BH.ADD_ABILITY": "Add",
   "BH.REMOVE_SKILL": "Remove",
   "BH.REMOVE_ABILITY": "Remove",
+  "BH.TRANSFER": "Transfer",
   "BH.HARD_CHECK": "Spend multiple AP at once",
   "BH.HOW_MANY": "How many?",
   "BH.AP_PER_SKILL_HINT": "Use mouse wheel to change the value",

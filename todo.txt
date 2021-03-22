@@ -1,6 +1,7 @@
 * [done] skills
     * [done] spend more AP on a skill
     * [done] max AP per skill setting
+    * [    ] skill types: mental/physical/range
 * [done] AP UI
     * [done] recover all/recover half
 * [    ] abilities
@@ -29,6 +30,11 @@
     * [    ] item durability (PP)
     * [    ] tech items recharging
 * [done] bio
+    * [    ] "how does that make you feel" inputs
+* [    ] race -> species, species benefits, speed
+* [    ] languages
+* [    ] money
+* [    ] journal link to a quick reference (see char sheet V9)
 * [done] starship function qualifications for character
 * [done] Encounter initiative and management
     * [done] Combat Tracker UI
@@ -42,13 +48,20 @@
     * [    ] starship sheet
         * [    ] main tab
             * [done] ship stats
+                * [    ] additional crew
             * [done] add characters
+            * [    ] restrict edits of various stats to GM only
+            * [    ] calculate crew salary
             * [    ] cargo hold
                 * [done] display items
-                * [    ] add cargo button
+                * [done] add cargo button
                 * [done] display cargo
-                * [    ] cargo capacity calculation
+                * [done] cargo capacity calculation
                 * [    ] move items between starship and character
+                    * [done] save ship in character
+                    * [done] transfer button on char sheet
+                    * [    ] transfer button on starship sheet
+                    * [    ] transfer dialog
         * [    ] control tab
             * [    ] component display
             * [    ] station (role) display
@@ -59,6 +72,14 @@
 
 * [    ] refactoring/improvements
     * [    ] unify item display in character and starship
+    * [    ] fancy chat messages
+        * [    ] ability usage
+        * [    ] skill usage
+        * [    ] item usage
+        * [    ] ship function usage
+    * [    ] color code X/Y info
+    * [    ] implement item transfer between players
+
 
 * [    ] skill check request
     * [done] prepare challenges in journal, and post with a click

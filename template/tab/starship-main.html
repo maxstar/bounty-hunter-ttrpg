@@ -32,12 +32,16 @@
                 <input class="short-num" name="data.upkeep.value" type="number" value="{{data.upkeep.value}}" min="0" data-dtype="Number" />
             </div>
             <div class="starship-info-item starship-info-cargo-capacity">
-                <span>{{localize data.cargo-capacity.label}}:</span>
+                <span>{{localize data.cargo-capacity.label}} ({{localize 'BH.TONS_SHORT'}}):</span>
                 <input class="short-num" name="data.cargo-capacity.value" type="number" value="{{data.cargo-capacity.value}}" min="0" data-dtype="Number" />
             </div>
-            <div class="starship-info-item starship-info-crew">
-                <span>{{localize data.crew.label}}:</span>
+            <div class="starship-info-item starship-info-min-crew">
+                <span>{{localize data.crew.min-label}}:</span>
                 <input class="short-num" name="data.crew.min" type="number" value="{{data.crew.min}}" min="0" data-dtype="Number" />
+            </div>
+            <div class="starship-info-item starship-info-additional-crew">
+                <span>{{localize data.crew.additional-label}}:</span>
+                <input class="short-num" name="data.crew.additional" type="number" value="{{data.crew.additional}}" min="0" data-dtype="Number" />
             </div>
         </div>
     </div>
@@ -56,12 +60,18 @@
             </div>
         </div>
         <div class="cargo-hold border column">
-            <h1>{{localize "BH.STARSHIP.CARGO.HEADING" }}</h1>
+            <div class="cargo-header">
+                <h1>{{localize "BH.STARSHIP.CARGO.HEADING" }}</h1>
+                <span>{{cargoWeight.value}}/{{cargoWeight.max}}</span>
+            </div>
             <div class="section section-items">
                 <div class="item-categories">
                     {{#if data.itemsByCategory.cargo}}
                     <div class="item-category border">
-                        <div class="item-category-header">{{localize "BH.CARGO.TITLE"}}</div>
+                        <div class="item-category-header">
+                            {{localize "BH.CARGO.TITLE"}} 
+                            <a class="item-create" data-type="cargo" title="{{localize 'BH.ADD'}}"><i class="far fa-plus-square"></i></a>
+                        </div>
                         <div class="items">
                             {{#each data.itemsByCategory.cargo as |item id|}}
                             <div class="flex item" data-entity-id="{{item._id}}">
@@ -130,7 +140,7 @@
                                 </div>
                                 <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">{{localize item.name}}</div>
                                 
-                                {{#if ../user.isGM}}
+                                {{#if ../../user.isGM}}
                                 <div class="button faded">
                                     <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
                                 </div>

@@ -55,3 +55,8 @@ input.medium-num {
 input:read-only {
     border: 0 solid;
 }
+
+.bounty-hunter .item-controls {
+    width: fit-content;
+    white-space: nowrap;
+}

@@ -51,6 +51,10 @@ function registerHandlebarsHelpers() {
     const args = Array.prototype.slice.call(arguments, 0, -1);
     return args.reduce((x, y) => x || y);
   });
+  Handlebars.registerHelper("and", function () {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    return args.reduce((x, y) => x && y);
+  });
   Handlebars.registerHelper("not", function (boolValue) {
     return !boolValue;
   });

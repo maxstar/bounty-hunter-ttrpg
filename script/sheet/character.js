@@ -61,8 +61,6 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
     html.find('.recover-uses-scene').click(this.handleRecoverUsesScene.bind(this));
     html.find('.recover-uses-day').click(this.handleRecoverUsesDay.bind(this));
-
-    html.find(".item-create").click(this.handleItemCreate.bind(this));
   }
 
   /**
@@ -196,27 +194,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       }
     );
   }
-
-  handleItemCreate(event) {
-    event.preventDefault();
-    let header = event.currentTarget;
-    let data = duplicate(header.dataset);
-    data["name"] = `New ${data.type.capitalize()}`;
-    this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
-  }
   
   // ********** PREPARE DATA *************
-
-  _computerItemEncumbrance(data) {
-    switch (data.type) {
-      case "armor":
-      case "gear":
-      case "weapon":
-        return 1;
-      default:
-        return 0;
-    }
-  }
 
   computeEncumbrance(data) {
     let itemsCarried = 0;
@@ -315,6 +294,17 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   }
   
   // ********** HELPERS *************
+
+  _computerItemEncumbrance(data) {
+    switch (data.type) {
+      case "armor":
+      case "gear":
+      case "weapon":
+        return 1;
+      default:
+        return 0;
+    }
+  }
 
   _postSkillUse(skillName, apSpent) {
     let chatData = {

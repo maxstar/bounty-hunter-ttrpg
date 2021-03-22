@@ -25,32 +25,17 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
       dragDrop: dragDrop,
     });
   }
+  
+  // ********** OVERRIDES *************
 
   getData() {
     const data = super.getData();
 
     data.user = game.user;
-    data.crewMembers = {};
-    data.starship = {};
     data.starshipRoles = CONFIG.BountyHunter['starship-roles'];
-    let ownedActorId, assignedActorId, starshipRole;
-    for (let i = 0; i < (data.actor.flags.crewMembers || []).length; i++) {
-      ownedActorId = data.actor.flags.crewMembers[i];
-      data.crewMembers[ownedActorId] = game.actors.get(ownedActorId).data;
-    }
-    for (let starshipRoleKey in data.actor.flags.starship) {
-      starshipRole = data.actor.flags.starship[starshipRoleKey];
-      data.starship[starshipRoleKey] = {};
-
-      if (typeof starshipRole === 'object') {
-        for (let i = 0; i < starshipRole.length; i++) {
-          assignedActorId = starshipRole[i];
-          data.starship[starshipRoleKey][assignedActorId] = game.actors.get(assignedActorId).data;
-        }
-      } else if (starshipRole !== "") {
-        data.starship[starshipRoleKey][starshipRole] = game.actors.get(starshipRole).data;
-      }
-    }
+    data.crewMembers = this.prepareCrewMembers(data);
+    data.starship = this.prepareStarshipControlData(data);
+    data.cargoWeight = this.computeCargo(data);
     return data;
   }
 
@@ -64,57 +49,6 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     });
 
     html.find('.function-button').click(this.handleFunctionUsage.bind(this));
-  }
-
-  getCrewMembers() {
-    return this.actor.data.flags.crewMembers || [];
-  }
-
-  handleFunctionUsage(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    const btn = event.currentTarget;
-    const roleKey = btn.closest(".starship-role").dataset.key;
-    let assignedPartyMembers = this._getOwnedCharacters(this.actor.data.flags.starship[btn.dataset.action]);
-    let action = CONFIG.BountyHunter['starship-roles'][roleKey].functions[btn.dataset.action];
-
-    if (assignedPartyMembers.length === 1) {
-      this.starshipHandler.doAction(this.actor, assignedPartyMembers[0], action);
-    } else if (assignedPartyMembers.length > 1) {
-      ui.notifications.error(game.i18n.localize('BH.NOTIFICATION.MULTIPLE_CREW_PER_ROLE_NOT_SUPPORTED'));
-    }
-
-    // this.render();
-  }
-
-  async handleRemoveCrewMember(event) {
-    const div = $(event.currentTarget).parents(".crew-member");
-    const entityId = div.data("entity-id");
-
-    let crewMembers = [...this.getCrewMembers()];
-    crewMembers.splice(crewMembers.indexOf(entityId), 1);
-
-    let updateData = {
-      'flags.crewMembers': crewMembers,
-    };
-
-    let starshipRole, roleParticipants;
-    for (let starshipRoleKey in this.actor.data.flags.starship) {
-      starshipRole = this.actor.data.flags.starship[starshipRoleKey];
-      if (starshipRole.indexOf(entityId) < 0) continue;
-
-      if (typeof starshipRole === 'object') {
-        roleParticipants = [...starshipRole];
-        roleParticipants.splice(roleParticipants.indexOf(entityId), 1);
-        updateData['flags.starship.' + starshipRoleKey] = roleParticipants;
-      } else {
-        updateData['flags.starship.' + starshipRoleKey] = "";
-      }
-    }
-
-    await this.actor.update(updateData);
-
-    div.slideUp(200, () => this.render(false));
   }
 
   _onDragStart(event) {
@@ -153,12 +87,135 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     }
     this.render(true);
   }
+  
+  // ********** HANDLERS *************
+
+  handleFunctionUsage(event) {
+    event.preventDefault();
+    event.stopPropagation();
+    const btn = event.currentTarget;
+    const roleKey = btn.closest(".starship-role").dataset.key;
+    let assignedPartyMembers = this._getOwnedCharacters(this.actor.data.flags.starship[btn.dataset.action]);
+    let action = CONFIG.BountyHunter['starship-roles'][roleKey].functions[btn.dataset.action];
+
+    if (assignedPartyMembers.length === 1) {
+      this.starshipHandler.doAction(this.actor, assignedPartyMembers[0], action);
+    } else if (assignedPartyMembers.length > 1) {
+      ui.notifications.error(game.i18n.localize('BH.NOTIFICATION.MULTIPLE_CREW_PER_ROLE_NOT_SUPPORTED'));
+    }
+
+    // this.render();
+  }
+
+  async handleRemoveCrewMember(event) {
+    const div = $(event.currentTarget).parents(".crew-member");
+    const entityId = div.data("entity-id");
+    const character = game.actors.get(entityId);
+
+    let crewMembers = [...this.getCrewMembers()];
+    crewMembers.splice(crewMembers.indexOf(entityId), 1);
+
+    let updateData = {
+      'flags.crewMembers': crewMembers,
+    };
+
+    let starshipRole, roleParticipants;
+    for (let starshipRoleKey in this.actor.data.flags.starship) {
+      starshipRole = this.actor.data.flags.starship[starshipRoleKey];
+      if (starshipRole.indexOf(entityId) < 0) continue;
+
+      if (typeof starshipRole === 'object') {
+        roleParticipants = [...starshipRole];
+        roleParticipants.splice(roleParticipants.indexOf(entityId), 1);
+        updateData['flags.starship.' + starshipRoleKey] = roleParticipants;
+      } else {
+        updateData['flags.starship.' + starshipRoleKey] = "";
+      }
+    }
+
+    await this.actor.update(updateData);
+
+    if (character.data.flags.starship === this.actor.data._id) {
+      character.update({'flags.starship': ""});
+    }
+
+    div.slideUp(200, () => this.render(false));
+  }
 
   async handleStarshipRoleAssignment(event, actor) {
     let roleContainer = event.toElement.classList.contains('starship-role') ? event.toElement : event.toElement.closest('.starship-role');
     if (roleContainer === null) return; // character was dragged god knows where; just pretend it never happened
 
     this.assignCrewMembersToRole(actor, roleContainer.dataset.starshipRole);
+  }
+
+  async handleAddToStarshipCrew(actor) {
+    let crewMembers = [...this.getCrewMembers()];
+    let initialCount = crewMembers.length;
+    crewMembers.push(actor.data._id);
+    crewMembers = [...new Set(crewMembers)]; // remove duplicate values
+    if (initialCount === crewMembers.length) return; // nothing changed
+
+    let starshipOther = [...this.actor.data.flags.starship.other];
+    starshipOther.push(actor.data._id);
+    await this.actor.update({ 'flags.crewMembers': crewMembers, 'flags.starship.other': starshipOther });
+    actor.update({'flags.starship': this.actor.data._id});
+  }
+  
+  // ********** PREPARE DATA *************
+
+  prepareCrewMembers(data) {
+    let ownedActorId, crewMembers = {};
+    for (let i = 0; i < (data.actor.flags.crewMembers || []).length; i++) {
+      ownedActorId = data.actor.flags.crewMembers[i];
+      crewMembers[ownedActorId] = game.actors.get(ownedActorId).data;
+    }
+    return crewMembers;
+  }
+
+  prepareStarshipControlData(data) {
+    let starship = {}, assignedActorId, starshipRole;
+    for (let starshipRoleKey in data.actor.flags.starship) {
+      starshipRole = data.actor.flags.starship[starshipRoleKey];
+      starship[starshipRoleKey] = {};
+
+      if (typeof starshipRole === 'object') {
+        for (let i = 0; i < starshipRole.length; i++) {
+          assignedActorId = starshipRole[i];
+          starship[starshipRoleKey][assignedActorId] = game.actors.get(assignedActorId).data;
+        }
+      } else if (starshipRole !== "") {
+        starship[starshipRoleKey][starshipRole] = game.actors.get(starshipRole).data;
+      }
+    }
+    return starship;
+  }
+
+  computeCargo(data) {
+    let weightTransported = 0;
+    for (let item of Object.values(data.items)) {
+      weightTransported += this._computerItemEncumbrance(item);
+    }
+    weightTransported += this.actor.data.data.crew.additional / 10; // 10 people take up 1 ton worth of cargo space
+
+    const cargoCapacity = this.actor.data.data['cargo-capacity'].value + (this.actor.overrides["CARGO_CAPACITY"] ?? 0);
+
+    return {
+      value: weightTransported,
+      max: cargoCapacity,
+      over: weightTransported > cargoCapacity,
+    };
+  }
+  
+  // ********** HELPERS *************
+
+  _computerItemEncumbrance(data) {
+    switch (data.type) {
+      case "cargo":
+        return data.data.weight;
+      default:
+        return 0;
+    }
   }
 
   async assignCrewMembersToRole(crewMembers, starshipRoleKey) {
@@ -215,18 +272,6 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
 
     await this.actor.update(updateData);
   }
-
-  async handleAddToStarshipCrew(actor) {
-    let crewMembers = [...this.getCrewMembers()];
-    let initialCount = crewMembers.length;
-    crewMembers.push(actor.data._id);
-    crewMembers = [...new Set(crewMembers)]; // remove duplicate values
-    if (initialCount === crewMembers.length) return; // nothing changed
-
-    let starshipOther = [...this.actor.data.flags.starship.other];
-    starshipOther.push(actor.data._id);
-    await this.actor.update({ 'flags.crewMembers': crewMembers, 'flags.starship.other': starshipOther });
-  }
   
   _getOwnedCharacters(characterIds) {
     characterIds = typeof characterIds !== 'object' && characterIds !== '' ? [characterIds] : characterIds;
@@ -236,5 +281,9 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
       .filter((character) => character.owner);
 
     return characters;
+  }
+
+  getCrewMembers() {
+    return this.actor.data.flags.crewMembers || [];
   }
 }

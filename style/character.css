@@ -48,7 +48,7 @@
 }
 
 .character .section .items {
-    width: 220px;
+    width: 250px;
     margin-top: 4px;
 }
 
@@ -60,7 +60,7 @@
 }
 
 .actor .section.section-items {
-    width: 250px;
+    width: 280px;
 }
 
 .actor .column {
@@ -193,6 +193,7 @@ input.item-picker-checkbox {
 
 .item .item-stat {
     padding-left: 10px;
+    white-space: nowrap;
 }
 
 .actor .sheet-tabs.tabs {
