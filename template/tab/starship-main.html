@@ -59,6 +59,30 @@
             <h1>{{localize "BH.STARSHIP.CARGO.HEADING" }}</h1>
             <div class="section section-items">
                 <div class="item-categories">
+                    {{#if data.itemsByCategory.cargo}}
+                    <div class="item-category border">
+                        <div class="item-category-header">{{localize "BH.CARGO.TITLE"}}</div>
+                        <div class="items">
+                            {{#each data.itemsByCategory.cargo as |item id|}}
+                            <div class="flex item" data-entity-id="{{item._id}}">
+                                <div class="button">
+                                    <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+                                </div>
+                                <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">
+                                    <span>{{localize item.name}}</span>
+                                    <span class="cargo-weight item-stat" title="{{localize 'BH.CARGO.WEIGHT'}}">
+                                        {{item.data.data.weight}}{{localize 'BH.TONS_SHORT'}}
+                                    </span>
+                                </div>
+
+                                <div class="button faded">
+                                    <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+                                </div>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                    {{/if}}
                     {{#if data.itemsByCategory.weapon}}
                     <div class="item-category border">
                         <div class="item-category-header">{{localize "BH.WEAPON.TITLE"}}</div>

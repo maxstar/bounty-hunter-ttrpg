@@ -14,6 +14,7 @@
     * [do  ] forms
         * [do  ] weapon
         * [do  ] gear
+        * [do  ] cargo
     * [done] list
         * [done] add
         * [done] edit
@@ -42,10 +43,12 @@
         * [    ] main tab
             * [done] ship stats
             * [done] add characters
-            * [    ] cargo form
             * [    ] cargo hold
-            * [    ] cargo capacity calculation
-            * [    ] move items between starship and character
+                * [done] display items
+                * [    ] add cargo button
+                * [done] display cargo
+                * [    ] cargo capacity calculation
+                * [    ] move items between starship and character
         * [    ] control tab
             * [    ] component display
             * [    ] station (role) display
@@ -53,6 +56,9 @@
             * [    ] function buttons
 * [    ] localization
 * [    ] character generator
+
+* [    ] refactoring/improvements
+    * [    ] unify item display in character and starship
 
 * [    ] skill check request
     * [done] prepare challenges in journal, and post with a click

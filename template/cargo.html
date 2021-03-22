@@ -1,1 +1,25 @@
-cargo
+<form class="{{cssClass}}" autocomplete="off">
+
+    <div class="flex section">
+        <div>
+            <div class="flex">
+                <label class="form-gear-label">{{localize "BH.CARGO.NAME"}}</label>
+                <input name="name" type="text" value="{{item.name}}" />
+            </div>
+        </div>
+        <div>
+            <label class="form-gear-label">{{localize "BH.CARGO.WEIGHT"}} ({{localize "BH.TONS_SHORT"}})</label>
+            <input class="medium-num" name="data.weight" type="number" value="{{data.weight}}" min="0" data-dtype="Number" />
+        </div>
+    </div>
+
+    <div class="section flex">
+        <div class="avatar">
+            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+        </div>
+        <div class="full-width">
+            <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
+            <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>
+        </div>
+    </div>
+</form>

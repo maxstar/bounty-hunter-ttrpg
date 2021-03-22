@@ -150,7 +150,8 @@
       "category": ""
     },
     "cargo": {
-      "weight": 0
+      "weight": 0,
+      "description": ""
     },
     "skill": {
       "description": ""
