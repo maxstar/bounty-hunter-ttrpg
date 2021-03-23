@@ -10,34 +10,34 @@
             </div>
             <div class="starship-info-item starship-info-type">
                 <span>{{localize data.type.label}}:</span>
-                <input name="data.type.value" type="text" value="{{data.type.value}}"/>
+                <input name="data.type.value" type="text" value="{{data.type.value}}" {{#unless user.isGM}}disabled="disabled"{{/unless}}/>
             </div>
             <div class="starship-info-item starship-info-hull">
                 <span>{{localize data.hull.label}}:</span>
                 <input class="short-num" name="data.hull.value" type="number" value="{{data.hull.value}}" min="0" max="{{data.hull.max}}" data-dtype="Number" /> / 
-                <input class="short-num" name="data.hull.max" type="number" value="{{data.hull.max}}" min="0" data-dtype="Number" />
+                <input class="short-num" name="data.hull.max" type="number" value="{{data.hull.max}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-size">
                 <span>{{localize data.size.label}} ({{localize 'BH.METERS_SHORT'}}):</span>
-                <input class="short-num" name="data.size.length" type="number" value="{{data.size.length}}" min="0" data-dtype="Number" /> x 
-                <input class="short-num" name="data.size.width" type="number" value="{{data.size.width}}" min="0" data-dtype="Number" /> x
-                <input class="short-num" name="data.size.depth" type="number" value="{{data.size.depth}}" min="0" data-dtype="Number" />
+                <input class="short-num" name="data.size.length" type="number" value="{{data.size.length}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} /> x 
+                <input class="short-num" name="data.size.width" type="number" value="{{data.size.width}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} /> x
+                <input class="short-num" name="data.size.depth" type="number" value="{{data.size.depth}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-cost">
                 <span>{{localize data.cost.label}}:</span>
-                <input class="medium-num" name="data.cost.value" type="number" value="{{data.cost.value}}" min="0" data-dtype="Number" />
+                <input class="medium-num" name="data.cost.value" type="number" value="{{data.cost.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-upkeep">
                 <span>{{localize data.upkeep.label}}:</span>
-                <input class="short-num" name="data.upkeep.value" type="number" value="{{data.upkeep.value}}" min="0" data-dtype="Number" />
+                <input class="short-num" name="data.upkeep.value" type="number" value="{{data.upkeep.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-cargo-capacity">
                 <span>{{localize data.cargo-capacity.label}} ({{localize 'BH.TONS_SHORT'}}):</span>
-                <input class="short-num" name="data.cargo-capacity.value" type="number" value="{{data.cargo-capacity.value}}" min="0" data-dtype="Number" />
+                <input class="short-num" name="data.cargo-capacity.value" type="number" value="{{data.cargo-capacity.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-min-crew">
                 <span>{{localize data.crew.min-label}}:</span>
-                <input class="short-num" name="data.crew.min" type="number" value="{{data.crew.min}}" min="0" data-dtype="Number" />
+                <input class="short-num" name="data.crew.min" type="number" value="{{data.crew.min}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-additional-crew">
                 <span>{{localize data.crew.additional-label}}:</span>

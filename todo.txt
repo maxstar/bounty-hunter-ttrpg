@@ -46,11 +46,11 @@
     * [    ] component active effects that override starship function data
     * [done] content: basic components
     * [    ] starship sheet
-        * [    ] main tab
+        * [done] main tab
             * [done] ship stats
                 * [done] additional crew
             * [done] add characters
-            * [    ] restrict edits of various stats to GM only
+            * [done] restrict edits of various stats to GM only
             * [done] calculate crew salary
             * [done] cargo hold
                 * [done] display items
