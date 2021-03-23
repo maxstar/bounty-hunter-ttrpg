@@ -67,10 +67,15 @@
   grid-column: span 3;
 }
 .starship-info-additional-crew {
-  grid-column: span 3;
+  grid-column: span 4;
 }
 .starship-info-cargo-capacity {
   grid-column: span 3;
+}
+
+.starship-info-additional-crew .crew-cost{
+  font-weight: normal;
+  font-style: italic;
 }
 
 /* ************* CREW MEMBERS ******************* */

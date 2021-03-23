@@ -53,6 +53,14 @@ export function registerSettings() {
     default: 3,
     type: Number,
   });
+  game.settings.register("bounty-hunter-ttrpg", "crewCost", {
+    name: game.i18n.localize("BH.SETTINGS.CREW_COST"),
+    hint: game.i18n.localize("BH.SETTINGS.CREW_COST_HINT"),
+    scope: "world",
+    config: true,
+    default: 200,
+    type: Number,
+  });
   game.settings.register("bounty-hunter-ttrpg", "datasetDir", {
     name: game.i18n.localize("BH.SETTINGS.DATASET_DIR"),
     hint: game.i18n.localize("BH.SETTINGS.DATASET_DIR_HINT"),

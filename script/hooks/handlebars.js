@@ -19,6 +19,7 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/partial/item-picker.html",
     "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html",
     "systems/bounty-hunter-ttrpg/template/partial/crew-member.html",
+    "systems/bounty-hunter-ttrpg/template/partial/inventory-item.html",
     "systems/bounty-hunter-ttrpg/template/dialog/ap-per-skill.html",
     "systems/bounty-hunter-ttrpg/template/chat/skill-challenge.html",
     "systems/bounty-hunter-ttrpg/template/component/bh-combat-tracker.html",

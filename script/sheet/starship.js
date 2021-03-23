@@ -36,6 +36,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     data.crewMembers = this.prepareCrewMembers(data);
     data.starship = this.prepareStarshipControlData(data);
     data.cargoWeight = this.computeCargo(data);
+    data.crewCost = this.computeCrewCost();
     return data;
   }
 
@@ -205,6 +206,10 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
       max: cargoCapacity,
       over: weightTransported > cargoCapacity,
     };
+  }
+
+  computeCrewCost() {
+    return this.actor.data.data.crew.additional * game.settings.get("bounty-hunter-ttrpg", "crewCost");
   }
   
   // ********** HELPERS *************

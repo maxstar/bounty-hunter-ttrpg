@@ -48,20 +48,20 @@
     * [    ] starship sheet
         * [    ] main tab
             * [done] ship stats
-                * [    ] additional crew
+                * [done] additional crew
             * [done] add characters
             * [    ] restrict edits of various stats to GM only
-            * [    ] calculate crew salary
-            * [    ] cargo hold
+            * [done] calculate crew salary
+            * [done] cargo hold
                 * [done] display items
                 * [done] add cargo button
                 * [done] display cargo
                 * [done] cargo capacity calculation
-                * [    ] move items between starship and character
+                * [done] move items between starship and character
                     * [done] save ship in character
                     * [done] transfer button on char sheet
-                    * [    ] transfer button on starship sheet
-                    * [    ] transfer dialog
+                    * [done] transfer button on starship sheet
+                    * [done] transfer dialog
         * [    ] control tab
             * [    ] component display
             * [    ] station (role) display
@@ -72,6 +72,8 @@
 
 * [    ] refactoring/improvements
     * [    ] unify item display in character and starship
+        * [done] item
+        * [    ] section
     * [    ] fancy chat messages
         * [    ] ability usage
         * [    ] skill usage

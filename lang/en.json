@@ -9,6 +9,8 @@
   "BH.SETTINGS.BONUS_SKILLS_HINT": "How many additional skills a character can have depending on your party size. Players/Skills: 1/5, 2/2, 3+/1.",
   "BH.SETTINGS.MAX_AP_PER_SKILL": "Maximum AP per Skill",
   "BH.SETTINGS.MAX_AP_PER_SKILL_HINT": "The maximum amount of Action Points a character can spend to succeed in a single skill attempt. See \"SKILL USE AT HIGHER REPUTATION LEVELS\" optional rule in the rulebook.",
+  "BH.SETTINGS.CREW_COST": "Monthly Crew Cost (each)",
+  "BH.SETTINGS.CREW_COST_HINT": "Monthly cost of a crew member.",
 
   "BIO.NAME": "Name",
   "BIO.RACE": "Race",
@@ -65,6 +67,7 @@
   "BH.REMOVE_SKILL": "Remove",
   "BH.REMOVE_ABILITY": "Remove",
   "BH.TRANSFER": "Transfer",
+  "BH.TRANSFER_DIALOG": "Transfer '{item}' to",
   "BH.HARD_CHECK": "Spend multiple AP at once",
   "BH.HOW_MANY": "How many?",
   "BH.AP_PER_SKILL_HINT": "Use mouse wheel to change the value",

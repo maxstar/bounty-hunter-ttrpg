@@ -42,6 +42,7 @@
             <div class="starship-info-item starship-info-additional-crew">
                 <span>{{localize data.crew.additional-label}}:</span>
                 <input class="short-num" name="data.crew.additional" type="number" value="{{data.crew.additional}}" min="0" data-dtype="Number" />
+                <span class="crew-cost">({{crewCost}} {{localize 'BH.DECA_CREDITS'}})</span>
             </div>
         </div>
     </div>
@@ -74,21 +75,7 @@
                         </div>
                         <div class="items">
                             {{#each data.itemsByCategory.cargo as |item id|}}
-                            <div class="flex item" data-entity-id="{{item._id}}">
-                                <div class="button">
-                                    <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
-                                </div>
-                                <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">
-                                    <span>{{localize item.name}}</span>
-                                    <span class="cargo-weight item-stat" title="{{localize 'BH.CARGO.WEIGHT'}}">
-                                        {{item.data.data.weight}}{{localize 'BH.TONS_SHORT'}}
-                                    </span>
-                                </div>
-
-                                <div class="button faded">
-                                    <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
-                                </div>
-                            </div>
+                                {{> systems/bounty-hunter-ttrpg/template/partial/inventory-item.html item=item}}
                             {{/each}}
                         </div>
                     </div>
@@ -98,33 +85,7 @@
                         <div class="item-category-header">{{localize "BH.WEAPON.TITLE"}}</div>
                         <div class="items">
                             {{#each data.itemsByCategory.weapon as |item id|}}
-                            <div class="flex item" data-entity-id="{{item._id}}">
-                                <div class="button">
-                                    <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
-                                </div>
-                                <div class="item{{#unless item.data.data.canUse}} faded{{/unless}}" data-attribute="{{key}}" title="{{#if item.data.data.canUse}}{{item.data.data.description}}{{else}}{{localize 'BH.WEAPON.LACK_SKILL'}}{{/if}}">
-                                    <span>{{localize item.name}}</span>
-                                    <span class="weapon-damage item-stat" title="{{localize 'BH.WEAPON.DAMAGE'}}">
-                                        <i class="fas fa-sun"></i>
-                                        {{item.data.data.damage}}
-                                    </span>
-                                    <span class="weapon-range item-stat" title="{{localize 'BH.WEAPON.RANGE'}}">
-                                        {{item.data.data.range}}{{localize 'BH.METERS_SHORT'}}
-                                    </span>
-                                    {{#unless (eq item.data.data.ammoCount false)}}
-                                    <span class="weapon-ammo item-stat" title="{{item.data.data.ammo}}">
-                                        <i class="fas fa-grip-vertical"></i>
-                                        {{item.data.data.ammoCount}}
-                                    </span>
-                                    {{/unless}}
-                                </div>
-
-                                {{#if ../user.isGM}}
-                                <div class="button faded">
-                                    <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
-                                </div>
-                                {{/if}}
-                            </div>
+                                {{> systems/bounty-hunter-ttrpg/template/partial/inventory-item.html item=item}}
                             {{/each}}
                         </div>
                     </div>
@@ -134,18 +95,7 @@
                         <div class="item-category-header">{{categoryName}}</div>
                         <div class="items">
                             {{#each items as |item id|}}
-                            <div class="flex item" data-entity-id="{{item._id}}">
-                                <div class="button">
-                                    <a class="item-control item-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
-                                </div>
-                                <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">{{localize item.name}}</div>
-                                
-                                {{#if ../../user.isGM}}
-                                <div class="button faded">
-                                    <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
-                                </div>
-                                {{/if}}
-                            </div>
+                                {{> systems/bounty-hunter-ttrpg/template/partial/inventory-item.html item=item}}
                             {{/each}}
                         </div>
                     </div>

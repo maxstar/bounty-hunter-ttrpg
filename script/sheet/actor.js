@@ -1,4 +1,6 @@
 
+import { CharacterPickerDialog } from "../dialog/character-picker-dialog.js";
+
 export class BountyHunterActorSheet extends ActorSheet {
 
   activateListeners(html) {
@@ -81,14 +83,26 @@ export class BountyHunterActorSheet extends ActorSheet {
 
   handleItemTransfer(event) {
     event.preventDefault();
-    let header = event.currentTarget;
     const div = $(event.currentTarget).parents(".item");
     const item = this.actor.getOwnedItem(div.data("entity-id"));
-    const container = game.actors.get(header.dataset.containerId);
+    const that = this;
 
-    if (item === null || container === null) return;
+    if (item === null) return;
     
-    console.log(`Transfering ${item.name} to ${container.name}`);
+    CharacterPickerDialog.show(
+      game.i18n.format('BH.TRANSFER_DIALOG', {item: item.name}), 
+      this._getPlayerActors(), 
+      function (containerId) {
+        const container = game.actors.get(containerId);
+        console.log(`Transfering ${item.name} to ${container.name}`);
+        container.createEmbeddedEntity("OwnedItem", item);
+        that.actor.deleteEmbeddedEntity("OwnedItem", item._id);
+      }
+    );
+  }
+
+  _getPlayerActors() {
+    return game.actors.filter(a => a.hasPlayerOwner);
   }
 
   _sortItems(items, comparator) {
