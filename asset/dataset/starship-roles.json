@@ -1,4 +1,38 @@
 {
+    "captain": {
+        "key": "captain",
+        "name": "BH.ROLE.CAPTAIN",
+        "functions": {
+            "coordinate": {
+                "key": "coordinate",
+                "name": "BH.FUNCTION.COORDINATE",
+                "description": "BH.FUNCTION.COORDINATE_DESCRIPTION",
+                "skill": ["Psychology"],
+                "component": ""
+            },
+            "inspire": {
+                "key": "inspire",
+                "name": "BH.FUNCTION.INSPIRE",
+                "description": "BH.FUNCTION.INSPIRE_DESCRIPTION",
+                "skill": ["Charm", "Intimidation"],
+                "component": ""
+            },
+            "transfer-power": {
+                "key": "transfer-power",
+                "name": "BH.FUNCTION.TRANSFER_POWER",
+                "description": "BH.FUNCTION.TRANSFER_POWER_DESCRIPTION",
+                "skill": [["Computer Acumen", "Engineering", "Vehicle Operations"]],
+                "component": ""
+            },
+            "countermeasures": {
+                "key": "countermeasures",
+                "name": "BH.FUNCTION.COUNTERMEASURES",
+                "description": "BH.FUNCTION.COUNTERMEASURES_DESCRIPTION",
+                "skill": ["Logic"],
+                "component": "Countermeasures"
+            }
+        }
+    },
     "helmsman": {
         "key": "helmsman",
         "name": "BH.ROLE.HELMSMAN",
@@ -101,26 +135,6 @@
             }
         }
     },
-    "gunner": {
-        "key": "gunner",
-        "name": "BH.ROLE.GUNNER",
-        "functions": {
-            "fire": {
-                "key": "fire",
-                "name": "BH.FUNCTION.FIRE",
-                "description": "BH.FUNCTION.FIRE_DESCRIPTION",
-                "skill": ["Mounted Weapons"],
-                "component": ""
-            },
-            "target": {
-                "key": "",
-                "name": "BH.FUNCTION.TARGET",
-                "description": "BH.FUNCTION.TARGET_DESCRIPTION",
-                "skill": [["Engineering", "Logic", "Mounted Weapons"]],
-                "component": ""
-            }
-        }
-    },
     "comms": {
         "key": "comms",
         "name": "BH.ROLE.COMMS",
@@ -148,37 +162,23 @@
             }
         }
     },
-    "captain": {
-        "key": "captain",
-        "name": "BH.ROLE.CAPTAIN",
+    "gunner": {
+        "key": "gunner",
+        "name": "BH.ROLE.GUNNER",
         "functions": {
-            "coordinate": {
-                "key": "coordinate",
-                "name": "BH.FUNCTION.COORDINATE",
-                "description": "BH.FUNCTION.COORDINATE_DESCRIPTION",
-                "skill": ["Psychology"],
+            "fire": {
+                "key": "fire",
+                "name": "BH.FUNCTION.FIRE",
+                "description": "BH.FUNCTION.FIRE_DESCRIPTION",
+                "skill": ["Mounted Weapons"],
                 "component": ""
             },
-            "inspire": {
-                "key": "inspire",
-                "name": "BH.FUNCTION.INSPIRE",
-                "description": "BH.FUNCTION.INSPIRE_DESCRIPTION",
-                "skill": ["Charm", "Intimidation"],
+            "target": {
+                "key": "",
+                "name": "BH.FUNCTION.TARGET",
+                "description": "BH.FUNCTION.TARGET_DESCRIPTION",
+                "skill": [["Engineering", "Logic", "Mounted Weapons"]],
                 "component": ""
-            },
-            "transfer-power": {
-                "key": "transfer-power",
-                "name": "BH.FUNCTION.TRANSFER_POWER",
-                "description": "BH.FUNCTION.TRANSFER_POWER_DESCRIPTION",
-                "skill": [["Computer Acumen", "Engineering", "Vehicle Operations"]],
-                "component": ""
-            },
-            "countermeasures": {
-                "key": "countermeasures",
-                "name": "BH.FUNCTION.COUNTERMEASURES",
-                "description": "BH.FUNCTION.COUNTERMEASURES_DESCRIPTION",
-                "skill": ["Logic"],
-                "component": "Countermeasures"
             }
         }
     }

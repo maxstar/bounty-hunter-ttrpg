@@ -32,9 +32,9 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     const data = super.getData();
 
     data.user = game.user;
-    data.starshipRoles = CONFIG.BountyHunter['starship-roles'];
+    data.starshipRoles = this.getStarshipRoles();
     data.crewMembers = this.prepareCrewMembers(data);
-    data.starship = this.prepareStarshipControlData(data);
+    this.prepareStarshipControlData(data);
     data.cargoWeight = this.computeCargo(data);
     data.crewCost = this.computeCrewCost();
     return data;
@@ -165,6 +165,17 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   
   // ********** PREPARE DATA *************
 
+  getStarshipRoles() {
+    let roles = CONFIG.BountyHunter['starship-roles'];
+    roles.other = {
+      key: 'other',
+      name: 'Other',
+      functions: {},
+    };
+
+    return roles;
+  }
+
   prepareCrewMembers(data) {
     let ownedActorId, crewMembers = {};
     for (let i = 0; i < (data.actor.flags.crewMembers || []).length; i++) {
@@ -175,21 +186,20 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   }
 
   prepareStarshipControlData(data) {
-    let starship = {}, assignedActorId, starshipRole;
-    for (let starshipRoleKey in data.actor.flags.starship) {
-      starshipRole = data.actor.flags.starship[starshipRoleKey];
-      starship[starshipRoleKey] = {};
+    let assignedActorId, starshipRoleAssignees;
+    for (let starshipRoleKey in data.starshipRoles) {
+      starshipRoleAssignees = data.actor.flags.starship[starshipRoleKey] ?? [];
+      data.starshipRoles[starshipRoleKey].assignees = {}
 
-      if (typeof starshipRole === 'object') {
-        for (let i = 0; i < starshipRole.length; i++) {
-          assignedActorId = starshipRole[i];
-          starship[starshipRoleKey][assignedActorId] = game.actors.get(assignedActorId).data;
+      if (typeof starshipRoleAssignees === 'object') {
+        for (let i = 0; i < starshipRoleAssignees.length; i++) {
+          assignedActorId = starshipRoleAssignees[i];
+          data.starshipRoles[starshipRoleKey].assignees[assignedActorId] = game.actors.get(assignedActorId).data;
         }
-      } else if (starshipRole !== "") {
-        starship[starshipRoleKey][starshipRole] = game.actors.get(starshipRole).data;
+      } else if (starshipRoleAssignees !== "") {
+        data.starshipRoles[starshipRoleKey].assignees[starshipRoleAssignees] = game.actors.get(starshipRoleAssignees).data;
       }
     }
-    return starship;
   }
 
   computeCargo(data) {

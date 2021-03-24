@@ -64,9 +64,10 @@
                     * [done] transfer dialog
         * [    ] control tab
             * [    ] component display
-            * [    ] station (role) display
-            * [    ] character assignment to stations
+            * [done] station (role) display
+            * [done] character assignment to stations
             * [    ] function buttons
+            * [    ] improve visuals
 * [    ] localization
 * [    ] character generator
 

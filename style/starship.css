@@ -161,8 +161,8 @@ table.starship-roles td{
 
 .starship-role {
   min-width: 196px;
-  min-height: 90px;
-  height: 100%;
+  width: 250px;
+  min-height: 110px;
   margin-bottom: 10px;
 
   flex-grow: 1;
@@ -201,10 +201,14 @@ table.starship-roles td{
   background-color: cyan;
 }
 
-.starship-role button.travel-roll {
-  font-size: 12px;
-  display: block;
-  width: 99%;
+.starship-role .starship-actions {
+}
 
+.starship-role button.starship-action {
+  font-size: 12px;
+  line-height: 12px;
+  display: inline;
+  width: fit-content;
+  border: 0px;
   border-bottom: 1px gray dashed;
 }

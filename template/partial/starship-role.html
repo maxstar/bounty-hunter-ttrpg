@@ -1,0 +1,18 @@
+
+<div class="starship-role starship-role-{{role.key}}" data-starship-role="{{role.key}}">
+    <div class="starship-role-header">
+        {{ localize role.name }}
+    </div>
+    <div class="starship-actions">
+        {{#each role.functions as |action|}}
+            <button class="starship-action {{action.key}}" title="{{localize action.description}}">{{localize action.name}}</button>
+        {{/each}}
+    </div>
+    <div>
+        <ol>
+            {{#each assignedCharacters as |crewMember|}}
+                {{> systems/bounty-hunter-ttrpg/template/partial/crew-member.html crewMember=crewMember}}
+            {{/each}}
+        </ol>
+    </div>
+</div>
