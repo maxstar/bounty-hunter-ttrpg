@@ -64,9 +64,13 @@
                     * [done] transfer dialog
         * [    ] control tab
             * [    ] component display
+                * [done] list
+                * [    ] editable PP
             * [done] station (role) display
             * [done] character assignment to stations
+            * [    ] weapons stations
             * [    ] function buttons
+                * [    ] improve tooltips
             * [    ] improve visuals
 * [    ] localization
 * [    ] character generator

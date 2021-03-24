@@ -6,6 +6,7 @@
 .starship .tab-hint {
   font-style: italic;
   text-align: center;
+  font-size: 12px;
 }
 
 /* ************* STARSHIP INFO ******************* */
@@ -85,27 +86,27 @@
 }
 
 .crew-member .crew-member-avatar {
-  flex: 0 0 48px;
-  width: 48px;
-  height: 48px;
+  flex: 0 0 24px;
+  width: 24px;
+  height: 24px;
   border: 0px;
   cursor: pointer;
 }
 
 .crew-member .crew-member-name {
-  line-height: 48px;
+  line-height: 24px;
 }
 
 .crew-member .button {
   flex: 0 0 24px;
   width: 24px;
-  height: 48px;
-  line-height: 48px;
+  height: 24px;
+  line-height: 24px;
 }
 
 .crew-member .entity-link {
   margin-right: 4px;
-  line-height: 44px;
+  line-height: 22px;
 
   white-space: nowrap;
   overflow-x: hidden;
@@ -118,7 +119,7 @@
 .crew-member .plain-name {
   margin-right: 4px;
   margin-right: 4px;
-  line-height: 44px;
+  line-height: 22px;
 
   white-space: nowrap;
   overflow-x: hidden;
@@ -146,26 +147,22 @@
 
 /* ************* STARSHIP ROLES ******************* */
 
-table.starship-roles {
-  border: 0px solid;
-  border-spacing: 6px;
-  border-collapse: separate;
-  background: rgb(255, 255, 255);
-  margin-top: 0px;
+.starship-role-list {
+  width: 250px;
 }
 
-table.starship-roles td{
-  vertical-align: top;
-  height: 1px;
+.starship-role-list .reset {
+  width: auto;
 }
 
 .starship-role {
   min-width: 196px;
   width: 250px;
-  min-height: 110px;
+  min-height: 96px;
   margin-bottom: 10px;
 
   flex-grow: 1;
+  border: 2px solid;
 }
 
 .starship-role ol {
@@ -202,6 +199,8 @@ table.starship-roles td{
 }
 
 .starship-role .starship-actions {
+  border-bottom: 1px solid;
+  padding-bottom: 1px;
 }
 
 .starship-role button.starship-action {
@@ -210,5 +209,32 @@ table.starship-roles td{
   display: inline;
   width: fit-content;
   border: 0px;
-  border-bottom: 1px gray dashed;
+}
+
+/* ************* STARSHIP COMPONENTS **************** */
+.starship-component {
+  margin-bottom: 10px;
+  border: 2px solid;
+}
+
+.starship-component .starship-component-name {
+  text-align: center;
+  font-weight: bold;
+  max-height: 20px;
+  border-bottom: 1px solid;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.starship-component .starship-component-stats {
+  text-align: center;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.starship-component .starship-component-stats input {
+  font-size: 12px;
+  height: auto;
 }

@@ -37,6 +37,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     this.prepareStarshipControlData(data);
     data.cargoWeight = this.computeCargo(data);
     data.crewCost = this.computeCrewCost();
+    data.starshipComponents = this.prepareComponents();
     return data;
   }
 
@@ -194,6 +195,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
       if (typeof starshipRoleAssignees === 'object') {
         for (let i = 0; i < starshipRoleAssignees.length; i++) {
           assignedActorId = starshipRoleAssignees[i];
+          if (!assignedActorId) continue;
           data.starshipRoles[starshipRoleKey].assignees[assignedActorId] = game.actors.get(assignedActorId).data;
         }
       } else if (starshipRoleAssignees !== "") {
@@ -220,6 +222,10 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
 
   computeCrewCost() {
     return this.actor.data.data.crew.additional * game.settings.get("bounty-hunter-ttrpg", "crewCost");
+  }
+
+  prepareComponents() {
+    return this.actor.itemTypes.component ?? [];
   }
   
   // ********** HELPERS *************

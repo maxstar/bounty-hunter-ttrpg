@@ -1,0 +1,8 @@
+<div class="starship-component">
+    <div class="starship-component-name">{{component.name}}</div>
+    <div class="starship-component-stats">
+        <span>{{localize 'BH.PP'}}:</span>
+        <input class="short-num" type="number" value="{{component.data.pp.value}}" min="0" data-dtype="Number" /> / 
+        <input class="short-num" type="number" value="{{component.data.pp.max}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+    </div>
+</div>

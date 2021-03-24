@@ -46,7 +46,7 @@
   "ABILITY.REFRESH": "Refresh uses",
 
   "STARSHIP.TYPE": "Type",
-  "STARSHIP.HULL": "Hull (PP)",
+  "STARSHIP.HULL": "Hull",
   "STARSHIP.SIZE": "Size",
   "STARSHIP.COST": "Cost",
   "STARSHIP.UPKEEP": "Upkeep",
@@ -114,7 +114,9 @@
   "BH.METERS_SHORT": "m",
   "BH.TONS_SHORT": "t",
   "BH.COMPONENT_NAME": "Component Name",
-  "BH.PP": "Power Pool",
+  "BH.PP": "PP",
+  "BH.POWER_POOL": "Power Pool",
+  "BH.COMPONENTS": "Ship Components",
   "BH.COMPONENT.DESCRIPTION": "Description",
   "BH.COMPONENT.POWER_EFFECT": "Double PP Effect",
   "BH.COMPONENT.DAMAGE": "Damage (PP)",
@@ -140,7 +142,7 @@
   "BH.STARSHIP.CREW.HINT_ADD": "Drag & drop characters here to add them to the crew.",
   "BH.STARSHIP.CREW.HINT_ASSIGN": "Drag & drop characters to assign them to the desired roles.",
   "BH.STARSHIP.CARGO.HEADING": "Cargo Hold",
-  "BH.STARSHIP.CONTROL.RESET": "Reset Stations",
+  "BH.STARSHIP.CONTROL.RESET": "Reset",
 
   "BH.FUNCTION.COORDINATE": "Coordinate",
   "BH.FUNCTION.COORDINATE_DESCRIPTION": "You spend your AP for another character when they make a skill attempt this round",
