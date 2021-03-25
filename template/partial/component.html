@@ -1,5 +1,10 @@
 <div class="starship-component item" data-entity-id="{{component.data._id}}">
     <div class="starship-component-name" title="{{component.data.data.description}}">
+        {{#if user.isGM}}
+        <span class="item-controls faded">
+            <a class="item-control item-delete" title="{{localize 'Delete'}}"><i class="fas fa-trash"></i></a>
+        </span>
+        {{/if}}
         {{component.name}}
         {{#if user.isGM}}
         <span class="item-controls faded">

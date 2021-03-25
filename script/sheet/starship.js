@@ -18,7 +18,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["bounty-hunter", "sheet", "actor"],
       template: "systems/bounty-hunter-ttrpg/template/starship.html",
-      width: 700,
+      width: 750,
       height: 840,
       resizable: false,
       tabs: [{ navSelector: ".sheet-tabs", contentSelector: ".sheet-body", initial: "main" }],
@@ -46,7 +46,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-    html.find('.item-delete').click(this.handleRemoveCrewMember.bind(this));
+    html.find('.crew-delete').click(this.handleRemoveCrewMember.bind(this));
     html.find('.reset').click(ev => {
       this.assignCrewMembersToRole(this.getCrewMembers(), 'other');
       this.render(true);
@@ -265,6 +265,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   }
 
   async assignCrewMembersToRole(crewMembers, starshipRoleKey) {
+    if (!crewMembers) return;
     if (!Array.isArray(crewMembers)) crewMembers = [crewMembers];
 
     let updateData = {}, updDataKey, crewMemberId;

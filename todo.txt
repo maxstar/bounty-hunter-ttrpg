@@ -66,8 +66,9 @@
             * [    ] component display
                 * [done] list
                 * [done] edit component (GM only)
-                * [    ] remove component (GM only)
-                    * [    ] update role flags - remove gunner role for weapon component
+                * [done] remove component (GM only)
+                    * [done] update role flags - remove gunner role for weapon component
+                    * [done] cleanup non-existent gunner roles from flags
                 * [    ] editable PP
             * [done] station (role) display
             * [done] character assignment to stations

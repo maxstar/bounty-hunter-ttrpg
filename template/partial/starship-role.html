@@ -1,6 +1,13 @@
 
 <div class="starship-role starship-role-{{role.key}}{{#if role.isWeapon}} item{{/if}}" {{#if role.isWeapon}}data-entity-id="{{role.weapon.data._id}}"{{/if}} data-starship-role="{{role.key}}">
     <div class="starship-role-header">
+        {{#if role.isWeapon}}
+            {{#if user.isGM}}
+            <span class="item-controls faded">
+                <a class="item-control item-delete" title="{{localize 'Delete'}}"><i class="fas fa-trash"></i></a>
+            </span>
+            {{/if}}
+        {{/if}}
         {{ localize role.name }}
         {{#if role.isWeapon}}
             {{#if user.isGM}}

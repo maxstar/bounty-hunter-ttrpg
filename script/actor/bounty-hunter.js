@@ -21,6 +21,23 @@ export class BountyHunterActor extends Actor {
   hasSkill(skillName) {
     return this.items.filter(i => i.name === skillName && i.type === 'skill').length > 0;
   }
+
+  /** @override */
+  _onDeleteEmbeddedEntity(embeddedName, child, options, userId) {
+    super._onDeleteEmbeddedEntity(embeddedName, child, options, userId);
+
+    if ( embeddedName !== "OwnedItem" ) return;
+    const item = this.getOwnedItem(child._id);
+    if (child.type !== 'weapon-component') return; // not a weapon component
+
+    const key = `gunner-${child._id}`;
+    // assign crew members to Other activity
+    this.sheet.assignCrewMembersToRole(this.data.flags.starship[key], 'other');
+
+    // remove role key
+    const updateKey = `flags.starship.-=${key}`;
+    this.update({[updateKey]: null});
+  }
 }
   
 export class BountyHunterItem extends Item {
