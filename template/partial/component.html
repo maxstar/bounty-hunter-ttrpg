@@ -14,7 +14,7 @@
     </div>
     <div class="starship-component-stats">
         <span>{{localize 'BH.PP'}}:</span>
-        <input class="short-num" type="number" value="{{component.data.data.pp.value}}" min="0" data-dtype="Number" /> / 
-        <input class="short-num" type="number" value="{{component.data.data.pp.max}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+        <input class="short-num embedded-update" type="number" data-name="data.pp.value" data-entity-id="{{component.data._id}}" value="{{component.data.data.pp.value}}" min="0" data-dtype="Number" /> / 
+        <input class="short-num embedded-update" type="number" data-name="data.pp.max" data-entity-id="{{component.data._id}}" value="{{component.data.data.pp.max}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
     </div>
 </div>

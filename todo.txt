@@ -62,14 +62,14 @@
                     * [done] transfer button on char sheet
                     * [done] transfer button on starship sheet
                     * [done] transfer dialog
-        * [    ] control tab
-            * [    ] component display
+        * [done] control tab
+            * [done] component display
                 * [done] list
                 * [done] edit component (GM only)
                 * [done] remove component (GM only)
                     * [done] update role flags - remove gunner role for weapon component
                     * [done] cleanup non-existent gunner roles from flags
-                * [    ] editable PP
+                * [done] editable PP
             * [done] station (role) display
             * [done] character assignment to stations
             * [done] weapons stations

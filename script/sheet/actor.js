@@ -24,6 +24,8 @@ export class BountyHunterActorSheet extends ActorSheet {
     });
     html.find(".item-create").click(this.handleItemCreate.bind(this));
     html.find(".item-transfer").click(this.handleItemTransfer.bind(this));
+
+    html.find(".embedded-update").blur(this.handleEmbeddedUpdate.bind(this));
   }
 
   getData() {
@@ -99,6 +101,16 @@ export class BountyHunterActorSheet extends ActorSheet {
         that.actor.deleteEmbeddedEntity("OwnedItem", item._id);
       }
     );
+  }
+
+  handleEmbeddedUpdate(event) {
+    event.preventDefault();
+    const el = event.currentTarget;
+    const data = duplicate(el.dataset);
+
+    const item = this.actor.items.get(data.entityId);
+    const updateKey = data.name;
+    item.update({[updateKey]: el.value});
   }
 
   _getPlayerActors() {
