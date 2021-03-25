@@ -102,7 +102,7 @@ export class BountyHunterActorSheet extends ActorSheet {
   }
 
   _getPlayerActors() {
-    return game.actors.filter(a => a.hasPlayerOwner);
+    return game.actors.filter(a => a.hasPlayerOwner && a.id !== this.actor.id);
   }
 
   _sortItems(items, comparator) {

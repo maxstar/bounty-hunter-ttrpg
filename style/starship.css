@@ -149,6 +149,7 @@
 
 .starship-role-list {
   width: 250px;
+  margin-right: 8px;
 }
 
 .starship-role-list .reset {
@@ -212,7 +213,28 @@
   border: 0px;
 }
 
+/* ************* STARSHIP WEAPON COMPONENTS **************** */
+
+.weapon-stats {
+  min-width: 100px;
+  font-size: 12px;
+}
+
+.weapon-stats input {
+  font-size: 12px;
+  height: auto;
+}
+
+.starship-role-weapon-assignees {
+  width: 100%;
+}
+
 /* ************* STARSHIP COMPONENTS **************** */
+
+.starship-component-list {
+  width: 100%;
+}
+
 .starship-component {
   margin-bottom: 10px;
   border: 2px solid;

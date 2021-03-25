@@ -71,10 +71,10 @@
                 * [    ] editable PP
             * [done] station (role) display
             * [done] character assignment to stations
-            * [    ] weapons stations
+            * [done] weapons stations
                 * [done] list
                 * [done] assignment
-                * [    ] weapon stats
+                * [done] weapon stats
             * [    ] function buttons
                 * [    ] improve tooltips
             * [    ] improve visuals

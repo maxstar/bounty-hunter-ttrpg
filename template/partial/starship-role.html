@@ -8,11 +8,22 @@
             <button class="starship-action {{action.key}}" title="{{localize action.description}}">{{localize action.name}}</button>
         {{/each}}
     </div>
-    <div>
-        <ol>
+    <div class="flex row">
+        <ol class="starship-role{{#if role.isWeapon}}-weapon{{/if}}-assignees">
             {{#each assignedCharacters as |crewMember|}}
                 {{> systems/bounty-hunter-ttrpg/template/partial/crew-member.html crewMember=crewMember}}
             {{/each}}
         </ol>
+        {{#if role.isWeapon}}
+        <div class="weapon-stats">
+            <div><strong>{{localize 'BH.WEAPON.DAMAGE'}}:</strong> {{role.weapon.data.data.damage}}</div>
+            <div>{{role.weapon.data.data.range.min}}-{{role.weapon.data.data.range.max}}</div>
+            <div>
+                <span><strong>{{localize 'BH.PP'}}:</strong></span>
+                <input class="short-num" type="number" value="{{role.weapon.data.data.pp.value}}" min="0" data-dtype="Number" /> / 
+                <input class="short-num" type="number" value="{{role.weapon.data.data.pp.max}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+            </div>
+        </div>
+        {{/if}}
     </div>
 </div>

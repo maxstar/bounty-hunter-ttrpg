@@ -216,6 +216,8 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
       starshipWeapons[key] = JSON.parse(gunnerRole);
       starshipWeapons[key].key = key;
       starshipWeapons[key].name = weapon.name;
+      starshipWeapons[key].weapon = weapon;
+      starshipWeapons[key].isWeapon = true;
       starshipWeapons[key].assignees = {};
 
       for (let assignedActorId of assignees) {
