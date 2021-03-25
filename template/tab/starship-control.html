@@ -7,13 +7,13 @@
                 <button class="reset border">{{localize "BH.STARSHIP.CONTROL.RESET"}}</button>
             </div>
             {{#each starshipRoles as |starshipRole roleKey|}}
-                {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipRole.assignees role=starshipRole user=user}}
+                {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipRole.assignees role=starshipRole user=../user}}
             {{/each}}
         </div>
         <div class="starship-role-list border">
             <h1>{{localize "BH.STARSHIP.WEAPONS.HEADING" }}</h1>
             {{#each starshipWeapons as |starshipWeapon roleKey|}}
-                {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipWeapon.assignees role=starshipWeapon user=user}}
+                {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipWeapon.assignees role=starshipWeapon user=../user}}
             {{/each}}
         </div>
         <div class="starship-component-list border">
@@ -27,7 +27,7 @@
                 </div>
             </div>
             {{#each starshipComponents as |starshipComponent key|}}
-                {{> systems/bounty-hunter-ttrpg/template/partial/component.html component=starshipComponent user=user}}
+                {{> systems/bounty-hunter-ttrpg/template/partial/component.html component=starshipComponent user=../user}}
             {{/each}}
         </div>
     </div>

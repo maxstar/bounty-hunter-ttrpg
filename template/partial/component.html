@@ -1,5 +1,12 @@
-<div class="starship-component">
-    <div class="starship-component-name">{{component.name}}</div>
+<div class="starship-component item" data-entity-id="{{component.data._id}}">
+    <div class="starship-component-name" title="{{component.data.data.description}}">
+        {{component.name}}
+        {{#if user.isGM}}
+        <span class="item-controls faded">
+            <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+        </span>
+        {{/if}}
+    </div>
     <div class="starship-component-stats">
         <span>{{localize 'BH.PP'}}:</span>
         <input class="short-num" type="number" value="{{component.data.data.pp.value}}" min="0" data-dtype="Number" /> / 

@@ -1,7 +1,14 @@
 
-<div class="starship-role starship-role-{{role.key}}" data-starship-role="{{role.key}}">
+<div class="starship-role starship-role-{{role.key}}{{#if role.isWeapon}} item{{/if}}" {{#if role.isWeapon}}data-entity-id="{{role.weapon.data._id}}"{{/if}} data-starship-role="{{role.key}}">
     <div class="starship-role-header">
         {{ localize role.name }}
+        {{#if role.isWeapon}}
+            {{#if user.isGM}}
+            <span class="item-controls faded">
+                <a class="item-control item-edit" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+            </span>
+            {{/if}}
+        {{/if}}
     </div>
     <div class="starship-actions">
         {{#each role.functions as |action|}}

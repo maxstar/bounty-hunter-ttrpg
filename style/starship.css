@@ -229,6 +229,11 @@
   width: 100%;
 }
 
+.starship-role .item-control {
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
 /* ************* STARSHIP COMPONENTS **************** */
 
 .starship-component-list {
@@ -249,6 +254,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
+}
+
+.starship-component-name .item-control {
+  margin-left: 2px;
+  margin-right: 2px;
 }
 
 .starship-component .starship-component-stats {

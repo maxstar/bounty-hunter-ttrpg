@@ -65,7 +65,7 @@
         * [    ] control tab
             * [    ] component display
                 * [done] list
-                * [    ] edit component (GM only)
+                * [done] edit component (GM only)
                 * [    ] remove component (GM only)
                     * [    ] update role flags - remove gunner role for weapon component
                 * [    ] editable PP
@@ -77,6 +77,8 @@
                 * [done] weapon stats
             * [    ] function buttons
                 * [    ] improve tooltips
+                * [    ] simple functions
+                * [    ] custom logic functions
             * [    ] improve visuals
 * [    ] localization
 * [    ] character generator
