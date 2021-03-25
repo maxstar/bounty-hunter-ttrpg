@@ -10,6 +10,15 @@
                 {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipRole.assignees role=starshipRole}}
             {{/each}}
         </div>
+        <div class="starship-role-list border">
+            <div class="flex row">
+                <!-- <span class="tab-hint">{{localize "BH.STARSHIP.CREW.HINT_ASSIGN"}}</span>
+                <button class="reset border">{{localize "BH.STARSHIP.CONTROL.RESET"}}</button> -->
+            </div>
+            {{#each starshipWeapons as |starshipWeapon roleKey|}}
+                {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipWeapon.assignees role=starshipWeapon}}
+            {{/each}}
+        </div>
         <div class="starship-component-list border">
             <div class="tab-hint">{{localize "BH.COMPONENTS"}}</div>
             <div class="starship-component">

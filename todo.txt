@@ -65,10 +65,16 @@
         * [    ] control tab
             * [    ] component display
                 * [done] list
+                * [    ] edit component (GM only)
+                * [    ] remove component (GM only)
+                    * [    ] update role flags - remove gunner role for weapon component
                 * [    ] editable PP
             * [done] station (role) display
             * [done] character assignment to stations
             * [    ] weapons stations
+                * [done] list
+                * [done] assignment
+                * [    ] weapon stats
             * [    ] function buttons
                 * [    ] improve tooltips
             * [    ] improve visuals

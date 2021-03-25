@@ -201,6 +201,7 @@
 .starship-role .starship-actions {
   border-bottom: 1px solid;
   padding-bottom: 1px;
+  text-align: center;
 }
 
 .starship-role button.starship-action {

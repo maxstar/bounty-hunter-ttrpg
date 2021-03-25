@@ -33,11 +33,13 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
 
     data.user = game.user;
     data.starshipRoles = this.getStarshipRoles();
+    data.starshipWeapons = this.prepareStarshipWeapons(data);
     data.crewMembers = this.prepareCrewMembers(data);
     this.prepareStarshipControlData(data);
     data.cargoWeight = this.computeCargo(data);
     data.crewCost = this.computeCrewCost();
     data.starshipComponents = this.prepareComponents();
+    if (data.starshipRoles.gunner) delete data.starshipRoles.gunner;
     return data;
   }
 
@@ -167,7 +169,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   // ********** PREPARE DATA *************
 
   getStarshipRoles() {
-    let roles = CONFIG.BountyHunter['starship-roles'];
+    let roles = duplicate(CONFIG.BountyHunter['starship-roles']);
     roles.other = {
       key: 'other',
       name: 'Other',
@@ -202,6 +204,27 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         data.starshipRoles[starshipRoleKey].assignees[starshipRoleAssignees] = game.actors.get(starshipRoleAssignees).data;
       }
     }
+  }
+  
+  prepareStarshipWeapons(data) {
+    let weapons = this.actor.itemTypes['weapon-component'];
+    const gunnerRole = JSON.stringify(data.starshipRoles.gunner);
+    let starshipWeapons = {}, key, assignees;
+    for (let weapon of weapons) {
+      key = `gunner-${weapon.id}`;
+      assignees = data.actor.flags.starship[key] ?? [];
+      starshipWeapons[key] = JSON.parse(gunnerRole);
+      starshipWeapons[key].key = key;
+      starshipWeapons[key].name = weapon.name;
+      starshipWeapons[key].assignees = {};
+
+      for (let assignedActorId of assignees) {
+        if (!assignedActorId) continue;
+        starshipWeapons[key].assignees[assignedActorId] = game.actors.get(assignedActorId).data;
+      }
+    }
+
+    return starshipWeapons;
   }
 
   computeCargo(data) {
@@ -266,9 +289,11 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         }
       }
 
-      // add starship member to a new assignment
+      // add crew member to a new assignment
       updDataKey = 'flags.starship.' + starshipRoleKey;
-      if (typeof this.actor.data.flags.starship[starshipRoleKey] === 'object') {
+      if (this.actor.data.flags.starship[starshipRoleKey] === undefined) {
+        updateData[updDataKey] = [crewMemberId];
+      } else if (typeof this.actor.data.flags.starship[starshipRoleKey] === 'object') {
         if (updateData[updDataKey] === undefined) {
           roleParticipants = [...this.actor.data.flags.starship[starshipRoleKey]];
           roleParticipants.push(crewMemberId);
