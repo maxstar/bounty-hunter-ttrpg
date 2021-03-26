@@ -79,9 +79,16 @@
             * [    ] function buttons
                 * [done] improve tooltips - required skills, required components
                 * [done] can use / disabled
-                * [    ] simple functions
+                * [done] simple functions
                 * [    ] custom logic functions
-            * [    ] improve visuals
+                    * [    ] inspire
+                    * [    ] transfer
+                    * [    ] fire from tactical with weapon stats
+                    * [    ] fire at component from tactical with weapon stats
+                    * [    ] repair
+                    * [    ] increase
+                    * [    ] transponder
+            * [    ] component removal confirmation
 * [    ] localization
 * [    ] character generator
 
@@ -96,6 +103,7 @@
         * [    ] ship function usage
     * [    ] color code X/Y info
     * [done] implement item transfer between players
+    * [    ] display AP for crew members (owners only)
 
 
 * [    ] skill check request

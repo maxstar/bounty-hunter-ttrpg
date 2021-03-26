@@ -19,7 +19,8 @@
     </div>
     <div class="starship-actions">
         {{#each role.functions as |action|}}
-            <button class="starship-action {{action.key}}" 
+            <button class="starship-action starship-action-{{action.key}}" 
+                data-action="{{action.key}}"
                 title="{{action.skillRequirements}}&#10;{{action.componentRequirements}}&#10;{{localize action.description}}"
                 {{#unless action.canUse}}disabled="disabled"{{/unless}}
             >

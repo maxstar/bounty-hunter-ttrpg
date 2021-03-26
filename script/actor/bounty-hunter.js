@@ -26,6 +26,13 @@ export class BountyHunterActor extends Actor {
     return this.items.filter(i => skillNames.includes(i.name) && i.type === 'skill').length === skillNames.length;
   }
 
+  canDoAction(action, checkAP = true) {
+    return action.skill.reduce(
+      (a, b) => a && this.hasSkillChain(b) && (checkAP ? this.data.data.bio.ap.value >= b.length : true), 
+      true
+    );
+  }
+
   /** @override */
   _onDeleteEmbeddedEntity(embeddedName, child, options, userId) {
     super._onDeleteEmbeddedEntity(embeddedName, child, options, userId);

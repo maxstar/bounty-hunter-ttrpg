@@ -4,7 +4,7 @@ export class StarshipHandler {
 
     // check that character has skills
     /** @var {Array|false} */
-    const skillset = this.getSkillset(character, action);
+    const skillset = this._getSkillset(character, action);
     if (!skillset) {
       ui.notifications.error(`${character.name} does not have necessary skills`);
       return;
@@ -12,15 +12,15 @@ export class StarshipHandler {
 
     // check that character has enough AP
     const apCost = skillset.length;
-    // if (character.data.data.bio.ap.value < apCost) {
-    //   ui.notifications.error(`${character.name} does not have enough Action Points`);
-    //   return;
-    // }
+    if (character.data.data.bio.ap.value < apCost) {
+      ui.notifications.error(`${character.name} does not have enough Action Points`);
+      return;
+    }
 
     // do custom logic
 
     character.reduceAP(apCost);
-    this._postActionMessage(character, action, apCost);
+    this._postActionMessage(character, action, skillset, apCost);
 
     Hooks.call(`post${action.key}`, starship, character, action);
   }
@@ -44,11 +44,11 @@ export class StarshipHandler {
     return skillset.length ? skillset : false;
   }
   
-  _postActionMessage(character, action, apSpent) {
+  _postActionMessage(character, action, skillset, apSpent) {
     let chatData = {
       speaker: {actor: character._id},
       // @todo localize
-      content: `<span style="font-size: 16px;"><b>${action.name}</b></span> <i style="font-size:10px">(${apSpent} AP spent)<i>`
+      content: `<div style="font-size: 16px;"><b>${game.i18n.localize(action.name)}</b><i style="font-size:10px"> (${skillset.join(', ')}; -${apSpent} AP)</i></div><div>${game.i18n.localize(action.description)}</div> `
     };
     ChatMessage.create(chatData, {});
   }

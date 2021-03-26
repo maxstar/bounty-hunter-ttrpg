@@ -52,7 +52,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
       this.render(true);
     });
 
-    html.find('.function-button').click(this.handleFunctionUsage.bind(this));
+    html.find('.starship-action').click(this.handleStarshipActionUsage.bind(this));
   }
 
   _onDragStart(event) {
@@ -94,12 +94,13 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   
   // ********** HANDLERS *************
 
-  handleFunctionUsage(event) {
+  handleStarshipActionUsage(event) {
     event.preventDefault();
     event.stopPropagation();
     const btn = event.currentTarget;
-    const roleKey = btn.closest(".starship-role").dataset.key;
-    let assignedPartyMembers = this._getOwnedCharacters(this.actor.data.flags.starship[btn.dataset.action]);
+    const starshipRoleKey = btn.closest(".starship-role").dataset.starshipRole;
+    const roleKey = starshipRoleKey.includes('gunner') ? 'gunner' : starshipRoleKey; // special case for weapon roles
+    let assignedPartyMembers = this._getOwnedCharacters(this.actor.data.flags.starship[starshipRoleKey]);
     let action = CONFIG.BountyHunter['starship-roles'][roleKey].functions[btn.dataset.action];
 
     if (assignedPartyMembers.length === 1) {
@@ -247,10 +248,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
       ownedAssignees = this._getOwnedCharacters(Object.keys(role.assignees));
       if (ownedAssignees.length) {
         ownedAssignee = ownedAssignees[0];
-        hasSkillsAndAp = action.skill.reduce(
-          (a, b) => a && ownedAssignee.hasSkillChain(b) && ownedAssignee.data.data.bio.ap.value >= b.length, 
-          true
-        );
+        hasSkillsAndAp = ownedAssignee.canDoAction(action);
         componentIsOnline = action.component === '' 
           || this.actor.items.find(i => i.name.includes(action.component) && i.data.data.pp.value > 0);
         action.canUse = hasSkillsAndAp && componentIsOnline;
@@ -258,7 +256,6 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         action.canUse = false;
       }
     }
-
   }
 
   computeCargo(data) {
