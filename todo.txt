@@ -78,7 +78,7 @@
                 * [done] weapon stats
             * [    ] function buttons
                 * [done] improve tooltips - required skills, required components
-                * [    ] can use / disabled
+                * [done] can use / disabled
                 * [    ] simple functions
                 * [    ] custom logic functions
             * [    ] improve visuals

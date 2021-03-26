@@ -205,13 +205,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         data.starshipRoles[starshipRoleKey].assignees[starshipRoleAssignees] = game.actors.get(starshipRoleAssignees).data;
       }
 
-      // handle action info
-      for (let [actionKey, action] of Object.entries(data.starshipRoles[starshipRoleKey].functions)) {
-        action.skillRequirements = action.skill
-          .map(chain => chain.join(' + ') + ` (${chain.length} AP)`)
-          .join(' OR ');
-          action.componentRequirements = action.component ? `${game.i18n.localize('BH.STARSHIP.COMPONENTS.HEADING')}: ${action.component}` : '';
-      }
+      this.prepareActionInfo(data.starshipRoles[starshipRoleKey])
     }
   }
   
@@ -233,9 +227,38 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         if (!assignedActorId) continue;
         starshipWeapons[key].assignees[assignedActorId] = game.actors.get(assignedActorId).data;
       }
+
+      this.prepareActionInfo(starshipWeapons[key])
     }
 
     return starshipWeapons;
+  }
+
+  prepareActionInfo(role) {
+    let ownedAssignees, ownedAssignee, hasSkillsAndAp, componentIsOnline;
+    for (let [actionKey, action] of Object.entries(role.functions)) {
+      action.skillRequirements = action.skill
+        .map(chain => chain.join(' + ') + ` (${chain.length} AP)`)
+        .join(' OR ');
+      action.componentRequirements = action.component ? `${game.i18n.localize('BH.STARSHIP.COMPONENTS.HEADING')}: ${action.component}` : '';
+      
+      // can use if there is an assigned character that 
+      // has required skills, has enough AP, required component is online
+      ownedAssignees = this._getOwnedCharacters(Object.keys(role.assignees));
+      if (ownedAssignees.length) {
+        ownedAssignee = ownedAssignees[0];
+        hasSkillsAndAp = action.skill.reduce(
+          (a, b) => a && ownedAssignee.hasSkillChain(b) && ownedAssignee.data.data.bio.ap.value >= b.length, 
+          true
+        );
+        componentIsOnline = action.component === '' 
+          || this.actor.items.find(i => i.name.includes(action.component) && i.data.data.pp.value > 0);
+        action.canUse = hasSkillsAndAp && componentIsOnline;
+      } else {
+        action.canUse = false;
+      }
+    }
+
   }
 
   computeCargo(data) {

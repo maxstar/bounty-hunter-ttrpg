@@ -19,7 +19,11 @@ export class BountyHunterActor extends Actor {
   }
 
   hasSkill(skillName) {
-    return this.items.filter(i => i.name === skillName && i.type === 'skill').length > 0;
+    return this.items.find(i => i.name === skillName && i.type === 'skill') !== null;
+  }
+
+  hasSkillChain(skillNames) {
+    return this.items.filter(i => skillNames.includes(i.name) && i.type === 'skill').length === skillNames.length;
   }
 
   /** @override */
