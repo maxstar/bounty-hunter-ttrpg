@@ -191,6 +191,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   prepareStarshipControlData(data) {
     let assignedActorId, starshipRoleAssignees;
     for (let starshipRoleKey in data.starshipRoles) {
+      // handle role assignees
       starshipRoleAssignees = data.actor.flags.starship[starshipRoleKey] ?? [];
       data.starshipRoles[starshipRoleKey].assignees = {}
 
@@ -202,6 +203,14 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         }
       } else if (starshipRoleAssignees !== "") {
         data.starshipRoles[starshipRoleKey].assignees[starshipRoleAssignees] = game.actors.get(starshipRoleAssignees).data;
+      }
+
+      // handle action info
+      for (let [actionKey, action] of Object.entries(data.starshipRoles[starshipRoleKey].functions)) {
+        action.skillRequirements = action.skill
+          .map(chain => chain.join(' + ') + ` (${chain.length} AP)`)
+          .join(' OR ');
+          action.componentRequirements = action.component ? `${game.i18n.localize('BH.STARSHIP.COMPONENTS.HEADING')}: ${action.component}` : '';
       }
     }
   }

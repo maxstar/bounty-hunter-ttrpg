@@ -77,7 +77,8 @@
                 * [done] assignment
                 * [done] weapon stats
             * [    ] function buttons
-                * [    ] improve tooltips
+                * [done] improve tooltips - required skills, required components
+                * [    ] can use / disabled
                 * [    ] simple functions
                 * [    ] custom logic functions
             * [    ] improve visuals
@@ -85,7 +86,7 @@
 * [    ] character generator
 
 * [    ] refactoring/improvements
-    * [    ] unify item display in character and starship
+    * [done] unify item display in character and starship
         * [done] item
         * [    ] section
     * [    ] fancy chat messages
@@ -94,7 +95,7 @@
         * [    ] item usage
         * [    ] ship function usage
     * [    ] color code X/Y info
-    * [    ] implement item transfer between players
+    * [done] implement item transfer between players
 
 
 * [    ] skill check request
