@@ -160,6 +160,7 @@
       "description": ""
     },
     "skill": {
+      "type": "mental",
       "description": ""
     },
     "ability": {

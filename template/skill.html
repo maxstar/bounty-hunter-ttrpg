@@ -1,7 +1,24 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <label>{{localize "SKILL.NAME"}}</label>
-    <input name="name" type="text" value="{{item.name}}" />
+    <div class="flex row">
+        <div class="flex row">
+            <label>{{localize "BH.SKILL.NAME"}}</label>
+            <input name="name" type="text" value="{{item.name}}" />
+        </div>
 
-    <label>{{localize "SKILL.DESCRIPTION"}}</label>
-    <textarea class="skill-description" name="data.description">{{item.data.description}}</textarea>
+        <div>
+            <label>{{localize "BH.SKILL.TYPE"}}</label>
+            <select name="data.type">
+                {{#select data.type}}
+                    <option value="mental">Mental</option>
+                    <option value="physical">Physical</option>
+                    <option value="ranged">Ranged</option>
+                {{/select}}
+            </select>
+        </div>
+    </div>
+
+    <div>
+        <label>{{localize "BH.SKILL.DESCRIPTION"}}</label>
+        <textarea class="skill-description" name="data.description">{{item.data.description}}</textarea>
+    </div>
 </form>

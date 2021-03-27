@@ -1,0 +1,23 @@
+
+<div class="flex skill item" data-entity-id="{{skill._id}}">
+    <div class="button">
+        <a class="item-control skill-delete" title="{{localize 'BH.REMOVE_SKILL'}}"><i class="fas fa-trash"></i></a>
+    </div>
+    <a class="use-skill full-width" title="{{skill.data.data.description}}">
+        <span class="skill-name">{{localize skill.name}}</span>
+        <span class="skill-type faded" title="{{skill.data.data.type}}">
+            {{#if (eq skill.data.data.type 'ranged')}}
+                <i class="fas fa-bullseye"></i>
+            {{else if (eq skill.data.data.type 'physical')}}
+                <i class="fas fa-fist-raised"></i>
+            {{else}}
+                <i class="fas fa-brain"></i>
+            {{/if}}
+        </span>
+    </a>
+        
+    <div class="item-controls">
+        <a class="use-skill-hard" title="{{localize 'BH.HARD_CHECK'}}"><i class="fas fa-angle-double-up"></i></a>
+    </div>
+</div>
+

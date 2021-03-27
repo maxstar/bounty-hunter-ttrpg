@@ -1,7 +1,7 @@
 * [done] skills
     * [done] spend more AP on a skill
     * [done] max AP per skill setting
-    * [    ] skill types: mental/physical/range
+    * [done] skill types: mental/physical/range
 * [done] AP UI
     * [done] recover all/recover half
 * [    ] abilities

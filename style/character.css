@@ -77,6 +77,24 @@
     font-weight: bold;
     width: 100%;
 }
+.skills .use-skill {
+    margin-left: 4px;
+    font-weight: bold;
+    width: 100%;
+    font-size: 12px;
+    line-height: 17px;
+    display: flex;
+}
+.skill .skill-name {
+    white-space: nowrap;
+    display: block;
+    max-height: 17px;
+    max-width: 100px;
+    overflow-x: hidden;
+}
+.skill .skill-type {
+    margin-left: 4px;
+}
 
 .heading {
     border-bottom: 1px solid;
@@ -95,23 +113,13 @@ button.recover-ap, button.recover-uses {
     line-height: 25px;
 }
 
-button.use-skill, button.use-ability, button.use-item {
+button.use-item { /* use ability */
     padding: 0px;
     margin: 0px;
     font-size: 12px;
     height: 18px;
     vertical-align: middle;
     line-height: 18px;
-}
-
-button.use-skill-hard {
-    padding: 0px;
-    margin: 0px;
-    font-size: 12px;
-    height: 18px;
-    vertical-align: middle;
-    line-height: 18px;
-    width: 30%;
 }
 
 button.add-skill, button.add-ability, button.item-create {

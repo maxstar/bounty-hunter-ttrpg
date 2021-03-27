@@ -34,13 +34,7 @@
             </div>
             <div class="skills border">
                 {{#each data.itemsByCategory.skill as |skill key|}}
-                <div class="flex skill item" data-entity-id="{{skill._id}}">
-                    <div class="button">
-                        <a class="item-control skill-delete" title="{{localize 'BH.REMOVE_SKILL'}}"><i class="fas fa-trash"></i></a>
-                    </div>
-                    <button type="button" class="use-skill" data-attribute="{{key}}" title="{{skill.data.data.description}}">{{localize skill.name}}</button>
-                    <button type="button" class="use-skill-hard fas fa-angle-double-up" data-attribute="{{key}}" title="{{localize 'BH.HARD_CHECK'}}"></button>
-                </div>
+                    {{> systems/bounty-hunter-ttrpg/template/partial/skill.html skill=skill key=key}}
                 {{/each}}
             </div>
         </div>
