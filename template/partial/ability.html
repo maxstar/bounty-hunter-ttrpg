@@ -1,0 +1,19 @@
+
+<div class="flex ability item" data-entity-id="{{ability._id}}">
+    <div class="button">
+        <a class="item-control ability-delete" title="{{localize 'BH.REMOVE_ABILITY'}}"><i class="fas fa-trash"></i></a>
+    </div>
+
+    {{#unless (eq ability.data.data.uses.max '0')}}
+    <a class="use-item full-width {{#if (eq ability.data.data.uses.value 0)}}faded{{/if}}">
+    {{/unless}}
+        <span class="ability-name full-width" title="{{ability.data.data.description}}">{{localize ability.name}}</span>
+    {{#unless (eq ability.data.data.uses.max '0')}}
+    </a>
+    {{/unless}}
+    
+    <div class="item-controls">
+        {{#unless (eq ability.data.data.uses.max '0')}}<span class="ability-uses" title="{{localize 'BH.USES_REMAINING'}} ({{localize ability.data.data.refresh}})">{{ability.data.data.uses.value}}</span>{{/unless}}
+        <a class="item-control item-edit faded" title="{{localize 'Edit'}}"><i class="fas fa-edit"></i></a>
+    </div>
+</div>

@@ -73,12 +73,26 @@
     width: 100%;
 }
 
-.abilities .ability, .items .item {
+.abilities .ability {
+    font-size: 12px;
+    margin-left: 4px;
+    font-weight: bold;
+    width: 100%;
+}
+
+.items .item {
     font-size: 14px;
     margin-left: 4px;
     font-weight: bold;
     width: 100%;
 }
+.ability.item {
+    margin-left: 0;
+}
+.ability .ability-delete {
+    margin-right: 4px;
+}
+
 .skills .use-skill {
     margin-left: 4px;
     font-weight: bold;
