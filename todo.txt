@@ -39,8 +39,8 @@
     * [done] Combat Tracker UI
         * [done] split by phases
         * [done] buttons to change phases for a combatant
-* [    ] starships
-    * [    ] compendium
+* [done] starships
+    * [done] compendium
     * [done] component form
     * [done] weapon array form
     * [done] content: basic components
