@@ -33,6 +33,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   getData() {
     const data = super.getData();
+    data.user = game.user;
     data.data.itemsByCategory = this.categorizeItems();
     this.computeEncumbrance(data);
     this.computeSkillData(data);

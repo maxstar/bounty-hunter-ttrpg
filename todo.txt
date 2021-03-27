@@ -28,10 +28,10 @@
     * [done] consume ammo
     * [done] use appropriate skill
     * [----] item durability (PP)
-    * [    ] tech items recharging
+    * [done] tech items recharging
 * [done] bio
-    * [    ] "how does that make you feel" inputs
-* [    ] race -> species, species benefits, speed
+    * [----] "how does that make you feel" inputs
+* [done] race -> species, species benefits, speed
 * [    ] languages
 * [    ] money
 * [    ] journal link to a quick reference (see char sheet V9)
@@ -41,11 +41,11 @@
         * [done] split by phases
         * [done] buttons to change phases for a combatant
 * [    ] starships
+    * [    ] compendium
     * [done] component form
     * [done] weapon array form
-    * [    ] component active effects that override starship function data
     * [done] content: basic components
-    * [    ] starship sheet
+    * [done] starship sheet
         * [done] main tab
             * [done] ship stats
                 * [done] additional crew
@@ -104,6 +104,7 @@
         * [    ] repair
         * [    ] increase
         * [    ] transponder
+    * [    ] component active effects that override starship function data
 
 
 * [    ] skill check request

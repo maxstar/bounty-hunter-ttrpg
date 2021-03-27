@@ -23,10 +23,10 @@
                     </tr>
                     <tr>
                         <td>
-                            <label>{{localize data.bio.race.label}}:</label>
+                            <label>{{localize data.bio.species.label}}:</label>
                         </td>
                         <td colspan="3">
-                            <input name="data.bio.race.value" type="text" value="{{data.bio.race.value}}" />
+                            <input name="data.bio.species.value" type="text" value="{{data.bio.species.value}}" />
                         </td>
                         <td>
                             <label>{{localize data.bio.reputation.label}}:</label>
@@ -42,7 +42,7 @@
                         </td>
                         <td>
                             <input class="short-num" name="data.bio.ap.value" type="number" value="{{data.bio.ap.value}}"
-                                min="{{data.bio.ap.min}}" max="{{data.bio.ap.max}}" data-dtype="Number" /> / <input type="number" readonly="readonly" class="short-num" name="data.bio.ap.max" value="{{data.bio.ap.max}}"/>
+                                min="{{data.bio.ap.min}}" max="{{data.bio.ap.max}}" data-dtype="Number" /> / <input type="number"{{#unless user.isGM}} readonly="readonly"{{/unless}} class="short-num" name="data.bio.ap.max" value="{{data.bio.ap.max}}"/>
                         </td>
                         <td colspan="4" class="flex">
                             <button class="recover-ap recover-ap-half" title="{{localize 'BH.RECOVER_HALF_HINT'}}">{{localize 'BH.RECOVER_HALF'}}</button>

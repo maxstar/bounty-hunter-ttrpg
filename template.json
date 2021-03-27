@@ -3,8 +3,8 @@
     "types": ["character", "starship"],
     "character": {
       "bio": {
-        "race": {
-          "label": "BIO.RACE",
+        "species": {
+          "label": "BIO.SPECIES",
           "value": ""
         },
         "age": {
