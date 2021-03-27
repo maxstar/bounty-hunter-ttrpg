@@ -45,6 +45,15 @@
         <input name="data.category" type="text" value="{{data.category}}" />
     </div>
 
+    <div class="section flex">
+        <label class="form-gear-label">{{localize "BH.GEAR.CHARGE.LEVEL"}}</label>
+        <input class="short-num" name="data.charge.value" type="number" value="{{data.charge.value}}" min="0" data-dtype="Number" />%
+        <label class="form-gear-label">{{localize "BH.GEAR.CHARGE.USAGE"}}</label>
+        <input class="short-medium" name="data.charge.usage" type="text" value="{{data.charge.usage}}" />
+        <label class="form-gear-label">{{localize "BH.GEAR.CHARGE.RECHARGE"}}</label>
+        <input class="short-medium" name="data.charge.recharge" type="text" value="{{data.charge.recharge}}" />
+    </div>
+
     <div class="section">
         <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
         <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>

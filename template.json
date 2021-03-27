@@ -127,8 +127,14 @@
     "templates": {
       "item": {
         "cost": {"value": 2, "currency": "dc"},
+        "durability": {"value": 4, "max": 4},
         "description": "",
-        "encumbrance": 1
+        "encumbrance": 1,
+        "charge": {
+          "value": 0,
+          "usage": "",
+          "recharge": ""
+        }
       },
       "modifiers": {},
       "usable": {

@@ -225,7 +225,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
     let ammoCounts = {};
     for (const [key, ammo] of Object.entries(data.data.itemsByCategory.gear.Ammo)) {
-      ammoCounts[ammo.name] = ammo.data.data.uses.value;
+      if (ammoCounts[ammo.name] === undefined) ammoCounts[ammo.name] = 0;
+      ammoCounts[ammo.name] += ammo.data.data.uses.value;
     }
     return ammoCounts;
   }

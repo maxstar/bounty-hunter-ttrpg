@@ -83,6 +83,7 @@
   "BH.DAY": "Every Day",
   "BH.MANUAL": "Manual",
   "BH.USES_REMAINING": "Remaining uses",
+  "BH.CHARGE_USAGE": "Usage time from 1 charge",
 
   "BH.RECOVER_USES": "Recover ability and item uses: ",
   "BH.RECOVER_SCENE": "Scene",
@@ -99,6 +100,9 @@
   "BH.GEAR.CATEGORY": "Category",
   "BH.GEAR.DESCRIPTION": "Item Description",
   "BH.GEAR.USE_DESCRIPTION": "On usage display: \"Used <item> to ...\"",
+  "BH.GEAR.CHARGE.LEVEL": "Charge Level",
+  "BH.GEAR.CHARGE.USAGE": "Usage Time",
+  "BH.GEAR.CHARGE.RECHARGE": "Recharge Time",
 
   "BH.CARGO.NAME": "Cargo Name",
   "BH.CARGO.TITLE": "Cargo",

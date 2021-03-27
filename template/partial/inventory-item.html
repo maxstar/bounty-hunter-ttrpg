@@ -45,6 +45,12 @@
                         {{item.data.data.uses.value}}
                     </span>
                 {{/unless}}
+                {{#unless (eq item.data.data.charge.usage '')}}
+                    <span class="item-stat" title="{{localize 'BH.CHARGE_USAGE'}}">
+                        <i class="far fa-clock"></i>
+                        {{item.data.data.charge.usage}}
+                    </span>
+                {{/unless}}
             </div>
         {{#unless (eq item.data.data.uses.max 0)}}
         </a>

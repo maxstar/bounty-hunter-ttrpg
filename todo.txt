@@ -27,7 +27,7 @@
     * [done] use weapons
     * [done] consume ammo
     * [done] use appropriate skill
-    * [    ] item durability (PP)
+    * [----] item durability (PP)
     * [    ] tech items recharging
 * [done] bio
     * [    ] "how does that make you feel" inputs
