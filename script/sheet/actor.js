@@ -12,11 +12,7 @@ export class BountyHunterActorSheet extends ActorSheet {
       const item = this.actor.getOwnedItem(div.data("entity-id"));
       item.sheet.render(true);
     });
-    html.find(".item-delete").click((ev) => {
-      const div = $(ev.currentTarget).parents(".item");
-      this.actor.deleteOwnedItem(div.data("entity-id"));
-      div.slideUp(200, () => this.render(false));
-    });
+    html.find(".item-delete").click(this.handleItemDelete.bind(this));
     html.find(".item-post").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
       const item = this.actor.getOwnedItem(div.data("entity-id"));
@@ -33,6 +29,8 @@ export class BountyHunterActorSheet extends ActorSheet {
     data.data.itemsByCategory = this.categorizeItems();
     return data;
   }
+  
+  // ********** PREPARE DATA *************
 
   categorizeItems() {
     let itemsByCategory = {skill: {}, ability: {}, gear: {}, weapon: {}};
@@ -74,6 +72,14 @@ export class BountyHunterActorSheet extends ActorSheet {
 
     return itemsByCategory;
   }
+  
+  // ********** HANDLERS *************
+
+  handleItemDelete(event) {
+    const div = $(event.currentTarget).parents(".item");
+    this.actor.deleteOwnedItem(div.data("entity-id"));
+    div.slideUp(200, () => this.render(false));
+  }
 
   handleItemCreate(event) {
     event.preventDefault();
@@ -112,6 +118,8 @@ export class BountyHunterActorSheet extends ActorSheet {
     const updateKey = data.name;
     item.update({[updateKey]: el.value});
   }
+  
+  // ********** HELPERS *************
 
   _getPlayerActors() {
     return game.actors.filter(a => a.hasPlayerOwner && a.id !== this.actor.id);

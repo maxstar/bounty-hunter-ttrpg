@@ -94,6 +94,17 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   
   // ********** HANDLERS *************
 
+  handleItemDelete(event) {
+    const div = $(event.currentTarget).parents(".item");
+    const item = this.actor.items.get(div.data("entity-id"));
+    if (!['weapon-component', 'component'].includes(item.type) 
+      || confirm('Are you sure you want to remove this component?')
+    ) {
+      this.actor.deleteOwnedItem(item.data._id);
+      div.slideUp(200, () => this.render(false));
+    }
+  }
+
   handleStarshipActionUsage(event) {
     event.preventDefault();
     event.stopPropagation();
