@@ -48,7 +48,10 @@
             </div>
             <div class="item-categories">
                 <div class="item-category border">
-                    <div class="item-category-header">{{localize "BH.WEAPON.TITLE"}}</div>
+                    <div class="item-category-header">
+                        {{localize "BH.WEAPON.TITLE"}}
+                        <a class="item-control item-create" data-type="weapon" title="{{localize 'BH.ADD'}}"><i class="far fa-plus-square"></i></a>
+                    </div>
                     <div class="items">
                         {{#each data.itemsByCategory.weapon as |item id|}}
                             {{> systems/bounty-hunter-ttrpg/template/partial/inventory-item.html item=item}}

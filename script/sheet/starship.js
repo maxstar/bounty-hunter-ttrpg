@@ -204,7 +204,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     let assignedActorId, starshipRoleAssignees;
     for (let starshipRoleKey in data.starshipRoles) {
       // handle role assignees
-      starshipRoleAssignees = data.actor.flags.starship[starshipRoleKey] ?? [];
+      starshipRoleAssignees = data.actor.flags.starship?.[starshipRoleKey] ?? [];
       data.starshipRoles[starshipRoleKey].assignees = {}
 
       if (typeof starshipRoleAssignees === 'object') {

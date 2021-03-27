@@ -26,14 +26,16 @@
             <div class="starship-info-item starship-info-cost">
                 <span>{{localize data.cost.label}}:</span>
                 <input class="medium-num" name="data.cost.value" type="number" value="{{data.cost.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                {{localize "BH.DECA_CREDITS"}}
             </div>
             <div class="starship-info-item starship-info-upkeep">
                 <span>{{localize data.upkeep.label}}:</span>
                 <input class="short-num" name="data.upkeep.value" type="number" value="{{data.upkeep.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                {{localize "BH.DECA_CREDITS"}}
             </div>
             <div class="starship-info-item starship-info-cargo-capacity">
                 <span>{{localize data.cargo-capacity.label}} ({{localize 'BH.TONS_SHORT'}}):</span>
-                <input class="short-num" name="data.cargo-capacity.value" type="number" value="{{data.cargo-capacity.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                <input class="medium-num" name="data.cargo-capacity.value" type="number" value="{{data.cargo-capacity.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-min-crew">
                 <span>{{localize data.crew.min-label}}:</span>
@@ -67,19 +69,19 @@
             </div>
             <div class="section section-items">
                 <div class="item-categories">
-                    {{#if data.itemsByCategory.cargo}}
                     <div class="item-category border">
                         <div class="item-category-header">
                             {{localize "BH.CARGO.TITLE"}} 
                             <a class="item-create" data-type="cargo" title="{{localize 'BH.ADD'}}"><i class="far fa-plus-square"></i></a>
                         </div>
+                        {{#if data.itemsByCategory.cargo}}
                         <div class="items">
                             {{#each data.itemsByCategory.cargo as |item id|}}
                                 {{> systems/bounty-hunter-ttrpg/template/partial/inventory-item.html item=item}}
                             {{/each}}
                         </div>
+                        {{/if}}
                     </div>
-                    {{/if}}
                     {{#if data.itemsByCategory.weapon}}
                     <div class="item-category border">
                         <div class="item-category-header">{{localize "BH.WEAPON.TITLE"}}</div>

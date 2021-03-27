@@ -39,6 +39,20 @@
           "system": "bounty-hunter-ttrpg",
           "path": "./packs/equipment.db",
           "entity": "Item"
+        },
+        {
+          "name": "starships",
+          "label": "Starships",
+          "system": "bounty-hunter-ttrpg",
+          "path": "./packs/starships.db",
+          "entity": "Actor"
+        },
+        {
+          "name": "enemies-and-monsters",
+          "label": "Enemies and Monsters",
+          "system": "bounty-hunter-ttrpg",
+          "path": "./packs/enemies-and-monsters.db",
+          "entity": "Actor"
         }
     ],
     "languages": [

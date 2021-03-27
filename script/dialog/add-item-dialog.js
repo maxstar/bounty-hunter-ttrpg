@@ -70,9 +70,9 @@ export class AddItemDialog extends Dialog {
     static async buildItemList(existingItems, type) {
         let items = game.items.filter(i => i.type === type);
         let html = '';
-        for (let itemName in items) {
-            if (existingItems[itemName] !== undefined) continue;
-            html += await renderTemplate('systems/bounty-hunter-ttrpg/template/partial/item-picker.html', {item: items[itemName]});
+        for (let item of items) {
+            if (existingItems[item.name] !== undefined) continue;
+            html += await renderTemplate('systems/bounty-hunter-ttrpg/template/partial/item-picker.html', {item: item});
         }
         return `<div class="grid-container">${html}</div>`;
     }

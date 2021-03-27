@@ -44,8 +44,12 @@ table {
     background-color: lightgray;
 }
 
-input.short-num {
+input.shortest-num {
     width: 30px;
+    text-align: center;
+}
+input.short-num {
+    width: 40px;
     text-align: center;
 }
 input.short-medium {
