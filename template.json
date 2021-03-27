@@ -59,7 +59,7 @@
       "currency": {
         "dc": {
           "label": "CURRENCY.DC",
-          "value": 10
+          "value": 400
         },
         "marks": {
           "label": "CURRENCY.MARKS",
@@ -110,6 +110,16 @@
       "note": {
         "label": "STARSHIP.NOTE",
         "value": ""
+      },
+      "currency": {
+        "dc": {
+          "label": "CURRENCY.DC",
+          "value": 0
+        },
+        "marks": {
+          "label": "CURRENCY.MARKS",
+          "value": 0
+        }
       }
     }
   },

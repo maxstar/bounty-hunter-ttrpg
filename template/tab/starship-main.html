@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="flex row">
-        <div class="crew-member-list border">
+        <div class="crew-member-list">
             <h1>{{localize "BH.STARSHIP.CREW.HEADING" }}</h1>
             <div class="section">
                 <div class="item-categories">
@@ -60,7 +60,7 @@
                 </div>
             </div>
         </div>
-        <div class="cargo-hold border column">
+        <div class="cargo-hold">
             <div class="cargo-header">
                 <h1>{{localize "BH.STARSHIP.CARGO.HEADING" }}</h1>
                 <span>{{cargoWeight.value}}/{{cargoWeight.max}}</span>
@@ -100,6 +100,21 @@
                         </div>
                     </div>
                     {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="currency">
+            <div class="cargo-header">
+                <h1>{{localize "BH.HEADER.CURRENCY" }}</h1>
+            </div>
+            <div class="section section-currency">
+                <div>
+                    <input class="medium-num" name="data.currency.dc.value" type="number" value="{{data.currency.dc.value}}" min="0" data-dtype="Number" />
+                    {{localize "BH.DECA_CREDITS"}}
+                </div>
+                <div>
+                    <input class="medium-num" name="data.currency.marks.value" type="number" value="{{data.currency.marks.value}}" min="0" data-dtype="Number" />
+                    {{localize "BH.MARKS"}}
                 </div>
             </div>
         </div>

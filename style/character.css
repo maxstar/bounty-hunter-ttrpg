@@ -31,6 +31,10 @@
     width: 100%;
 }
 
+.bio-tab textarea {
+    height: 90px;
+}
+
 .bounty-hunter h1 {
   border: 0 none;
   font-size: 14px;
@@ -44,12 +48,10 @@
 
 .skills, .abilities {
     width: 150px;
-    margin-top: 4px;
 }
 
 .character .section .items {
     width: 250px;
-    margin-top: 4px;
 }
 
 .actor .section {
@@ -67,7 +69,7 @@
     margin-right: 8px;
 }
 
-.section.section-qualifications {
+.section.section-qualifications, .section.section-currency {
     width: 100%;
 }
 
@@ -98,6 +100,7 @@
 
 .heading {
     border-bottom: 1px solid;
+    margin-bottom: 4px;
 }
 
 button.recover-ap, button.recover-uses {

@@ -32,9 +32,8 @@
 * [done] bio
     * [----] "how does that make you feel" inputs
 * [done] race -> species, species benefits, speed
-* [    ] languages
-* [    ] money
-* [    ] journal link to a quick reference (see char sheet V9)
+* [----] languages
+* [done] money
 * [done] starship function qualifications for character
 * [done] Encounter initiative and management
     * [done] Combat Tracker UI
@@ -81,8 +80,8 @@
                 * [done] can use / disabled
                 * [done] simple functions
             * [done] component removal confirmation
-* [    ] localization
 * [    ] character generator
+* [    ] localization
 
 * [    ] refactoring/improvements
     * [done] unify item display in character and starship
@@ -105,6 +104,7 @@
         * [    ] increase
         * [    ] transponder
     * [    ] component active effects that override starship function data
+    * [    ] journal link to a quick reference (see char sheet V9)
 
 
 * [    ] skill check request

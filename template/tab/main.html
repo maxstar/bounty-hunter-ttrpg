@@ -69,6 +69,19 @@
         </div>
     </div>
     <div class="column">
+        <div class="section section-currency">
+            <div class="heading">
+                <span>{{localize "BH.HEADER.CURRENCY"}}</span>
+            </div>
+            <div>
+                <input class="medium-num" name="data.currency.dc.value" type="number" value="{{data.currency.dc.value}}" min="0" data-dtype="Number" />
+                {{localize "BH.DECA_CREDITS"}}
+            </div>
+            <div>
+                <input class="medium-num" name="data.currency.marks.value" type="number" value="{{data.currency.marks.value}}" min="0" data-dtype="Number" />
+                {{localize "BH.MARKS"}}
+            </div>
+        </div>
         <div class="section section-recover">
             <div class="recover-text">{{localize 'BH.RECOVER_USES'}}</div>
             <button type="button" class="recover-uses recover-uses-scene" data-attribute="{{key}}" title="{{localize 'BH.RECOVER_SCENE_HINT'}}">{{localize 'BH.RECOVER_SCENE'}}</button>
