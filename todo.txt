@@ -80,6 +80,9 @@
                 * [done] can use / disabled
                 * [done] simple functions
             * [done] component removal confirmation
+* [    ] punching attack item, Brawler ability passive
+* [    ] martial arts attack item
+* [    ] Fast Draw in combat tracker
 * [    ] character generator
 * [    ] localization
 

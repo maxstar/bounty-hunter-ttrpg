@@ -41,6 +41,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     data.data.ammoCounts = this.getAmmoCounts(data);
     this.computeWeaponData(data);
     this.computeStarshipQualifications(data);
+    data.displayWizard = Object.keys(data.data.itemsByCategory.skill).length === 0;
     return data;
   }
 
@@ -62,6 +63,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
     html.find('.recover-uses-scene').click(this.handleRecoverUsesScene.bind(this));
     html.find('.recover-uses-day').click(this.handleRecoverUsesDay.bind(this));
+
+    html.find('.character-creation-wizard').click(this.handleCharacterCreation.bind(this));
   }
 
   /**
@@ -86,6 +89,10 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   }
   
   // ********** HANDLERS *************
+
+  handleCharacterCreation() {
+    
+  }
 
   handleRecoverApHalf(e) {
     const half = Math.ceil(this.actor.data.data.bio.ap.max / 2);

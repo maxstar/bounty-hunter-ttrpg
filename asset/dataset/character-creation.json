@@ -1,0 +1,321 @@
+{
+  "species": {
+    "human": {
+      "key": "human",
+      "name": "BH.SPECIES.HUMAN.NAME",
+      "description": "BH.SPECIES.HUMAN.DESCRIPTION",
+      "skills": [],
+      "languages": [["Humani"], ["Olde speak"]]
+    },
+    "rakesh": {
+      "key": "rakesh",
+      "name": "BH.SPECIES.RAKESH.NAME",
+      "description": "BH.SPECIES.RAKESH.DESCRIPTION",
+      "skills": [["Science"]],
+      "languages": [["Melding"]]
+    },
+    "lonlaneek": {
+      "key": "lonlaneek",
+      "name": "BH.SPECIES.LONLANEEK.NAME",
+      "description": "BH.SPECIES.LONLANEEK.DESCRIPTION",
+      "skills": [["Awareness"]],
+      "languages": [["Erku"], ["Losluri"]]
+    },
+    "goraan": {
+      "key": "goraan",
+      "name": "BH.SPECIES.GORAAN.NAME",
+      "description": "BH.SPECIES.GORAAN.DESCRIPTION",
+      "skills": [["Medicine"]],
+      "languages": [["Gora Taal"]]
+    },
+    "baharresk": {
+      "key": "baharresk",
+      "name": "BH.SPECIES.BAHARRESK.NAME",
+      "description": "BH.SPECIES.BAHARRESK.DESCRIPTION",
+      "skills": [["Science"]],
+      "languages": [["Hessek"]]
+    },
+    "trarfye": {
+      "key": "trarfye",
+      "name": "BH.SPECIES.TRARFYE.NAME",
+      "description": "BH.SPECIES.TRARFYE.DESCRIPTION",
+      "skills": [["Logic"]],
+      "languages": [["Trari"], ["Noso"]]
+    },
+    "wedwed": {
+      "key": "wedwed",
+      "name": "BH.SPECIES.WEDWED.NAME",
+      "description": "BH.SPECIES.WEDWED.DESCRIPTION",
+      "skills": [["Psychology"]],
+      "languages": [["Xix’cla"]]
+    },
+    "karo": {
+      "key": "karo",
+      "name": "BH.SPECIES.KARO.NAME",
+      "description": "BH.SPECIES.KARO.DESCRIPTION",
+      "skills": [["Acrobatics"]],
+      "languages": [["Kangari"]]
+    }
+  },
+  "birthright": {
+    "poor-family": {
+      "key": "poor-family",
+      "name": "BH.BIRTHRIGHT.POOR_FAMILY.NAME",
+      "description": "BH.BIRTHRIGHT.POOR_FAMILY.DESCRIPTION",
+      "skills": [["Repair", "Survival"]],
+      "languages": [["Starsi"]]
+    },
+    "average-family": {
+      "key": "average-family",
+      "name": "BH.BIRTHRIGHT.AVERAGE_FAMILY.NAME",
+      "description": "BH.BIRTHRIGHT.AVERAGE_FAMILY.DESCRIPTION",
+      "skills": [["Engineering", "Evaluate"]],
+      "languages": [["Dexsi"]]
+    },
+    "rich-family": {
+      "key": "rich-family",
+      "name": "BH.BIRTHRIGHT.RICH_FAMILY.NAME",
+      "description": "BH.BIRTHRIGHT.RICH_FAMILY.DESCRIPTION",
+      "skills": [["Charm", "Culture"]],
+      "languages": [],
+      "other": ["Gain 100 Deca Credits"]
+    },
+    "slave-pits": {
+      "key": "slave-pits",
+      "name": "BH.BIRTHRIGHT.SLAVE_PITS.NAME",
+      "description": "BH.BIRTHRIGHT.SLAVE_PITS.DESCRIPTION",
+      "skills": [["Strength", "Melee Combat"]],
+      "languages": [["Slavesk"]]
+    },
+    "integrationists": {
+      "key": "integrationists",
+      "name": "BH.BIRTHRIGHT.INTEGRATIONISTS.NAME",
+      "description": "BH.BIRTHRIGHT.INTEGRATIONISTS.DESCRIPTION",
+      "skills": [["Culture", "Psychology"]],
+      "languages": []
+    },
+    "off-the-grid": {
+      "key": "off-the-grid",
+      "name": "BH.BIRTHRIGHT.OFF_THE_GRID.NAME",
+      "description": "BH.BIRTHRIGHT.OFF_THE_GRID.DESCRIPTION",
+      "skills": [["Nature", "Wrangler"]],
+      "languages": []
+    },
+    "military-family": {
+      "key": "military-family",
+      "name": "BH.BIRTHRIGHT.MILITARY_FAMILY.NAME",
+      "description": "BH.BIRTHRIGHT.MILITARY_FAMILY.DESCRIPTION",
+      "skills": [["Awareness", "Intimidation"]],
+      "languages": []
+    },
+    "orphan": {
+      "key": "orphan",
+      "name": "BH.BIRTHRIGHT.ORPHAN.NAME",
+      "description": "BH.BIRTHRIGHT.ORPHAN.DESCRIPTION",
+      "skills": [["Acrobatics", "Stealth"]],
+      "languages": []
+    },
+    "space": {
+      "key": "space",
+      "name": "BH.BIRTHRIGHT.SPACE.NAME",
+      "description": "BH.BIRTHRIGHT.SPACE.DESCRIPTION",
+      "skills": [["Navigation", "Vehicle Operations"]],
+      "languages": []
+    }
+  },
+  "education": {
+    "schooled": {
+      "key": "schooled",
+      "name": "BH.EDUCATION.SCHOOLED.NAME",
+      "description": "BH.EDUCATION.SCHOOLED.DESCRIPTION",
+      "skills": [["History", "Logic"]],
+      "languages": []
+    },
+    "street-side": {
+      "key": "street-side",
+      "name": "BH.EDUCATION.STREET_SIDE.NAME",
+      "description": "BH.EDUCATION.STREET_SIDE.DESCRIPTION",
+      "skills": [["Sleight of Hand", "Stealth"]],
+      "languages": []
+    },
+    "farmhand": {
+      "key": "farmhand",
+      "name": "BH.EDUCATION.FARMHAND.NAME",
+      "description": "BH.EDUCATION.FARMHAND.DESCRIPTION",
+      "skills": [["Craft", "Wrangler"]],
+      "languages": []
+    },
+    "survivor": {
+      "key": "survivor",
+      "name": "BH.EDUCATION.SURVIVOR.NAME",
+      "description": "BH.EDUCATION.SURVIVOR.DESCRIPTION",
+      "skills": [["Medicine", "Survival"]],
+      "languages": []
+    },
+    "the-academy": {
+      "key": "the-academy",
+      "name": "BH.EDUCATION.THE_ACADEMY.NAME",
+      "description": "BH.EDUCATION.THE_ACADEMY.DESCRIPTION",
+      "skills": [["Obscure lore", "Science"]],
+      "languages": []
+    },
+    "accelerated-training": {
+      "key": "accelerated-training",
+      "name": "BH.EDUCATION.ACCELERATED_TRAINING.NAME",
+      "description": "BH.EDUCATION.ACCELERATED_TRAINING.DESCRIPTION",
+      "skills": [["Martial arts", "Ranged Attack"]],
+      "languages": []
+    },
+    "ai": {
+      "key": "ai",
+      "name": "BH.EDUCATION.AI.NAME",
+      "description": "BH.EDUCATION.AI.DESCRIPTION",
+      "skills": [["Computer Acumen", "Hacking"]],
+      "languages": [["Zerone"]]
+    },
+    "crime": {
+      "key": "crime",
+      "name": "BH.EDUCATION.CRIME.NAME",
+      "description": "BH.EDUCATION.CRIME.DESCRIPTION",
+      "skills": [["Evaluate", "Forgery"]],
+      "languages": []
+    },
+    "spacer": {
+      "key": "spacer",
+      "name": "BH.EDUCATION.SPACER.NAME",
+      "description": "BH.EDUCATION.SPACER.DESCRIPTION",
+      "skills": [["Bargain", "Investigation"]],
+      "languages": []
+    }
+  },
+  "career": {
+    "pilot": {
+      "key": "pilot",
+      "name": "BH.CAREER.PILOT.NAME",
+      "description": "BH.CAREER.PILOT.DESCRIPTION",
+      "skills": [["Navigation", "Vehicle Operations"]],
+      "languages": []
+    },
+    "spy": {
+      "key": "spy",
+      "name": "BH.CAREER.SPY.NAME",
+      "description": "BH.CAREER.SPY.DESCRIPTION",
+      "skills": [["Culture", "Deception"]],
+      "languages": []
+    },
+    "arms-dealer": {
+      "key": "arms-dealer",
+      "name": "BH.CAREER.ARMS_DEALER.NAME",
+      "description": "BH.CAREER.ARMS_DEALER.DESCRIPTION",
+      "skills": [["Engineering", "Mounted Weapons"]],
+      "languages": []
+    },
+    "cyberneticist": {
+      "key": "cyberneticist",
+      "name": "BH.CAREER.CYBERNETICIST.NAME",
+      "description": "BH.CAREER.CYBERNETICIST.DESCRIPTION",
+      "skills": [["Computer Acumen", "Science"]],
+      "languages": []
+    },
+    "pathologist": {
+      "key": "pathologist",
+      "name": "BH.CAREER.PATHOLOGIST.NAME",
+      "description": "BH.CAREER.PATHOLOGIST.DESCRIPTION",
+      "skills": [["Medicine", "Science"]],
+      "languages": []
+    },
+    "mercenary": {
+      "key": "mercenary",
+      "name": "BH.CAREER.MERCENARY.NAME",
+      "description": "BH.CAREER.MERCENARY.DESCRIPTION",
+      "skills": [["Ranged Attack", "Mounted Weapons"]],
+      "languages": []
+    },
+    "negotiator": {
+      "key": "negotiator",
+      "name": "BH.CAREER.NEGOTIATOR.NAME",
+      "description": "BH.CAREER.NEGOTIATOR.DESCRIPTION",
+      "skills": [["Charm", "Psychology"]],
+      "languages": []
+    },
+    "quantum-architect": {
+      "key": "quantum-architect",
+      "name": "BH.CAREER.QUANTUM_ARCHITECT.NAME",
+      "description": "BH.CAREER.QUANTUM_ARCHITECT.DESCRIPTION",
+      "skills": [["Engineering", "Repair"]],
+      "languages": []
+    },
+    "ghost": {
+      "key": "ghost",
+      "name": "BH.CAREER.GHOST.NAME",
+      "description": "BH.CAREER.GHOST.DESCRIPTION",
+      "skills": [["Logic", "Hacking"]],
+      "languages": []
+    }
+  },
+  "reason": {
+    "death": {
+      "key": "death",
+      "name": "BH.REASON.DEATH.NAME",
+      "description": "BH.REASON.DEATH.DESCRIPTION",
+      "skills": [["Intimidation", "Psychology"]],
+      "languages": []
+    },
+    "love": {
+      "key": "love",
+      "name": "BH.REASON.LOVE.NAME",
+      "description": "BH.REASON.LOVE.DESCRIPTION",
+      "skills": [["Investigate", "Deception"]],
+      "languages": []
+    },
+    "revenge": {
+      "key": "revenge",
+      "name": "BH.REASON.REVENGE.NAME",
+      "description": "BH.REASON.REVENGE.DESCRIPTION",
+      "skills": [["Awareness", "Stealth"]],
+      "languages": []
+    },
+    "trophy-hunter": {
+      "key": "trophy-hunter",
+      "name": "BH.REASON.TROPHY_HUNTER.NAME",
+      "description": "BH.REASON.TROPHY_HUNTER.DESCRIPTION",
+      "skills": [["Martial Arts", "Navigation"]],
+      "languages": []
+    },
+    "bounty-hunter": {
+      "key": "bounty-hunter",
+      "name": "BH.REASON.BOUNTY_HUNTER.NAME",
+      "description": "BH.REASON.BOUNTY_HUNTER.DESCRIPTION",
+      "skills": [["Logic", "Strength"]],
+      "languages": []
+    },
+    "drunk": {
+      "key": "drunk",
+      "name": "BH.REASON.DRUNK.NAME",
+      "description": "BH.REASON.DRUNK.DESCRIPTION",
+      "skills": [["Charm", "Perform"]],
+      "languages": []
+    },
+    "money": {
+      "key": "money",
+      "name": "BH.REASON.MONEY.NAME",
+      "description": "BH.REASON.MONEY.DESCRIPTION",
+      "skills": [["Bargain", "Evaluate"]],
+      "languages": []
+    },
+    "forced": {
+      "key": "forced",
+      "name": "BH.REASON.FORCED.NAME",
+      "description": "BH.REASON.FORCED.DESCRIPTION",
+      "skills": [["Craft", "Survival"]],
+      "languages": []
+    },
+    "accidental": {
+      "key": "accidental",
+      "name": "BH.REASON.ACCIDENTAL.NAME",
+      "description": "BH.REASON.ACCIDENTAL.DESCRIPTION",
+      "skills": [["Forgery", "Strength"]],
+      "languages": []
+    }
+  }
+}

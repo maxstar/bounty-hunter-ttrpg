@@ -50,7 +50,7 @@ export function registerSettings() {
     hint: game.i18n.localize("BH.SETTINGS.BONUS_SKILLS_HINT"),
     scope: "world",
     config: true,
-    default: 3,
+    default: 2,
     type: Number,
   });
   game.settings.register("bounty-hunter-ttrpg", "crewCost", {

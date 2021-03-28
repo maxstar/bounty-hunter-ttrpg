@@ -18,6 +18,9 @@
                 <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>
             </div>
             <div class="skills border">
+                {{#if displayWizard}}
+                <button class="character-creation-wizard"><i class="fas fa-magic"></i>{{localize "BH.CHARACTER_CREATION_WIZARD"}}</button>
+                {{/if}}
                 {{#each data.itemsByCategory.skill as |skill key|}}
                     {{> systems/bounty-hunter-ttrpg/template/partial/skill.html skill=skill key=key}}
                 {{/each}}
