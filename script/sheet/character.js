@@ -2,6 +2,7 @@ import { BountyHunterActorSheet } from "./actor.js";
 import { AddItemDialog } from "../dialog/add-item-dialog.js";
 import { ReputationStats } from '../component/reputation-stats.js';
 import { ApPerSkillDialog } from "../dialog/ap-per-skill-dialog.js";
+import { BountyHunterActor } from "../actor/bounty-hunter.js";
 
 export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
@@ -91,7 +92,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   // ********** HANDLERS *************
 
   handleCharacterCreation() {
-    
+
   }
 
   handleRecoverApHalf(e) {
@@ -257,6 +258,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
           ? true 
           : (data.data.itemsByCategory.skill[newData.data.data.skill] !== undefined);
 
+        newData.data.data.modifiedDamage = newData.data.data.damage + (this.actor.overrides[`BONUS_DAMAGE_${newData.data.data.skill}`] ?? 0);
+
         retVal[id] = newData;
         return retVal;
       },
@@ -309,7 +312,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       case "armor":
       case "gear":
       case "weapon":
-        return 1;
+        return parseInt(data.data.encumbrance);
       default:
         return 0;
     }
@@ -342,7 +345,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       if (weapon.data.data.ammo !== '') {
         ammoSpentString = `; -1 ${weapon.data.data.ammo}`;
       }
-      chatData.content = `<div style="font-size: 16px;">Uses <b>${weapon.name}</b> to deal ${weapon.data.data.damage} damage!</div><i style="font-size:10px">(${weapon.data.data.skill}; -1 AP${ammoSpentString})<i>`;
+      let damage = weapon.data.data.damage + (this.actor.overrides[`BONUS_DAMAGE_${weapon.data.data.skill}`] ?? 0);
+      chatData.content = `<div style="font-size: 16px;">Uses <b>${weapon.name}</b> to deal ${damage} damage!</div><i style="font-size:10px">(${weapon.data.data.skill}; -1 AP${ammoSpentString})<i>`;
     } else {
       chatData.content = `<div style="font-size: 16px;">*CLICK* <i>No ammo for <b>${weapon.name}</b>!</i></div>`;
     }
@@ -377,3 +381,50 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     return this._reduceItemUses(ammo);
   }
 }
+
+Hooks.on('preUpdateActor', async (entity, updateData, options, userId) => {
+  if (!(entity instanceof BountyHunterActor)) return true;
+  
+  if ( updateData.data?.bio?.reputation?.value ) {
+    let stats = ReputationStats.getForReputation(updateData.data.bio.reputation.value);
+    if (stats !== false && entity.data.data.bio.ap.max !== stats.ap) {
+      if (updateData.data.bio.ap === undefined) updateData.data.bio.ap = {max: stats.ap};
+      else updateData.data.bio.ap.max = stats.ap;
+    }
+  }
+
+  return true;
+});
+
+Hooks.on('createActor', async (entity, options, userId) => {
+  if (!(entity instanceof BountyHunterActor)) return true;
+  
+  const punchingAttack = game.items.getName("Punching Attack");
+  if (!punchingAttack) return true;
+
+  entity.createEmbeddedEntity("OwnedItem", punchingAttack.data);
+
+  return true;
+});
+
+Hooks.on('preCreateOwnedItem', async (entity, data, options, userId) => {
+  if (!(entity instanceof BountyHunterActor) || data.type !== 'skill' || data.name !== 'Martial Arts') return true;
+  
+  const martialArtsAttack = game.items.getName("Martial Arts");
+  if (!martialArtsAttack) return true;
+
+  entity.createEmbeddedEntity("OwnedItem", martialArtsAttack.data);
+
+  return true;
+});
+
+Hooks.on('preDeleteOwnedItem', async (entity, data, options, userId) => {
+  if (!(entity instanceof BountyHunterActor) || data.type !== 'skill' || data.name !== 'Martial Arts') return true;
+  
+  const martialArtsAttack = entity.items.getName("Martial Arts");
+  if (!martialArtsAttack) return true;
+
+  entity.deleteEmbeddedEntity("OwnedItem", martialArtsAttack._id);
+
+  return true;
+});
