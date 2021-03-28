@@ -157,7 +157,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     if (parseInt(item.data.data.uses.value) === 0) return;
     
     this._reduceItemUses(item);
-    this._postItemUse(item.name, item.data.data['use-description']);
+    this._postItemUse(item);
   }
 
   async handleUseWeapon(e) {
@@ -327,11 +327,11 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     ChatMessage.create(chatData, {});
   }
 
-  _postItemUse(itemName, useDescription) {
+  _postItemUse(item) {
     let chatData = {
       speaker: {actor: this.actor._id},
       // @todo localize
-      content: `<span style="font-size: 16px;">Uses <b>${itemName}</b> to ${useDescription}</span>`
+      content: `<span style="font-size: 16px;">Uses <b>${item.name}</b> to ${item.data.data['use-description']}</span>`
     };
     ChatMessage.create(chatData, {});
   }

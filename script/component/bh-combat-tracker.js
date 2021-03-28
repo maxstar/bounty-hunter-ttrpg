@@ -44,6 +44,7 @@ export class BhCombatTracker extends CombatTracker {
     const btn = event.currentTarget;
     const li = btn.closest(".combatant");
     const c = this.combat.getCombatant(li.dataset.combatantId);
+    let fastDraw, usageSuccess;
 
     // Switch control action
     switch (btn.dataset.control) {
@@ -53,14 +54,26 @@ export class BhCombatTracker extends CombatTracker {
         await c.actor.reduceAP(1);
         break;
 
-      // Toggle combatant defeated flag
       case "goLastPhase":
         await this.combat.updateCombatant({_id: c._id, initiative: 2});
         await c.actor.restoreAP(1);
         break;
+
+      case "useFastDraw":
+        fastDraw = c.actor.items.getName('Fast Draw');
+        usageSuccess = await c.actor.sheet._reduceItemUses(fastDraw);
+        if (usageSuccess) await c.actor.sheet._postItemUse(fastDraw);
+        await this.combat.updateCombatant({_id: c._id, initiative: 1, usedFastDraw: true});
+        break;
+
+      case "cancelFastDraw":
+        fastDraw = c.actor.items.getName('Fast Draw');
+        await fastDraw.update({'data.uses.value': Math.min(fastDraw.data.data.uses.max, fastDraw.data.data.uses.value + 1)});
+        await this.combat.updateCombatant({_id: c._id, initiative: 2, usedFastDraw: false});
+        break;
     }
 
     // Render tracker updates
-    this.render();
+    this.render(true);
   }
 }

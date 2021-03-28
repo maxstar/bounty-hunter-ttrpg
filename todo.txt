@@ -82,7 +82,7 @@
             * [done] component removal confirmation
 * [done] punching attack item, Brawler ability passive
 * [done] martial arts attack item
-* [    ] Fast Draw in combat tracker
+* [done] Fast Draw in combat tracker
 * [    ] character generator
 * [    ] localization
 

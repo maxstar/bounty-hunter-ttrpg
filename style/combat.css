@@ -18,3 +18,9 @@
   text-align: center;
   color: white;
 }
+
+.fast-draw, .cancel-fast-draw {
+  font-size: 14px;
+  line-height: 14px;
+  padding-top: 10px;
+}

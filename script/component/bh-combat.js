@@ -38,8 +38,8 @@ export class BhCombat extends Combat {
    */
   _prepareCombatant(c, scene, players, settings={}) {
     let combatant = super._prepareCombatant(c, scene, players, settings);
-
-    
+    const fastDraw = combatant.actor.items.find(i => i.name === 'Fast Draw' && i.type === 'ability');
+    combatant.hasFastDraw = fastDraw !== null && fastDraw.data.data.uses.value > 0;
     return combatant;
   }
   
