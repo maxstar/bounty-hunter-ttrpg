@@ -3,6 +3,7 @@ import { AddItemDialog } from "../dialog/add-item-dialog.js";
 import { ReputationStats } from '../component/reputation-stats.js';
 import { ApPerSkillDialog } from "../dialog/ap-per-skill-dialog.js";
 import { BountyHunterActor } from "../actor/bounty-hunter.js";
+import { CharacterCreation } from "../component/character-creation.js";
 
 export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
@@ -92,7 +93,8 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   // ********** HANDLERS *************
 
   handleCharacterCreation() {
-
+    const app = new CharacterCreation(this.actor);
+    app.render(true);
   }
 
   handleRecoverApHalf(e) {

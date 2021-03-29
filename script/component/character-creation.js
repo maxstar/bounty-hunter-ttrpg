@@ -1,13 +1,15 @@
+import { BountyHunterActor } from "../actor/bounty-hunter.js";
 
 
-class CharacterCreation extends Application {
+export class CharacterCreation extends Application {
   
   constructor(character, options = {}) {
     super(options);
 
-    if (!(character instanceof BountyHunterActor) || character.type !== 'character') {
+    if (!(character instanceof BountyHunterActor) || character.data.type !== 'character') {
       throw 'You must pass a valid character entity to CharacterCreation';
     }
+
     this.character = character;
     this.model = null;
 
@@ -17,15 +19,15 @@ class CharacterCreation extends Application {
       key: 'custom',
       name: 'BH.CUSTOM',
       description: '',
-      skills: [],
+      skills: [[]],
       languages: [],
     };
   }
 
-  get defaultOptions() {
+  static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["bounty-hunter", "sheet", "actor"],
-      template: "system/bounty-hunter-ttrpg/template/character-creation.html",
+      template: "systems/bounty-hunter-ttrpg/template/component/character-creation.html",
       title: game.i18n.localize("BH.CHARGEN.TITLE"),
       width: 700,
       height: 840,
@@ -34,35 +36,31 @@ class CharacterCreation extends Application {
   }
 
   getData() {
-      const data = super.getData();
-      if (this.model === null) {
-          this.model = this._getBlankModel();
+    const data = super.getData();
+    if (this.model === null) {
+        this.model = this._getBlankModel();
+    }
+
+    data.dataset = duplicate(this.dataset);
+
+    data.model = this.model;
+    // data.model.species = this.dataset.species[this.model.species] ?? this.customEntry;
+    // data.model.birthright = this.dataset.birthright[this.model.birthright] ?? this.customEntry;
+    // data.model.education = this.dataset.education[this.model.education] ?? this.customEntry;
+    // data.model.career = this.dataset.career[this.model.career] ?? this.customEntry;
+    // data.model.reason = this.dataset.reason[this.model.reason] ?? this.customEntry;
+
+    Object.keys(data.dataset).map(
+      (sectionKey) => {
+        data.dataset[sectionKey] = {
+          title: `BIO.${sectionKey.toUpperCase()}`,
+          options: data.dataset[sectionKey],
+          selected: this.dataset[sectionKey][this.model[sectionKey]] ?? this.customEntry,
+        };
       }
+    );
 
-      data.dataset = duplicate(this.dataset);
-
-      data.model = this.model;
-      // data.model.species = this.dataset.species[this.model.species] ?? this.customEntry;
-      // data.model.birthright = this.dataset.birthright[this.model.birthright] ?? this.customEntry;
-      // data.model.education = this.dataset.education[this.model.education] ?? this.customEntry;
-      // data.model.career = this.dataset.career[this.model.career] ?? this.customEntry;
-      // data.model.reason = this.dataset.reason[this.model.reason] ?? this.customEntry;
-      data.dataset.species.options = data.dataset.species;
-      data.dataset.species.selected = this.dataset.species[this.model.species] ?? this.customEntry;
-
-      data.dataset.birthright.options = data.dataset.birthright;
-      data.dataset.birthright.selected = this.dataset.birthright[this.model.birthright] ?? this.customEntry;
-
-      data.dataset.education.options = data.dataset.education;
-      data.dataset.education.selected = this.dataset.education[this.model.education] ?? this.customEntry;
-
-      data.dataset.career.options = data.dataset.career;
-      data.dataset.career.selected = this.dataset.career[this.model.career] ?? this.customEntry;
-
-      data.dataset.reason.options = data.dataset.reason;
-      data.dataset.reason.selected = this.dataset.reason[this.model.reason] ?? this.customEntry;
-
-      return data;
+    return data;
   }
 
   activateListeners(html) {
@@ -89,10 +87,45 @@ class CharacterCreation extends Application {
   // *************** HANDLERS ******************
 
   handleInput(event) {
-    this.model[event.currentTarget.dataset.category] = $(event.currentTarget).val();
+    this.model[event.currentTarget.dataset.section] = $(event.currentTarget).val();
     this.render(true);
 
     return false;
+  }
+
+  handleConfirm(event) {
+    let updateData = {}, languages = ['Galactic'], section;
+
+    for (let [sectionKey, sectionValue] of Object.entries(this.model)) {
+      if (sectionValue === 'custom') continue;
+
+      section = this.dataset[sectionKey][sectionValue];
+      // add skills
+      
+      if (section.languages.length > 0) {
+        languages.push(
+          section.languages.reduce(
+            (retVal, langSet) => { 
+              retVal.push(langSet.join(', '));
+              return retVal;
+            }, 
+            []
+          ).join(' or ')
+        );
+      }
+
+      // fill bio fields
+      updateData[`data.bio.${sectionKey}.value`] = game.i18n.localize(section.name);
+      if (sectionKey !== 'species') {
+        updateData[`data.bio.${sectionKey}.value`] += ' - ' + game.i18n.localize(section.description)
+      }
+    }
+    // note languages
+    updateData['data.bio.other.value'] = game.i18n.localize('HEADER.LANGUAGES') + ': ' + languages.join(', ');
+
+    this.character.update(updateData);
+
+    this.close();
   }
 
   // *************** HELPERS ******************

@@ -2,17 +2,19 @@
 <div class="flex row chargen-section border">
     <!-- <button class="chargen-roll chargen-roll-kin" type="button"></button> -->
     <div class="chargen-section-content">
-        {{localize sectionKey}}
-        <select class="chargen-select chargen-select-{{sectionKey}}">
+        <span class="section-title">{{localize section.title}}</span>
+        <select class="chargen-select chargen-select-{{sectionKey}}" data-section="{{sectionKey}}">
             {{#select section.selected.key}}
             <option value="custom">{{localize 'BH.CUSTOM'}}</option>
             {{#each section.options as |item|}}
-                <option value="{{item.key}}">{{localize item.name}}</option>
+                <option value="{{item.key}}">{{localize item.name}} - {{#each item.skills as |skillSet|}}({{skillSet}}){{/each}}</option>
             {{/each}}
             {{/select}}
         </select>
         <div class="chargen-description">{{localize section.selected.description}}</div>
     </div>
-    {{> system/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="BH.SKILLS" list=section.selected.skills }}
-    {{> system/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="BH.LANGUAGES" list=section.selected.languages }}
+    {{#if section.selected.languages}}
+        {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.LANGUAGES" list=section.selected.languages }}
+    {{/if}}
+    {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.SKILLS" list=section.selected.skills }}
 </div>

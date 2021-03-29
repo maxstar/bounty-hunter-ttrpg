@@ -1,9 +1,11 @@
 
 <div class="chargen-list">
     <div class="chargen-list-caption">{{localize title}}</div>
+    {{#each list as |subList key|}}
     <ul>
-    {{#each list as |value key|}}
-        <li>{{key}}: {{value}}</li>
-    {{/each}}
+        {{#each subList as |value key|}}
+        <li>{{value}}</li>
+        {{/each}}
     </ul>
+    {{/each}}
 </div>

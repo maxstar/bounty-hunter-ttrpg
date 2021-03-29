@@ -18,26 +18,33 @@
     width: auto;
 }
 
-.chargen input.chargen-age-input {
-    width: 40px;
-}
-
-.chargen .chargen-age {
-    margin-left: 10px;
-}
-
 .chargen .chargen-section {
     margin-bottom: 10px;
+    border-bottom: 1px solid;
 }
 
 .chargen .chargen-section-content {
-    width: 50%;
+    width: 100%;
 }
 
 .chargen .chargen-description {
     width: 100%;
+    font-style: italic;
 }
 
 .chargen .chargen-list {
     margin-left: 20px;
+    min-width: 135px;
+}
+
+.chargen-list-caption, .section-title {
+    font-weight: bold;
+}
+
+.chargen-list ul:not(:last-of-type)::after {
+    content: "or"    
+}
+
+.chargen-list ul {
+    margin: 0;
 }

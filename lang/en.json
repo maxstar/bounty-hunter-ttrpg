@@ -34,6 +34,7 @@
 
   "HEADER.SKILLS": "Skills",
   "HEADER.ABILITIES": "Abilities",
+  "HEADER.LANGUAGES": "Languages",
   "BH.HEADER.CURRENCY": "Currency",
   "HEADER.ITEMS": "Items",
   "HEADER.QUALIFICATIONS": "Qualifications",
@@ -85,6 +86,7 @@
   "BH.MANUAL": "Manual",
   "BH.USES_REMAINING": "Remaining uses",
   "BH.CHARGE_USAGE": "Usage time from 1 charge",
+  "BH.CUSTOM": "Custom",
 
   "BH.RECOVER_USES": "Recover ability and item uses: ",
   "BH.RECOVER_SCENE": "Scene",
@@ -187,6 +189,9 @@
   "BH.FUNCTION.JAM_DESCRIPTION": "Hack into another ship's computer systems to jam communications.",
   "BH.FUNCTION.FALSE_READINGS": "False Readings",
   "BH.FUNCTION.FALSE_READINGS_DESCRIPTION": "Create false sensor readings for a target ship.",
+
+  "BH.CHARGEN.TITLE": "Character Creation",
+  "BH.CHARGEN.CONFIRM": "Finish and transfer your choices to the character sheet.",
 
   "BH.SPECIES.HUMAN.NAME": "Human",
   "BH.SPECIES.HUMAN.DESCRIPTION": "A standard human being",
