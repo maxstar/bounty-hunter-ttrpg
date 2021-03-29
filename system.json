@@ -16,7 +16,8 @@
         "style/starship.css",
         "style/item.css",
         "style/chat.css",
-        "style/combat.css"
+        "style/combat.css",
+        "style/character-creation.css"
     ],
     "packs": [
         {

@@ -5,6 +5,7 @@ export async function loadSystemSettings() {
     reputation: await loadReputation(),
     'starship-roles': await loadStarshipRoles(),
     starshipHandlerClass: StarshipHandler,
+    'character-creation': await loadCharacterCreation(),
   };
 }
 
@@ -17,6 +18,12 @@ async function loadReputation() {
 async function loadStarshipRoles() {
   const datasetDir = game.settings.get("bounty-hunter-ttrpg", "datasetDir");
   const resp = await fetch(datasetDir + '/starship-roles.json').catch(err => { return {} });
+  return resp.json();
+}
+
+async function loadCharacterCreation() {
+  const datasetDir = game.settings.get("bounty-hunter-ttrpg", "datasetDir");
+  const resp = await fetch(datasetDir + '/character-creation.json').catch(err => { return {} });
   return resp.json();
 }
 

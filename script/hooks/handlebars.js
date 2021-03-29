@@ -24,9 +24,12 @@ function preloadHandlebarsTemplates() {
     "systems/bounty-hunter-ttrpg/template/partial/component.html",
     "systems/bounty-hunter-ttrpg/template/partial/skill.html",
     "systems/bounty-hunter-ttrpg/template/partial/ability.html",
+    "systems/bounty-hunter-ttrpg/template/partial/character-creation/section.html",
+    "systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html",
     "systems/bounty-hunter-ttrpg/template/dialog/ap-per-skill.html",
     "systems/bounty-hunter-ttrpg/template/chat/skill-challenge.html",
     "systems/bounty-hunter-ttrpg/template/component/bh-combat-tracker.html",
+    "systems/bounty-hunter-ttrpg/template/component/character-creation.html",
   ];
   return loadTemplates(templatePaths);
 }
