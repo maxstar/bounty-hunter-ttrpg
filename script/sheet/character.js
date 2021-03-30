@@ -93,7 +93,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   // ********** HANDLERS *************
 
   handleCharacterCreation() {
-    const app = new CharacterCreation(this.actor);
+    const app = new (CONFIG.BountyHunter.characterCreationClass)(this.actor);
     app.render(true);
   }
 

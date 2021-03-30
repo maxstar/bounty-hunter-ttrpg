@@ -42,13 +42,7 @@ export class CharacterCreation extends Application {
     }
 
     data.dataset = duplicate(this.dataset);
-
     data.model = this.model;
-    // data.model.species = this.dataset.species[this.model.species] ?? this.customEntry;
-    // data.model.birthright = this.dataset.birthright[this.model.birthright] ?? this.customEntry;
-    // data.model.education = this.dataset.education[this.model.education] ?? this.customEntry;
-    // data.model.career = this.dataset.career[this.model.career] ?? this.customEntry;
-    // data.model.reason = this.dataset.reason[this.model.reason] ?? this.customEntry;
 
     Object.keys(data.dataset).map(
       (sectionKey) => {
@@ -76,12 +70,6 @@ export class CharacterCreation extends Application {
       // html.find('.chargen-roll-reason').click(this.handleRollReason.bind(this));
 
       html.find('.chargen-select').change(this.handleInput.bind(this));
-
-      // html.find('.chargen-select-species').change(this.handleInputSpecies.bind(this));
-      // html.find('.chargen-select-birthright').change(this.handleInputBirthright.bind(this));
-      // html.find('.chargen-select-education').change(this.handleInputEducation.bind(this));
-      // html.find('.chargen-select-career').change(this.handleInputCareer.bind(this));
-      // html.find('.chargen-select-reason').change(this.handleInputReason.bind(this));
   }
 
   // *************** HANDLERS ******************
@@ -94,41 +82,71 @@ export class CharacterCreation extends Application {
   }
 
   handleConfirm(event) {
-    let updateData = {}, languages = ['Galactic'], section;
+    let updateData = {}, languages = ['Galactic'], section, skills = [];
 
     for (let [sectionKey, sectionValue] of Object.entries(this.model)) {
       if (sectionValue === 'custom') continue;
 
       section = this.dataset[sectionKey][sectionValue];
-      // add skills
-      
-      if (section.languages.length > 0) {
-        languages.push(
-          section.languages.reduce(
-            (retVal, langSet) => { 
-              retVal.push(langSet.join(', '));
-              return retVal;
-            }, 
-            []
-          ).join(' or ')
-        );
-      }
 
-      // fill bio fields
-      updateData[`data.bio.${sectionKey}.value`] = game.i18n.localize(section.name);
-      if (sectionKey !== 'species') {
-        updateData[`data.bio.${sectionKey}.value`] += ' - ' + game.i18n.localize(section.description)
+      if (section.skills.length > 0) {
+        skills = skills.concat(section.skills[0]);
       }
+      languages = this._handleLanguages(section, languages);
+      updateData = Object.assign(updateData, this._handleBio(sectionKey, section));
     }
+
     // note languages
     updateData['data.bio.other.value'] = game.i18n.localize('HEADER.LANGUAGES') + ': ' + languages.join(', ');
 
     this.character.update(updateData);
 
+    // add skills
+    this._addSkills(skills);
+
     this.close();
   }
 
   // *************** HELPERS ******************
+
+  _addSkills(skillNames) {
+    let items = [], item;
+    skillNames =  [...new Set(skillNames)]; // remove duplicates
+    for (const skillName of skillNames) {
+      item = game.items.getName(skillName);
+      if (item !== null) {
+        items.push(item.data);
+      }
+    }
+    this.character.createEmbeddedEntity("OwnedItem", items);
+  }
+
+  _handleLanguages(section, languages) {
+    if (section.languages.length > 0) {
+      languages.push(
+        section.languages.reduce(
+          (retVal, langSet) => { 
+            retVal.push(langSet.join(', '));
+            return retVal;
+          }, 
+          []
+        ).join(' or ')
+      );
+    }
+
+    return languages;
+  }
+
+  _handleBio(sectionKey, section) {
+    let updateData = {};
+
+    updateData[`data.bio.${sectionKey}.value`] = game.i18n.localize(section.name);
+    if (sectionKey !== 'species') {
+      updateData[`data.bio.${sectionKey}.value`] += ' - ' + game.i18n.localize(section.description)
+    }
+
+    return updateData;
+  }
 
   _getBlankModel() {
     return {

@@ -1,3 +1,4 @@
+import { CharacterCreation } from "../component/character-creation.js";
 import { StarshipHandler } from "../component/starship-handler.js";
 
 export async function loadSystemSettings() {
@@ -6,6 +7,7 @@ export async function loadSystemSettings() {
     'starship-roles': await loadStarshipRoles(),
     starshipHandlerClass: StarshipHandler,
     'character-creation': await loadCharacterCreation(),
+    characterCreationClass: CharacterCreation,
   };
 }
 
