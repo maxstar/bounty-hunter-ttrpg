@@ -83,11 +83,11 @@
 * [done] punching attack item, Brawler ability passive
 * [done] martial arts attack item
 * [done] Fast Draw in combat tracker
-* [    ] character generator
-    * [    ] fill skills
+* [done] character generator
+    * [done] fill skills
     * [done] fill languages
     * [done] fill bio
-    * [    ] support +100 DC
+    * [done] support +100 DC
 * [    ] localization
 
 * [    ] refactoring/improvements

@@ -78,7 +78,7 @@
       "description": "BH.BIRTHRIGHT.RICH_FAMILY.DESCRIPTION",
       "skills": [["Charm", "Culture"]],
       "languages": [],
-      "other": ["Gain 100 Deca Credits"]
+      "other": [["Gain 100 Deca Credits"]]
     },
     "slave-pits": {
       "key": "slave-pits",

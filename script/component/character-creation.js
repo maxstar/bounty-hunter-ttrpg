@@ -82,7 +82,7 @@ export class CharacterCreation extends Application {
   }
 
   handleConfirm(event) {
-    let updateData = {}, languages = ['Galactic'], section, skills = [];
+    let updateData = {}, languages = ['Galactic'], section, skills = [], other = [];
 
     for (let [sectionKey, sectionValue] of Object.entries(this.model)) {
       if (sectionValue === 'custom') continue;
@@ -94,10 +94,17 @@ export class CharacterCreation extends Application {
       }
       languages = this._handleLanguages(section, languages);
       updateData = Object.assign(updateData, this._handleBio(sectionKey, section));
+
+      if (section.other !== undefined && section.other.length > 0) {
+        other = other.concat(section.other[0]);
+      }
     }
 
     // note languages
     updateData['data.bio.other.value'] = game.i18n.localize('HEADER.LANGUAGES') + ': ' + languages.join(', ');
+    if (other.length > 0) {
+      updateData['data.bio.other.value'] += "\n" + other.join("\n");
+    }
 
     this.character.update(updateData);
 

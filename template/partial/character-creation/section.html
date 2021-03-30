@@ -16,5 +16,8 @@
     {{#if section.selected.languages}}
         {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.LANGUAGES" list=section.selected.languages }}
     {{/if}}
+    {{#if section.selected.other}}
+        {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="BIO.OTHER" list=section.selected.other }}
+    {{/if}}
     {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.SKILLS" list=section.selected.skills }}
 </div>
