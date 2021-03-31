@@ -129,6 +129,10 @@
   background-color: inherit;
 }
 
+.crew-member .crew-member-ap {
+  line-height: 22px;
+}
+
 .crew-member-list {
   height: 100%;
 }
@@ -226,6 +230,7 @@
 
 .starship-role-weapon-assignees {
   width: 100%;
+  max-width: 146px;
 }
 
 .starship-role .item-control {

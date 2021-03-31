@@ -201,7 +201,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   }
 
   prepareStarshipControlData(data) {
-    let assignedActorId, starshipRoleAssignees;
+    let assignedActorId, starshipRoleAssignees, actor;
     for (let starshipRoleKey in data.starshipRoles) {
       // handle role assignees
       starshipRoleAssignees = data.actor.flags.starship?.[starshipRoleKey] ?? [];
@@ -211,7 +211,9 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         for (let i = 0; i < starshipRoleAssignees.length; i++) {
           assignedActorId = starshipRoleAssignees[i];
           if (!assignedActorId) continue;
-          data.starshipRoles[starshipRoleKey].assignees[assignedActorId] = game.actors.get(assignedActorId).data;
+          actor = game.actors.get(assignedActorId);
+          data.starshipRoles[starshipRoleKey].assignees[assignedActorId] = actor.data;
+          data.starshipRoles[starshipRoleKey].assignees[assignedActorId].owner = actor.owner;
         }
       } else if (starshipRoleAssignees !== "") {
         data.starshipRoles[starshipRoleKey].assignees[starshipRoleAssignees] = game.actors.get(starshipRoleAssignees).data;
@@ -224,7 +226,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
   prepareStarshipWeapons(data) {
     let weapons = this.actor.itemTypes['weapon-component'];
     const gunnerRole = JSON.stringify(data.starshipRoles.gunner);
-    let starshipWeapons = {}, key, assignees;
+    let starshipWeapons = {}, key, assignees, actor;
     for (let weapon of weapons) {
       key = `gunner-${weapon.id}`;
       assignees = data.actor.flags.starship[key] ?? [];
@@ -237,7 +239,9 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
 
       for (let assignedActorId of assignees) {
         if (!assignedActorId) continue;
-        starshipWeapons[key].assignees[assignedActorId] = game.actors.get(assignedActorId).data;
+        actor = game.actors.get(assignedActorId);
+        starshipWeapons[key].assignees[assignedActorId] = actor.data;
+        starshipWeapons[key].assignees[assignedActorId].owner = actor.owner;
       }
 
       this.prepareActionInfo(starshipWeapons[key])

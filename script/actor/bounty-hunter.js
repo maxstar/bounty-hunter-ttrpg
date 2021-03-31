@@ -32,8 +32,8 @@ export class BountyHunterActor extends Actor {
 
   canDoAction(action, checkAP = true) {
     return action.skill.reduce(
-      (a, b) => a && this.hasSkillChain(b) && (checkAP ? this.data.data.bio.ap.value >= b.length : true), 
-      true
+      (a, b) => a || (this.hasSkillChain(b) && (checkAP ? this.data.data.bio.ap.value >= b.length : true)), 
+      false
     );
   }
 

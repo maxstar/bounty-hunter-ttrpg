@@ -91,6 +91,7 @@
 * [    ] localization
 
 * [    ] refactoring/improvements
+    * [    ] tokenizer support
     * [done] unify item display in character and starship
         * [done] item
         * [    ] section

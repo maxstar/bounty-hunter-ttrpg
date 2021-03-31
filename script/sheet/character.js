@@ -399,7 +399,7 @@ Hooks.on('preUpdateActor', async (entity, updateData, options, userId) => {
 });
 
 Hooks.on('createActor', async (entity, options, userId) => {
-  if (!(entity instanceof BountyHunterActor)) return true;
+  if (!(entity instanceof BountyHunterActor) || entity.data.type !== 'character') return true;
   
   const punchingAttack = game.items.getName("Punching Attack");
   if (!punchingAttack) return true;
