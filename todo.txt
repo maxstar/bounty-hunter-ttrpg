@@ -90,7 +90,7 @@
     * [done] support +100 DC
 * [    ] styling
     * [done] char sheet
-    * [    ] char creation
+    * [done] char creation
     * [    ] starhip sheet
     * [    ] weapon form
     * [    ] gear form

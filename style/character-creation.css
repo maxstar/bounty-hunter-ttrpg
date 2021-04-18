@@ -15,12 +15,13 @@
 }
 
 .chargen select {
-    width: auto;
+    width: 100%;
 }
 
 .chargen .chargen-section {
+    border-bottom: 4px solid #8BD2EF;
+    padding: 6px;
     margin-bottom: 10px;
-    border-bottom: 1px solid;
 }
 
 .chargen .chargen-section-content {
@@ -37,14 +38,12 @@
     min-width: 135px;
 }
 
-.chargen-list-caption, .section-title {
-    font-weight: bold;
-}
-
 .chargen-list ul:not(:last-of-type)::after {
     content: "or"    
 }
 
 .chargen-list ul {
     margin: 0;
+    font-family: TheSans-Bold-Caps;
+    font-size: 12px;
 }

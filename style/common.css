@@ -143,6 +143,12 @@ input:read-only {
     font-family: AgencyFB-Bold;
 }
 
+.bounty-hunter button {
+    background-color: #DFECF8;
+    border-color: #8BD2EF;
+    border-radius: 10px;
+}
+
 .uppercase {
     text-transform: uppercase;
 }

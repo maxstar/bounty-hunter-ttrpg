@@ -1,23 +1,25 @@
 
-<div class="flex row chargen-section border">
+<div class="chargen-section">
     <!-- <button class="chargen-roll chargen-roll-kin" type="button"></button> -->
-    <div class="chargen-section-content">
-        <span class="section-title">{{localize section.title}}</span>
-        <select class="chargen-select chargen-select-{{sectionKey}}" data-section="{{sectionKey}}">
-            {{#select section.selected.key}}
-            <option value="custom">{{localize 'BH.CUSTOM'}}</option>
-            {{#each section.options as |item|}}
-                <option value="{{item.key}}">{{localize item.name}} - {{#each item.skills as |skillSet|}}({{skillSet}}){{/each}}</option>
-            {{/each}}
-            {{/select}}
-        </select>
-        <div class="chargen-description">{{localize section.selected.description}}</div>
+    <h1>{{localize section.title}}</h1>
+    <div class="flex row">
+        <div class="chargen-section-content">
+            <select class="chargen-select chargen-select-{{sectionKey}}" data-section="{{sectionKey}}">
+                {{#select section.selected.key}}
+                <option value="custom">{{localize 'BH.CUSTOM'}}</option>
+                {{#each section.options as |item|}}
+                    <option value="{{item.key}}">{{localize item.name}} - {{#each item.skills as |skillSet|}}({{skillSet}}){{/each}}</option>
+                {{/each}}
+                {{/select}}
+            </select>
+            <div class="chargen-description">{{localize section.selected.description}}</div>
+        </div>
+        {{#if section.selected.languages}}
+            {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.LANGUAGES" list=section.selected.languages }}
+        {{/if}}
+        {{#if section.selected.other}}
+            {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="BIO.OTHER" list=section.selected.other }}
+        {{/if}}
+        {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.SKILLS" list=section.selected.skills }}
     </div>
-    {{#if section.selected.languages}}
-        {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.LANGUAGES" list=section.selected.languages }}
-    {{/if}}
-    {{#if section.selected.other}}
-        {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="BIO.OTHER" list=section.selected.other }}
-    {{/if}}
-    {{> systems/bounty-hunter-ttrpg/template/partial/character-creation/list.html title="HEADER.SKILLS" list=section.selected.skills }}
 </div>
