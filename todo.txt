@@ -11,11 +11,11 @@
     * [done] compendium
     * [done] edit abilities from char sheet
     * [    ] post item to chat
-* [do  ] items
-    * [do  ] forms
-        * [do  ] weapon
-        * [do  ] gear
-        * [do  ] cargo
+* [done] items
+    * [done] forms
+        * [done] weapon
+        * [done] gear
+        * [done] cargo
     * [done] list
         * [done] add
         * [done] edit
@@ -88,10 +88,22 @@
     * [done] fill languages
     * [done] fill bio
     * [done] support +100 DC
+* [    ] styling
+    * [done] char sheet
+    * [    ] char creation
+    * [    ] starhip sheet
+    * [    ] weapon form
+    * [    ] gear form
+    * [    ] cargo form
+    * [    ] ability form
+    * [    ] skill form
+    * [    ] component form
 * [    ] localization
 
 * [    ] refactoring/improvements
     * [    ] tokenizer support
+    * [    ] automatic content import when world is created
+    * [    ] restrict transfer of cargo to characters
     * [done] unify item display in character and starship
         * [done] item
         * [    ] section
@@ -102,7 +114,7 @@
         * [    ] ship function usage
     * [    ] color code X/Y info
     * [done] implement item transfer between players
-    * [    ] display AP for crew members (owners only)
+    * [done] display AP for crew members (owners only)
     * [    ] more automation for starship functions
         * [    ] inspire
         * [    ] transfer

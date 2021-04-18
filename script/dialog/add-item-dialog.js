@@ -4,7 +4,7 @@ export class AddItemDialog extends Dialog {
       static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           template: "templates/hud/dialog.html",
-        classes: ["dialog"],
+        classes: ["dialog", "bounty-hunter"],
         width: 600,
         height: 600,
         jQuery: true

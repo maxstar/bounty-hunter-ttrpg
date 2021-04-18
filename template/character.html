@@ -6,7 +6,7 @@
                     <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
                 </div>
                 <table>
-                    <tr>
+                    <tr class="row-alternate">
                         <td>
                             <label>{{localize "BIO.NAME"}}:</label>
                         </td>
@@ -21,7 +21,7 @@
                                 data-dtype="Number" />
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="row">
                         <td>
                             <label>{{localize data.bio.species.label}}:</label>
                         </td>
@@ -36,7 +36,7 @@
                                 data-dtype="Number" />
                         </td>
                     </tr>
-                    <tr>
+                    <tr class="row-alternate">
                         <td>
                             <label>{{localize data.bio.ap.label}}:</label>
                         </td>
@@ -54,12 +54,9 @@
         </div>
 
         <div class="sheet-tabs tabs flex row" data-group="primary">
-            <b class="item" data-tab="main">{{localize "TAB.MAIN"}}</b>
-            <b class="item" data-tab="bio">{{localize "TAB.BIO"}}</b>
-            <b class="item" data-tab="note">{{localize "TAB.NOTE"}}</b>
-            <!-- <b class="item" data-tab="combat">{{localize "TAB.COMBAT"}}</b>
-            <b class="item" data-tab="talent">{{localize "TAB.TALENT"}}</b>
-            <b class="item" data-tab="gear">{{localize "TAB.GEAR"}}</b> -->
+            <h1 data-tab="main">{{localize "TAB.MAIN"}}</h1>
+            <h1 data-tab="bio">{{localize "TAB.BIO"}}</h1>
+            <h1 data-tab="note">{{localize "TAB.NOTE"}}</h1>
         </div>
         <div class="sheet-body">
             <div class="tab" data-group="primary" data-tab="main">

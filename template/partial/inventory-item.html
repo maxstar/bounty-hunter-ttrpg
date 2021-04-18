@@ -7,7 +7,7 @@
         {{#if item.data.data.canUse}}
         <a class="use-weapon full-width">
         {{/if}}
-            <div class="item{{#unless item.data.data.canUse}} faded{{/unless}}" data-attribute="{{key}}" title="{{#if item.data.data.canUse}}{{item.data.data.description}}{{else}}{{localize 'BH.WEAPON.LACK_SKILL'}}{{/if}}">
+            <div class="{{#unless item.data.data.canUse}} faded{{/unless}}" data-attribute="{{key}}" title="{{#if item.data.data.canUse}}{{item.data.data.description}}{{else}}{{localize 'BH.WEAPON.LACK_SKILL'}}{{/if}}">
                 <span>{{localize item.name}}</span>
                 <span class="weapon-damage item-stat" title="{{localize 'BH.WEAPON.DAMAGE'}}">
                     <i class="fas fa-sun"></i>
@@ -27,7 +27,7 @@
         </a>
         {{/if}}
     {{else if (eq item.type 'cargo')}}
-        <div class="item" data-attribute="{{key}}" title="{{item.data.data.description}}">
+        <div data-attribute="{{key}}" title="{{item.data.data.description}}">
             <span>{{localize item.name}}</span>
             <span class="cargo-weight item-stat" title="{{localize 'BH.CARGO.WEIGHT'}}">
                 {{item.data.data.weight}}{{localize 'BH.TONS_SHORT'}}
@@ -37,7 +37,7 @@
         {{#unless (eq item.data.data.uses.max 0)}}
         <a class="use-item full-width">
         {{/unless}}
-            <div class="item{{#if (eq item.data.data.uses.value 0)}} faded{{/if}}" data-attribute="{{key}}" title="{{item.data.data.description}}">
+            <div class="{{#if (eq item.data.data.uses.value 0)}} faded{{/if}} full-width" data-attribute="{{key}}" title="{{item.data.data.description}}">
                 <span>{{localize item.name}}</span>
                 {{#unless (eq item.data.data.uses.max 0)}}
                     <span class="item-stat" title="{{localize 'BH.USES_REMAINING'}} ({{localize item.data.data.refresh}})">
