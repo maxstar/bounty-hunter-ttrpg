@@ -1,6 +1,7 @@
 .bounty-hunter .starship {
   height: 100%;
   width: 100%;
+  --border-color: #5F0A30;
 }
 
 .starship .tab-hint {
@@ -9,11 +10,15 @@
   font-size: 12px;
 }
 
+.starship .sheet-tabs {
+  margin-bottom: 8px;
+}
+
 /* ************* STARSHIP INFO ******************* */
 
 .starship .header-block {
   width: 100%;
-  margin-top: 6px;
+  margin-bottom: 8px;
 }
 
 .starship .avatar {
@@ -163,21 +168,29 @@
   min-width: 196px;
   width: 250px;
   min-height: 96px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 
   flex-grow: 1;
-  border: 2px solid;
+  border: 2px solid var(--border-color);
 }
 
 .starship-role ol {
   padding-left: 4px;
 }
 
+.starship-role-list .item:nth-child(odd), .starship-component-list .item:nth-child(odd) {
+  background-color: white;
+}
+.starship-role-list .item, .starship-component-list .item {
+  font-family: "Signika", sans-serif;
+}
+
 .starship-role .starship-role-header {
   text-align: center;
-  font-weight: bold;
+  font-family: TheSans-Bold-Caps;
+  font-size: 15px;
   max-height: 20px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--border-color);
 
   display: flex;
   flex-direction: row;
@@ -189,21 +202,8 @@
   border: 0px solid;
 }
 
-.starship-role .starship-role-help {
-  border: 1px solid;
-  border-radius: 6px;
-  background-color: cadetblue;
-  display: flex;
-  width: 20px;
-  margin-left: 4px;
-  justify-content: center;
-}
-.starship-role .starship-role-help:hover {
-  background-color: cyan;
-}
-
 .starship-role .starship-actions {
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 1px;
   text-align: center;
 }
@@ -245,15 +245,16 @@
 }
 
 .starship-component {
-  margin-bottom: 10px;
-  border: 2px solid;
+  margin-top: 10px;
+  border: 2px solid var(--border-color);
 }
 
 .starship-component .starship-component-name {
   text-align: center;
-  font-weight: bold;
+  font-family: TheSans-Bold-Caps;
+  font-size: 15px;
   max-height: 20px;
-  border-bottom: 1px solid;
+  border-bottom: 1px solid var(--border-color);
 
   display: flex;
   flex-direction: row;

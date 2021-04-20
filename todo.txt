@@ -91,13 +91,14 @@
 * [    ] styling
     * [done] char sheet
     * [done] char creation
-    * [    ] starhip sheet
+    * [done] starhip sheet
     * [    ] weapon form
     * [    ] gear form
     * [    ] cargo form
     * [    ] ability form
     * [    ] skill form
     * [    ] component form
+    * [    ] chat messages
 * [    ] localization
 
 * [    ] refactoring/improvements

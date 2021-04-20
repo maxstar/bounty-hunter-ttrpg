@@ -1,7 +1,8 @@
 <div class="flex column full" style="overflow-y: scroll;">
     
     <div class="flex row">
-        <div class="starship-role-list border">
+        <div class="starship-role-list">
+            <div class="section-heading">{{localize "BH.STARSHIP.ROLES.HEADING" }}</div>
             <div class="flex row">
                 <span class="tab-hint">{{localize "BH.STARSHIP.CREW.HINT_ASSIGN"}}</span>
                 <button class="reset border">{{localize "BH.STARSHIP.CONTROL.RESET"}}</button>
@@ -10,14 +11,14 @@
                 {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipRole.assignees role=starshipRole user=../user}}
             {{/each}}
         </div>
-        <div class="starship-role-list border">
-            <h1>{{localize "BH.STARSHIP.WEAPONS.HEADING" }}</h1>
+        <div class="starship-role-list">
+            <div class="section-heading">{{localize "BH.STARSHIP.WEAPONS.HEADING" }}</div>
             {{#each starshipWeapons as |starshipWeapon roleKey|}}
                 {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipWeapon.assignees role=starshipWeapon user=../user}}
             {{/each}}
         </div>
-        <div class="starship-component-list border">
-            <h1>{{localize "BH.STARSHIP.COMPONENTS.HEADING" }}</h1>
+        <div class="starship-component-list">
+            <div class="section-heading">{{localize "BH.STARSHIP.COMPONENTS.HEADING" }}</div>
             <div class="starship-component">
                 <div class="starship-component-name">{{localize 'STARSHIP.HULL'}}</div>
                 <div class="starship-component-stats">

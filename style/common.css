@@ -7,6 +7,11 @@
     src: url(font/thesans-bold-caps.ttf);
 }
 
+.bounty-hunter {
+    --border-color: #8BD2EF;
+    --label-color: #6B233D;
+}
+
 .bounty-hunter .flex {
     display: flex;
 }
@@ -111,7 +116,7 @@ input:read-only {
 }
 
 .bounty-hunter h2 {
-    color: #6B233D;
+    color: var(--label-color);
     text-decoration-line: underline overline;
     text-decoration-style: solid;
     text-decoration-color: #A7A9AC;
@@ -127,7 +132,7 @@ input:read-only {
 }
 
 .bounty-hunter h3 {
-    color: #6B233D;
+    color: var(--label-color);
 
     font-family: AgencyFB-Bold;
     text-align: center;
@@ -138,14 +143,28 @@ input:read-only {
 }
 
 .bounty-hunter label, .bounty-hunter .label {
-    color: #6B233D;
+    color: var(--label-color);
     font-size: 15px;
     font-family: AgencyFB-Bold;
 }
 
+.bounty-hunter .section-heading {
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(95,10,48,1) 85%);
+
+    font-family: TheSans-Bold-Caps;
+    font-size: 16px;
+    text-transform: uppercase;
+
+    color: white;
+    text-align: center;
+    width: 100%;
+    padding: 3px;
+}
+
 .bounty-hunter button {
     background-color: #DFECF8;
-    border-color: #8BD2EF;
+    border-color: var(--border-color);
     border-radius: 10px;
 }
 
