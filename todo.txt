@@ -92,7 +92,7 @@
     * [done] char sheet
     * [done] char creation
     * [done] starhip sheet
-    * [    ] weapon form
+    * [done] weapon form
     * [    ] gear form
     * [    ] cargo form
     * [    ] ability form

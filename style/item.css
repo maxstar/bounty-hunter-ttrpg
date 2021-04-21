@@ -77,3 +77,69 @@ button.add-active-effect {
     white-space: nowrap;
     line-height: 25px;
 }
+
+/* *************** WEAPON ******************* */
+
+/* .sheet.weapon .section {
+    border: 4px solid var(--border-color);
+} */
+.sheet.weapon label {
+    margin-right: 2px;
+}
+.sheet.weapon .window-content {
+    background-color: var(--alternate-background-color);
+}
+.sheet.weapon .gear-description {
+    height: 70px;
+}
+
+.sheet.weapon .grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr [col-start]);
+    grid-template-rows: repeat(7, 34px);
+    column-gap: 4px;
+    row-gap: 4px;
+}
+.sheet.weapon .grid > div {
+    background-color: white;
+    padding: 4px 6px;
+}
+.grid .avatar {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+.grid .weapon-name {
+    grid-column: span 8;
+}
+.grid .weapon-cost {
+    grid-column: span 4;
+}
+.grid .weapon-encumbrance {
+    grid-column: span 4;
+}
+.grid .weapon-damage {
+    grid-column: span 3;
+}
+.grid .weapon-ammo {
+    grid-column: span 7;
+}
+.grid .weapon-skill {
+    grid-column: span 5;
+}
+.grid .weapon-range {
+    grid-column: span 5;
+}
+.grid .weapon-description {
+    grid-column: span 10;
+    grid-row: span 4;
+}
+.grid .weapon-uses {
+    grid-column: span 5;
+}
+.grid .weapon-refresh {
+    grid-column: span 5;
+}
+.grid .weapon-use-description {
+    grid-column: span 10;
+    grid-row: span 4;
+}

@@ -7,7 +7,7 @@
         {{#if item.data.data.canUse}}
         <a class="use-weapon full-width">
         {{/if}}
-            <div class="{{#unless item.data.data.canUse}} faded{{/unless}}" data-attribute="{{key}}" title="{{#if item.data.data.canUse}}{{item.data.data.description}}{{else}}{{localize 'BH.WEAPON.LACK_SKILL'}}{{/if}}">
+            <div class="{{#unless item.data.data.canUse}} faded{{/unless}} full-width" data-attribute="{{key}}" title="{{#if item.data.data.canUse}}{{item.data.data.description}}{{else}}{{localize 'BH.WEAPON.LACK_SKILL'}}{{/if}}">
                 <span>{{localize item.name}}</span>
                 <span class="weapon-damage item-stat" title="{{localize 'BH.WEAPON.DAMAGE'}}">
                     <i class="fas fa-sun"></i>

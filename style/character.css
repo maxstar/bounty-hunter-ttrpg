@@ -44,7 +44,7 @@
     width: 150px;
 }
 .skill:nth-child(odd), .ability:nth-child(odd), .bounty-hunter .item:nth-child(odd) {
-    background-color: #DFECF8;
+    background-color: var(--alternate-background-color);
 }
 
 .character .section .items {

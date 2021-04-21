@@ -10,6 +10,7 @@
 .bounty-hunter {
     --border-color: #8BD2EF;
     --label-color: #6B233D;
+    --alternate-background-color: #DFECF8;
 }
 
 .bounty-hunter .flex {
@@ -23,7 +24,7 @@
 
 .bounty-hunter .row-alternate {
   flex-direction: row;
-  background-color: #DFECF8;
+  background-color: var(--alternate-background-color);
 }
 
 .bounty-hunter .column {
@@ -163,7 +164,7 @@ input:read-only {
 }
 
 .bounty-hunter button {
-    background-color: #DFECF8;
+    background-color: var(--alternate-background-color);
     border-color: var(--border-color);
     border-radius: 10px;
 }

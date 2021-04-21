@@ -1,83 +1,77 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <div class="flex section">
+    <div class="flex grid">
         <div class="avatar">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="full-width">
-            <div>
-                <div class="flex">
-                    <label class="form-gear-label">{{localize "BH.GEAR_NAME"}}</label>
-                    <input name="name" type="text" value="{{item.name}}" />
-                </div>
-            </div>
-            <div class="flex">
-                <div>
-                    <label class="form-gear-label">{{localize "BH.COST"}}</label>
-                    <input class="short-num" name="data.cost.value" type="number" value="{{data.cost.value}}" 
-                        min="0" data-dtype="Number" />
-                    <select name="data.cost.currency">
-                        {{#select data.cost.currency}}
-                            <option value="dc">{{localize "BH.DECA_CREDITS"}}</option>
-                            <option value="m">{{localize "BH.MARKS"}}</option>
-                        {{/select}}
-                    </select>
-                </div>
-                <div>
-                    <label class="form-gear-label">{{localize "BH.GEAR.ENCUMBRANCE"}}</label>
-                    <select name="data.encumbrance" data-dtype="Number">
-                        {{#select data.encumbrance}}
-                            <option value="0">0</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                        {{/select}}
-                    </select>
-                </div>
-            </div>
+        <div class="flex weapon-name">
+            <label class="form-gear-label">{{localize "BH.GEAR_NAME"}}</label>
+            <input name="name" type="text" value="{{item.name}}" />
         </div>
-    </div>
+        <div class="weapon-cost">
+            <label class="form-gear-label">{{localize "BH.COST"}}</label>
+            <input class="short-num" name="data.cost.value" type="number" value="{{data.cost.value}}" 
+                min="0" data-dtype="Number" />
+            <select name="data.cost.currency">
+                {{#select data.cost.currency}}
+                    <option value="dc">{{localize "BH.DECA_CREDITS"}}</option>
+                    <option value="m">{{localize "BH.MARKS"}}</option>
+                {{/select}}
+            </select>
+        </div>
+        <div class="weapon-encumbrance">
+            <label class="form-gear-label">{{localize "BH.GEAR.ENCUMBRANCE"}}</label>
+            <select name="data.encumbrance" data-dtype="Number">
+                {{#select data.encumbrance}}
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                {{/select}}
+            </select>
+        </div>
 
-    <div class="section flex">
-        <label class="form-gear-label">{{localize "BH.WEAPON.DAMAGE"}}</label>
-        <input class="short-num" name="data.damage" type="number" value="{{data.damage}}" 
-            min="0" data-dtype="Number" />
-        <label class="form-gear-label">{{localize "BH.WEAPON.AMMO"}}</label>
-        <input name="data.ammo" type="text" value="{{data.ammo}}" />
-    </div>
+        <div class="flex weapon-damage">
+            <label class="form-gear-label">{{localize "BH.WEAPON.DAMAGE"}}</label>
+            <input class="short-num" name="data.damage" type="number" value="{{data.damage}}" min="0" data-dtype="Number" />
+        </div>
+        <div class="flex weapon-ammo">
+            <label class="form-gear-label">{{localize "BH.WEAPON.AMMO"}}</label>
+            <input name="data.ammo" type="text" value="{{data.ammo}}" />
+        </div>
 
-    <div class="section flex">
-        <label class="form-gear-label">{{localize "BH.WEAPON.SKILL"}}</label>
-        <select name="data.skill">
-            {{#select data.skill}}
-                <option value="">None</option>
-                {{#each skills as |skill skillName|}}
-                <option value="{{skillName}}">{{skillName}}</option>
-                {{/each}}
-            {{/select}}
-        </select>
-        <label class="form-gear-label">{{localize "BH.WEAPON.RANGE"}}</label>
-        <input class="short-num" name="data.range" type="number" value="{{data.range}}" 
-            min="0" data-dtype="Number" />
-    </div>
+        <div class="flex weapon-skill">
+            <label class="form-gear-label">{{localize "BH.WEAPON.SKILL"}}</label>
+            <select name="data.skill">
+                {{#select data.skill}}
+                    <option value="">None</option>
+                    {{#each skills as |skill skillName|}}
+                    <option value="{{skillName}}">{{skillName}}</option>
+                    {{/each}}
+                {{/select}}
+            </select>
+        </div>
+        <div class="flex weapon-range">
+            <label class="form-gear-label">{{localize "BH.WEAPON.RANGE"}}</label>
+            <input class="short-num" name="data.range" type="number" value="{{data.range}}" 
+                min="0" data-dtype="Number" />
+        </div>
 
-    <div class="section">
-        <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
-        <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>
-    </div>
+        <div class="weapon-description">
+            <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
+            <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>
+        </div>
 
-    <div class="flex section">
-        <div>
+        <div class="weapon-uses">
             <label class="form-gear-label">{{localize "BH.USES"}}</label>
             <input class="short-num" name="data.uses.value" type="number" value="{{data.uses.value}}" 
                 min="0" data-dtype="Number" /> /
             <input class="short-num" name="data.uses.max" type="number" value="{{data.uses.max}}" 
                 min="0" data-dtype="Number" />
         </div>
-
-        <div>
+        <div class="weapon-refresh flex">
             <label class="form-gear-label">{{localize "BH.REFRESH"}}</label>
             <select name="data.refresh">
                 {{#select data.refresh}}
@@ -88,15 +82,15 @@
                 {{/select}}
             </select>
         </div>
-    </div>
 
-    <div class="section">
-        <label class="form-gear-label">{{localize "BH.GEAR.USE_DESCRIPTION"}}</label>
-        <textarea class="gear-description" name="data.use-description">{{item.data.use-description}}</textarea>
+        <div class="weapon-use-description">
+            <label class="form-gear-label">{{localize "BH.GEAR.USE_DESCRIPTION"}}</label>
+            <textarea class="gear-description" name="data.use-description">{{item.data.use-description}}</textarea>
+        </div>
     </div>
 
     <div class="section active-effects">
-        <div class="active-effects-header flex">{{localize 'BH.ACTIVE_EFFECTS'}} {{#unless item.data.isOwned}}<button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>{{/unless}}</div>
+        <div class="active-effects-header flex label">{{localize 'BH.ACTIVE_EFFECTS'}} {{#unless item.data.isOwned}}<button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>{{/unless}}</div>
         {{> "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html"}}
     </div>
 </form>
