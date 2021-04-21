@@ -150,7 +150,7 @@ button.add-skill, button.add-ability, button.item-create {
     border: 0px;
 }
 
-.ability-uses, .item-uses {
+.ability-uses {
     margin-left: 4px;
     margin-right: 4px;
     min-width: 15px;

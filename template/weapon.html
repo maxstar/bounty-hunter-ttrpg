@@ -1,14 +1,14 @@
 <form class="{{cssClass}}" autocomplete="off">
 
-    <div class="flex grid">
+    <div class="grid">
         <div class="avatar">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="flex weapon-name">
+        <div class="flex item-name">
             <label class="form-gear-label">{{localize "BH.GEAR_NAME"}}</label>
             <input name="name" type="text" value="{{item.name}}" />
         </div>
-        <div class="weapon-cost">
+        <div class="item-cost">
             <label class="form-gear-label">{{localize "BH.COST"}}</label>
             <input class="short-num" name="data.cost.value" type="number" value="{{data.cost.value}}" 
                 min="0" data-dtype="Number" />
@@ -19,7 +19,7 @@
                 {{/select}}
             </select>
         </div>
-        <div class="weapon-encumbrance">
+        <div class="item-encumbrance">
             <label class="form-gear-label">{{localize "BH.GEAR.ENCUMBRANCE"}}</label>
             <select name="data.encumbrance" data-dtype="Number">
                 {{#select data.encumbrance}}
@@ -59,19 +59,19 @@
                 min="0" data-dtype="Number" />
         </div>
 
-        <div class="weapon-description">
+        <div class="item-description">
             <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
             <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>
         </div>
 
-        <div class="weapon-uses">
+        <div class="item-uses">
             <label class="form-gear-label">{{localize "BH.USES"}}</label>
             <input class="short-num" name="data.uses.value" type="number" value="{{data.uses.value}}" 
                 min="0" data-dtype="Number" /> /
             <input class="short-num" name="data.uses.max" type="number" value="{{data.uses.max}}" 
                 min="0" data-dtype="Number" />
         </div>
-        <div class="weapon-refresh flex">
+        <div class="item-refresh flex">
             <label class="form-gear-label">{{localize "BH.REFRESH"}}</label>
             <select name="data.refresh">
                 {{#select data.refresh}}
@@ -83,7 +83,7 @@
             </select>
         </div>
 
-        <div class="weapon-use-description">
+        <div class="item-description">
             <label class="form-gear-label">{{localize "BH.GEAR.USE_DESCRIPTION"}}</label>
             <textarea class="gear-description" name="data.use-description">{{item.data.use-description}}</textarea>
         </div>
