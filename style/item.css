@@ -96,7 +96,7 @@ button.add-active-effect {
 .sheet.item .grid {
     display: grid;
     grid-template-columns: repeat(10, 1fr [col-start]);
-    grid-template-rows: repeat(7, 34px);
+    grid-template-rows: repeat(4, 34px);
     column-gap: 4px;
     row-gap: 4px;
 }
@@ -105,6 +105,7 @@ button.add-active-effect {
     padding: 4px 6px;
 }
 
+/* ---- common ---- */
 .grid .avatar {
     grid-column: span 2;
     grid-row: span 2;
@@ -126,9 +127,10 @@ button.add-active-effect {
 }
 .grid .item-description {
     grid-column: span 10;
-    grid-row: span 4;
+    grid-row: span 3;
 }
 
+/* ---- weapon ---- */
 .grid .weapon-damage {
     grid-column: span 3;
 }
@@ -142,6 +144,7 @@ button.add-active-effect {
     grid-column: span 5;
 }
 
+/* ---- gear ---- */
 .grid .gear-category {
     grid-column: span 10;
 }
@@ -153,4 +156,16 @@ button.add-active-effect {
 }
 .grid .gear-charge-recharge {
     grid-column: span 3;
+}
+
+/* ---- cargo ---- */
+.grid .cargo-name {
+    grid-column: span 6;
+}
+.grid .cargo-weight {
+    grid-column: span 4;
+}
+.grid .cargo-description {
+    grid-column: span 8;
+    grid-row: span 3;
 }

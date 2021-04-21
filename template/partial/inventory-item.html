@@ -27,7 +27,7 @@
         </a>
         {{/if}}
     {{else if (eq item.type 'cargo')}}
-        <div data-attribute="{{key}}" title="{{item.data.data.description}}">
+        <div class="full-width" data-attribute="{{key}}" title="{{item.data.data.description}}">
             <span>{{localize item.name}}</span>
             <span class="cargo-weight item-stat" title="{{localize 'BH.CARGO.WEIGHT'}}">
                 {{item.data.data.weight}}{{localize 'BH.TONS_SHORT'}}

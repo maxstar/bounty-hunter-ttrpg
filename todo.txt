@@ -94,7 +94,7 @@
     * [done] starhip sheet
     * [done] weapon form
     * [done] gear form
-    * [    ] cargo form
+    * [done] cargo form
     * [    ] ability form
     * [    ] skill form
     * [    ] component form
