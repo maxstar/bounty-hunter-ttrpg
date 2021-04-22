@@ -1,3 +1,31 @@
+
+.chat-message {
+    background: white;
+    --border-color: #5F0A30;
+}
+
+
+/* ***** COMMON ***** */
+
+.chat-card {
+    border: 4px solid var(--border-color);
+    padding: 6px;
+    text-align: center;
+}
+
+.chat-card-subject {
+    font-family: TheSans-Bold-Caps;
+    font-size: 20px;
+}
+
+.chat-card-note {
+    font-style: italic;
+    font-size: 12px;
+}
+
+
+/* ***** SKILL CHALLENGE ***** */
+
 .skill-challenge {
     border: 1px solid;
     padding: 4px 6px 6px 6px;

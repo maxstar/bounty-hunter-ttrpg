@@ -122,6 +122,7 @@
   "BH.METERS_SHORT": "m",
   "BH.TONS_SHORT": "t",
   "BH.COMPONENT_NAME": "Component Name",
+  "BH.AP": "AP",
   "BH.PP": "PP",
   "BH.POWER_POOL": "Power Pool",
   "BH.COMPONENTS": "Ship Components",
@@ -145,6 +146,8 @@
   "COMBAT.PhaseNext": "Next Phase",
   "COMBAT.GO_FIRST_PHASE": "Go in the First Phase (-1 AP)",
   "COMBAT.GO_LAST_PAHSE": "Go in the Last Phase (Refund 1 AP)",
+
+  "BH.CHAT.SKILL_USE": "Skill Use",
 
   "BH.STARSHIP.NAME": "Starship Name",
   "BH.STARSHIP.CREW.HEADING": "Crew Members",

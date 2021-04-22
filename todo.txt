@@ -98,7 +98,7 @@
     * [done] ability form
     * [done] skill form
     * [done] component form
-    * [    ] chat messages
+    * [done] chat messages
 * [    ] localization
 
 * [    ] refactoring/improvements
@@ -110,7 +110,7 @@
         * [    ] section
     * [    ] fancy chat messages
         * [    ] ability usage
-        * [    ] skill usage
+        * [done] skill usage
         * [    ] item usage
         * [    ] ship function usage
     * [    ] color code X/Y info

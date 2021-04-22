@@ -7,7 +7,7 @@
     src: url(font/thesans-bold-caps.ttf);
 }
 
-.bounty-hunter {
+:root {
     --border-color: #8BD2EF;
     --label-color: #6B233D;
     --alternate-background-color: #DFECF8;
@@ -95,7 +95,7 @@ input:read-only {
     background: white;
 }
 
-.bounty-hunter h1 {
+.bounty-hunter h1, .bounty-hunter .h1 {
     background: rgb(2,0,36);
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,138,198,1) 90%);
     color: white;
@@ -110,13 +110,13 @@ input:read-only {
     padding: 4px 4px;
 }
 
-.bounty-hunter h1.active {
+.bounty-hunter h1.active, .bounty-hunter .h1:active {
     text-decoration-line: underline overline;
     text-decoration-style: double;
     text-decoration-color: #00AEEF;
 }
 
-.bounty-hunter h2 {
+.bounty-hunter h2, .bounty-hunter .h2 {
     color: var(--label-color);
     text-decoration-line: underline overline;
     text-decoration-style: solid;
@@ -132,7 +132,7 @@ input:read-only {
     padding: 4px 4px;
 }
 
-.bounty-hunter h3 {
+.bounty-hunter h3, .bounty-hunter .h3 {
     color: var(--label-color);
 
     font-family: AgencyFB-Bold;
