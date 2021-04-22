@@ -191,6 +191,7 @@
   font-size: 15px;
   max-height: 20px;
   border-bottom: 1px solid var(--border-color);
+  background-color: var(--alternate-background-color);
 
   display: flex;
   flex-direction: row;
@@ -255,6 +256,7 @@
   font-size: 15px;
   max-height: 20px;
   border-bottom: 1px solid var(--border-color);
+  background-color: var(--alternate-background-color);
 
   display: flex;
   flex-direction: row;

@@ -2,18 +2,6 @@ textarea.ability-description, textarea.skill-description {
     height: 60px;
 }
 
-.ability .section {
-    margin-top: 10px;
-}
-
-.ability .section label {
-    margin-right: 4px;
-}
-
-.select-uses {
-    margin-right: 20px;
-}
-
 button.add-active-effect {
     width: fit-content;
     margin: 0px;
@@ -74,6 +62,11 @@ button.add-active-effect {
 }
 
 .form-gear-label {
+    white-space: nowrap;
+    line-height: 25px;
+}
+
+.form-ability-label {
     white-space: nowrap;
     line-height: 25px;
 }
@@ -168,4 +161,9 @@ button.add-active-effect {
 .grid .cargo-description {
     grid-column: span 8;
     grid-row: span 3;
+}
+
+/* ---- ability ---- */
+.grid .form-ability-name {
+    grid-column: span 10;
 }

@@ -95,7 +95,7 @@
     * [done] weapon form
     * [done] gear form
     * [done] cargo form
-    * [    ] ability form
+    * [done] ability form
     * [    ] skill form
     * [    ] component form
     * [    ] chat messages
