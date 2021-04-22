@@ -61,7 +61,7 @@ button.add-active-effect {
     margin-right: 10px;
 }
 
-.form-gear-label, .form-ability-label, .form-skill-label {
+.form-gear-label, .form-ability-label, .form-skill-label, .form-component-label {
     white-space: nowrap;
     line-height: 25px;
 }
@@ -77,7 +77,10 @@ button.add-active-effect {
 .sheet.item .window-content {
     background-color: var(--alternate-background-color);
 }
-.sheet.item .gear-description, .sheet.item .skill-description, .sheet.item .ability-description {
+.sheet.item .gear-description, 
+.sheet.item .skill-description, 
+.sheet.item .ability-description,
+.sheet.item .component-description {
     height: 70px;
 }
 
@@ -169,4 +172,15 @@ button.add-active-effect {
 }
 .grid .form-skill-type {
     grid-column: span 4;
+}
+
+/* ---- component ---- */
+.grid .component-pp {
+    grid-column: span 8;
+}
+.grid .form-component-damage {
+    grid-column: span 4;
+}
+.grid .form-component-range {
+    grid-column: span 6;
 }

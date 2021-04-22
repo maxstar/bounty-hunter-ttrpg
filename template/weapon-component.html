@@ -1,57 +1,53 @@
 <form class="{{cssClass}}" autocomplete="off">
-    <div class="flex section">
+    <div class="grid">
         <div class="avatar">
             <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
         </div>
-        <div class="full-width">
-            <div>
-                <div class="flex">
-                    <label class="form-component-label">{{localize "BH.COMPONENT_NAME"}}</label>
-                    <input name="name" type="text" value="{{item.name}}" />
-                </div>
-            </div>
-            <div class="flex">
-                <div>
-                    <label class="form-component-label">{{localize "BH.POWER_POOL"}}</label>
-                    <input class="short-num" name="data.pp.value" type="number" value="{{data.pp.value}}" min="0"
-                        data-dtype="Number" /> /
-                    <input class="short-num" name="data.pp.max" type="number" value="{{data.pp.max}}" min="0"
-                        data-dtype="Number" />
-                </div>
-            </div>
+        <div class="flex item-name">
+            <label class="form-component-label">{{localize "BH.COMPONENT_NAME"}}</label>
+            <input name="name" type="text" value="{{item.name}}" />
         </div>
-    </div>
+        <div class="component-pp">
+            <label class="form-component-label">{{localize "BH.POWER_POOL"}}</label>
+            <input class="short-num" name="data.pp.value" type="number" value="{{data.pp.value}}" min="0"
+                data-dtype="Number" /> /
+            <input class="short-num" name="data.pp.max" type="number" value="{{data.pp.max}}" min="0"
+                data-dtype="Number" />
+        </div>
 
-    <div class="section">
-        <label class="form-component-label">{{localize "BH.COMPONENT.DAMAGE"}}</label>
-        <input class="short-num" name="data.damage" type="number" value="{{data.damage}}" min="0" data-dtype="Number" />
-        <label class="form-component-label">{{localize "BH.COMPONENT.RANGE"}}</label>
-        <select name="data.range.min">
-            {{#select data.range.min}}
-                <option value="-">{{localize "BH.RANGE.NONE"}}</option>
-                <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
-                <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
-                <option value="long">{{localize "BH.RANGE.LONG"}}</option>
-            {{/select}}
-        </select> - 
-        <select name="data.range.max">
-            {{#select data.range.max}}
-                <option value="-">{{localize "BH.RANGE.NONE"}}</option>
-                <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
-                <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
-                <option value="long">{{localize "BH.RANGE.LONG"}}</option>
-            {{/select}}
-        </select>
-    </div>
+        <div class="form-component-damage">
+            <label class="form-component-label">{{localize "BH.COMPONENT.DAMAGE"}}</label>
+            <input class="short-num" name="data.damage" type="number" value="{{data.damage}}" min="0" data-dtype="Number" />
+        </div>
+        <div class="form-component-range">
+            <label class="form-component-label">{{localize "BH.COMPONENT.RANGE"}}</label>
+            <select name="data.range.min">
+                {{#select data.range.min}}
+                    <option value="-">{{localize "BH.RANGE.NONE"}}</option>
+                    <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
+                    <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
+                    <option value="long">{{localize "BH.RANGE.LONG"}}</option>
+                {{/select}}
+            </select> - 
+            <select name="data.range.max">
+                {{#select data.range.max}}
+                    <option value="-">{{localize "BH.RANGE.NONE"}}</option>
+                    <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
+                    <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
+                    <option value="long">{{localize "BH.RANGE.LONG"}}</option>
+                {{/select}}
+            </select>
+        </div>
 
-    <div class="section">
-        <label class="form-component-label">{{localize "BH.COMPONENT.DESCRIPTION"}}</label>
-        <textarea class="component-description" name="data.description">{{item.data.description}}</textarea>
-    </div>
-
-    <div class="section">
-        <label class="form-component-label">{{localize "BH.COMPONENT.POWER_EFFECT"}}</label>
-        <textarea class="component-description" name="data.power-effect">{{item.data.power-effect}}</textarea>
+        <div class="item-description">
+            <label class="form-component-label">{{localize "BH.COMPONENT.DESCRIPTION"}}</label>
+            <textarea class="component-description" name="data.description">{{item.data.description}}</textarea>
+        </div>
+    
+        <div class="item-description">
+            <label class="form-component-label">{{localize "BH.COMPONENT.POWER_EFFECT"}}</label>
+            <textarea class="component-description" name="data.power-effect">{{item.data.power-effect}}</textarea>
+        </div>
     </div>
 
     <div class="section active-effects">

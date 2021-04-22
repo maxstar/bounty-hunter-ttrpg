@@ -97,7 +97,7 @@
     * [done] cargo form
     * [done] ability form
     * [done] skill form
-    * [    ] component form
+    * [done] component form
     * [    ] chat messages
 * [    ] localization
 
