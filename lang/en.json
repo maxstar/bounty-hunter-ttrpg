@@ -44,7 +44,7 @@
   "BH.SKILL.DESCRIPTION": "Skill Description",
   "ABILITY.NAME": "Ability Name",
   "ABILITY.DESCRIPTION": "Ability Description",
-  "ABILITY.USE_DESCRIPTION": "On usage display: \"Used <ability> to ...\"",
+  "ABILITY.USE_DESCRIPTION": "On usage display text:",
   "ABILITY.PASSIVE": "Passive",
   "ABILITY.REFRESH": "Refresh uses",
 
@@ -102,7 +102,7 @@
   "BH.GEAR.ENCUMBRANCE": "Encumbrance",
   "BH.GEAR.CATEGORY": "Category",
   "BH.GEAR.DESCRIPTION": "Item Description",
-  "BH.GEAR.USE_DESCRIPTION": "On usage display: \"Used <item> to ...\"",
+  "BH.GEAR.USE_DESCRIPTION": "On usage display text:",
   "BH.GEAR.CHARGE.LEVEL": "Charge Level",
   "BH.GEAR.CHARGE.USAGE": "Usage Time",
   "BH.GEAR.CHARGE.RECHARGE": "Recharge Time",
@@ -148,6 +148,9 @@
   "COMBAT.GO_LAST_PAHSE": "Go in the Last Phase (Refund 1 AP)",
 
   "BH.CHAT.SKILL_USE": "Skill Use",
+  "BH.CHAT.ABILITY_USE": "Ability Use",
+  "BH.CHAT.WEAPON_USE": "Attack",
+  "BH.CHAT.GEAR_USE": "Item Use",
 
   "BH.STARSHIP.NAME": "Starship Name",
   "BH.STARSHIP.CREW.HEADING": "Crew Members",

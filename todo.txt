@@ -109,9 +109,10 @@
         * [done] item
         * [    ] section
     * [    ] fancy chat messages
-        * [    ] ability usage
+        * [done] ability usage
         * [done] skill usage
-        * [    ] item usage
+        * [done] gear usage
+        * [    ] weapon usage
         * [    ] ship function usage
     * [    ] color code X/Y info
     * [done] implement item transfer between players

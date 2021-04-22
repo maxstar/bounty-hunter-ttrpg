@@ -321,7 +321,10 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   }
 
   async _postSkillUse(skillName, apSpent) {
-    let chatCard = await renderTemplate('systems/bounty-hunter-ttrpg/template/chat/skill-use.html', {skillName: skillName, apSpent: apSpent});
+    let chatCard = await renderTemplate(
+      'systems/bounty-hunter-ttrpg/template/chat/skill-use.html', 
+      {skillName: skillName, apSpent: apSpent}
+    );
     let chatData = {
       speaker: {actor: this.actor._id},
       // @todo localize
@@ -330,11 +333,19 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     ChatMessage.create(chatData, {});
   }
 
-  _postItemUse(item) {
+  async _postItemUse(item) {
+    let titleMap = {
+      ability: 'BH.CHAT.ABILITY_USE',
+      gear: 'BH.CHAT.GEAR_USE',
+    }
+    let chatCard = await renderTemplate(
+      'systems/bounty-hunter-ttrpg/template/chat/item-use.html', 
+      {title: game.i18n.localize(titleMap[item.type]), itemName: item.name, description: item.data.data['use-description']}
+    );
     let chatData = {
       speaker: {actor: this.actor._id},
       // @todo localize
-      content: `<span style="font-size: 16px;">Uses <b>${item.name}</b> to ${item.data.data['use-description']}</span>`
+      content: chatCard
     };
     ChatMessage.create(chatData, {});
   }

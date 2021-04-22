@@ -16,6 +16,8 @@
 .chat-card-subject {
     font-family: TheSans-Bold-Caps;
     font-size: 20px;
+    margin-top: 4px;
+    margin-bottom: 6px;
 }
 
 .chat-card-note {
