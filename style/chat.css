@@ -3,6 +3,9 @@
     background: white;
     --border-color: #5F0A30;
 }
+.chat-message .chat-card-post {
+    --border-color: #8BD2EF;
+}
 
 
 /* ***** COMMON ***** */
@@ -21,6 +24,8 @@
 
 .chat-card-description {
     margin: 6px 0px;
+    background-color: white;
+    padding: 4px 6px;
 }
 
 .chat-card-note {
@@ -60,6 +65,54 @@
 .chat-card-skill {
     margin: 0px 4px;
     white-space: nowrap;
+}
+
+
+/* ***** GRID ***** */
+.chat-card-post {
+    background-color: var(--alternate-background-color);
+}
+
+.chat-message .grid {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr [col-start]);
+    grid-template-rows: repeat(1, 24px);
+    column-gap: 4px;
+    row-gap: 4px;
+
+    font-size: 15px;
+}
+.chat-message .grid > div {
+    background-color: white;
+    padding: 4px 6px;
+}
+
+.grid-cell-category {
+    grid-column: span 10;
+
+    font-family: TheSans-Bold-Caps;
+    font-size: 16px;
+}
+.grid-cell-cost {
+    grid-column: span 5;
+}
+.grid-cell-encumbrance {
+    grid-column: span 5;
+}
+.grid-cell-charge-level {
+    grid-column: span 4;
+}
+.grid-cell-charge-usage {
+    grid-column: span 3;
+}
+.grid-cell-rehcarge {
+    grid-column: span 3;
+}
+.grid-cell-uses {
+    grid-column: span 5;
+}
+.grid-cell-refresh {
+    grid-column: span 5;
 }
 
 

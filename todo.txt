@@ -10,7 +10,13 @@
     * [done] active effects
     * [done] compendium
     * [done] edit abilities from char sheet
-    * [    ] post item to chat
+* [    ] post item to chat
+    * [done] item
+    * [    ] weapon
+    * [    ] ability
+    * [    ] skill
+    * [    ] cargo
+    * [    ] post button in inventory and starhip
 * [done] items
     * [done] forms
         * [done] weapon

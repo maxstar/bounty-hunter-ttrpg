@@ -57,6 +57,15 @@ export class BountyHunterActor extends Actor {
   
 export class BountyHunterItem extends Item {
     async sendToChat() {
+      let chatCard = await renderTemplate(
+        'systems/bounty-hunter-ttrpg/template/chat/item.html', 
+        {item: this.data}
+      );
+      let chatData = {
+        speaker: {actor: this.actor ? this.actor._id : game.user._id},
+        content: chatCard,
+      };
+      ChatMessage.create(chatData, {});
     }
 }
   

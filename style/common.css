@@ -172,3 +172,6 @@ input:read-only {
 .uppercase {
     text-transform: uppercase;
 }
+.capitalize {
+    text-transform: capitalize;
+}
