@@ -44,11 +44,19 @@ export class StarshipHandler {
     return skillset.length ? skillset : false;
   }
   
-  _postActionMessage(character, action, skillset, apSpent) {
+  async _postActionMessage(character, action, skillset, apSpent) {
+    let chatCard = await renderTemplate(
+      'systems/bounty-hunter-ttrpg/template/chat/starship-action-use.html', 
+      {
+        actionName: game.i18n.localize(action.name), 
+        description: game.i18n.localize(action.description), 
+        skills: skillset,
+        apSpent: apSpent,
+      }
+    );
     let chatData = {
       speaker: {actor: character._id},
-      // @todo localize
-      content: `<div style="font-size: 16px;"><b>${game.i18n.localize(action.name)}</b><i style="font-size:10px"> (${skillset.join(', ')}; -${apSpent} AP)</i></div><div>${game.i18n.localize(action.description)}</div> `
+      content: chatCard,
     };
     ChatMessage.create(chatData, {});
   }

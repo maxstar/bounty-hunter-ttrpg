@@ -31,6 +31,13 @@
     margin: 0px 4px;
 }
 
+/* ***** WEAPON ***** */
+
+.chat-card-associated-skill {
+    font-family: TheSans-Bold-Caps;
+    font-size: 12px;
+}
+
 .chat-card-notice {
     font-weight: bold;
     font-size: 22px;
@@ -48,12 +55,13 @@
     margin-right: 4px;
 }
 
-/* ***** SKILL CHALLENGE ***** */
+/* ***** STARSHIP ACTION ***** */
 
-.chat-card-associated-skill {
-    font-family: TheSans-Bold-Caps;
-    font-size: 12px;
+.chat-card-skill {
+    margin: 0px 4px;
+    white-space: nowrap;
 }
+
 
 /* ***** SKILL CHALLENGE ***** */
 

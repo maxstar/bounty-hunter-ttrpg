@@ -1,0 +1,19 @@
+<div class="bounty-hunter chat-card chat-ability-use">
+    <div class="chat-card-title section-heading">
+        {{localize "BH.CHAT.STARSHIP_ACTION_USE"}}
+    </div>
+    <div class="chat-card-subject chat-card-action">
+        {{actionName}}
+    </div>
+    <div class="chat-card-description">
+        {{description}}
+    </div>
+    <div class="chat-card-associated-skill">
+        {{#each skills as |skillName id|}}
+            <span class="chat-card-skill">{{skillName}}</span>
+        {{/each}}
+    </div>
+    <div class="chat-card-note chat-card-resources">
+        <span>-{{apSpent}} {{localize "BH.AP"}}</span>
+    </div>
+</div>

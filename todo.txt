@@ -114,7 +114,7 @@
         * [done] skill usage
         * [done] gear usage
         * [done] weapon usage
-        * [    ] ship function usage
+        * [done] ship function usage
     * [----] color code X/Y info
     * [done] implement item transfer between players
     * [done] display AP for crew members (owners only)
