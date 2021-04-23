@@ -151,6 +151,7 @@
   "BH.CHAT.ABILITY_USE": "Ability Use",
   "BH.CHAT.WEAPON_USE": "Attack",
   "BH.CHAT.GEAR_USE": "Item Use",
+  "BH.CHAT.NO_AMMO": "No Ammo",
 
   "BH.STARSHIP.NAME": "Starship Name",
   "BH.STARSHIP.CREW.HEADING": "Crew Members",

@@ -17,14 +17,43 @@
     font-family: TheSans-Bold-Caps;
     font-size: 20px;
     margin-top: 4px;
-    margin-bottom: 6px;
+}
+
+.chat-card-description {
+    margin: 6px 0px;
 }
 
 .chat-card-note {
     font-style: italic;
     font-size: 12px;
 }
+.chat-card-note span {
+    margin: 0px 4px;
+}
 
+.chat-card-notice {
+    font-weight: bold;
+    font-size: 22px;
+}
+
+.chat-card-stats {
+    font-family: AgencyFB-Bold;
+    font-size: 14px;
+}
+.chat-card-stat {
+    color: var(--label-color);
+    margin-left: 4px;
+}
+.chat-card-stat-value {
+    margin-right: 4px;
+}
+
+/* ***** SKILL CHALLENGE ***** */
+
+.chat-card-associated-skill {
+    font-family: TheSans-Bold-Caps;
+    font-size: 12px;
+}
 
 /* ***** SKILL CHALLENGE ***** */
 

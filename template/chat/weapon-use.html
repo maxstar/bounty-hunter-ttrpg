@@ -1,0 +1,36 @@
+<div class="bounty-hunter chat-card chat-ability-use">
+    <div class="chat-card-title section-heading">
+        {{localize "BH.CHAT.WEAPON_USE"}}
+    </div>
+    <div class="chat-card-subject chat-card-item">
+        {{itemName}}
+    </div>
+    {{#if success}}
+        <div class="chat-card-stats">
+            <span class="chat-card-stat">{{localize "BH.WEAPON.DAMAGE"}}:</span> <span class="chat-card-stat-value">{{damage}}</span>
+            <span class="chat-card-stat">{{localize "BH.WEAPON.RANGE"}}:</span> <span class="chat-card-stat-value">{{range}}</span>
+        </div>
+        <div class="chat-card-description">
+            {{description}}
+        </div>
+        {{#if skillName}}
+        <div class="chat-card-associated-skill">
+            {{skillName}}
+        </div>
+        {{/if}}
+    {{else}}
+        <div class="chat-card-notice">
+            {{localize "BH.CHAT.NO_AMMO"}}
+        </div>
+    {{/if}}
+    <div class="chat-card-note chat-card-resources">
+        <span>-{{apSpent}} {{localize "BH.AP"}}</span>
+        {{#unless (eq ammoName "") }}
+            {{#if success}}
+            <span>-1 {{ammoName}}</span>
+            {{else}}
+            <span>{{ammoName}}</span>
+            {{/if}}
+        {{/unless}}
+    </div>
+</div>

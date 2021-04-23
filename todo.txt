@@ -88,7 +88,7 @@
     * [done] fill languages
     * [done] fill bio
     * [done] support +100 DC
-* [    ] styling
+* [done] styling
     * [done] char sheet
     * [done] char creation
     * [done] starhip sheet
@@ -105,16 +105,17 @@
     * [    ] tokenizer support
     * [    ] automatic content import when world is created
     * [    ] restrict transfer of cargo to characters
+    * [    ] allow to spend more AP on weapon usage
     * [done] unify item display in character and starship
         * [done] item
-        * [    ] section
+        * [----] section
     * [    ] fancy chat messages
         * [done] ability usage
         * [done] skill usage
         * [done] gear usage
-        * [    ] weapon usage
+        * [done] weapon usage
         * [    ] ship function usage
-    * [    ] color code X/Y info
+    * [----] color code X/Y info
     * [done] implement item transfer between players
     * [done] display AP for crew members (owners only)
     * [    ] more automation for starship functions

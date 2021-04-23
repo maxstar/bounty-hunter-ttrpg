@@ -350,20 +350,24 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     ChatMessage.create(chatData, {});
   }
 
-  _postWeaponUse(weapon, success) {
+  async _postWeaponUse(weapon, success) {
+    let chatCard = await renderTemplate(
+      'systems/bounty-hunter-ttrpg/template/chat/weapon-use.html', 
+      {
+        itemName: weapon.name, 
+        description: weapon.data.data['use-description'], 
+        skillName: weapon.data.data.skill || false,
+        apSpent: success ? 1 : 0,
+        ammoName: weapon.data.data.ammo,
+        success: success,
+        damage: weapon.data.data.damage + (this.actor.overrides[`BONUS_DAMAGE_${weapon.data.data.skill}`] ?? 0),
+        range: weapon.data.data.range,
+      }
+    );
     let chatData = {
       speaker: {actor: this.actor._id},
+      content: chatCard,
     };
-    if (success) {
-      let ammoSpentString = '';
-      if (weapon.data.data.ammo !== '') {
-        ammoSpentString = `; -1 ${weapon.data.data.ammo}`;
-      }
-      let damage = weapon.data.data.damage + (this.actor.overrides[`BONUS_DAMAGE_${weapon.data.data.skill}`] ?? 0);
-      chatData.content = `<div style="font-size: 16px;">Uses <b>${weapon.name}</b> to deal ${damage} damage!</div><i style="font-size:10px">(${weapon.data.data.skill}; -1 AP${ammoSpentString})<i>`;
-    } else {
-      chatData.content = `<div style="font-size: 16px;">*CLICK* <i>No ammo for <b>${weapon.name}</b>!</i></div>`;
-    }
     ChatMessage.create(chatData, {});
   }
 
