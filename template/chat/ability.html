@@ -1,0 +1,22 @@
+<div class="bounty-hunter chat-card chat-card-post">
+    <h1>{{item.name}}</h1>
+    <div class="grid chat-card-stats">
+
+        <div class="grid-cell-category">
+            {{localize "BH.CHAT.ABILITY"}}
+        </div>
+        
+        {{#unless (eq item.data.uses.max '0')}}
+        <div class="chat-card-stats grid-cell-uses">
+            <span class="chat-card-stat">{{localize "BH.USES"}}:</span> <span class="chat-card-stat-value">{{item.data.uses.value}} / {{item.data.uses.max}}</span>
+        </div>
+        <div class="chat-card-stats grid-cell-refresh">
+            <span class="chat-card-stat">{{localize "BH.REFRESH"}}:</span> <span class="chat-card-stat-value capitalize">{{item.data.refresh}}</span>
+        </div>
+        {{/unless}}
+    </div>
+
+    <div class="chat-card-description">
+        {{item.data.description}}
+    </div>
+</div>
