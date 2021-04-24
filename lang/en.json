@@ -69,6 +69,7 @@
   "BH.ADD_ABILITY": "Add",
   "BH.REMOVE_SKILL": "Remove",
   "BH.REMOVE_ABILITY": "Remove",
+  "BH.POST_TO_CHAT": "Post to Chat",
   "BH.TRANSFER": "Transfer",
   "BH.TRANSFER_DIALOG": "Transfer '{item}' to",
   "BH.HARD_CHECK": "Spend multiple AP at once",
