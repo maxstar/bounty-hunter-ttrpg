@@ -1,0 +1,18 @@
+<div class="bounty-hunter chat-card chat-card-post">
+    <h1>{{item.name}}</h1>
+    <div class="grid chat-card-stats">
+
+        <div class="grid-cell-category">
+            {{localize "BH.CHAT.SKILL"}}
+        </div>
+        
+        <div class="chat-card-stats grid-cell-skill-type">
+            <span class="chat-card-stat">{{localize "BH.SKILL.TYPE"}}:</span> 
+            <span class="chat-card-stat-value capitalize">{{item.data.type}}</span>
+        </div>
+    </div>
+
+    <div class="chat-card-description">
+        {{item.data.description}}
+    </div>
+</div>
