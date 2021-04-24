@@ -62,6 +62,7 @@ export class BountyHunterItem extends Item {
         weapon: 'systems/bounty-hunter-ttrpg/template/chat/weapon.html',
         skill: 'systems/bounty-hunter-ttrpg/template/chat/skill.html',
         ability: 'systems/bounty-hunter-ttrpg/template/chat/ability.html',
+        cargo: 'systems/bounty-hunter-ttrpg/template/chat/cargo.html',
       };
       if (templateMap[this.type] === undefined) return;
 

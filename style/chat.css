@@ -130,6 +130,9 @@
 .grid-cell-skill-type {
     grid-column: span 10;
 }
+.grid-cell-weight {
+    grid-column: span 10;
+}
 
 /* ***** SKILL CHALLENGE ***** */
 

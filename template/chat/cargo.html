@@ -1,0 +1,18 @@
+<div class="bounty-hunter chat-card chat-card-post">
+    <h1>{{item.name}}</h1>
+    <div class="grid chat-card-stats">
+
+        <div class="grid-cell-category">
+            {{localize "BH.CARGO.TITLE"}}
+        </div>
+        
+        <div class="chat-card-stats grid-cell-weight">
+            <span class="chat-card-stat">{{localize "BH.CARGO.WEIGHT"}}:</span> 
+            <span class="chat-card-stat-value">{{item.data.weight}}{{localize "BH.TONS_SHORT"}}</span>
+        </div>
+    </div>
+
+    <div class="chat-card-description">
+        {{item.data.description}}
+    </div>
+</div>

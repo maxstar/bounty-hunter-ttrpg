@@ -13,9 +13,9 @@
 * [    ] post item to chat
     * [done] item
     * [done] weapon
-    * [    ] ability
-    * [    ] skill
-    * [    ] cargo
+    * [done] ability
+    * [done] skill
+    * [done] cargo
     * [    ] post button in inventory and starhip
 * [done] items
     * [done] forms
