@@ -55,6 +55,7 @@
 .chat-card-stat {
     color: var(--label-color);
     margin-left: 4px;
+    white-space: nowrap;
 }
 .chat-card-stat-value {
     margin-right: 4px;
@@ -100,13 +101,13 @@
     grid-column: span 5;
 }
 .grid-cell-charge-level {
-    grid-column: span 4;
+    grid-column: span 10;
 }
 .grid-cell-charge-usage {
-    grid-column: span 3;
+    grid-column: span 5;
 }
 .grid-cell-rehcarge {
-    grid-column: span 3;
+    grid-column: span 5;
 }
 .grid-cell-uses {
     grid-column: span 5;
@@ -114,7 +115,18 @@
 .grid-cell-refresh {
     grid-column: span 5;
 }
-
+.grid-cell-skill {
+    grid-column: span 10;
+}
+.grid-cell-ammo {
+    grid-column: span 10;
+}
+.grid-cell-damage {
+    grid-column: span 5;
+}
+.grid-cell-range {
+    grid-column: span 5;
+}
 
 /* ***** SKILL CHALLENGE ***** */
 

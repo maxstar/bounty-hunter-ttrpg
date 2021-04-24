@@ -1,0 +1,44 @@
+<div class="bounty-hunter chat-card chat-card-post">
+    <h1>{{item.name}}</h1>
+    <div class="grid chat-card-stats">
+
+        <div class="chat-card-stats grid-cell-skill">
+            <span class="chat-card-stat">{{localize "BH.WEAPON.SKILL"}}:</span> 
+            {{#unless (eq item.data.skill '')}}
+            <span class="chat-card-stat-value">{{item.data.skill}}</span>
+            {{else}}
+            <span class="chat-card-stat-value">{{localize "BH.RANGE.NONE"}}</span>
+            {{/unless}}
+        </div>
+        <div class="chat-card-stats grid-cell-ammo">
+            <span class="chat-card-stat">{{localize "BH.WEAPON.AMMO"}}:</span> 
+            {{#unless (eq item.data.ammo '')}}
+            <span class="chat-card-stat-value">{{item.data.ammo}}</span>
+            {{else}}
+            <span class="chat-card-stat-value">{{localize "BH.RANGE.NONE"}}</span>
+            {{/unless}}
+        </div>
+
+        <div class="chat-card-stats grid-cell-cost">
+            <span class="chat-card-stat">{{localize "BH.COST"}}:</span> 
+            <span class="chat-card-stat-value uppercase">{{item.data.cost.value}} {{item.data.cost.currency}}</span>
+        </div>
+        <div class="chat-card-stats grid-cell-encumbrance">
+            <span class="chat-card-stat">{{localize "BH.GEAR.ENCUMBRANCE"}}:</span> 
+            <span class="chat-card-stat-value">{{item.data.encumbrance}}</span>
+        </div>
+
+        <div class="chat-card-stats grid-cell-damage">
+            <span class="chat-card-stat">{{localize "BH.WEAPON.DAMAGE"}}:</span> 
+            <span class="chat-card-stat-value uppercase">{{item.data.damage}}</span>
+        </div>
+        <div class="chat-card-stats grid-cell-range">
+            <span class="chat-card-stat">{{localize "BH.WEAPON.RANGE"}}:</span> 
+            <span class="chat-card-stat-value">{{item.data.range}}{{localize "BH.METERS_SHORT"}}</span>
+        </div>
+    </div>
+
+    <div class="chat-card-description">
+        {{item.data.description}}
+    </div>
+</div>

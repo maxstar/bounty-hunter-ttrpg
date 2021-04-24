@@ -4,7 +4,7 @@
     * [done] skill types: mental/physical/range
 * [done] AP UI
     * [done] recover all/recover half
-* [    ] abilities
+* [done] abilities
     * [done] add/remove
     * [done] one-use effects, restore uses
     * [done] active effects
@@ -12,7 +12,7 @@
     * [done] edit abilities from char sheet
 * [    ] post item to chat
     * [done] item
-    * [    ] weapon
+    * [done] weapon
     * [    ] ability
     * [    ] skill
     * [    ] cargo

@@ -17,13 +17,13 @@
 
         {{#unless (eq item.data.charge.usage '')}}
         <div class="chat-card-stats grid-cell-charge-level">
-            <span class="chat-card-stat">{{localize "BH.GEAR.CHARGE.LEVEL"}}:</span> <span class="chat-card-stat-value">{{item.data.charge.level}}%</span>
+            <span class="chat-card-stat">{{localize "BH.GEAR.CHARGE.LEVEL"}}:</span> <span class="chat-card-stat-value">{{item.data.charge.value}}%</span>
         </div>
         <div class="chat-card-stats grid-cell-charge-usage">
-            <span class="chat-card-stat">{{localize "BH.GEAR.CHARGE.USAGE"}}:</span> <span class="chat-card-stat-value">{{item.data.charge.usage}}h</span>
+            <span class="chat-card-stat">{{localize "BH.GEAR.CHARGE.USAGE"}}:</span> <span class="chat-card-stat-value">{{item.data.charge.usage}}</span>
         </div>
         <div class="chat-card-stats grid-cell-rehcarge">
-            <span class="chat-card-stat">{{localize "BH.GEAR.CHARGE.RECHARGE"}}:</span> <span class="chat-card-stat-value">{{item.data.charge.recharge}}h</span>
+            <span class="chat-card-stat">{{localize "BH.GEAR.CHARGE.RECHARGE"}}:</span> <span class="chat-card-stat-value">{{item.data.charge.recharge}}</span>
         </div>
         {{/unless}}
         
