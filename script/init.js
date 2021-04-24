@@ -7,6 +7,7 @@ import { ReputationStats } from './component/reputation-stats.js';
 import { BhCombat } from './component/bh-combat.js';
 import { BhCombatTracker } from './component/bh-combat-tracker.js';
 import { BountyHunterStarshipSheet } from './sheet/starship.js';
+import { BountyHunterActorSheet } from './sheet/actor.js';
 
 // CONFIG.debug.hooks = true;
 
@@ -26,6 +27,7 @@ Hooks.once("ready", async () => {
   migrateWorld();
   loadSystemSettings();
   window.TextEditor.activateListeners();
+  BountyHunterActorSheet.setupSocketListeners();
 });
 
 /**

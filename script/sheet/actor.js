@@ -3,6 +3,10 @@ import { CharacterPickerDialog } from "../dialog/character-picker-dialog.js";
 
 export class BountyHunterActorSheet extends ActorSheet {
 
+  static setupSocketListeners() {
+    game.socket.on("system.bounty-hunter-ttrpg", BountyHunterActorSheet.doItemTransfer);
+  }
+
   activateListeners(html) {
     super.activateListeners(html);
 
@@ -101,10 +105,17 @@ export class BountyHunterActorSheet extends ActorSheet {
       game.i18n.format('BH.TRANSFER_DIALOG', {item: item.name}), 
       this._getPlayerActors(), 
       function (containerId) {
-        const container = game.actors.get(containerId);
-        console.log(`Transfering ${item.name} to ${container.name}`);
-        container.createEmbeddedEntity("OwnedItem", item);
-        that.actor.deleteEmbeddedEntity("OwnedItem", item._id);
+        let data = { 
+          operation: 'transferItem', 
+          sourceId: that.actor._id, 
+          destinationId: containerId, 
+          item: item
+        };
+        if (game.user.isGM) {
+          BountyHunterActorSheet.doItemTransfer(data);
+        } else {
+          game.socket.emit('system.bounty-hunter-ttrpg', data);
+        }
       }
     );
   }
@@ -134,4 +145,15 @@ export class BountyHunterActorSheet extends ActorSheet {
       {}
     );
   }
+
+  static doItemTransfer(data) {
+    if (!game.user.isGM || data.operation !== 'transferItem') return;
+    let {sourceId, destinationId, item} = data;
+    const source = game.actors.get(sourceId);
+    const destination = game.actors.get(destinationId);
+
+    console.log(`Transfering ${item.name} from ${source.name} to ${destination.name}`);
+    destination.createEmbeddedEntity("OwnedItem", item);
+    source.deleteEmbeddedEntity("OwnedItem", item._id);
+  };
 }

@@ -10,13 +10,13 @@
     * [done] active effects
     * [done] compendium
     * [done] edit abilities from char sheet
-* [    ] post item to chat
+* [done] post item to chat
     * [done] item
     * [done] weapon
     * [done] ability
     * [done] skill
     * [done] cargo
-    * [    ] post button in inventory and starhip
+    * [done] post button in inventory and starhip
 * [done] items
     * [done] forms
         * [done] weapon
@@ -106,6 +106,9 @@
     * [done] component form
     * [done] chat messages
 * [    ] localization
+
+* [    ] bugs
+    * [done] fix item trasnsfer for players
 
 * [    ] refactoring/improvements
     * [    ] tokenizer support
