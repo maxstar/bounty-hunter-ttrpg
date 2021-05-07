@@ -3,7 +3,6 @@ import { initializeHandlebars } from "./hooks/handlebars.js";
 import { migrateWorld } from "./hooks/migration.js";
 import { registerSheets } from "./hooks/sheets.js";
 import { loadSystemSettings, registerSettings } from "./hooks/system-settings.js";
-import { ReputationStats } from './component/reputation-stats.js';
 import { BhCombat } from './component/bh-combat.js';
 import { BhCombatTracker } from './component/bh-combat-tracker.js';
 import { BountyHunterStarshipSheet } from './sheet/starship.js';
@@ -37,7 +36,8 @@ Hooks.on("renderActorSheet", async (app, html, data) => {
   if (!(app instanceof BountyHunterStarshipSheet)) return; // not our thing
 
   let actor = game.actors.get(data.entity._id);
-  if (actor.data.flags.crewMembers !== undefined) return; // everything is already initialized
+  // either we opened a ship from a compendium or everything is already initialized
+  if (actor === null || actor.data.flags.crewMembers !== undefined) return; 
 
   console.log("Bounty Hunter TTRPG: initializing starship sheet");
   let initialData = {

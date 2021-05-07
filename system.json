@@ -42,6 +42,13 @@
           "entity": "Item"
         },
         {
+          "name": "starship-components",
+          "label": "Starship Components",
+          "system": "bounty-hunter-ttrpg",
+          "path": "packs/starship-components.db",
+          "entity": "Item"
+        },
+        {
           "name": "starships",
           "label": "Starships",
           "system": "bounty-hunter-ttrpg",

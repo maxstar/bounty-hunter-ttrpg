@@ -4,7 +4,7 @@
             <a class="item-control crew-delete" title="{{localize 'BH.REMOVE_CREW'}}"><i class="fas fa-trash"></i></a>
         </div>
     {{/if}}
-    <img class="crew-member-avatar" title="{{crewMember.name}}" src="{{crewMember.img}}">
+    <img class="crew-member-avatar" title="{{crewMember.name}}" src="{{crewMember.token.img}}">
     {{#if noCharSheetLink }}
         <span class="plain-name">{{crewMember.name}}</span>
     {{else}}
