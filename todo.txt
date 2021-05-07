@@ -115,7 +115,7 @@
     * [    ] recheck items and actors against final rulebook
     * [done] show token image for crew members
     * [    ] automatic content import when world is created
-    * [    ] restrict transfer of cargo to characters
+    * [done] restrict transfer of cargo to characters
     * [    ] allow to spend more AP on weapon usage
     * [done] unify item display in character and starship
         * [done] item

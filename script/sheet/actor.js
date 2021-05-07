@@ -103,7 +103,7 @@ export class BountyHunterActorSheet extends ActorSheet {
     
     CharacterPickerDialog.show(
       game.i18n.format('BH.TRANSFER_DIALOG', {item: item.name}), 
-      this._getPlayerActors(), 
+      this._getPlayerActors(item), 
       function (containerId) {
         let data = { 
           operation: 'transferItem', 
@@ -132,8 +132,8 @@ export class BountyHunterActorSheet extends ActorSheet {
   
   // ********** HELPERS *************
 
-  _getPlayerActors() {
-    return game.actors.filter(a => a.hasPlayerOwner && a.id !== this.actor.id);
+  _getPlayerActors(item) {
+    return game.actors.filter(a => a.hasPlayerOwner && a.id !== this.actor.id && (item.type !== 'cargo' || a.data.type === 'starship'));
   }
 
   _sortItems(items, comparator) {
