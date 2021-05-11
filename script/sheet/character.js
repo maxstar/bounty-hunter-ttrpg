@@ -428,7 +428,7 @@ Hooks.on('createActor', async (entity, options, userId) => {
 Hooks.on('preCreateOwnedItem', async (entity, data, options, userId) => {
   if (!(entity instanceof BountyHunterActor) || data.type !== 'skill' || data.name !== 'Martial Arts') return true;
   
-  const martialArtsAttack = game.items.getName("Martial Arts");
+  const martialArtsAttack = game.items.getName("Martial Arts Attack");
   if (!martialArtsAttack) return true;
 
   entity.createEmbeddedEntity("OwnedItem", martialArtsAttack.data);
@@ -439,8 +439,8 @@ Hooks.on('preCreateOwnedItem', async (entity, data, options, userId) => {
 Hooks.on('preDeleteOwnedItem', async (entity, data, options, userId) => {
   if (!(entity instanceof BountyHunterActor) || data.type !== 'skill' || data.name !== 'Martial Arts') return true;
   
-  const martialArtsAttack = entity.items.getName("Martial Arts");
-  if (!martialArtsAttack) return true;
+  const martialArtsAttack = entity.items.getName("Martial Arts Attack");
+  if (!martialArtsAttack || martialArtsAttack.data.type !== 'weapon') return true;
 
   entity.deleteEmbeddedEntity("OwnedItem", martialArtsAttack._id);
 

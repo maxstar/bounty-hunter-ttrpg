@@ -112,7 +112,7 @@
     * [done] component compendium
 
 * [    ] refactoring/improvements
-    * [    ] recheck items and actors against final rulebook
+    * [done] recheck items and actors against final rulebook
     * [done] show token image for crew members
     * [    ] automatic content import when world is created
     * [done] restrict transfer of cargo to characters
@@ -141,7 +141,7 @@
     * [    ] journal link to a quick reference (see char sheet V9)
 
 
-* [    ] skill check request
+* [----] skill check request
     * [done] prepare challenges in journal, and post with a click
     * [    ] basic
         * [done] chat message 
