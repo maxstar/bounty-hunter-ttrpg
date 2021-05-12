@@ -2,18 +2,18 @@
 
     <div class="grid">
         <div class="avatar">
-            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+            <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         </div>
         <div class="flex item-name">
             <label class="form-gear-label">{{localize "BH.GEAR_NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
+            <input name="name" type="text" value="{{data.name}}" />
         </div>
         <div class="item-cost">
             <label class="form-gear-label">{{localize "BH.COST"}}</label>
-            <input class="short-num" name="data.cost.value" type="number" value="{{data.cost.value}}" 
+            <input class="short-num" name="data.cost.value" type="number" value="{{data.data.cost.value}}" 
                 min="0" data-dtype="Number" />
             <select name="data.cost.currency">
-                {{#select data.cost.currency}}
+                {{#select data.data.cost.currency}}
                     <option value="dc">{{localize "BH.DECA_CREDITS"}}</option>
                     <option value="m">{{localize "BH.MARKS"}}</option>
                 {{/select}}
@@ -22,7 +22,7 @@
         <div class="item-encumbrance">
             <label class="form-gear-label">{{localize "BH.GEAR.ENCUMBRANCE"}}</label>
             <select name="data.encumbrance" data-dtype="Number">
-                {{#select data.encumbrance}}
+                {{#select data.data.encumbrance}}
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -35,37 +35,37 @@
 
         <div class="flex gear-category">
             <label class="form-gear-label">{{localize "BH.GEAR.CATEGORY"}}</label>
-            <input name="data.category" type="text" value="{{data.category}}" />
+            <input name="data.category" type="text" value="{{data.data.category}}" />
         </div>
 
         <div class="flex gear-charge-level">
             <label class="form-gear-label">{{localize "BH.GEAR.CHARGE.LEVEL"}}</label>
-            <input class="short-num" name="data.charge.value" type="number" value="{{data.charge.value}}" min="0" data-dtype="Number" />%
+            <input class="short-num" name="data.charge.value" type="number" value="{{data.data.charge.value}}" min="0" data-dtype="Number" />%
         </div>
         <div class="flex gear-charge-usage">
             <label class="form-gear-label">{{localize "BH.GEAR.CHARGE.USAGE"}}</label>
-            <input class="short-medium" name="data.charge.usage" type="text" value="{{data.charge.usage}}" />
+            <input class="short-medium" name="data.charge.usage" type="text" value="{{data.data.charge.usage}}" />
         </div>
         <div class="flex gear-charge-recharge">
             <label class="form-gear-label">{{localize "BH.GEAR.CHARGE.RECHARGE"}}</label>
-            <input class="short-medium" name="data.charge.recharge" type="text" value="{{data.charge.recharge}}" />
+            <input class="short-medium" name="data.charge.recharge" type="text" value="{{data.data.charge.recharge}}" />
         </div>
 
         <div class="item-description">
             <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
-            <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>
+            <textarea class="gear-description" name="data.description">{{data.data.description}}</textarea>
         </div>
         <div class="item-uses">
             <label class="form-gear-label">{{localize "BH.USES"}}</label>
-            <input class="short-num" name="data.uses.value" type="number" value="{{data.uses.value}}" 
+            <input class="short-num" name="data.uses.value" type="number" value="{{data.data.uses.value}}" 
                 min="0" data-dtype="Number" /> /
-            <input class="short-num" name="data.uses.max" type="number" value="{{data.uses.max}}" 
+            <input class="short-num" name="data.uses.max" type="number" value="{{data.data.uses.max}}" 
                 min="0" data-dtype="Number" />
         </div>
         <div class="flex item-refresh">
             <label class="form-gear-label">{{localize "BH.REFRESH"}}</label>
             <select name="data.refresh">
-                {{#select data.refresh}}
+                {{#select data.data.refresh}}
                     <option value="never">{{localize "BH.NEVER"}}</option>
                     <option value="scene">{{localize "BH.SCENE"}}</option>
                     <option value="day">{{localize "BH.DAY"}}</option>
@@ -75,12 +75,12 @@
         </div>
         <div class="item-description">
             <label class="form-gear-label">{{localize "BH.GEAR.USE_DESCRIPTION"}}</label>
-            <textarea class="gear-description" name="data.use-description">{{item.data.use-description}}</textarea>
+            <textarea class="gear-description" name="data.use-description">{{data.data.use-description}}</textarea>
         </div>
     </div>
 
     <div class="section active-effects">
-        <div class="active-effects-header flex">{{localize 'BH.ACTIVE_EFFECTS'}} {{#unless item.data.isOwned}}<button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>{{/unless}}</div>
+        <div class="active-effects-header flex">{{localize 'BH.ACTIVE_EFFECTS'}} {{#unless data.data.isOwned}}<button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>{{/unless}}</div>
         {{> "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html"}}
     </div>
 </form>

@@ -1,28 +1,28 @@
 <form class="{{cssClass}}" autocomplete="off">
     <div class="grid">
         <div class="avatar">
-            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+            <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         </div>
         <div class="flex item-name">
             <label class="form-component-label">{{localize "BH.COMPONENT_NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
+            <input name="name" type="text" value="{{data.name}}" />
         </div>
         <div class="component-pp">
             <label class="form-component-label">{{localize "BH.POWER_POOL"}}</label>
-            <input class="short-num" name="data.pp.value" type="number" value="{{data.pp.value}}" min="0"
+            <input class="short-num" name="data.pp.value" type="number" value="{{data.data.pp.value}}" min="0"
                 data-dtype="Number" /> /
-            <input class="short-num" name="data.pp.max" type="number" value="{{data.pp.max}}" min="0"
+            <input class="short-num" name="data.pp.max" type="number" value="{{data.data.pp.max}}" min="0"
                 data-dtype="Number" />
         </div>
 
         <div class="form-component-damage">
             <label class="form-component-label">{{localize "BH.COMPONENT.DAMAGE"}}</label>
-            <input class="short-num" name="data.damage" type="number" value="{{data.damage}}" min="0" data-dtype="Number" />
+            <input class="short-num" name="data.damage" type="number" value="{{data.data.damage}}" min="0" data-dtype="Number" />
         </div>
         <div class="form-component-range">
             <label class="form-component-label">{{localize "BH.COMPONENT.RANGE"}}</label>
             <select name="data.range.min">
-                {{#select data.range.min}}
+                {{#select data.data.range.min}}
                     <option value="-">{{localize "BH.RANGE.NONE"}}</option>
                     <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
                     <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
@@ -30,7 +30,7 @@
                 {{/select}}
             </select> - 
             <select name="data.range.max">
-                {{#select data.range.max}}
+                {{#select data.data.range.max}}
                     <option value="-">{{localize "BH.RANGE.NONE"}}</option>
                     <option value="close">{{localize "BH.RANGE.CLOSE"}}</option>
                     <option value="medium">{{localize "BH.RANGE.MEDIUM"}}</option>
@@ -41,19 +41,19 @@
 
         <div class="item-description">
             <label class="form-component-label">{{localize "BH.COMPONENT.DESCRIPTION"}}</label>
-            <textarea class="component-description" name="data.description">{{item.data.description}}</textarea>
+            <textarea class="component-description" name="data.description">{{data.data.description}}</textarea>
         </div>
     
         <div class="item-description">
             <label class="form-component-label">{{localize "BH.COMPONENT.POWER_EFFECT"}}</label>
-            <textarea class="component-description" name="data.power-effect">{{item.data.power-effect}}</textarea>
+            <textarea class="component-description" name="data.power-effect">{{data.data.power-effect}}</textarea>
         </div>
     </div>
 
     <div class="section active-effects">
         <div class="active-effects-header flex">
             {{localize 'BH.ACTIVE_EFFECTS'}} 
-            {{#unless item.data.isOwned}}
+            {{#unless data.data.isOwned}}
                 <button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>
             {{/unless}}
         </div>

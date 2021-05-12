@@ -3,18 +3,18 @@
     <div class="grid">
         <div class="flex cargo-name">
             <label class="form-gear-label">{{localize "BH.CARGO.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
+            <input name="name" type="text" value="{{data.name}}" />
         </div>
         <div class="cargo-weight">
             <label class="form-gear-label">{{localize "BH.CARGO.WEIGHT"}} ({{localize "BH.TONS_SHORT"}})</label>
-            <input class="medium-num" name="data.weight" type="number" value="{{data.weight}}" min="0" data-dtype="Number" />
+            <input class="medium-num" name="data.weight" type="number" value="{{data.data.weight}}" min="0" data-dtype="Number" />
         </div>
         <div class="avatar">
-            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+            <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         </div>
         <div class="cargo-description">
             <label class="form-gear-label">{{localize "BH.GEAR.DESCRIPTION"}}</label>
-            <textarea class="gear-description" name="data.description">{{item.data.description}}</textarea>
+            <textarea class="gear-description" name="data.description">{{data.data.description}}</textarea>
         </div>
     </div>
 </form>

@@ -2,18 +2,18 @@
 
     <div class="grid">
         <div class="avatar">
-            <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
+            <img class="profile-img" src="{{data.img}}" data-edit="img" title="{{data.name}}" />
         </div>
         <div class="flex item-name">
             <label class="form-gear-label">{{localize "BH.GEAR_NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
+            <input name="name" type="text" value="{{data.name}}" />
         </div>
         <div class="item-cost">
             <label class="form-gear-label">{{localize "BH.COST"}}</label>
-            <input class="short-num" name="data.cost.value" type="number" value="{{data.cost.value}}" 
+            <input class="short-num" name="data.cost.value" type="number" value="{{data.data.cost.value}}" 
                 min="0" data-dtype="Number" />
             <select name="data.cost.currency">
-                {{#select data.cost.currency}}
+                {{#select data.data.cost.currency}}
                     <option value="dc">{{localize "BH.DECA_CREDITS"}}</option>
                     <option value="m">{{localize "BH.MARKS"}}</option>
                 {{/select}}
@@ -22,7 +22,7 @@
         <div class="item-encumbrance">
             <label class="form-gear-label">{{localize "BH.GEAR.ENCUMBRANCE"}}</label>
             <select name="data.encumbrance" data-dtype="Number">
-                {{#select data.encumbrance}}
+                {{#select data.data.encumbrance}}
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -35,17 +35,17 @@
 
         <div class="flex weapon-damage">
             <label class="form-gear-label">{{localize "BH.WEAPON.DAMAGE"}}</label>
-            <input class="short-num" name="data.damage" type="number" value="{{data.damage}}" min="0" data-dtype="Number" />
+            <input class="short-num" name="data.damage" type="number" value="{{data.data.damage}}" min="0" data-dtype="Number" />
         </div>
         <div class="flex weapon-ammo">
             <label class="form-gear-label">{{localize "BH.WEAPON.AMMO"}}</label>
-            <input name="data.ammo" type="text" value="{{data.ammo}}" />
+            <input name="data.ammo" type="text" value="{{data.data.ammo}}" />
         </div>
 
         <div class="flex weapon-skill">
             <label class="form-gear-label">{{localize "BH.WEAPON.SKILL"}}</label>
             <select name="data.skill">
-                {{#select data.skill}}
+                {{#select data.data.skill}}
                     <option value="">None</option>
                     {{#each skills as |skill skillName|}}
                     <option value="{{skillName}}">{{skillName}}</option>
@@ -55,7 +55,7 @@
         </div>
         <div class="flex weapon-range">
             <label class="form-gear-label">{{localize "BH.WEAPON.RANGE"}}</label>
-            <input class="short-num" name="data.range" type="number" value="{{data.range}}" 
+            <input class="short-num" name="data.range" type="number" value="{{data.data.range}}" 
                 min="0" data-dtype="Number" />
         </div>
 
@@ -66,15 +66,15 @@
 
         <div class="item-uses">
             <label class="form-gear-label">{{localize "BH.USES"}}</label>
-            <input class="short-num" name="data.uses.value" type="number" value="{{data.uses.value}}" 
+            <input class="short-num" name="data.uses.value" type="number" value="{{data.data.uses.value}}" 
                 min="0" data-dtype="Number" /> /
-            <input class="short-num" name="data.uses.max" type="number" value="{{data.uses.max}}" 
+            <input class="short-num" name="data.uses.max" type="number" value="{{data.data.uses.max}}" 
                 min="0" data-dtype="Number" />
         </div>
         <div class="item-refresh flex">
             <label class="form-gear-label">{{localize "BH.REFRESH"}}</label>
             <select name="data.refresh">
-                {{#select data.refresh}}
+                {{#select data.data.refresh}}
                     <option value="never">{{localize "BH.NEVER"}}</option>
                     <option value="scene">{{localize "BH.SCENE"}}</option>
                     <option value="day">{{localize "BH.DAY"}}</option>

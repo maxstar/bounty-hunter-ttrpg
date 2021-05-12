@@ -2,7 +2,7 @@
     <div class="column">
         <div class="section section-abilities">
             <div class="heading">
-                <span class="label">{{localize "HEADER.ABILITIES"}} ({{data.abilityCount}}/{{data.allowedAbilityCount}})</span>
+                <span class="label">{{localize "HEADER.ABILITIES"}} ({{data.data.abilityCount}}/{{data.data.allowedAbilityCount}})</span>
                 <span><button class="add-ability">{{localize "BH.ADD_ABILITY"}}</button></span>
             </div>
             <div class="abilities border">
@@ -14,7 +14,7 @@
 
         <div class="section section-skills">
             <div class="heading">
-                <span class="label">{{localize "HEADER.SKILLS"}} ({{data.skillCount}}/{{data.allowedSkillCount}})</span>
+                <span class="label">{{localize "HEADER.SKILLS"}} ({{data.data.skillCount}}/{{data.data.allowedSkillCount}})</span>
                 <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>
             </div>
             <div class="skills border">
@@ -31,7 +31,7 @@
     <div class="column">
         <div class="section section-items">
             <div class="heading">
-                <span class="label">{{localize "HEADER.ITEMS"}} ({{data.encumbrance.value}}/{{data.encumbrance.max}})</span>
+                <span class="label">{{localize "HEADER.ITEMS"}} ({{data.data.encumbrance.value}}/{{data.data.encumbrance.max}})</span>
                 <a class="item-control item-create" data-type="gear" title="{{localize 'BH.ADD'}}"><i class="far fa-plus-square"></i></a>
             </div>
             <div class="item-categories">
@@ -65,11 +65,11 @@
                 <span class="label">{{localize "BH.HEADER.CURRENCY"}}</span>
             </div>
             <div>
-                <input class="medium-num" name="data.currency.dc.value" type="number" value="{{data.currency.dc.value}}" min="0" data-dtype="Number" />
+                <input class="medium-num" name="data.currency.dc.value" type="number" value="{{data.data.currency.dc.value}}" min="0" data-dtype="Number" />
                 {{localize "BH.DECA_CREDITS"}}
             </div>
             <div>
-                <input class="medium-num" name="data.currency.marks.value" type="number" value="{{data.currency.marks.value}}" min="0" data-dtype="Number" />
+                <input class="medium-num" name="data.currency.marks.value" type="number" value="{{data.data.currency.marks.value}}" min="0" data-dtype="Number" />
                 {{localize "BH.MARKS"}}
             </div>
         </div>
@@ -82,7 +82,7 @@
             <div class="heading">
                 <span class="label">{{localize "HEADER.QUALIFICATIONS"}}</span>
             </div>
-            {{#each data.qualifications as |role key|}}
+            {{#each data.data.qualifications as |role key|}}
             <div class="qualification-role">
                 <div><span class="qualification-role-name">{{localize role.name}}:</span> {{role.canDoFunctions}}/{{role.totalFunctions}}</div>
                 <!-- <div>

@@ -7,13 +7,13 @@
                 <span class="tab-hint">{{localize "BH.STARSHIP.CREW.HINT_ASSIGN"}}</span>
                 <button class="reset border">{{localize "BH.STARSHIP.CONTROL.RESET"}}</button>
             </div>
-            {{#each starshipRoles as |starshipRole roleKey|}}
+            {{#each data.starshipRoles as |starshipRole roleKey|}}
                 {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipRole.assignees role=starshipRole user=../user}}
             {{/each}}
         </div>
         <div class="starship-role-list">
             <div class="section-heading">{{localize "BH.STARSHIP.WEAPONS.HEADING" }}</div>
-            {{#each starshipWeapons as |starshipWeapon roleKey|}}
+            {{#each data.starshipWeapons as |starshipWeapon roleKey|}}
                 {{> systems/bounty-hunter-ttrpg/template/partial/starship-role.html assignedCharacters=starshipWeapon.assignees role=starshipWeapon user=../user}}
             {{/each}}
         </div>
@@ -23,11 +23,11 @@
                 <div class="starship-component-name">{{localize 'STARSHIP.HULL'}}</div>
                 <div class="starship-component-stats">
                     <span>{{localize 'BH.PP'}}:</span>
-                    <input class="short-num" name="data.hull.value" type="number" value="{{data.hull.value}}" min="0" max="{{data.hull.max}}" data-dtype="Number" /> / 
-                    <input class="short-num" name="data.hull.max" type="number" value="{{data.hull.max}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                    <input class="short-num" name="data.hull.value" type="number" value="{{data.data.hull.value}}" min="0" max="{{data.data.hull.max}}" data-dtype="Number" /> / 
+                    <input class="short-num" name="data.hull.max" type="number" value="{{data.data.hull.max}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
                 </div>
             </div>
-            {{#each starshipComponents as |starshipComponent key|}}
+            {{#each data.starshipComponents as |starshipComponent key|}}
                 {{> systems/bounty-hunter-ttrpg/template/partial/component.html component=starshipComponent user=../user}}
             {{/each}}
         </div>

@@ -11,9 +11,9 @@ import { BountyHunterActorSheet } from './sheet/actor.js';
 // CONFIG.debug.hooks = true;
 
 Hooks.once("init", () => {
-  CONFIG.Actor.entityClass = BountyHunterActor;
-  CONFIG.Item.entityClass = BountyHunterItem;
-  CONFIG.Combat.entityClass = BhCombat;
+  CONFIG.Actor.documentClass = BountyHunterActor;
+  CONFIG.Item.documentClass = BountyHunterItem;
+  CONFIG.Combat.documentClass = BhCombat;
   CONFIG.ui.combat = BhCombatTracker;
 
   CONFIG.Combat.initiative.formula = "1";
@@ -35,7 +35,7 @@ Hooks.once("ready", async () => {
 Hooks.on("renderActorSheet", async (app, html, data) => {
   if (!(app instanceof BountyHunterStarshipSheet)) return; // not our thing
 
-  let actor = game.actors.get(data.entity._id);
+  let actor = game.actors.get(data.data._id);
   // either we opened a ship from a compendium or everything is already initialized
   if (actor === null || actor.data.flags.crewMembers !== undefined) return; 
 

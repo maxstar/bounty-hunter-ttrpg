@@ -14,35 +14,35 @@
                             <input name="name" type="text" value="{{actor.name}}" />
                         </td>
                         <td>
-                            <label>{{localize data.bio.age.label}}:</label>
+                            <label>{{localize data.data.bio.age.label}}:</label>
                         </td>
                         <td>
-                            <input class="short-num" name="data.bio.age.value" type="number" value="{{data.bio.age.value}}"
+                            <input class="short-num" name="data.bio.age.value" type="number" value="{{data.data.bio.age.value}}"
                                 data-dtype="Number" />
                         </td>
                     </tr>
                     <tr class="row">
                         <td>
-                            <label>{{localize data.bio.species.label}}:</label>
+                            <label>{{localize data.data.bio.species.label}}:</label>
                         </td>
                         <td colspan="3">
-                            <input name="data.bio.species.value" type="text" value="{{data.bio.species.value}}" />
+                            <input name="data.bio.species.value" type="text" value="{{data.data.bio.species.value}}" />
                         </td>
                         <td>
-                            <label>{{localize data.bio.reputation.label}}:</label>
+                            <label>{{localize data.data.bio.reputation.label}}:</label>
                         </td>
                         <td>
-                            <input class="short-num" name="data.bio.reputation.value" type="number" value="{{data.bio.reputation.value}}"
+                            <input class="short-num" name="data.bio.reputation.value" type="number" value="{{data.data.bio.reputation.value}}"
                                 data-dtype="Number" />
                         </td>
                     </tr>
                     <tr class="row-alternate">
                         <td>
-                            <label>{{localize data.bio.ap.label}}:</label>
+                            <label>{{localize data.data.bio.ap.label}}:</label>
                         </td>
                         <td>
-                            <input class="short-num" name="data.bio.ap.value" type="number" value="{{data.bio.ap.value}}"
-                                min="{{data.bio.ap.min}}" max="{{data.bio.ap.max}}" data-dtype="Number" /> / <input type="number"{{#unless user.isGM}} readonly="readonly"{{/unless}} class="short-num" name="data.bio.ap.max" value="{{data.bio.ap.max}}"/>
+                            <input class="short-num" name="data.bio.ap.value" type="number" value="{{data.data.bio.ap.value}}"
+                                min="{{data.data.bio.ap.min}}" max="{{data.data.bio.ap.max}}" data-dtype="Number" /> / <input type="number"{{#unless user.isGM}} readonly="readonly"{{/unless}} class="short-num" name="data.bio.ap.max" value="{{data.data.bio.ap.max}}"/>
                         </td>
                         <td colspan="4" class="flex">
                             <button class="recover-ap recover-ap-half" title="{{localize 'BH.RECOVER_HALF_HINT'}}">{{localize 'BH.RECOVER_HALF'}}</button>
@@ -67,7 +67,7 @@
     {{> systems/bounty-hunter-ttrpg/template/tab/bio.html}}
             </div>
             <div class="tab note" data-group="primary" data-tab="note">
-{{editor content=data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=editable}}
+{{editor content=data.data.bio.note.value target="data.bio.note.value" button=true owner=owner editable=true}}
             </div>
         </div>
     </div>

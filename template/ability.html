@@ -3,7 +3,7 @@
     <div class="grid">
         <div class="flex form-ability-name">
             <label class="form-ability-label">{{localize "ABILITY.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
+            <input name="name" type="text" value="{{data.name}}" />
         </div>
 
         <div class="item-uses">
@@ -22,7 +22,7 @@
         <div class="flex item-refresh">
             <label class="form-ability-label">{{localize "BH.REFRESH"}}</label>
             <select name="data.refresh">
-                {{#select data.refresh}}
+                {{#select data.data.refresh}}
                     <option value="never">{{localize "BH.NEVER"}}</option>
                     <option value="scene">{{localize "BH.SCENE"}}</option>
                     <option value="day">{{localize "BH.DAY"}}</option>
@@ -32,17 +32,17 @@
 
         <div class="item-description">
             <label class="form-ability-label">{{localize "ABILITY.DESCRIPTION"}}</label>
-            <textarea class="ability-description" name="data.description">{{item.data.description}}</textarea>
+            <textarea class="ability-description" name="data.description">{{data.data.description}}</textarea>
         </div>
 
         <div class="item-description">
             <label class="form-ability-label">{{localize "ABILITY.USE_DESCRIPTION"}}</label>
-            <textarea class="ability-description" name="data.use-description">{{item.data.use-description}}</textarea>
+            <textarea class="ability-description" name="data.use-description">{{data.data.use-description}}</textarea>
         </div>
     </div>
 
     <div class="section active-effects">
-        <div class="active-effects-header flex">{{localize 'BH.ACTIVE_EFFECTS'}} {{#unless item.data.isOwned}}<button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>{{/unless}}</div>
+        <div class="active-effects-header flex">{{localize 'BH.ACTIVE_EFFECTS'}} {{#unless data.data.isOwned}}<button class="add-active-effect" data-transfer="true">{{localize "BH.ADD"}}</button>{{/unless}}</div>
         {{> "systems/bounty-hunter-ttrpg/template/partial/active-effect-list.html"}}
     </div>
 </form>

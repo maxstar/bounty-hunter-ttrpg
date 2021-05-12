@@ -35,15 +35,15 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   getData() {
     const data = super.getData();
-    data.user = game.user;
-    data.data.itemsByCategory = this.categorizeItems();
-    this.computeEncumbrance(data);
-    this.computeSkillData(data);
-    this.computeAbilityData(data);
-    data.data.ammoCounts = this.getAmmoCounts(data);
-    this.computeWeaponData(data);
-    this.computeStarshipQualifications(data);
-    data.displayWizard = Object.keys(data.data.itemsByCategory.skill).length === 0;
+    data.data.user = game.user;
+    data.data.data.itemsByCategory = this.categorizeItems();
+    this.computeEncumbrance(data.data);
+    this.computeSkillData(data.data);
+    this.computeAbilityData(data.data);
+    data.data.data.ammoCounts = this.getAmmoCounts(data.data);
+    this.computeWeaponData(data.data);
+    this.computeStarshipQualifications(data.data);
+    data.data.displayWizard = Object.keys(data.data.itemsByCategory.skill).length === 0;
     return data;
   }
 
@@ -87,7 +87,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
         }
       }
     }
-    return this.actor.createEmbeddedEntity("OwnedItem", itemData);
+    return this.actor.createEmbeddedDocuments("Item", [itemData]);
   }
   
   // ********** HANDLERS *************
@@ -182,7 +182,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       this.categorizeItems().skill,
       'skill',
       function (skills) {
-        that.actor.createEmbeddedEntity("OwnedItem", skills);
+        that.actor.createEmbeddedDocuments("Item", skills);
       }
     );
   }
@@ -191,7 +191,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const div = $(e.currentTarget).parents(".item");
     const entityId = div.data("entity-id");
 
-    this.actor.deleteEmbeddedEntity("OwnedItem", entityId);
+    this.actor.deleteEmbeddedDocuments("Item", [entityId]);
   }
 
   handleAddAbility() {
@@ -201,7 +201,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       this.categorizeItems().ability,
       'ability',
       function (abilities) {
-        that.actor.createEmbeddedEntity("OwnedItem", abilities);
+        that.actor.createEmbeddedDocuments("Item", abilities);
       }
     );
   }
@@ -223,12 +223,12 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
   computeSkillData(data) {
     data.data.skillCount = Object.keys(data.data.itemsByCategory.skill).length;
-    data.data.allowedSkillCount = ReputationStats.getForReputation(data.data.bio.reputation.value).skill + game.settings.get("bounty-hunter-ttrpg", "bonusSkills");
+    data.data.allowedSkillCount = ReputationStats.getForReputation(data.data.bio.reputation.value ?? 1).skill + game.settings.get("bounty-hunter-ttrpg", "bonusSkills");
   }
 
   computeAbilityData(data) {
     data.data.abilityCount = Object.keys(data.data.itemsByCategory.ability).length;
-    data.data.allowedAbilityCount = ReputationStats.getForReputation(data.data.bio.reputation.value).ability;
+    data.data.allowedAbilityCount = ReputationStats.getForReputation(data.data.bio.reputation.value ?? 1).ability;
   }
 
   getAmmoCounts(data) {
@@ -326,7 +326,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       {skillName: skillName, apSpent: apSpent}
     );
     let chatData = {
-      speaker: {actor: this.actor._id},
+      speaker: {actor: this.actor.id},
       // @todo localize
       content: chatCard
     };
@@ -343,7 +343,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
       {title: game.i18n.localize(titleMap[item.type]), itemName: item.name, description: item.data.data['use-description']}
     );
     let chatData = {
-      speaker: {actor: this.actor._id},
+      speaker: {actor: this.actor.id},
       // @todo localize
       content: chatCard
     };
@@ -384,7 +384,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
 
     item = this.actor.items.get(item.id);
     if (parseInt(item.data.data.uses.value) === 0 && item.data.data.refresh === 'never') {
-      this.actor.deleteEmbeddedEntity("OwnedItem", item.id);
+      this.actor.deleteEmbeddedDocuments("Item", [item.id]);
     }
 
     return success;
@@ -420,7 +420,7 @@ Hooks.on('createActor', async (entity, options, userId) => {
   const punchingAttack = game.items.getName("Punching Attack");
   if (!punchingAttack) return true;
 
-  entity.createEmbeddedEntity("OwnedItem", punchingAttack.data);
+  entity.createEmbeddedDocuments("Item", punchingAttack.data);
 
   return true;
 });
@@ -431,7 +431,7 @@ Hooks.on('preCreateOwnedItem', async (entity, data, options, userId) => {
   const martialArtsAttack = game.items.getName("Martial Arts Attack");
   if (!martialArtsAttack) return true;
 
-  entity.createEmbeddedEntity("OwnedItem", martialArtsAttack.data);
+  entity.createEmbeddedDocuments("Item", martialArtsAttack.data);
 
   return true;
 });
@@ -442,7 +442,7 @@ Hooks.on('preDeleteOwnedItem', async (entity, data, options, userId) => {
   const martialArtsAttack = entity.items.getName("Martial Arts Attack");
   if (!martialArtsAttack || martialArtsAttack.data.type !== 'weapon') return true;
 
-  entity.deleteEmbeddedEntity("OwnedItem", martialArtsAttack._id);
+  entity.deleteEmbeddedDocuments("Item", [martialArtsAttack._id]);
 
   return true;
 });

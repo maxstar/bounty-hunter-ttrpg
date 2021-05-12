@@ -89,7 +89,7 @@ export class BhTextEditor extends TextEditor {
   }
 
   static findSkillByName(skillName) {
-      const collection = CONFIG.Item.entityClass.collection;
+      const collection = CONFIG.Item.documentClass.collection;
       const skill = /^[a-zA-Z0-9]{16}$/.test(skillName) ? collection.get(skillName) : collection.getName(skillName);
       return skill;
   }

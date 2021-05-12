@@ -72,7 +72,7 @@ export class BountyHunterItem extends Item {
       );
       let chatData = {
         speaker:  this.actor 
-          ? {actor: this.actor._id} 
+          ? {actor: this.actor.id} 
           : {actor: game.user._id, alias: game.user.name},
         content: chatCard,
       };

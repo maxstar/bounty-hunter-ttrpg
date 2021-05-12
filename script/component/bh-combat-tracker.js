@@ -13,7 +13,7 @@ export class BhCombatTracker extends CombatTracker {
   async getData(options) {
     let data = await super.getData(options);
 
-    const combat = this.combat;
+    const combat = this.viewed;
     const hasCombat = combat !== null;
     if ( !hasCombat ) return data;
 
