@@ -24,3 +24,7 @@
   line-height: 14px;
   padding-top: 10px;
 }
+
+#combat li.combatant .token-image {
+  width: 50px;
+}

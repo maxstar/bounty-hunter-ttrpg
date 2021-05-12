@@ -56,15 +56,15 @@ export class BhCombat extends Combat {
 
     // Structure input data
     ids = typeof ids === "string" ? [ids] : ids;
-    const currentId = this.combatant._id;
+    const currentId = this.combatant.id;
 
     // Iterate over Combatants, performing an initiative roll for each
     const [updates, messages] = ids.reduce((results, id, i) => {
       let [updates, messages] = results;
 
       // Get Combatant data
-      const c = this.getCombatant(id);
-      if ( !c || !c.owner ) return results;
+      const c = this.combatants.get(id);
+      if ( !c || !c.isOwner ) return results;
 
       updates.push({_id: id, initiative: 2});
 
@@ -74,11 +74,11 @@ export class BhCombat extends Combat {
     if ( !updates.length ) return this;
 
     // Update multiple combatants
-    await this.updateEmbeddedEntity("Combatant", updates);
+    await this.updateEmbeddedDocuments("Combatant", updates);
 
     // Ensure the turn order remains with the same combatant
     if ( updateTurn ) {
-      await this.update({turn: this.turns.findIndex(t => t._id === currentId)});
+      await this.update({turn: this.turns.findIndex(t => t.id === currentId)});
     }
 
     // Return the updated Combat
@@ -90,7 +90,7 @@ export class BhCombat extends Combat {
    * @return {Promise<Combat>}
    */
   async startCombat() {
-    this.rollInitiative(this.turns.map(t => t._id));
+    this.rollInitiative(this.turns.map(t => t.id));
     return await this.update({round: 1, turn: 0, 'flags.phase': 0});
   }
   
@@ -99,7 +99,7 @@ export class BhCombat extends Combat {
    * @return {Promise<Combat>}
    */
    async nextRound() {
-    this.rollInitiative(this.turns.map(t => t._id));
+    this.rollInitiative(this.turns.map(t => t.id));
     let turn = 0;
     if ( this.settings.skipDefeated ) {
       turn = this.turns.findIndex(t => {
