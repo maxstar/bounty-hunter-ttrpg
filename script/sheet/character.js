@@ -213,11 +213,10 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     for (let item of Object.values(data.items)) {
       itemsCarried += this._computerItemEncumbrance(item);
     }
-    const carryingCapacity = game.settings.get("bounty-hunter-ttrpg", "baseCarryingCapacity") + (this.actor.overrides["CARRYING_CAPACITY"] ?? 0);
     data.data.encumbrance = {
       value: itemsCarried,
-      max: carryingCapacity,
-      over: itemsCarried > carryingCapacity,
+      max: this.actor.data.carryingCapacity,
+      over: itemsCarried > this.actor.data.carryingCapacity,
     };
   }
 
@@ -260,7 +259,7 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
           ? true 
           : (data.data.itemsByCategory.skill[newData.data.data.skill] !== undefined);
 
-        newData.data.data.modifiedDamage = newData.data.data.damage + (this.actor.overrides[`BONUS_DAMAGE_${newData.data.data.skill}`] ?? 0);
+        newData.data.data.modifiedDamage = newData.data.data.damage + this._getWeaponBonusDamage(newData.data.data.skill);
 
         retVal[id] = newData;
         return retVal;
@@ -308,6 +307,13 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
   }
   
   // ********** HELPERS *************
+
+  _getWeaponBonusDamage(skillName) {
+    let skillCode = skillName.replace(/[\W_]+/g, "");
+    if (skillCode === '') skillCode = 'noSkill';
+
+    return this.actor.data.bonusDamage[skillCode] ?? 0;
+  }
 
   _computerItemEncumbrance(data) {
     switch (data.type) {
@@ -360,12 +366,12 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
         apSpent: success ? 1 : 0,
         ammoName: weapon.data.data.ammo,
         success: success,
-        damage: weapon.data.data.damage + (this.actor.overrides[`BONUS_DAMAGE_${weapon.data.data.skill}`] ?? 0),
+        damage: weapon.data.data.damage + this._getWeaponBonusDamage(weapon.data.data.skill),
         range: weapon.data.data.range,
       }
     );
     let chatData = {
-      speaker: {actor: this.actor._id},
+      speaker: {actor: this.actor.id},
       content: chatCard,
     };
     ChatMessage.create(chatData, {});
@@ -420,7 +426,7 @@ Hooks.on('createActor', async (entity, options, userId) => {
   const punchingAttack = game.items.getName("Punching Attack");
   if (!punchingAttack) return true;
 
-  entity.createEmbeddedDocuments("Item", punchingAttack.data);
+  entity.createEmbeddedDocuments("Item", [punchingAttack.data]);
 
   return true;
 });
@@ -431,7 +437,7 @@ Hooks.on('preCreateOwnedItem', async (entity, data, options, userId) => {
   const martialArtsAttack = game.items.getName("Martial Arts Attack");
   if (!martialArtsAttack) return true;
 
-  entity.createEmbeddedDocuments("Item", martialArtsAttack.data);
+  entity.createEmbeddedDocuments("Item", [martialArtsAttack.data]);
 
   return true;
 });

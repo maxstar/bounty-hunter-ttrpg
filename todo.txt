@@ -107,6 +107,15 @@
     * [done] chat messages
 * [    ] localization
 
+* [    ] 0.8 migration
+    * [done] templates
+    * [done] sheets
+    * [    ] combat tracker Fast Draw
+    * [done] active effects
+    * [    ] update compendiums due to active effect changes
+    * [    ] click all buttons on sheets
+    * [    ] use items
+
 * [    ] bugs
     * [done] fix item trasnsfer for players
     * [done] component compendium
