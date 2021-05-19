@@ -42,7 +42,7 @@
                         </td>
                         <td>
                             <input class="short-num" name="data.bio.ap.value" type="number" value="{{data.data.bio.ap.value}}"
-                                min="{{data.data.bio.ap.min}}" max="{{data.data.bio.ap.max}}" data-dtype="Number" /> / <input type="number"{{#unless user.isGM}} readonly="readonly"{{/unless}} class="short-num" name="data.bio.ap.max" value="{{data.data.bio.ap.max}}"/>
+                                min="{{data.data.bio.ap.min}}" max="{{data.data.bio.ap.max}}" data-dtype="Number" /> / <input type="number"{{#unless data.user.isGM}} readonly="readonly"{{/unless}} class="short-num" name="data.bio.ap.max" value="{{data.data.bio.ap.max}}"/>
                         </td>
                         <td colspan="4" class="flex">
                             <button class="recover-ap recover-ap-half" title="{{localize 'BH.RECOVER_HALF_HINT'}}">{{localize 'BH.RECOVER_HALF'}}</button>
