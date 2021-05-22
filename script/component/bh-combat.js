@@ -1,13 +1,4 @@
 export class BhCombat extends Combat {
-  constructor(...args) {
-    super(...args);
-
-    /**
-     * Track the sorted turn order of this combat encounter
-     * @type {Array}
-     */
-    this.phases = this.phases || [];
-  }
 
   /**
    * The numeric turn of the combat round in the Combat encounter
@@ -24,24 +15,12 @@ export class BhCombat extends Combat {
  prepareEmbeddedEntities() {
    super.prepareEmbeddedEntities();
 
-   this.phases = this.setupPhases();
+   this.setupPhases();
  }
 
  setupPhases() {
    this.data.flags.phase = this.data.flags.phase ?? 0;
-   return this.phases = [[], [], this.turns];
  }
-
-  /**
-   * Prepare turn data for one specific combatant.
-   * @private
-   */
-  _prepareCombatant(c, scene, players, settings={}) {
-    let combatant = super._prepareCombatant(c, scene, players, settings);
-    const fastDraw = combatant.actor.items.find(i => i.name === 'Fast Draw' && i.type === 'ability');
-    combatant.hasFastDraw = fastDraw !== null && fastDraw.data.data.uses.value > 0;
-    return combatant;
-  }
   
   /**
    * Roll initiative for one or multiple Combatants within the Combat entity

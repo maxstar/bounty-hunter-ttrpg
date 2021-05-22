@@ -22,8 +22,12 @@ export class BhCombatTracker extends CombatTracker {
       {active: 1 === (combat.phase ?? 0), combatants: []},
       {active: 2 === (combat.phase ?? 0), combatants: []},
     ];
-    for ( let [i, combatant] of data.turns.entries() ) {
-      phases[combatant.initiative ?? 2].combatants.push(combatant);
+    let combatant;
+    for ( let [i, combatantData] of data.turns.entries() ) {
+      combatant = combat.combatants.get(combatantData.id);
+      combatantData.hasFastDraw = combatant.data.hasFastDraw;
+      combatantData.usedFastDraw = combatant.data.flags.usedFastDraw || false;
+      phases[combatantData.initiative ?? 2].combatants.push(combatantData);
     }
 
     data.phases = phases;
@@ -63,15 +67,13 @@ export class BhCombatTracker extends CombatTracker {
         fastDraw = c.actor.items.getName('Fast Draw');
         usageSuccess = await c.actor.sheet._reduceItemUses(fastDraw);
         if (usageSuccess) await c.actor.sheet._postItemUse(fastDraw);
-        await this.viewed.combatants.get(c.id).update({initiative: 1});
-        await c.actor.update({'flags.usedFastDraw': true});
+        await c.update({'flags.usedFastDraw': true, initiative: 1});
         break;
 
       case "cancelFastDraw":
         fastDraw = c.actor.items.getName('Fast Draw');
         await fastDraw.update({'data.uses.value': Math.min(fastDraw.data.data.uses.max, fastDraw.data.data.uses.value + 1)});
-        await this.viewed.combatants.get(c.id).update({initiative: 2});
-        await c.actor.update({'flags.usedFastDraw': false});
+        await c.update({'flags.usedFastDraw': false, initiative: 2});
         break;
     }
 

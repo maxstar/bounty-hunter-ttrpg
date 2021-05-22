@@ -107,14 +107,12 @@
     * [done] chat messages
 * [    ] localization
 
-* [    ] 0.8 migration
+* [done] 0.8 migration
     * [done] templates
     * [done] sheets
-    * [    ] combat tracker Fast Draw
+    * [done] combat tracker Fast Draw
     * [done] active effects
-    * [    ] update compendiums due to active effect changes
-    * [    ] click all buttons on sheets
-    * [    ] use items
+    * [done] update compendiums due to active effect changes
 
 * [    ] bugs
     * [done] fix item trasnsfer for players
@@ -123,9 +121,16 @@
 * [    ] refactoring/improvements
     * [done] recheck items and actors against final rulebook
     * [done] show token image for crew members
+    * [    ] remove crew member AP from starship sheet 
     * [    ] automatic content import when world is created
     * [done] restrict transfer of cargo to characters
     * [    ] allow to spend more AP on weapon usage
+        * [    ] update skills to spend multiple AP on shift+click
+        * [    ] user setting to swap click / shift+click behaviour
+    * [    ] help popups
+        * [    ] about shift click
+        * [    ] about user setting for shift click behaviour
+        * [    ] move drag & drop hints to help popups
     * [done] unify item display in character and starship
         * [done] item
         * [----] section
@@ -138,15 +143,15 @@
     * [----] color code X/Y info
     * [done] implement item transfer between players
     * [done] display AP for crew members (owners only)
-    * [    ] more automation for starship functions
-        * [    ] inspire
-        * [    ] transfer
-        * [    ] fire from tactical with weapon stats
-        * [    ] fire at component from tactical with weapon stats
-        * [    ] repair
-        * [    ] increase
-        * [    ] transponder
-    * [    ] component active effects that override starship function data
+    * [----] more automation for starship functions
+        * [----] inspire
+        * [----] transfer
+        * [----] fire from tactical with weapon stats
+        * [----] fire at component from tactical with weapon stats
+        * [----] repair
+        * [----] increase
+        * [----] transponder
+    * [----] component active effects that override starship function data
     * [    ] journal link to a quick reference (see char sheet V9)
 
 

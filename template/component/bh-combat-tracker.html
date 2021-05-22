@@ -90,7 +90,7 @@
             {{#if ../../displayPhaseControl}}
                 {{#if this.owner}}
                     {{#if (eq phaseNum 1)}}
-                        {{#if this.actor.flags.usedFastDraw}}
+                        {{#if this.usedFastDraw}}
                         <a class="phase-control cancel-fast-draw" data-control="cancelFastDraw">Cancel Fast Draw</a>
                         {{else}}
                         <a class="phase-control go-last" title="{{localize 'COMBAT.GO_LAST_PAHSE'}}" data-control="goLastPhase"><i class="fas fa-level-down-alt"></i></a>

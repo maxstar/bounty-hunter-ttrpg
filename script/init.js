@@ -1,4 +1,5 @@
 import { BountyHunterActor, BountyHunterItem } from "./actor/bounty-hunter.js";
+import { BountyHunterCombatant } from "./actor/combatant.js";
 import { initializeHandlebars } from "./hooks/handlebars.js";
 import { migrateWorld } from "./hooks/migration.js";
 import { registerSheets } from "./hooks/sheets.js";
@@ -14,6 +15,7 @@ Hooks.once("init", () => {
   CONFIG.Actor.documentClass = BountyHunterActor;
   CONFIG.Item.documentClass = BountyHunterItem;
   CONFIG.Combat.documentClass = BhCombat;
+  CONFIG.Combatant.documentClass = BountyHunterCombatant;
   CONFIG.ui.combat = BhCombatTracker;
 
   CONFIG.Combat.initiative.formula = "1";
