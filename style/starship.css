@@ -162,6 +162,8 @@
 
 .starship-role-list .reset {
   width: auto;
+  line-height: 11px;
+  float: right;
 }
 
 .starship-role {

@@ -128,10 +128,10 @@
         * [done] update skills to spend multiple AP on shift+click
         * [done] weapons
         * [done] user setting to swap click / shift+click behaviour
-    * [    ] help popups
-        * [    ] about shift click
-        * [    ] about user setting for shift click behaviour
-        * [    ] move drag & drop hints to help popups
+    * [done] help popups
+        * [done] about shift click
+        * [done] about user setting for shift click behaviour
+        * [done] move drag & drop hints to help popups
     * [    ] sort inventory item sections
     * [done] unify item display in character and starship
         * [done] item

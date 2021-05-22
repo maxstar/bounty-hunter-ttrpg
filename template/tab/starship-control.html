@@ -2,9 +2,15 @@
     
     <div class="flex row">
         <div class="starship-role-list">
-            <div class="section-heading">{{localize "BH.STARSHIP.ROLES.HEADING" }}</div>
-            <div class="flex row">
-                <span class="tab-hint">{{localize "BH.STARSHIP.CREW.HINT_ASSIGN"}}</span>
+            <div class="section-heading">
+                <span>{{localize "BH.STARSHIP.ROLES.HEADING" }}</span>
+                <span class="help-popup help-popup-container">
+                    <a class="help-popup-trigger alternate"><i class="far fa-question-circle"></i></a>
+                    <div class="help-popup-content">
+                        <p>{{localize "BH.STARSHIP.CREW.HINT_ASSIGN"}}</p><hr/>
+                        <p>{{localize "BH.STARSHIP.CREW.HINT_COUNT"}}</p>
+                    </div>
+                </span>
                 <button class="reset border">{{localize "BH.STARSHIP.CONTROL.RESET"}}</button>
             </div>
             {{#each data.starshipRoles as |starshipRole roleKey|}}

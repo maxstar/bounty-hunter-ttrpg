@@ -14,6 +14,10 @@
   "BH.SETTINGS.SHIFT_CLICK_MORE_AP": "Spend Multiple AP on Shift+Click",
   "BH.SETTINGS.SHIFT_CLICK_MORE_AP_HINT": "This setting determines the default behaviour when you use a skill or a weapon. If checked, simple click will spend just 1 AP, and Shift+click - multiple. If unchecked, it will be the other way around.",
 
+  "BH.HELP.SKILLS.CLICK": "Click on a skill to use it or Shift+Click to spend more than 1 AP (default behavior).",
+  "BH.HELP.CLICK_SETTING": "You can swap this behavior in the system settings.",
+  "BH.HELP.WEAPON.CLICK": "Click on a weapon to use it or Shift+Click to spend more than 1 AP (default behavior).",
+
   "BIO.NAME": "Name",
   "BIO.SPECIES": "Species",
   "BIO.AGE": "Age",
@@ -163,6 +167,7 @@
   "BH.STARSHIP.CREW.HEADING": "Crew Members",
   "BH.STARSHIP.CREW.HINT_ADD": "Drag & drop characters here to add them to the crew.",
   "BH.STARSHIP.CREW.HINT_ASSIGN": "Drag & drop characters to assign them to the desired roles.",
+  "BH.STARSHIP.CREW.HINT_COUNT": "Only one character can be assigned to a role.",
   "BH.STARSHIP.CARGO.HEADING": "Cargo Hold",
   "BH.STARSHIP.CONTROL.RESET": "Reset",
   "BH.STARSHIP.ROLES.HEADING": "Roles",

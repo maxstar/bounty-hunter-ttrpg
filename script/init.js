@@ -29,6 +29,14 @@ Hooks.once("ready", async () => {
   loadSystemSettings();
   window.TextEditor.activateListeners();
   BountyHunterActorSheet.setupSocketListeners();
+  
+  $('body').on('click', '.help-popup-trigger', function(e) {
+    const content = $(e.currentTarget).parent().find('.help-popup-content');
+    content.toggle();
+  });
+  $('body').on('click', '.help-popup-content', function(e) {
+    $(e.currentTarget).toggle();
+  });
 });
 
 /**

@@ -175,3 +175,28 @@ input:read-only {
 .capitalize {
     text-transform: capitalize;
 }
+
+.help-popup-trigger {
+    float: right;
+    color: blue;
+}
+.help-popup-trigger.alternate {
+    float: right;
+    color: white;
+}
+.help-popup-content {
+    position: absolute;
+    display: none;
+    
+    line-height: 14px;
+    font-style: italic;
+    font-family: "Signika", sans-serif;
+    color: black;
+    text-transform: none;
+
+    background-color: white;
+    width: 200px;
+    border: 2px solid blue;
+    padding: 4px;
+    z-index: 1;
+}

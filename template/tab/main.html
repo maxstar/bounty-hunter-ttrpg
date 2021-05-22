@@ -16,6 +16,13 @@
             <div class="heading">
                 <span class="label">{{localize "HEADER.SKILLS"}} ({{data.data.skillCount}}/{{data.data.allowedSkillCount}})</span>
                 <span><button class="add-skill">{{localize "BH.ADD_SKILL"}}</button></span>
+                <span class="help-popup help-popup-container">
+                    <a class="help-popup-trigger"><i class="far fa-question-circle"></i></a>
+                    <div class="help-popup-content">
+                        <p>{{localize "BH.HELP.SKILLS.CLICK"}}</p><hr/>
+                        <p>{{localize "BH.HELP.CLICK_SETTING"}}</p>
+                    </div>
+                </span>
             </div>
             <div class="skills border">
                 {{#if displayWizard}}
@@ -39,6 +46,13 @@
                     <div class="item-category-header">
                         {{localize "BH.WEAPON.TITLE"}}
                         <a class="item-control item-create" data-type="weapon" title="{{localize 'BH.ADD'}}"><i class="far fa-plus-square"></i></a>
+                        <span class="help-popup help-popup-container">
+                            <a class="help-popup-trigger"><i class="far fa-question-circle"></i></a>
+                            <div class="help-popup-content">
+                                <p>{{localize "BH.HELP.WEAPON.CLICK"}}</p><hr/>
+                                <p>{{localize "BH.HELP.CLICK_SETTING"}}</p>
+                            </div>
+                        </span>
                     </div>
                     <div class="items">
                         {{#each data.itemsByCategory.weapon as |item id|}}
