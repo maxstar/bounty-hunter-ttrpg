@@ -204,6 +204,10 @@ input.item-picker-checkbox {
     display: flex;
 }
 
+.ap-per-skill-label {
+    line-height: 26px;
+}
+
 .ap-per-skill-input {
     font-size: 20px;
 }

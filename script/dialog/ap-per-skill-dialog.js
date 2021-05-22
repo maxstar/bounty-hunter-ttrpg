@@ -4,7 +4,7 @@ export class ApPerSkillDialog extends Dialog {
       static get defaultOptions() {
         return mergeObject(super.defaultOptions, {
           template: "templates/hud/dialog.html",
-        classes: ["dialog"],
+        classes: ["bounty-hunter", "dialog"],
         width: 200,
         height: 120,
         jQuery: true

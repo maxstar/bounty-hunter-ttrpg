@@ -121,16 +121,18 @@
 * [    ] refactoring/improvements
     * [done] recheck items and actors against final rulebook
     * [done] show token image for crew members
-    * [    ] remove crew member AP from starship sheet 
+    * [done] remove crew member AP from starship sheet 
     * [    ] automatic content import when world is created
     * [done] restrict transfer of cargo to characters
-    * [    ] allow to spend more AP on weapon usage
-        * [    ] update skills to spend multiple AP on shift+click
-        * [    ] user setting to swap click / shift+click behaviour
+    * [done] allow to spend more AP on weapon usage
+        * [done] update skills to spend multiple AP on shift+click
+        * [done] weapons
+        * [done] user setting to swap click / shift+click behaviour
     * [    ] help popups
         * [    ] about shift click
         * [    ] about user setting for shift click behaviour
         * [    ] move drag & drop hints to help popups
+    * [    ] sort inventory item sections
     * [done] unify item display in character and starship
         * [done] item
         * [----] section

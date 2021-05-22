@@ -147,9 +147,23 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const div = $(e.currentTarget).parents(".skill");
     const entityId = div.data("entity-id");
     let skill = this.actor.items.get(entityId);
-    
-    this.actor.reduceAP(1);
-    this._postSkillUse(skill.name, 1);
+    let that = this;
+
+    const defaultBehaviour = game.settings.get("bounty-hunter-ttrpg", "shiftClickMoreAp");
+    const doUseSkill = function (ap) {
+      that.actor.reduceAP(ap);
+      that._postSkillUse(skill.name, ap);
+    }
+
+    if (e.shiftKey && defaultBehaviour || !e.shiftKey && !defaultBehaviour) {
+      ApPerSkillDialog.show(
+        game.i18n.localize('BH.HOW_MANY'),
+        Math.min(game.settings.get("bounty-hunter-ttrpg", "maxApPerSkill"), this.actor.data.data.bio.ap.value),
+        doUseSkill
+      );
+    } else {
+      doUseSkill(1);
+    }
   }
 
   async handleUseItem(e) {
@@ -166,13 +180,27 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     const div = $(e.currentTarget).parents(".item");
     const entityId = div.data("entity-id");
     let item = this.actor.items.get(entityId);
-    
-    const success = await this._spendAmmo(item);
-    if (success) {
-      this.actor.reduceAP(1);
+    let that = this;
+
+    const defaultBehaviour = game.settings.get("bounty-hunter-ttrpg", "shiftClickMoreAp");
+    const doUseWeapon = async function (ap) {
+      const ammoHasBeenSpent = await that._spendAmmo(item);
+      if (ammoHasBeenSpent) {
+        that.actor.reduceAP(ap);
+      }
+      that._postWeaponUse(item, ammoHasBeenSpent, ap);
     }
     
-    this._postWeaponUse(item, success);
+    if (e.shiftKey && defaultBehaviour || !e.shiftKey && !defaultBehaviour) {
+      ApPerSkillDialog.show(
+        game.i18n.localize('BH.HOW_MANY'),
+        Math.min(game.settings.get("bounty-hunter-ttrpg", "maxApPerSkill"), this.actor.data.data.bio.ap.value),
+        doUseWeapon
+      );
+      return;
+    }
+
+    await doUseWeapon(1);
   }
 
   handleAddSkill() {
@@ -356,14 +384,14 @@ export class BountyHunterCharacterSheet extends BountyHunterActorSheet {
     ChatMessage.create(chatData, {});
   }
 
-  async _postWeaponUse(weapon, success) {
+  async _postWeaponUse(weapon, success, apSpent) {
     let chatCard = await renderTemplate(
       'systems/bounty-hunter-ttrpg/template/chat/weapon-use.html', 
       {
         itemName: weapon.name, 
         description: weapon.data.data['use-description'], 
         skillName: weapon.data.data.skill || false,
-        apSpent: success ? 1 : 0,
+        apSpent: success ? apSpent : 0,
         ammoName: weapon.data.data.ammo,
         success: success,
         damage: weapon.data.data.damage + this._getWeaponBonusDamage(weapon.data.data.skill),

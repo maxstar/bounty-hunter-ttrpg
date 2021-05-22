@@ -35,9 +35,9 @@
         </div>
     {{else}}
         {{#unless (eq item.data.data.uses.max 0)}}
-        <a class="use-item full-width">
+        <a class="use-item full-width{{#if (eq item.data.data.uses.value 0)}} faded{{/if}}">
         {{/unless}}
-            <div class="{{#if (eq item.data.data.uses.value 0)}} faded{{/if}} full-width" data-attribute="{{key}}" title="{{item.data.data.description}}">
+            <div class="full-width" data-attribute="{{key}}" title="{{item.data.data.description}}">
                 <span>{{localize item.name}}</span>
                 {{#unless (eq item.data.data.uses.max 0)}}
                     <span class="item-stat" title="{{localize 'BH.USES_REMAINING'}} ({{localize item.data.data.refresh}})">

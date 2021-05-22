@@ -34,7 +34,7 @@ export function registerSettings() {
     name: game.i18n.localize("BH.SETTINGS.WORLD_VERSION"),
     hint: game.i18n.localize("BH.SETTINGS.WORLD_VERSION_HINT"),
     scope: "world",
-    config: true,
+    config: false,
     default: 0,
     type: Number,
   });
@@ -77,5 +77,13 @@ export function registerSettings() {
     config: true,
     default: "systems/bounty-hunter-ttrpg/asset/dataset",
     type: String
+  });
+  game.settings.register("bounty-hunter-ttrpg", "shiftClickMoreAp", {
+    name: game.i18n.localize("BH.SETTINGS.SHIFT_CLICK_MORE_AP"),
+    hint: game.i18n.localize("BH.SETTINGS.SHIFT_CLICK_MORE_AP_HINT"),
+    scope: "client",
+    config: true,
+    default: true,
+    type: Boolean
   });
 }

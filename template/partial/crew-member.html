@@ -10,8 +10,4 @@
     {{else}}
         {{ bh_enrich (bh_strconcat "@Actor[" crewMember.name "]") }}
     {{/if}}
-    {{#if crewMember.owner}}
-        [{{crewMember.data.bio.ap.value}}]
-    <!-- <span class="crew-member-ap">[{{crewMember.data.bio.ap.value}}]</span> -->
-    {{/if}}
 </li>
