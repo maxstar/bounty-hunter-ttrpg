@@ -1,4 +1,4 @@
-<section class="sidebar-tab tab flexcol" id="combat" data-tab="combat">
+<section class="tab sidebar-tab directory flexcol" id="combat" data-tab="combat">
   <header id="combat-round">
       {{#if user.isGM}}
       <nav class="encounters flexrow">
@@ -61,7 +61,7 @@
         {{#if (eq phaseNum 1)}}<div class="phase-title">{{localize 'BH.PHASE.FIRST'}}</div>{{/if}}
         {{#if (eq phaseNum 2)}}<div class="phase-title">{{localize 'BH.PHASE.LAST'}}</div>{{/if}}
         {{#each phase.combatants}}
-        <li class="combatant actor directory-item flexrow {{this.css}}" data-combatant-id="{{this._id}}" data-token-id="{{this.tokenId}}">
+        <li class="combatant actor directory-item flexrow {{this.css}}" data-combatant-id="{{this.id}}" data-token-id="{{this.tokenId}}">
             <img class="token-image" data-src="{{this.img}}" title="{{this.name}}"/>
             <div class="token-name flexcol">
                 <h4>{{this.name}}</h4>
@@ -90,13 +90,13 @@
             {{#if ../../displayPhaseControl}}
                 {{#if this.owner}}
                     {{#if (eq phaseNum 1)}}
-                        {{#if this.actor.flags.usedFastDraw}}
+                        {{#if this.usedFastDraw}}
                         <a class="phase-control cancel-fast-draw" data-control="cancelFastDraw">Cancel Fast Draw</a>
                         {{else}}
                         <a class="phase-control go-last" title="{{localize 'COMBAT.GO_LAST_PAHSE'}}" data-control="goLastPhase"><i class="fas fa-level-down-alt"></i></a>
                         {{/if}}
                     {{else if (eq phaseNum 2)}}
-                    <a class="phase-control go-first" title="{{localize 'COMBAT.GO_FIRST_PHASE'}}" data-control="goFirstPhase"><i class="fas fa-level-up-alt"></i></a>
+                        <a class="phase-control go-first" title="{{localize 'COMBAT.GO_FIRST_PHASE'}}" data-control="goFirstPhase"><i class="fas fa-level-up-alt"></i></a>
                         {{#if this.hasFastDraw}}
                         <a class="phase-control fast-draw" data-control="useFastDraw">Fast Draw</a>
                         {{/if}}

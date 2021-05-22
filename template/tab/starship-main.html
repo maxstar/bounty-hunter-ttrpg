@@ -9,41 +9,41 @@
                 <input name="name" type="text" value="{{actor.name}}"/>
             </div>
             <div class="starship-info-item starship-info-type row-alternate">
-                <span class="label">{{localize data.type.label}}:</span>
-                <input name="data.type.value" type="text" value="{{data.type.value}}" {{#unless user.isGM}}disabled="disabled"{{/unless}}/>
+                <span class="label">{{localize data.data.type.label}}:</span>
+                <input name="data.type.value" type="text" value="{{data.data.type.value}}" {{#unless user.isGM}}disabled="disabled"{{/unless}}/>
             </div>
             <div class="starship-info-item starship-info-hull">
-                <span class="label">{{localize data.hull.label}}:</span>
-                <input class="short-num" type="number" value="{{data.hull.value}}" min="0" max="{{data.hull.max}}" data-dtype="Number" disabled="disabled" /> / 
-                <input class="short-num" type="number" value="{{data.hull.max}}" min="0" data-dtype="Number" disabled="disabled" />
+                <span class="label">{{localize data.data.hull.label}}:</span>
+                <input class="short-num" type="number" value="{{data.data.hull.value}}" min="0" max="{{data.data.hull.max}}" data-dtype="Number" disabled="disabled" /> / 
+                <input class="short-num" type="number" value="{{data.data.hull.max}}" min="0" data-dtype="Number" disabled="disabled" />
             </div>
             <div class="starship-info-item starship-info-size">
-                <span class="label">{{localize data.size.label}} ({{localize 'BH.METERS_SHORT'}}):</span>
-                <input class="short-num" name="data.size.length" type="number" value="{{data.size.length}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} /> x 
-                <input class="short-num" name="data.size.width" type="number" value="{{data.size.width}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} /> x
-                <input class="short-num" name="data.size.depth" type="number" value="{{data.size.depth}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                <span class="label">{{localize data.data.size.label}} ({{localize 'BH.METERS_SHORT'}}):</span>
+                <input class="short-num" name="data.size.length" type="number" value="{{data.data.size.length}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} /> x 
+                <input class="short-num" name="data.size.width" type="number" value="{{data.data.size.width}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} /> x
+                <input class="short-num" name="data.size.depth" type="number" value="{{data.data.size.depth}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-cost">
-                <span class="label">{{localize data.cost.label}}:</span>
-                <input class="medium-num" name="data.cost.value" type="number" value="{{data.cost.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                <span class="label">{{localize data.data.cost.label}}:</span>
+                <input class="medium-num" name="data.cost.value" type="number" value="{{data.data.cost.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
                 {{localize "BH.DECA_CREDITS"}}
             </div>
             <div class="starship-info-item starship-info-upkeep">
-                <span class="label">{{localize data.upkeep.label}}:</span>
-                <input class="short-num" name="data.upkeep.value" type="number" value="{{data.upkeep.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                <span class="label">{{localize data.data.upkeep.label}}:</span>
+                <input class="short-num" name="data.upkeep.value" type="number" value="{{data.data.upkeep.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
                 {{localize "BH.DECA_CREDITS"}}
             </div>
             <div class="starship-info-item starship-info-cargo-capacity row-alternate">
-                <span class="label">{{localize data.cargo-capacity.label}} ({{localize 'BH.TONS_SHORT'}}):</span>
-                <input class="medium-num" name="data.cargo-capacity.value" type="number" value="{{data.cargo-capacity.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                <span class="label">{{localize data.data.cargo-capacity.label}} ({{localize 'BH.TONS_SHORT'}}):</span>
+                <input class="medium-num" name="data.cargo-capacity.value" type="number" value="{{data.data.cargo-capacity.value}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-min-crew row-alternate">
-                <span class="label">{{localize data.crew.min-label}}:</span>
-                <input class="short-num" name="data.crew.min" type="number" value="{{data.crew.min}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
+                <span class="label">{{localize data.data.crew.min-label}}:</span>
+                <input class="short-num" name="data.crew.min" type="number" value="{{data.data.crew.min}}" min="0" data-dtype="Number" {{#unless user.isGM}}disabled="disabled"{{/unless}} />
             </div>
             <div class="starship-info-item starship-info-additional-crew row-alternate">
-                <span class="label">{{localize data.crew.additional-label}}:</span>
-                <input class="short-num" name="data.crew.additional" type="number" value="{{data.crew.additional}}" min="0" data-dtype="Number" />
+                <span class="label">{{localize data.data.crew.additional-label}}:</span>
+                <input class="short-num" name="data.crew.additional" type="number" value="{{data.data.crew.additional}}" min="0" data-dtype="Number" />
                 <span class="crew-cost">({{crewCost}} {{localize 'BH.DECA_CREDITS'}})</span>
             </div>
         </div>
@@ -55,7 +55,7 @@
                 <div class="item-categories">
                     <div class="tab-hint">{{localize "BH.STARSHIP.CREW.HINT_ADD"}}</div>
                     <ol>
-                    {{#each crewMembers as |crewMember|}}
+                    {{#each data.crewMembers as |crewMember|}}
                         {{> systems/bounty-hunter-ttrpg/template/partial/crew-member.html crewMember=crewMember deleteButton=true}}
                     {{/each}}
                     </ol>
@@ -64,7 +64,7 @@
         </div>
         <div class="cargo-hold column">
             <div class="cargo-header">
-                <div class="section-heading">{{localize "BH.STARSHIP.CARGO.HEADING" }} ({{cargoWeight.value}}/{{cargoWeight.max}})</div>
+                <div class="section-heading">{{localize "BH.STARSHIP.CARGO.HEADING" }} ({{data.cargoWeight.value}}/{{data.cargoWeight.max}})</div>
             </div>
             <div class="section section-items">
                 <div class="item-categories">
@@ -110,11 +110,11 @@
             </div>
             <div class="section section-currency">
                 <div>
-                    <input class="medium-num" name="data.currency.dc.value" type="number" value="{{data.currency.dc.value}}" min="0" data-dtype="Number" />
+                    <input class="medium-num" name="data.currency.dc.value" type="number" value="{{data.data.currency.dc.value}}" min="0" data-dtype="Number" />
                     {{localize "BH.DECA_CREDITS"}}
                 </div>
                 <div>
-                    <input class="medium-num" name="data.currency.marks.value" type="number" value="{{data.currency.marks.value}}" min="0" data-dtype="Number" />
+                    <input class="medium-num" name="data.currency.marks.value" type="number" value="{{data.data.currency.marks.value}}" min="0" data-dtype="Number" />
                     {{localize "BH.MARKS"}}
                 </div>
             </div>

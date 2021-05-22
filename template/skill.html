@@ -2,12 +2,12 @@
     <div class="grid">
         <div class="flex form-skill-name">
             <label class="form-skill-label">{{localize "BH.SKILL.NAME"}}</label>
-            <input name="name" type="text" value="{{item.name}}" />
+            <input name="name" type="text" value="{{data.name}}" />
         </div>
         <div class="form-skill-type">
             <label class="form-skill-label">{{localize "BH.SKILL.TYPE"}}</label>
             <select name="data.type">
-                {{#select data.type}}
+                {{#select data.data.type}}
                     <option value="mental">Mental</option>
                     <option value="physical">Physical</option>
                     <option value="ranged">Ranged</option>
@@ -17,7 +17,7 @@
 
         <div class="item-description">
             <label class="form-skill-label">{{localize "BH.SKILL.DESCRIPTION"}}</label>
-            <textarea class="skill-description" name="data.description">{{item.data.description}}</textarea>
+            <textarea class="skill-description" name="data.description">{{data.data.description}}</textarea>
         </div>
     </div>
 </form>

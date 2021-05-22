@@ -32,15 +32,14 @@ export class BountyHunterItemSheet extends ItemSheet {
 
     html.find('.add-active-effect').on('click', async (ev) => {
       const transfer = $(ev.currentTarget).data('transfer');
-      const id = (
-        await this.item.createEmbeddedEntity('ActiveEffect', {
+      const effect = await this.item.createEmbeddedDocuments('ActiveEffect', [{
           label: game.i18n
             .localize('ENTITY.New')
             .replace('{entity}', game.i18n.localize('Active Effect')),
           icon: '/icons/svg/mystery-man.svg',
           transfer: transfer,
-        })
-      )._id;
+        }]);
+      const id = effect[0].id;
       return new ActiveEffectConfig(this.item.effects.get(id)).render(true);
     });
 

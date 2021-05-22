@@ -1,5 +1,21 @@
 export class BountyHunterActor extends Actor {
 
+  /**
+   * Prepare data related to this Document itself, before any embedded Documents or derived data is computed.
+   * @memberof ClientDocumentMixin#
+   */
+  prepareBaseData() {
+    super.prepareBaseData();
+
+    this.data.carryingCapacity = game.settings.get("bounty-hunter-ttrpg", "baseCarryingCapacity");
+    this.data.bonusDamage = {
+      noSkill: 0,
+      rangedAttack: 0,
+      martialArts: 0,
+      meleeCombat: 0,
+    };
+  }
+
   reduceAP(amount) {
     const current = this.data.data.bio.ap.value;
     const min = current > 0 ? 0 : -1;
@@ -72,7 +88,7 @@ export class BountyHunterItem extends Item {
       );
       let chatData = {
         speaker:  this.actor 
-          ? {actor: this.actor._id} 
+          ? {actor: this.actor.id} 
           : {actor: game.user._id, alias: game.user.name},
         content: chatCard,
       };

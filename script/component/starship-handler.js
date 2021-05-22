@@ -55,7 +55,7 @@ export class StarshipHandler {
       }
     );
     let chatData = {
-      speaker: {actor: character._id},
+      speaker: {actor: character.id},
       content: chatCard,
     };
     ChatMessage.create(chatData, {});

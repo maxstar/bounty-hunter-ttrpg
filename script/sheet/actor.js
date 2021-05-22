@@ -13,13 +13,13 @@ export class BountyHunterActorSheet extends ActorSheet {
     // Items
     html.find(".item-edit").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(div.data("entity-id"));
+      const item = this.actor.items.get(div.data("entity-id"));
       item.sheet.render(true);
     });
     html.find(".item-delete").click(this.handleItemDelete.bind(this));
     html.find(".item-post").click((ev) => {
       const div = $(ev.currentTarget).parents(".item");
-      const item = this.actor.getOwnedItem(div.data("entity-id"));
+      const item = this.actor.items.get(div.data("entity-id"));
       item.sendToChat();
     });
     html.find(".item-create").click(this.handleItemCreate.bind(this));
@@ -81,7 +81,7 @@ export class BountyHunterActorSheet extends ActorSheet {
 
   handleItemDelete(event) {
     const div = $(event.currentTarget).parents(".item");
-    this.actor.deleteOwnedItem(div.data("entity-id"));
+    this.actor.deleteEmbeddedDocuments("Item", [div.data("entity-id")]);
     div.slideUp(200, () => this.render(false));
   }
 
@@ -90,7 +90,7 @@ export class BountyHunterActorSheet extends ActorSheet {
     let header = event.currentTarget;
     let data = duplicate(header.dataset);
     data["name"] = `New ${data.type.capitalize()}`;
-    this.actor.createEmbeddedEntity("OwnedItem", data, { renderSheet: true });
+    this.actor.createEmbeddedDocuments("Item", [data], { renderSheet: true });
   }
 
   handleItemTransfer(event) {

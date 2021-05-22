@@ -32,14 +32,14 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     const data = super.getData();
 
     data.user = game.user;
-    data.starshipRoles = this.getStarshipRoles();
-    data.starshipWeapons = this.prepareStarshipWeapons(data);
-    data.crewMembers = this.prepareCrewMembers(data);
-    this.prepareStarshipControlData(data);
-    data.cargoWeight = this.computeCargo(data);
-    data.crewCost = this.computeCrewCost();
-    data.starshipComponents = this.prepareComponents();
-    if (data.starshipRoles.gunner) delete data.starshipRoles.gunner;
+    data.data.starshipRoles = this.getStarshipRoles();
+    data.data.starshipWeapons = this.prepareStarshipWeapons(data.data);
+    data.data.crewMembers = this.prepareCrewMembers(data.data);
+    this.prepareStarshipControlData(data.data);
+    data.data.cargoWeight = this.computeCargo(data.data);
+    data.data.crewCost = this.computeCrewCost();
+    data.data.starshipComponents = this.prepareComponents();
+    if (data.data.starshipRoles.gunner) delete data.data.starshipRoles.gunner;
     return data;
   }
 
@@ -100,7 +100,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     if (!['weapon-component', 'component'].includes(item.type) 
       || confirm('Are you sure you want to remove this component?')
     ) {
-      this.actor.deleteOwnedItem(item.data._id);
+      this.actor.deleteEmbeddedDocuments("Item", [item.data._id]);
       div.slideUp(200, () => this.render(false));
     }
   }
@@ -193,8 +193,8 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
 
   prepareCrewMembers(data) {
     let ownedActorId, crewMembers = {};
-    for (let i = 0; i < (data.actor.flags.crewMembers || []).length; i++) {
-      ownedActorId = data.actor.flags.crewMembers[i];
+    for (let i = 0; i < (data.flags.crewMembers || []).length; i++) {
+      ownedActorId = data.flags.crewMembers[i];
       crewMembers[ownedActorId] = game.actors.get(ownedActorId).data;
     }
     return crewMembers;
@@ -204,7 +204,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     let assignedActorId, starshipRoleAssignees, actor;
     for (let starshipRoleKey in data.starshipRoles) {
       // handle role assignees
-      starshipRoleAssignees = data.actor.flags.starship?.[starshipRoleKey] ?? [];
+      starshipRoleAssignees = data.flags.starship?.[starshipRoleKey] ?? [];
       data.starshipRoles[starshipRoleKey].assignees = {}
 
       if (typeof starshipRoleAssignees === 'object') {
@@ -213,7 +213,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
           if (!assignedActorId) continue;
           actor = game.actors.get(assignedActorId);
           data.starshipRoles[starshipRoleKey].assignees[assignedActorId] = actor.data;
-          data.starshipRoles[starshipRoleKey].assignees[assignedActorId].owner = actor.owner;
+          data.starshipRoles[starshipRoleKey].assignees[assignedActorId].owner = actor.isOwner;
         }
       } else if (starshipRoleAssignees !== "") {
         data.starshipRoles[starshipRoleKey].assignees[starshipRoleAssignees] = game.actors.get(starshipRoleAssignees).data;
@@ -229,7 +229,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     let starshipWeapons = {}, key, assignees, actor;
     for (let weapon of weapons) {
       key = `gunner-${weapon.id}`;
-      assignees = data.actor.flags.starship[key] ?? [];
+      assignees = data.flags.starship[key] ?? [];
       starshipWeapons[key] = JSON.parse(gunnerRole);
       starshipWeapons[key].key = key;
       starshipWeapons[key].name = weapon.name;
@@ -241,7 +241,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
         if (!assignedActorId) continue;
         actor = game.actors.get(assignedActorId);
         starshipWeapons[key].assignees[assignedActorId] = actor.data;
-        starshipWeapons[key].assignees[assignedActorId].owner = actor.owner;
+        starshipWeapons[key].assignees[assignedActorId].owner = actor.isOwner;
       }
 
       this.prepareActionInfo(starshipWeapons[key])
@@ -371,7 +371,7 @@ export class BountyHunterStarshipSheet extends BountyHunterActorSheet {
     
     let characters = characterIds
       .map(id => game.actors.get(id))
-      .filter((character) => character.owner);
+      .filter((character) => character.isOwner);
 
     return characters;
   }

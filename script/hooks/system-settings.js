@@ -76,6 +76,6 @@ export function registerSettings() {
     scope: "world",
     config: true,
     default: "systems/bounty-hunter-ttrpg/asset/dataset",
-    type: window.Azzu.SettingsTypes.DirectoryPicker
+    type: String
   });
 }
