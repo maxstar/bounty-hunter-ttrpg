@@ -121,11 +121,15 @@ export class CharacterCreation extends Application {
     skillNames =  [...new Set(skillNames)]; // remove duplicates
     for (const skillName of skillNames) {
       item = game.items.getName(skillName);
-      if (item !== null) {
+      if (item) {
         items.push(item.data);
+      } else {
+        const msg = `Couldn't find skill "${skillName}"`;
+        console.warn(msg);
+        ui.notifications.warn(msg);
       }
     }
-    this.character.createEmbeddedEntity("OwnedItem", items);
+    this.character.createEmbeddedDocuments("Item", items);
   }
 
   _handleLanguages(section, languages) {

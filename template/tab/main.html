@@ -25,7 +25,7 @@
                 </span>
             </div>
             <div class="skills border">
-                {{#if displayWizard}}
+                {{#if data.displayWizard}}
                 <button class="character-creation-wizard"><i class="fas fa-magic"></i>{{localize "BH.CHARACTER_CREATION_WIZARD"}}</button>
                 {{/if}}
                 {{#each data.itemsByCategory.skill as |skill key|}}

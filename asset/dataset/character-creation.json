@@ -156,14 +156,14 @@
       "key": "the-academy",
       "name": "BH.EDUCATION.THE_ACADEMY.NAME",
       "description": "BH.EDUCATION.THE_ACADEMY.DESCRIPTION",
-      "skills": [["Obscure lore", "Science"]],
+      "skills": [["Obscure Lore", "Science"]],
       "languages": []
     },
     "accelerated-training": {
       "key": "accelerated-training",
       "name": "BH.EDUCATION.ACCELERATED_TRAINING.NAME",
       "description": "BH.EDUCATION.ACCELERATED_TRAINING.DESCRIPTION",
-      "skills": [["Martial arts", "Ranged Attack"]],
+      "skills": [["Martial Arts", "Ranged Attack"]],
       "languages": []
     },
     "ai": {

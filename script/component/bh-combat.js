@@ -145,11 +145,4 @@ export class BhCombat extends Combat {
      return this.update({'flags.phase': this.phase - 1}, {advanceTime});
  
    }
-
-   /** @override */
-   _onModifyEmbeddedEntity(...args) {
-     this.setupTurns();
-     this.setupPhases();
-     if ( this === this.collection.viewed ) this.collection.render();
-   }
 }

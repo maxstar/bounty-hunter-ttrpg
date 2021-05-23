@@ -53,6 +53,27 @@ export class BountyHunterActor extends Actor {
     );
   }
 
+  /**
+   * Preliminary actions taken before a set of embedded Documents in this parent Document are created.
+   * @param {string} embeddedName   The name of the embedded Document type
+   * @param {object[]} result       An Array of created data objects
+   * @param {object} options        Options which modified the creation operation
+   * @param {string} userId         The ID of the User who triggered the operation
+   * @memberof ClientDocumentMixin#
+   */
+  _preCreateEmbeddedDocuments(embeddedName, result, options, userId) {
+    super._preCreateEmbeddedDocuments(embeddedName, result, options, userId);
+    
+    for (let data of result) {
+      if (data.type !== 'skill' || data.name !== 'Martial Arts') continue;
+      
+      const martialArtsAttack = game.items.getName("Martial Arts Attack");
+      if (!martialArtsAttack) continue;
+  
+      this.createEmbeddedDocuments("Item", [martialArtsAttack.data]);
+    }
+  }
+
   /** @override */
   _preDeleteEmbeddedDocuments(embeddedName, documentIds, options, userId) {
     super._preDeleteEmbeddedDocuments(embeddedName, documentIds, options, userId);
@@ -62,16 +83,27 @@ export class BountyHunterActor extends Actor {
     let item;
     for (let itemId of documentIds) {
       item = this.items.get(itemId);
-      if (item.type !== 'weapon-component') continue; // not a weapon component
-
-      const key = `gunner-${itemId}`;
-      // assign crew members to Other activity
-      this.sheet.assignCrewMembersToRole(this.data.flags.starship[key], 'other');
-
-      // remove role key
-      const updateKey = `flags.starship.-=${key}`;
-      this.update({[updateKey]: null});
+      if (item.type === 'weapon-component') this._handleComponentDeletion(itemId, item);
+      
+      if (item.type === 'skill' && item.name === 'Martial Arts') this._handleMartialArtsDeletion(itemId, item);
     }
+  }
+
+  _handleComponentDeletion(itemId, item) {
+    const key = `gunner-${itemId}`;
+    // assign crew members to Other activity
+    this.sheet.assignCrewMembersToRole(this.data.flags.starship[key], 'other');
+
+    // remove role key
+    const updateKey = `flags.starship.-=${key}`;
+    this.update({[updateKey]: null});
+  }
+
+  _handleMartialArtsDeletion(itemId, item) {
+    const martialArtsAttack = this.items.getName("Martial Arts Attack");
+    if (!martialArtsAttack || martialArtsAttack.data.type !== 'weapon') return;
+
+    this.deleteEmbeddedDocuments("Item", [martialArtsAttack.id]);
   }
 }
   
