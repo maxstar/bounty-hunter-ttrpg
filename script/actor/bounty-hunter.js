@@ -54,20 +54,24 @@ export class BountyHunterActor extends Actor {
   }
 
   /** @override */
-  _onDeleteEmbeddedEntity(embeddedName, child, options, userId) {
-    super._onDeleteEmbeddedEntity(embeddedName, child, options, userId);
+  _preDeleteEmbeddedDocuments(embeddedName, documentIds, options, userId) {
+    super._preDeleteEmbeddedDocuments(embeddedName, documentIds, options, userId);
 
-    if ( embeddedName !== "OwnedItem" ) return;
-    const item = this.getOwnedItem(child._id);
-    if (child.type !== 'weapon-component') return; // not a weapon component
+    if ( embeddedName !== "Item" ) return;
 
-    const key = `gunner-${child._id}`;
-    // assign crew members to Other activity
-    this.sheet.assignCrewMembersToRole(this.data.flags.starship[key], 'other');
+    let item;
+    for (let itemId of documentIds) {
+      item = this.items.get(itemId);
+      if (item.type !== 'weapon-component') continue; // not a weapon component
 
-    // remove role key
-    const updateKey = `flags.starship.-=${key}`;
-    this.update({[updateKey]: null});
+      const key = `gunner-${itemId}`;
+      // assign crew members to Other activity
+      this.sheet.assignCrewMembersToRole(this.data.flags.starship[key], 'other');
+
+      // remove role key
+      const updateKey = `flags.starship.-=${key}`;
+      this.update({[updateKey]: null});
+    }
   }
 }
   
