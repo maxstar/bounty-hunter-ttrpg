@@ -73,6 +73,14 @@ export class BountyHunterActorSheet extends ActorSheet {
       },
       {}
     );
+    itemsByCategory.gear = this._sortItems(
+      itemsByCategory.gear, 
+      (category1, category2) => {
+        if (category1 === game.i18n.localize('Other')) return 1;
+        if (category2 === game.i18n.localize('Other')) return -1;
+        return category1.localeCompare(category2);
+      }
+    );
 
     return itemsByCategory;
   }
