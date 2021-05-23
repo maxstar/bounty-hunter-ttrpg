@@ -96,7 +96,7 @@ export class BountyHunterActorSheet extends ActorSheet {
   handleItemTransfer(event) {
     event.preventDefault();
     const div = $(event.currentTarget).parents(".item");
-    const item = this.actor.getOwnedItem(div.data("entity-id"));
+    const item = this.actor.items.get(div.data("entity-id"));
     const that = this;
 
     if (item === null) return;
@@ -107,7 +107,7 @@ export class BountyHunterActorSheet extends ActorSheet {
       function (containerId) {
         let data = { 
           operation: 'transferItem', 
-          sourceId: that.actor._id, 
+          sourceId: that.actor.id, 
           destinationId: containerId, 
           item: item
         };
@@ -153,7 +153,7 @@ export class BountyHunterActorSheet extends ActorSheet {
     const destination = game.actors.get(destinationId);
 
     console.log(`Transfering ${item.name} from ${source.name} to ${destination.name}`);
-    destination.createEmbeddedEntity("OwnedItem", item);
-    source.deleteEmbeddedEntity("OwnedItem", item._id);
+    destination.createEmbeddedDocuments("Item", [item.data]);
+    source.deleteEmbeddedDocuments("Item", [item.id]);
   };
 }
