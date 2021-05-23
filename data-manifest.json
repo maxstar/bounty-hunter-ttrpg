@@ -1,0 +1,216 @@
+{
+    "Actor": {
+        "Adversaries": {
+            "content": {
+                "entities": {
+                    "kSS39wVTZpmdRlp3": "AI Combat Roboto",
+                    "OAp4T35LMBB02vpt": "Bureaucrat",
+                    "XIjl77UjnylqvC2h": "Geel Worm",
+                    "m88wAMeNMZo1xqVy": "Mercenary",
+                    "99KznpI0Yn3v7zvn": "MOGBOT",
+                    "H27YcWbCLKqFEdI7": "Pilot",
+                    "wXjoAUajqEXChWD5": "Police Patrol Officer",
+                    "P8EUaNvSukiWJdmA": "Scarangar Mauler",
+                    "0w0q9qNJ3fRbe9Dk": "Techie",
+                    "nQKXNdnvN7VC6rw0": "Thug"
+                }
+            },
+            "sorting": "a",
+            "sort": 0
+        },
+        "Starships": {
+            "content": {
+                "entities": {
+                    "yWxxqL420dLdaScM": "Adath Dominari Capitol Ship",
+                    "vWiKjYE2bZjgSwfq": "Bodorak Super Cargo",
+                    "B0QcX7uM2oL5hF18": "Hawk-Wing Fighter",
+                    "9X4RtzaYQk0Y0BTJ": "Karoiki Personal Cruiser",
+                    "qbrdkfgWWTQZhNXo": "Peregrine Class Light Escort",
+                    "oIFPz0bGbfT32dfN": "Shard Spider Starfighter",
+                    "i1tCcTUAtT7EMoEt": "Star-Ovoitov Heavy Hauler",
+                    "vJH99h8bJom2xYtv": "Viking Warship"
+                }
+            },
+            "sorting": "a",
+            "sort": 0
+        }
+    },
+    "Item": {
+        "Skills": {
+            "content": {
+                "entities": {
+                    "MgbQyq5HmDnDtWfm": "Acrobatics",
+                    "i9tcaRnPWiGgMZvT": "Awareness",
+                    "YTygQoccj5lKvrvI": "Bargain",
+                    "JRi6omFp5Ev8GTGs": "Charm",
+                    "8EseNRXl2Oa3pB0X": "Computer Acumen",
+                    "zHdPBVvaVE9EzG7o": "Craft",
+                    "EdlEBXWeMFO53fRn": "Culture",
+                    "fS4j0DVLw6hOcHWX": "Deception",
+                    "9zPNRVwg7aSAh3Q7": "Engineering",
+                    "uiO4VoT730pccLyc": "Evaluate",
+                    "0xhqYOPBA6MJvLJH": "Forgery",
+                    "AVXAk2BZ3VYI5Cnx": "Hacking",
+                    "fkjh3meu7yIblg9f": "History",
+                    "GsJRmqvwtRbg0Fkg": "Intimidation",
+                    "Ocuzwt20YWpycdN3": "Investigate",
+                    "qQryiSE9conrTmMA": "Logic",
+                    "jirxibDwl32UtSjy": "Martial Arts",
+                    "ygfGibKkXTS6FrK7": "Medicine",
+                    "SSWET5a6LVc4uPGq": "Melee Combat",
+                    "0exiHKKYEP1Lw9pn": "Mounted Weapons",
+                    "O0MznaKv0NkUZJ2M": "Nature",
+                    "t4yp7ETBeOYeyYQ1": "Navigation",
+                    "DYI4cyaTlKB0PNMh": "Obscure Lore",
+                    "sgY1DpiXsczYWWmQ": "Perform",
+                    "Xo8wWEyrVBjgfUB4": "Psychology",
+                    "eIovzAf4GNua0vHN": "Ranged Attack",
+                    "BSjItnfJQu5FFQKA": "Repair",
+                    "e9GgVcoalbU7IjXj": "Science",
+                    "ZoWSJCys1lrpypYD": "Sleight of Hand",
+                    "zYCGxov0MFMCjEMJ": "Stealth",
+                    "gOiYVEgs0dOtwAci": "Strength",
+                    "eYJ9riCAfpB5u6vE": "Survival",
+                    "aZ5MhKQCE2y4VaaK": "Vehicle Operations",
+                    "ygEyNQsAbRPRRtXQ": "Wrangler"
+                }
+            },
+            "sorting": "a",
+            "sort": 0
+        },
+        "Abilities": {
+            "content": {
+                "entities": {
+                    "XKBLZUFATxpIMgDR": "Ace Pilot",
+                    "cA7jZo9x7i0cfxIK": "Brawler",
+                    "PoLXldKi9aozjck3": "Die Hard",
+                    "nwpCiXtOXDBogrIp": "Doctor",
+                    "qIBU8NLuYHYKcoMF": "Enduring",
+                    "pnBAsJ6r3IZVarUT": "Fast Draw",
+                    "5KNL8Nf9hX7mZb10": "Gearhead",
+                    "knbaGRRuKd4hPLqK": "Insightful",
+                    "sU1pXutv9EYfEf6B": "Inspiring Leader",
+                    "weWJsBgmKnWn7dy8": "Lucky",
+                    "m0qm6lsBE0bhFBbe": "Marksman",
+                    "EyIykcjlZZ8o0iZo": "Mystical Teacher",
+                    "BWEBdnh9fuqWt3KS": "Night Vision",
+                    "7dlftlpdsqNXTCfK": "Polyglot",
+                    "Fsv8sFWD5khf6okd": "Professional",
+                    "ah6xbEjZFb4Unkqm": "Quick",
+                    "NwacWhzbO5hjv6VF": "Sharp-Shooter",
+                    "N2v5UB2GhBGBtHI5": "Staunch Defender",
+                    "J1v56fgB60bS8UqB": "Stronger",
+                    "TJRFicEadXE0teJY": "Stubborn",
+                    "hr1NyLr8b0RWUqG8": "Tactical Training",
+                    "q5WBXvLfhwgfi4eb": "Well Organized"
+                }
+            },
+            "sorting": "a",
+            "sort": 100000
+        },
+        "Gear": {
+            "content": {
+                "Illegal": {
+                    "content": {
+                        "entities": {
+                            "uzEMMJxYZFTJ784k": "Breach Grenade",
+                            "mrFgQZdO0nZEOehn": "Flamethrower",
+                            "QAuGNZs3T1ac6coA": "Flamethrower Tank",
+                            "jS5IREIZx5zAsqn7": "Personal Cloaking Field",
+                            "nHU9iRfofINcAK4v": "Personal Locator Device",
+                            "RUwiIIzCRU5VhCsT": "PHASE Clip",
+                            "fkU6WQQK1v0ELNp3": "PHASE Pistol",
+                            "wbGFQlUcbcjCrrDZ": "PHASE Rifle",
+                            "WTSRehhYhIFgEpzj": "Sedative",
+                            "FOmdhFolsRE0MFWA": "Shock Grenade",
+                            "ceqcA48NHUdEcRQv": "Sniper Rifle",
+                            "PZ8YxbQCqcfyYaIk": "Titan Armor"
+                        }
+                    },
+                    "sorting": "a",
+                    "sort": 300000
+                },
+                "entities": {
+                    "i0LG0TAm3TckOm8A": "Axe",
+                    "A6qc721AG5cCuJ1W": "Backpack",
+                    "uo9R5fRLVthtjkMm": "Basic Armor",
+                    "IehTcUcCB4wOOQMa": "Charged Manacles",
+                    "PX7Buboxdu636pbk": "Club",
+                    "cGEMV6z88ea4lgya": "Compound Bow",
+                    "mlCUD05lIY5DxJrp": "Computer Interface Pad",
+                    "AsnhYb7CW1zNg70X": "Holovid Recorder",
+                    "jpHPJ6Lp1Fk2rZSp": "Illumination Torch Light",
+                    "ifqo7cPfWHcebDTr": "Interpersonal Communicator and Digital Access Device",
+                    "enmt6XPO9OhSYQhl": "Jet Pack",
+                    "5PBXEj7EtKjmkzsT": "Jet Pack Fuel",
+                    "h0EBiSruWDmxuCEz": "Knife",
+                    "cEV2RNg3JrDkOdWe": "Listening Bug",
+                    "bGRyQ5s8FaQB3FRP": "Long Range Personal Scanner",
+                    "PwrcdwBltXMrFt0F": "Manacles",
+                    "DC3oJlcXCMGIu0yA": "Martial Arts Attack",
+                    "BN75dnj41ITtP3XP": "Medipack",
+                    "N569GmGEEQdoDHNw": "Metal Arrows",
+                    "L4fsI8Zhm6QF6Wjt": "Propelled Grappling Hook",
+                    "L9UNZErUtEhHkYJ5": "Punching Attack",
+                    "drTD22ECfzbC9I8c": "RAN Ammunition",
+                    "fWH6MGwpiohdMbLs": "RAN Pistol",
+                    "0WRD2j9MhD8SUEt6": "RAN Rifle",
+                    "s92AHhWxEb6sbie8": "Rations",
+                    "RKuXO7qkRRMnXkr9": "Rope",
+                    "WHwOfNjfOcTh3NtI": "Thermal Binoculars",
+                    "iNCH5CotBF3N4uHk": "Universal Charger",
+                    "oI4pnvttS3dSOD8H": "Universal Translator",
+                    "YynahJmStuJ654Tl": "Water Canteen",
+                    "Xp0AYG93lW0aFQQz": "Zero-G Suit"
+                }
+            },
+            "sorting": "a",
+            "sort": 200000
+        },
+        "Starship Components": {
+            "content": {
+                "entities": {
+                    "pvzMbzKbqrUmn9Hh": "Barratts Missile Pod",
+                    "4D7h8QgCJc80lrYC": "Communications",
+                    "fbOehprQMXxbReYl": "Countermeasures",
+                    "nbxIkKmSUGWZkuGf": "Dive Engine",
+                    "hq1OgHRB3KSeeKIq": "Fletching Torpedo",
+                    "VORAPW05GcMX0SRW": "Life Support",
+                    "RIQHnEeMvQJUMeQr": "Main Thrusters",
+                    "IDkv63jXMZ3lpt17": "Mark Five Torpedoes",
+                    "YfO3pduNJkMQxr2r": "Navigation System",
+                    "mBp645RryatRO3Pu": "PHASE Cannon",
+                    "AfKHAIuZMiArFxeV": "Railgun",
+                    "dE59n1eEfFlk5hkk": "RAN Turret",
+                    "gdDPPObaGgX69s6u": "Scanners",
+                    "8cZe4sGyyNAJGqiw": "Transponder Unit"
+                }
+            },
+            "sorting": "a",
+            "sort": 400000
+        }
+    },
+    "JournalEntry": {
+        "Welcome": {
+            "content": {
+                "entities": {
+                    "CqWbOH8dLQmmzTwL": "Welcome!"
+                }
+            },
+            "sorting": "a",
+            "sort": 0
+        }
+    },
+    "RollTable": {},
+    "Scene": {
+        "Bounty Hunter TTRPG": {
+            "content": {
+                "entities": {
+                    "ess2lyUv0AVxTQ0K": "Welcome!"
+                }
+            },
+            "sorting": "a",
+            "sort": 0
+        }
+    }
+}

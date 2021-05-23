@@ -91,11 +91,11 @@ input:read-only {
     white-space: nowrap;
 }
 
-.window-app.bounty-hunter .window-content {
+.window-app.bounty-hunter .window-content, .window-app.journal-sheet .window-content {
     background: white;
 }
 
-.bounty-hunter h1, .bounty-hunter .h1 {
+.bounty-hunter h1, .bounty-hunter .h1, .journal-sheet h1 {
     background: rgb(2,0,36);
     background: radial-gradient(circle, rgba(2,0,36,1) 0%, rgba(0,138,198,1) 90%);
     color: white;
@@ -116,7 +116,7 @@ input:read-only {
     text-decoration-color: #00AEEF;
 }
 
-.bounty-hunter h2, .bounty-hunter .h2 {
+.bounty-hunter h2, .bounty-hunter .h2, .journal-sheet h2 {
     color: var(--label-color);
     text-decoration-line: underline overline;
     text-decoration-style: solid;
@@ -132,7 +132,7 @@ input:read-only {
     padding: 4px 4px;
 }
 
-.bounty-hunter h3, .bounty-hunter .h3 {
+.bounty-hunter h3, .bounty-hunter .h3, .journal-sheet h3 {
     color: var(--label-color);
 
     font-family: AgencyFB-Bold;

@@ -123,6 +123,7 @@
     * [done] show token image for crew members
     * [done] remove crew member AP from starship sheet 
     * [    ] automatic content import when world is created
+        * [    ] import the compendiums through the Module's settings menu
     * [done] restrict transfer of cargo to characters
     * [done] allow to spend more AP on weapon usage
         * [done] update skills to spend multiple AP on shift+click

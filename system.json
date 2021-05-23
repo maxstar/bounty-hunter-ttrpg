@@ -2,14 +2,14 @@
     "name": "bounty-hunter-ttrpg",
     "title": "Bounty Hunter",
     "description": "Rumor is you want in on the Bounty Hunting business and why not? You and your little ragtag band are already turning a few heads in this sector with your… novel way of delivering wanted folk. But space is a vast, not to mention, dangerously err, dangerous, and if you want to rise like cream, you’ve a lot to learn (unless you’re thinking of how Glururk cream rises, I’d avoid that entirely if I were you). My advice? Keep it closer and safer than your RAN rifle and never be afraid to refer to it, even during sticky situations.",
-    "version": "0.1",
-    "minimumCoreVersion": "0.8.4",
-    "compatibleCoreVersion": "0.8.4",
+    "version": "1.0.0",
+    "minimumCoreVersion": "0.8.5",
+    "compatibleCoreVersion": "0.8.5",
     "author": "Maxter",
     "scripts": [
         "script/settings-extender.js"
     ],
-    "esmodules": ["script/init.js"],
+    "esmodules": ["script/init.js", "script/import.js"],
     "styles": [
         "style/common.css",
         "style/character.css",
@@ -21,45 +21,59 @@
     ],
     "packs": [
         {
-          "name": "skills",
-          "label": "Skills",
+          "name": "bounty-hunter-ttrpg-scenes",
+          "label": "Bounty Hunter TTRPG scenes",
           "system": "bounty-hunter-ttrpg",
-          "path": "./packs/skills.db",
+          "path": "./packs/bounty-hunter-ttrpg-scenes.db",
+          "entity": "Scene"
+        },
+        {
+          "name": "welcome-journal",
+          "label": "Welcome journal",
+          "system": "bounty-hunter-ttrpg",
+          "path": "./packs/welcome-journal.db",
+          "entity": "JournalEntry"
+        },
+        {
+          "name": "skills-items",
+          "label": "Skills items",
+          "system": "bounty-hunter-ttrpg",
+          "path": "./packs/skills-items.db",
           "entity": "Item"
         },
         {
-          "name": "abilities",
-          "label": "Abilities",
+          "name": "abilities-items",
+          "label": "Abilities items",
           "system": "bounty-hunter-ttrpg",
-          "path": "./packs/abilities.db",
+          "path": "./packs/abilities-items.db",
           "entity": "Item"
         },
         {
-          "name": "equipment",
-          "label": "Equipment",
+          "name": "gear-items",
+          "label": "Gear items",
           "system": "bounty-hunter-ttrpg",
-          "path": "./packs/equipment.db",
+          "path": "./packs/gear-items.db",
           "entity": "Item"
         },
         {
-          "name": "starship-components",
-          "label": "Starship Components",
+          "name": "starship-components-items",
+          "label": "Starship Components items",
           "system": "bounty-hunter-ttrpg",
-          "path": "packs/starship-components.db",
+          "path": "packs/starship-components-items.db",
           "entity": "Item"
         },
         {
-          "name": "starships",
-          "label": "Starships",
+          "name": "starships-actors",
+          "label": "Starships actors",
           "system": "bounty-hunter-ttrpg",
-          "path": "./packs/starships.db",
+          "path": "./packs/starships-actors.db",
           "entity": "Actor"
         },
         {
-          "name": "enemies-and-monsters",
-          "label": "Enemies and Monsters",
+          "name": "adversaries-actors",
+          "label": "Adversaries actors",
           "system": "bounty-hunter-ttrpg",
-          "path": "./packs/enemies-and-monsters.db",
+          "path": "./packs/adversaries-actors.db",
           "entity": "Actor"
         }
     ],
