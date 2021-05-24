@@ -59,6 +59,11 @@ You can quickly create a character using the character creation rules from the r
 * **Role Functions**: Assigned characters can use convenient buttons to perform role functions, if they satisfy the skill requirements.
 * **Components**: Starship components can be managed here.
 
+## Chat Cards
+![Starship Sheet | Control Tab](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/chat-cards.png)
+
+Usage of skills, abilities, items, etc. posts a nice summary card to the chat.
+
 ## Combat Tracker
 ![Combat Tracker](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/combat-tracker.png)
 
@@ -74,3 +79,7 @@ The following compendiums are provided
 * Adversaries (with images!)
 
 These are taken from the core rulebook.
+
+# Links
+* Get the rulebook: https://www.greatgamemaster.com/dm/product/bounty-hunter-a-ttrpg-combo-pack-pdf/
+* Join Discord: *link to be added*
