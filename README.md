@@ -21,7 +21,7 @@ After installation is done you can create a game world and select Bounty Hunter 
 # Features
 ## Character Sheet
 ### Main Tab
-![Character Sheet | Main Tab](https://raw.githubusercontent.com/maxstar/bounty-hunter-ttrpg/master/asset/img/readme/char-sheet.png)
+![Character Sheet | Main Tab](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/char-sheet-bio.png)
 
 * **Skills**: 
   * Click on a skill to use it. Chat message will be posted and AP will be deducted. 
@@ -38,29 +38,29 @@ After installation is done you can create a game world and select Bounty Hunter 
 * **Qualifications**: This block shows how many functions you can perform on a starship.
 
 ### Bio Tab
-![Character Sheet | Bio Tab](https://raw.githubusercontent.com/maxstar/bounty-hunter-ttrpg/master/asset/img/readme/char-sheet-bio.png)
+![Character Sheet | Bio Tab](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/char-sheet-bio.png)
 
 ## Character Creator
-![Character Creator](https://raw.githubusercontent.com/maxstar/bounty-hunter-ttrpg/master/asset/img/readme/character-creation.png)
+![Character Creator](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/character-creation.png)
 
 You can quickly create a character using the character creation rules from the rulebook.
 
 ## Starship Sheet
 ### Main tab
-![Starship Sheet | Main Tab](https://raw.githubusercontent.com/maxstar/bounty-hunter-ttrpg/master/asset/img/readme/starship-main.png)
+![Starship Sheet | Main Tab](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/starship-main.png)
 
 * **Crew Members**: Characters can be added to the starship as crew members. Drag and drop them from the sidebar to the sheet.
 * **Cargo Hold**: Can hold items, money, and generic cargo. Items can be transferred to and from characters using "Transfer" button.
 
 ### Starship Control tab
-![Starship Sheet | Control Tab](https://raw.githubusercontent.com/maxstar/bounty-hunter-ttrpg/master/asset/img/readme/starship-control.png)
+![Starship Sheet | Control Tab](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/starship-control.png)
 
 * **Roles Assignment**: Crew members can be visually assigned to starship roles.
 * **Role Functions**: Assigned characters can use convenient buttons to perform role functions, if they satisfy the skill requirements.
 * **Components**: Starship components can be managed here.
 
 ## Combat Tracker
-![Combat Tracker](https://raw.githubusercontent.com/maxstar/bounty-hunter-ttrpg/master/asset/img/readme/combat-tracker.png)
+![Combat Tracker](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/combat-tracker.png)
 
 Combat tracker provides a convenient interface for phase management in dramatic scenes.
 
