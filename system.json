@@ -95,6 +95,6 @@
     "secondaryTokenAttribute": null,
     "url": "https://github.com/maxstar/bounty-hunter-ttrpg",
     "socket": true,
-    "manifest": "https://github.com/maxstar/bounty-hunter-ttrpg/releases/latest/download/system.json",
-    "download": "https://github.com/maxstar/bounty-hunter-ttrpg/releases/download/0.1.0/0.1.0.zip?raw=true"
+    "manifest": "https://raw.githubusercontent.com/maxstar/bounty-hunter-ttrpg/master/system.json",
+    "download": "https://github.com/maxstar/bounty-hunter-ttrpg/archive/refs/tags/1.0.0.zip"
 }
