@@ -21,7 +21,7 @@ After installation is done you can create a game world and select Bounty Hunter 
 # Features
 ## Character Sheet
 ### Main Tab
-![Character Sheet | Main Tab](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/char-sheet-bio.png)
+![Character Sheet | Main Tab](https://github.com/maxstar/bounty-hunter-ttrpg/raw/master/asset/img/readme/char-sheet.png)
 
 * **Skills**: 
   * Click on a skill to use it. Chat message will be posted and AP will be deducted. 
