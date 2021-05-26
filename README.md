@@ -16,7 +16,7 @@ This is the system for Bounty Hunter TTRPG. All content supplied with this syste
 1. Paste the link into "Manifest URL" text field
 1. Click "Install"
 
-After installation is done you can create a game world and select Bounty Hunter TTRPG as the world's game system.
+After installation is done you can create a game world and select "Bounty Hunter" as the world's game system.
 
 # Features
 ## Character Sheet
